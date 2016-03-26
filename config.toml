@@ -13,19 +13,12 @@ copyright = "Laurent Aphecetche"
 [Params]
     intro = true
     github = "https://github.com/aphecetche"
-
     headline = "Investigating High Energy Collisions"
 
-#    headline = "My headline"
-#    description = "My description"
-
-#    linkedin = "https://linkedin.com/in/aphecetche/"
-#    gplus = "https://google.com/+aphecetche"
-#    twitter = "https://twitter.com/XXX"
-#    stackoverflow = "http://stackoverflow.com/users/XXX/YYY"
-
 [Permalinks]
-    post = "/:year/:month/:day/:filename/"
+  post = "/:filename/"
+
+#    post = "/:year/:month/:day/:filename/"
 
 [[menu.main]]
     name = "SAF3 User Manual"
