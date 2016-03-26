@@ -1,0 +1,39 @@
+title = "Laurent Aphecetche"
+#baseurl = "http://aphecetche.github.io/"
+baseurl = "http://localhost:8888/"
+theme = "ghostwriter"
+languageCode = "en-US"
+copyright = "Laurent Aphecetche"
+
+[Author]
+    name = "Laurent Aphecetche"
+
+[Taxonomies]
+    tag = "tags"
+
+[Params]
+    intro = true
+    github = "https://github.com/aphecetche"
+
+    headline = "Investigating High Energy Collisions"
+
+#    headline = "My headline"
+#    description = "My description"
+
+#    linkedin = "https://linkedin.com/in/aphecetche/"
+#    gplus = "https://google.com/+aphecetche"
+#    twitter = "https://twitter.com/XXX"
+#    stackoverflow = "http://stackoverflow.com/users/XXX/YYY"
+
+[Permalinks]
+    post = "/:year/:month/:day/:filename/"
+
+[[menu.main]]
+    name = "SAF3 User Manual"
+    url = "/project/saf/usermanual"
+    weight = 1
+
+[[menu.main]]
+        name = "Reco on SAF3"
+        url = "/project/saf/saf3reco"
+        weight = 1
