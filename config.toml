@@ -1,6 +1,5 @@
 title = "Laurent Aphecetche"
-#baseurl = "http://aphecetche.github.io/"
-baseurl = "http://localhost:8888/"
+baseurl = "http://aphecetche.github.io/"
 theme = "ghostwriter"
 languageCode = "en-US"
 copyright = "Laurent Aphecetche"
