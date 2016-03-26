@@ -3,9 +3,10 @@ layout: post
 title : ALIROOT 6402 bug
 date: 2015-11-09
 aliases:
-  - /ALIROOT-6402/
+    - /ALIROOT-6402/
+    - /test-old-name/
 ---
-
+		
 This bug is about the runs and reconstruction passes affected by the double remapping of the St1 HV DCS aliases. See details in [this Jira ticket](https://alice.its.cern.ch/jira/browse/ALIROOT-6402)
 
 ## LHC12hi
