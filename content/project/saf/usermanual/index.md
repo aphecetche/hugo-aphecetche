@@ -1,6 +1,8 @@
 ---
 layout: default
 title: SAF3 quick-start documentation
+aliases:
+ - /saf/saf3
 ---
 
 ## Connecting to SAF3

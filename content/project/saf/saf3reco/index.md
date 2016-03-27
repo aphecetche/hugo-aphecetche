@@ -1,6 +1,8 @@
 ---
 layout: default
 title:  Reconstruction on SAF
+aliases:
+ - saf/saf3reco
 ---
 
 Warning : this is not for general use ! The scripts below are just given as examples and are not supposed to work out-of-the-box !
