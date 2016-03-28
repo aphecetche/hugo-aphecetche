@@ -1,16 +1,6 @@
 # Lasimple
 
-Simplificatin of the Ghost "[ghostwriter](https://github.com/roryg/ghostwriter)" theme to the [Hugo](http://gohugo.io) site generator.
-
-## Installation
-
-Inside the folder of your Hugo site run:
-
-    $ mkdir themes
-    $ cd themes
-    $ git clone https://github.com/jbub/ghostwriter
-
-For more information read the official [setup guide](//gohugo.io/overview/installing/) of Hugo.
+Simplification of the Ghost "[ghostwriter](https://github.com/roryg/ghostwriter)" theme to the [Hugo](http://gohugo.io) site generator.
 
 ## Example config.toml
 
@@ -37,10 +27,6 @@ disqusShortname = "XXX"
     headline = "My headline"
     description = "My description"
     github = "https://github.com/XXX"
-    linkedin = "https://linkedin.com/in/XXX/"
-    gplus = "https://google.com/+XXX"
-    twitter = "https://twitter.com/XXX"
-    stackoverflow = "http://stackoverflow.com/users/XXX/YYY"
 
 [Permalinks]
     post = "/:year/:month/:day/:filename/"
