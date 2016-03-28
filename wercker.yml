@@ -12,6 +12,6 @@ deploy:
         packages: git ssh-client
     - leipert/git-push@0.7.6:
       gh_oauth: $GIT_TOKEN
-      repo: aphecetche/site
+      repo: aphecetche/aphecetche.github.io
       branch: master
       basedir: public
