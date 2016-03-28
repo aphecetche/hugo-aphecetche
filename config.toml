@@ -3,6 +3,7 @@ baseurl = "http://aphecetche.github.io/"
 theme = "lasimple"
 languageCode = "en-US"
 copyright = "Laurent Aphecetche"
+buildDrafts = false
 
 [Author]
     name = "Laurent Aphecetche"
