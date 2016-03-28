@@ -1,6 +1,6 @@
-title = "Laurent Aphecetche"
+title = "Laurent Aphecetche - High Energy Collisions Investigator"
 baseurl = "http://aphecetche.github.io/"
-theme = "ghostwriter"
+theme = "lasimple"
 languageCode = "en-US"
 copyright = "Laurent Aphecetche"
 
@@ -13,19 +13,17 @@ copyright = "Laurent Aphecetche"
 [Params]
     intro = true
     github = "https://github.com/aphecetche"
-    headline = "Investigating High Energy Collisions"
+#    headline = "Investigating High Energy Collisions"
 
 [Permalinks]
-  post = "/:filename/"
-
-#    post = "/:year/:month/:day/:filename/"
+  post = "/:year/:month/:day/:filename/"
 
 [[menu.main]]
     name = "SAF3 User Manual"
-    url = "/project/saf/usermanual"
+    url = "/saf3-usermanual"
     weight = 1
 
 [[menu.main]]
-        name = "Reco on SAF3"
-        url = "/project/saf/saf3reco"
-        weight = 1
+    name = "Reco on SAF3"
+    url = "/saf3-reco"
+    weight = 1

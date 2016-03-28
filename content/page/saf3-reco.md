@@ -1,15 +1,17 @@
 ---
-layout: default
+type: page
 title:  Reconstruction on SAF
+url: saf3-reco
 aliases:
  - saf/saf3reco
+notoc: true
 ---
 
 Warning : this is not for general use ! The scripts below are just given as examples and are not supposed to work out-of-the-box !
 
 The idea here is to use the SAF3 batch system (condor) to do reconstruction on previously staged (filtered) raw data.
 
-For that the following [condor job](recojob.condor) is used :
+For that the following [condor job](/code/saf3-reco/recojob.condor) is used :
 
 ```bash
 recodir=$ENV(HOME)/reco/LHC15m
@@ -27,7 +29,7 @@ transfer_input_files = $(recodir)/runDataReconstruction.C, $(recodir)/OCDB
 include : $(recodir)/list-input.sh |
 ```
 
-The reconstruction macro to be used should be in [$HOME/reco/runDataReconstruction.C](runDataReconstruction.C) and you can possibly use your own OCDB for specific storage (in this example MUON/Calib/RecoParam) on top of the normal OCDB which is taken from cvmfs.
+The reconstruction macro to be used should be in [$HOME/reco/runDataReconstruction.C](/code/saf3-reco/runDataReconstruction.C) and you can possibly use your own OCDB for specific storage (in this example MUON/Calib/RecoParam) on top of the normal OCDB which is taken from cvmfs.
 
 The last line is probably the most important as it's the one which is actually queuing the jobs.
 
@@ -52,7 +54,7 @@ do
 done
 ```
 
-The input to [list-input.sh](list-input.sh) is a filelist.txt containing the list of input raw files, e.g.
+The input to [list-input.sh](/code/saf3-reco/list-input.sh) is a filelist.txt containing the list of input raw files, e.g.
 
 ```Text
 	root://nansaf01.in2p3.fr//alice/data/2013/LHC13d/000195767/raw/13000195767000.10.FILTER_RAWMUON_WITH_ALIPHYSICS_v5-06-04-01.root

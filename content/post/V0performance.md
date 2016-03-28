@@ -1,7 +1,6 @@
 ---
-layout: post
 title: V0 performance
-date: 2015-07-15
+date: "2015-07-15"
 ---
 
 Started with a mail from Cvetan : "In order to assess the V0 performance one has to look at the single and di-muon spectra taken with C0M* and CM*7, both with and without phys selection, and for each beam-beam BC separately. Who can produce these?"

@@ -1,11 +1,13 @@
 ---
-layout: default
+type: page
 title: SAF3 quick-start documentation
+url: saf3-usermanual
 aliases:
  - /saf/saf3
+#description: User manual of the Subatech Analysis Facility
 ---
 
-## Connecting to SAF3
+# Connecting to SAF3
 
 You need to use GSISSH to connect to nansafmaster3, i.e. you will connect using your grid certificate.
 
@@ -57,7 +59,7 @@ gProof->UploadPackage("AliceVaf.par");
 gProof->EnablePackage("AliceVaf");
 ```
 
-## Getting files in and out from SAF3
+# Getting files in and out from SAF3
 
 You can of course simply use `gsiscp` if you're happy with that. But the usual way to work on an AF (well, at least that's the way I work)
 typically involves having a text editor opened with at least the steering macro (`runXXX.C`) and the `AddTaskXXX.C`. Having to gsiscp those each time you make a modification is clearly unpractical, IMO.
@@ -68,7 +70,7 @@ A better option is to use `SSHFS` to mount your saf3 home on your local machine.
 
 and then you can access your files on saf3 (under $HOME/~saf3 in the example above) e.g. with your local editor.
 
-## Datasets
+# Datasets
 
 The syntax for datasets is in principle the same as in SAF2, with a small temporary change (until the [root bug]( https://sft.its.cern.ch/jira/browse/ROOT-7703) is fixed), namely you have to add "Mode=cache" in the end of the query string. So, for the time being, the recommend procedure to work with a dataset is :
 
@@ -86,7 +88,7 @@ mgr->StartAnalysis("proof",fc);
 
 where the `dataset.root` might be created on SAF2 or manually.
 
-## When things go wrong ...
+# When things go wrong ...
 
 You may want to inspect the log files from the Proof session. For this you need to :
 

@@ -1,6 +1,5 @@
 ---
 title: Adding LV values to the reconstruction
-#description: "Steps to get the MCH LV values used in the reconstruction"
 tags: [ "DCS","LV","aliroot" ]
 date: "2016-03-20"
 ---

@@ -1,7 +1,6 @@
 ---
-layout: post
 title: List of LHC15o runs with LV trips
-date: 2015-12-15
+date: "2015-12-15"
 ---
 
 This is the list of physics runs that had a LV trip problem in MCH during LHC15o.

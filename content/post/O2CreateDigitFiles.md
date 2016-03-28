@@ -1,7 +1,6 @@
 ---
-layout: post
 title: O2 - Creating MCH digit files from filtered RAW data
-date: 2016-03-13
+date: "2016-03-13"
 tags: [ "o2","hlt","aliroot","raw","digits","saf","condor" ]
 ---
 

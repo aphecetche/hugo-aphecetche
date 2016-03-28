@@ -1,7 +1,6 @@
 ---
-layout: post
 title: MCH Bus Patch Occupancy Evolution DA
-date: 2015-09-08
+date: "2015-09-08"
 tags: ["mch","da","raw","deroot","aliroot","online"]
 ---
 
