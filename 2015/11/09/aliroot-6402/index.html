@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>ALIROOT 6402 bug &middot; Laurent Aphecetche</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.15" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://aphecetche.github.io/css/normalize.css">
+        <link rel="stylesheet" href="http://aphecetche.github.io/css/highlight.css">
+        <link rel="stylesheet" href="http://aphecetche.github.io/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Laurent Aphecetche - High Energy Collisions Investigator" href="http://aphecetche.github.io/">Laurent Aphecetche - High Energy Collisions Investigator</a>
+                            </h1>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/aphecetche">
+                                <i class="fa fa-github"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+
+                        
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Reco on SAF3" href="/saf3-reco/">Reco on SAF3</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="SAF3 User Manual" href="/saf3-usermanual/">SAF3 User Manual</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">ALIROOT 6402 bug</h1>
+    
+    <p class="post-date">
+        <span><time datetime="2015-11-09" itemprop="datePublished">Mon, Nov 9, 2015</time></span>
+    </p>
+</header>
+
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>This bug is about the runs and reconstruction passes affected by the double remapping of the St1 HV DCS aliases. See details in <a href="https://alice.its.cern.ch/jira/browse/ALIROOT-6402">this Jira ticket</a></p>
+
+<h2 id="lhc12hi:0e38096637ab35f3d8a7b8618c06d837">LHC12hi</h2>
+
+<p>Most of the runs potentially affected (because of a HV sector -the one closest to the beam- of DE202 that is at 1400 V &lt; 1590 V). But the OCDB was <a href="https://alice.its.cern.ch/jira/browse/ALIROOT-4805">manually changed</a> at the time so the PatchSt1DCSAliases was not applied, hence no problem ;-)</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Pass</th>
+<th align="center">AliRoot version</th>
+<th align="center">approx. reco date</th>
+<th align="center">affected</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">pass2</td>
+<td align="center">v5-05-Rev-30</td>
+<td align="center">apr &lsquo;15</td>
+<td align="center">yes (but OCDB was patched, so no)</td>
+</tr>
+
+<tr>
+<td align="center">muon_calo_pass2</td>
+<td align="center">v5-04-Rev-08</td>
+<td align="center">oct &lsquo;13</td>
+<td align="center">no</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="lhc13d:0e38096637ab35f3d8a7b8618c06d837">LHC13d</h2>
+
+<p>Only 1 run affected : 195767, because, again, of DE202 which had a voltage below nominal (1400 instead of 1600 V). Still the efficiency is not zero in this region (see below the recpoints map, built with a special reconstruction pass on SAF3 without any cut on the chamber 2 HV values), but the resolution should be pretty poor.</p>
+
+<p><img src="/images/ALIROOT-6402/cluster-pos-chamber2.png" alt="rec point map of chamber 2 for run 195767" /></p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Pass</th>
+<th align="center">AliRoot version</th>
+<th align="center">approx. reco date</th>
+<th align="center">affected</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">pass4</td>
+<td align="center">v5-05-Rev-32-01</td>
+<td align="center">july &lsquo;15</td>
+<td align="center">yes</td>
+</tr>
+
+<tr>
+<td align="center">pass2</td>
+<td align="center">v5-03-Rev-28</td>
+<td align="center">jun &lsquo;13</td>
+<td align="center">no</td>
+</tr>
+
+<tr>
+<td align="center">mtrg_full</td>
+<td align="center">v5-03-Rev-18</td>
+<td align="center">mar &lsquo;13</td>
+<td align="center">no</td>
+</tr>
+
+<tr>
+<td align="center">muon_pass2</td>
+<td align="center">v5-03-Rev-18</td>
+<td align="center">mar &lsquo;13</td>
+<td align="center">no</td>
+</tr>
+</tbody>
+</table>
+
+<p>To confirm the affected versions, tried the recontruction of two chunks of this run, which gives, in the affected pass, a different number of bad pads (to find out, just grep &ldquo;human&rdquo; in the rec.log)
+By looking at the output of the grep command we find two suitable chunks :</p>
+
+<pre><code>/alice/data/2013/LHC13d/000195767//pass4/13000195767000.10/rec.log:According to mask 400be9b (human readable form below) 112848 pads are bad (over a total of 1064008, i.e.   10.61 %)
+/alice/data/2013/LHC13d/000195767//pass4/13000195767000.16/rec.log:According to mask 400be9b (human readable form below) 116688 pads are bad (over a total of 1064008, i.e.   10.97 %)
+</code></pre>
+
+<p>Btw, to find the number of different cases we have :</p>
+
+<pre><code>find /alice/data/2013/LHC13d/000195767/ -type f -name rec.log | xargs grep -i human &gt; tata
+cut -d ' ' -f 9 tata | sort -u
+112848
+116688
+</code></pre>
+
+<p>(i.e. two different cases for the 1243 reco logs we have for this run)</p>
+
+<h2 id="lhc15g-l:0e38096637ab35f3d8a7b8618c06d837">LHC15g-l</h2>
+
+<p>All the pp periods before the bug was fixed are affected, so basically all of LHC15a-l. The first version with the fix is AliRoot v5-07-06 :</p>
+
+<pre><code>git tag --contains e2d1ec0
+v5-07-06
+v5-07-07
+v5-07-08
+etc...
+</code></pre>
+
+<p>The lists of runs potentially affected are below. Potentially affected means there was a non-nominal HV for one of the HV sector (in St1) for which the DCS alias remapping was performed.</p>
+
+<p><a href="/files/ALIROOT-6402/checkhv6402.lhc15g.txt">List of tested runs for LHC15g</a></p>
+
+<p><a href="/files/ALIROOT-6402/checkhv6402.lhc15h.txt">List of tested runs for LHC15h</a></p>
+
+<p><a href="/files/ALIROOT-6402/checkhv6402.lhc15i.txt">List of tested runs for LHC15i</a></p>
+
+<p><a href="/files/ALIROOT-6402/checkhv6402.lhc15j.txt">List of tested runs for LHC15j</a></p>
+
+<p><a href="/files/ALIROOT-6402/checkhv6402.lhc15k.txt">List of tested runs for LHC15k</a></p>
+
+<p><a href="/files/ALIROOT-6402/checkhv6402.lhc15l.txt">List of tested runs for LHC15l</a></p>
+
+</div>
+
+
+        <footer class="post-footer clearfix">
+    
+</footer>
+
+
+    </article>
+
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Laurent Aphecetche - High Energy Collisions Investigator" href="http://aphecetche.github.io/">Laurent Aphecetche - High Energy Collisions Investigator</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="http://aphecetche.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+        <script src="http://aphecetche.github.io/js/jquery.fitvids.js"></script>
+        <script src="http://aphecetche.github.io/js/scripts.js"></script>
+    </body>
+</html>
+

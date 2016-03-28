@@ -1,0 +1,962 @@
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.34/30     23 April 2015   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.34/30 (heads/alice/v5-34-30@v5-34-30-17-g86ab117, Mar 25 2016, 14:59:54 on macosx64)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+
+Processing runDataReconstruction.C...
+I-AliCDBManager::Init: AliEn classes enabled in Root. AliCDBGrid factory registered.
+I-AliCDBManager::SetDefaultStorage: Setting the run-number will set the corresponding OCDB for raw data reconstruction.
+I-AliCDBGrid::AliCDBGrid: Connection to the Grid...
+=> Trying to connect to Server [0] root://pcapiserv03.cern.ch:10000 as User laphecet 
+I-AliReconstruction::SetRunQA: No QA requested
+
+I-AliQAv1::SetQARefStorage: AliQAv1::SetQARefDir: QA references are in  local://$ALICE_ROOT/QAref
+
+[TFile::Cp] Total 0.00 MB	|>...................| 0.00 % [0.0 MB/s][TFile::Cp] Total 0.00 MB	|====================| 100.00 % [0.2 MB/s]
+I-AliRawReader::Create: Creating raw-reader in order to read raw-data file: /alice/data/2016/LHC16b/000250050/raw/16000250050019.9900.FILTER_RAWMUON_WITH_ALIPHYSICS_v5-06-04-01.root
+I-AliRawReader::Create: Event selection criteria specified:   eventype=-1   trigger mask=0 mask50=0  trigger expression= C0MSL-ABCE-NOPF-ALLNOTRD 
+W-AliReconstruction::InitCDB: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+W-AliReconstruction::InitCDB: Default storage will be set after setting the Run Number!!!
+W-AliReconstruction::InitCDB: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/OCDBFoldervsRunRange.xml?filetype=raw&cachesz=4000000&readaheadsz=2000000&rmpolicy=1 in SE <ALICE::GRIF_IPNO::SE>
+I-AliCDBHandler::OnStartDocument: Reading XML file for LHCPeriod <-> Run Range correspondence
+I-AliCDBManager::GetLHCPeriodAgainstAlienFile:  LHC folder = alien://folder=/alice/data/2016/OCDB
+I-AliCDBManager::GetLHCPeriodAgainstAlienFile:  LHC period start run = 247171
+I-AliCDBManager::GetLHCPeriodAgainstAlienFile:  LHC period end run = 999999999
+I-AliCDBGrid::QueryCDB: Querying files valid for run 250050 and path "*" into CDB storage  "alien:///alice/data/2016/OCDB/"
+I-AliCDBGrid::QueryValidFiles: Only latest version will be returned
+I-AliCDBGrid::QueryCDB: 276 valid files found!
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/CTP/Config/Run250050_250050_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliCDBManager::Print: Run number = 250050; Cache is ACTIVE; Number of active storages: 2
+	*** Default Storage URI: "alien://?User=?DBFolder=/alice/data/2016/OCDB?SE=default?CacheFolder=?OperateDisconnected=1?CacheSize=1073741824?CleanupInterval=0"
+	*** Specific storage 1: Path "MUON/Calib/RecoParam" -> URI "alien://?User=?DBFolder=/alice/cern.ch/user/l/laphecet/OCDB?SE=default?CacheFolder=?OperateDisconnected=1?CacheSize=1073741824?CleanupInterval=0"
+	*** Specific storage 2: Path "GRP/CTP/Aliases" -> URI "alien://?User=?DBFolder=/alice/cern.ch/user/l/laphecet/OCDB?SE=default?CacheFolder=?OperateDisconnected=1?CacheSize=1073741824?CleanupInterval=0"
+
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/Geometry/Data/Run0_999999999_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-TGeoManager::CloseGeometry: Geometry loaded from file...
+I-TGeoManager::SetTopVolume: Top volume is ALIC. Master volume is ALIC
+I-TGeoNavigator::BuildCache: --- Maximum geometry depth set to 100
+I-TGeoManager::Voxelize: Voxelizing...
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume S0R2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SC1A
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume S0R8
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SC1A
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume S0L2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SC1A
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume S0L8
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SC1A
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV11E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV11E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV11E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV11E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH11E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH11E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH11E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH11E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SP11E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SP11E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SP11E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SP11E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV21E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV21E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV21E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV21E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH21E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH21E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH21E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH21E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV31E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV31E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV31E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV31E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH31E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH31E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH31E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH31E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SP21E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SP21E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SP21E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SP21E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV41E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV41E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV41E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV41E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH41E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH41E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH41E2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SH41E3
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SB1A
+ <message repeated 3 times>
+I-TGeoManager::CountLevels: max level = 12, max placements = 641
+I-TGeoManager::CloseGeometry: 6364466 nodes/ 5637 volume UID's in ALICE geometry
+I-TGeoManager::CloseGeometry: ----------------modeler ready----------------
+I-AliGeomManager::LoadGeometry: From now on using geometry from CDB base folder "alien://?User=?DBFolder=/alice/data/2016/OCDB?SE=default?CacheFolder=?OperateDisconnected=1?CacheSize=1073741824?CleanupInterval=0"
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/TPC/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 73 alignment objects loaded for TPC, which has 72 alignable volumes
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/TRD/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/TOF/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/PHOS/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::CERN::OCDB>
+W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 16 alignment objects loaded for PHOS, which has 11 alignable volumes
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HMPID/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/EMCAL/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 176 alignment objects loaded for MUON, which has 248 alignable volumes
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/FMD/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ZDC/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/PMD/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/T0/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 2 alignment objects loaded for T0, which has 24 alignable volumes
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/VZERO/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ACORDE/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/AD/Align/Data/Run0_999999999_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-AliGeomManager::ApplyAlignObjsFromCDB: Alignment objects loaded for: GRP ITS TPC TRD TOF PHOS HMPID EMCAL MUON FMD ZDC PMD T0 VZERO ACORDE AD 
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/GRP/Data/Run250050_250050_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-AliReconstruction::InitGRP: Found an AliGRPObject in GRP/GRP/Data, reading it
+==> Dumping object at: 0x00007f936a8831b0, name=AliRunInfo, class=AliRunInfo
+
+fLHCState                     SETUP               state of the machine as provided by DCS and DAQ log-book (per run)
+fBeamType                     p-p                 beam type for Alice
+fBeamEnergy                   0                   beam energy (in GeV)
+fRunType                      PHYSICS             run type accoring to ECS (per run)
+fActiveDetectors              2321767             list of active detectors (per run)
+fUniqueID                     0                   object unique identifier
+fBits                         0x03000000          bit field status word
+I-AliReconstruction::InitGRP: fQADetectors=
+I-AliReconstruction::InitGRP: ===================================================================================
+I-AliReconstruction::InitGRP: Running local reconstruction for detectors: MUON 
+I-AliReconstruction::InitGRP: Running tracking for detectors: MUON 
+I-AliReconstruction::InitGRP: Filling ESD for detectors: MUON 
+I-AliReconstruction::InitGRP: Quality assurance is active for detectors: 
+I-AliReconstruction::InitGRP: CDB and reconstruction parameters are loaded for detectors: MUON 
+I-AliReconstruction::InitGRP: ===================================================================================
+I-AliMagF::AliMagF: Maximim possible beam energy for requested beam is assumed
+I-AliMagF::Print: MagneticFieldMap:L3:   +15 Dip:   +0 kA;  | Polarities in LHC convention
+I-AliMagF::Print: Solenoid (+0.00*)5 kG, Dipole OFF (+0.00)  |Constant Field!
+I-AliMagF::Print: Machine B fields for p-p beam (7000 GeV): QGrad: 22.0002 Dipole: 37.8781
+I-AliMagF::Print: Uses Sol30_Dip6_Uniform of $(ALICE_ROOT)/data/maps/mfchebKGI_sym.root
+I-TGeoGlobalMagField::SetField: Global magnetic field set to <MagneticFieldMap>
+I-TGeoGlobalMagField::Lock: Global magnetic field <MagneticFieldMap> is now locked
+I-AliReconstruction::InitGRP: Running with the B field constructed out of GRP !
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/Calib/MeanVertexSPD/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/Calib/MeanVertex/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/Calib/MeanVertexTPC/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/Calib/LHCClockPhase/Run250050_250050_v2_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/Capacitances/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/Config/Run249305_999999999_v89_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/Gains/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/GlobalTriggerBoardMasks/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/GlobalTriggerCrateConfig/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/LocalTriggerBoardMasks/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/MappingData/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/MappingRunData/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/Neighbours/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/Pedestals/Run249987_999999999_v158_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/RecoParam/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/RegionalTriggerBoardMasks/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/RegionalTriggerConfig/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/RejectList/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/TriggerDCS/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/TriggerEfficiency/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/TriggerLut/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/TriggerScalers/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/HV/Run250050_250050_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/BPEVO/Run250050_250050_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/MUON/Calib/OccupancyMap/Run250050_250050_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-AliCDBGrid::GetAll: 21 objects retrieved. Request was: path: "MUON/Calib/*"; run range: [250050,250050]
+I-AliCDBGrid::GetAll: path: "MUON/Calib/Capacitances"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/Config"; run range: [249305,999999999]; version: v89_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/Gains"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/GlobalTriggerBoardMasks"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/GlobalTriggerCrateConfig"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/LocalTriggerBoardMasks"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/MappingData"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/MappingRunData"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/Neighbours"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/Pedestals"; run range: [249987,999999999]; version: v158_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/RecoParam"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/RegionalTriggerBoardMasks"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/RegionalTriggerConfig"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/RejectList"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/TriggerDCS"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/TriggerEfficiency"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/TriggerLut"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/TriggerScalers"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/HV"; run range: [250050,250050]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/BPEVO"; run range: [250050,250050]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "MUON/Calib/OccupancyMap"; run range: [250050,250050]; version: v1_s0
+I-AliCDBManager::GetAll: Now look into all other specific storages...
+I-AliCDBGrid::GetEntryId: Only latest version will be returned
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/cern.ch/user/l/laphecet/OCDB/MUON/Calib/RecoParam/Run0_999999999_v8_s0.root in SE <ALICE::CERN::EOS>
+I-AliCDBManager::GetAll: After look into other specific storages, result list is:
+I-AliCDBManager::GetAll: path: "MUON/Calib/RecoParam"; run range: [0,999999999]; version: v8_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/Capacitances"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/Config"; run range: [249305,999999999]; version: v89_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/Gains"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/GlobalTriggerBoardMasks"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/GlobalTriggerCrateConfig"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/LocalTriggerBoardMasks"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/MappingData"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/MappingRunData"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/Neighbours"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/Pedestals"; run range: [249987,999999999]; version: v158_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/RegionalTriggerBoardMasks"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/RegionalTriggerConfig"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/RejectList"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/TriggerDCS"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/TriggerEfficiency"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/TriggerLut"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/TriggerScalers"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/HV"; run range: [250050,250050]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/BPEVO"; run range: [250050,250050]; version: v1_s0
+I-AliCDBManager::GetAll: path: "MUON/Calib/OccupancyMap"; run range: [250050,250050]; version: v1_s0
+I-AliCDBGrid::GetAll: 0 objects retrieved. Request was: path: "MUON/Trigger/*"; run range: [250050,250050]
+I-AliCDBManager::GetAll: Now look into all other specific storages...
+I-AliCDBManager::GetAll: After look into other specific storages, result list is:
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/TRIGGER/SPD/PITConditions/Run250050_999999999_v36_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/TRIGGER/TOF/TriggerMask/Run250050_999999999_v59_s0.root in SE <ALICE::CERN::OCDB>
+I-AliCDBGrid::GetAll: 2 objects retrieved. Request was: path: "TRIGGER/*/*"; run range: [250050,250050]
+I-AliCDBGrid::GetAll: path: "TRIGGER/SPD/PITConditions"; run range: [250050,999999999]; version: v36_s0
+I-AliCDBGrid::GetAll: path: "TRIGGER/TOF/TriggerMask"; run range: [250050,999999999]; version: v59_s0
+I-AliCDBManager::GetAll: Now look into all other specific storages...
+I-AliCDBManager::GetAll: After look into other specific storages, result list is:
+I-AliCDBManager::GetAll: path: "TRIGGER/SPD/PITConditions"; run range: [250050,999999999]; version: v36_s0
+I-AliCDBManager::GetAll: path: "TRIGGER/TOF/TriggerMask"; run range: [250050,999999999]; version: v59_s0
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/Calib/esdLayout/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/Calib/RecoParam/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/Calib/StreamerInfo/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/BarrelHighMultiplicity/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/BarrelMultiplicityTrigger/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/BarrelPt_v01/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/BarrelPt_v02/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/BarrelPt_v03/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/EmcalClusterEnergyTrigger/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/esdLayout/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/GlobalOfflineVertexer/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/GlobalTrackMatcher/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/HLTGlobalTrigger/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/ITSMultiplicityTrigger/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/PhosClusterEnergyTrigger/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/PhosMipTrigger/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/PrimaryVertexFinder/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigHLT/V0Finder/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigITS/ITSClusterFinderSDD/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigITS/ITSClusterFinderSPD/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigITS/ITSClusterFinderSSD/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigITS/ITSTracker/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigMUON/DecisionComponent/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigMUON/FieldIntegrals/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigMUON/HitReconstructor/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigMUON/MansoTrackerFSM/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigMUON/TriggerReconstructor/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigPHOS/PHOSClusterizer/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigPHOS/PHOSDigitMaker/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigPHOS/PHOSRawAnalyzer/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigSample/SampleComponent1/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigSample/SampleESDAnalysis/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigTPC/TPCCAGlobalMerger/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigTPC/TPCCATracker/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigTPC/TPCDataCompressor/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigTPC/TPCDataCompressorHuffmanTables/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigTPC/TPCHWClusterFinder/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigTPC/TPCHWClusterTransform/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigTPC/TPCTrackHisto/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigVZERO/VZEROReconstruction/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/HLT/ConfigZDC/ZDCESDReco/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-AliCDBGrid::GetAll: 41 objects retrieved. Request was: path: "HLT/*/*"; run range: [250050,250050]
+I-AliCDBGrid::GetAll: path: "HLT/Calib/esdLayout"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/Calib/RecoParam"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/Calib/StreamerInfo"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/BarrelHighMultiplicity"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/BarrelMultiplicityTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/BarrelPt_v01"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/BarrelPt_v02"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/BarrelPt_v03"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/EmcalClusterEnergyTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/esdLayout"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/GlobalOfflineVertexer"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/GlobalTrackMatcher"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/HLTGlobalTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/ITSMultiplicityTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/PhosClusterEnergyTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/PhosMipTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/PrimaryVertexFinder"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigHLT/V0Finder"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigITS/ITSClusterFinderSDD"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigITS/ITSClusterFinderSPD"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigITS/ITSClusterFinderSSD"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigITS/ITSTracker"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigMUON/DecisionComponent"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigMUON/FieldIntegrals"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigMUON/HitReconstructor"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigMUON/MansoTrackerFSM"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigMUON/TriggerReconstructor"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigPHOS/PHOSClusterizer"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigPHOS/PHOSDigitMaker"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigPHOS/PHOSRawAnalyzer"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigSample/SampleComponent1"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigSample/SampleESDAnalysis"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigTPC/TPCCAGlobalMerger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigTPC/TPCCATracker"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigTPC/TPCDataCompressor"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigTPC/TPCDataCompressorHuffmanTables"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigTPC/TPCHWClusterFinder"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigTPC/TPCHWClusterTransform"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigTPC/TPCTrackHisto"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigVZERO/VZEROReconstruction"; run range: [0,999999999]; version: v1_s0
+I-AliCDBGrid::GetAll: path: "HLT/ConfigZDC/ZDCESDReco"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: Now look into all other specific storages...
+I-AliCDBManager::GetAll: After look into other specific storages, result list is:
+I-AliCDBManager::GetAll: path: "HLT/Calib/esdLayout"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/Calib/RecoParam"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/Calib/StreamerInfo"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/BarrelHighMultiplicity"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/BarrelMultiplicityTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/BarrelPt_v01"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/BarrelPt_v02"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/BarrelPt_v03"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/EmcalClusterEnergyTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/esdLayout"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/GlobalOfflineVertexer"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/GlobalTrackMatcher"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/HLTGlobalTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/ITSMultiplicityTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/PhosClusterEnergyTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/PhosMipTrigger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/PrimaryVertexFinder"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigHLT/V0Finder"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigITS/ITSClusterFinderSDD"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigITS/ITSClusterFinderSPD"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigITS/ITSClusterFinderSSD"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigITS/ITSTracker"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigMUON/DecisionComponent"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigMUON/FieldIntegrals"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigMUON/HitReconstructor"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigMUON/MansoTrackerFSM"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigMUON/TriggerReconstructor"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigPHOS/PHOSClusterizer"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigPHOS/PHOSDigitMaker"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigPHOS/PHOSRawAnalyzer"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigSample/SampleComponent1"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigSample/SampleESDAnalysis"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigTPC/TPCCAGlobalMerger"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigTPC/TPCCATracker"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigTPC/TPCDataCompressor"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigTPC/TPCDataCompressorHuffmanTables"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigTPC/TPCHWClusterFinder"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigTPC/TPCHWClusterTransform"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigTPC/TPCTrackHisto"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigVZERO/VZEROReconstruction"; run range: [0,999999999]; version: v1_s0
+I-AliCDBManager::GetAll: path: "HLT/ConfigZDC/ZDCESDReco"; run range: [0,999999999]; version: v1_s0
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/Calib/CosmicTriggers/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/CTP/Scalers/Run250050_250050_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-AliReconstruction::LoadTriggerScalersCDB: Found an AliTriggerRunScalers in GRP/CTP/Scalers, reading it
+I-AliReconstruction::LoadTriggerScalersCDB: 32bit Trigger counters corrected for overflow
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/CTP/CTPtiming/Run250050_250050_v1_s0.root in SE <ALICE::CERN::OCDB>
+I-AliReconstruction::LoadCTPTimeParamsCDB: Found an AliCTPTimeParams in GRP/CTP/CTPtiming, reading it
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/CTP/TimeAlign/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-AliReconstruction::LoadCTPTimeParamsCDB: Found an AliCTPTimeParams in GRP/CTP/TimeAlign, reading it
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/GRP/LHCData/Run250050_250050_v2_s0.root in SE <ALICE::CERN::OCDB>
+W-AliReconstruction::ReadIntensityInfoCDB: Unknown trigger type C0AMU-ABCE-NOPF-ALLNOTRD
+
+W-AliReconstruction::ReadIntensityInfoCDB: Unknown trigger type C0OB3-ABCE-NOPF-ALLNOTRD
+
+W-AliReconstruction::ReadIntensityInfoCDB: Unknown trigger type C0SCO-ABCE-NOPF-ALLNOTRD
+
+W-AliReconstruction::ReadIntensityInfoCDB: Unknown trigger type C0VBA-ABCE-NOPF-ALLNOTRD
+
+W-AliReconstruction::ReadIntensityInfoCDB: Unknown trigger type C0MSL-ABCE-NOPF-ALLNOTRD
+
+W-AliReconstruction::ReadIntensityInfoCDB: Unknown trigger type C0VBC-ABCE-NOPF-ALLNOTRD
+
+I-AliReconstruction::ReadIntensityInfoCDB: Reading mean bunch intensities from GRP/GRP/LHCData
+W-AliLHCData::GetMeanIntensity: No BC masks are provided
+I-AliReconstruction::ReadIntensityInfoCDB: Mean intensity for beam 1: Interacting:-4.35e-02 Non-Interacting:-4.35e-02
+W-AliLHCData::GetMeanIntensity: No BC masks are provided
+I-AliReconstruction::ReadIntensityInfoCDB: Mean intensity for beam 0: Interacting:-4.35e-02 Non-Interacting:-4.35e-02
+I-AliReconstruction::InitRecoParams: Loading GRP reconstruction parameter objects
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/GRP/Calib/RecoParam/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-AliReconstruction::InitRecoParams: Loading reconstruction parameter objects for detector MUON
+E-TFile::TFile: file galice.root does not exist
+I-AliReconstruction::CheckRecoCDBvsSimuCDB: Check 1 entries for matching between sim and rec
+I-AliReconstruction::CheckRecoCDBvsSimuCDB: No CDBMap/List found in galice.root, nothing to check
+I-AliReconstruction::CreateTrackers: Creating trackers
+E-TPluginHandler::SetupCallEnv: class AliMUONLoader not found in plugin MUONbase
+operator = ESD
+I-AliReconstruction::SlaveBegin: Current memory usage 591844 672916
+I-AliTOFPIDResponse::LoadTOFtailHisto: Loaded TOF tail histogram from file $ALICE_ROOT/TOF/data/addTOFtail.root
+W-AliQADataMaker::SetCloningRequest: Cloning request is incomplete
+I-AliQAManager::Init: AliEn classes enabled in Root. AliCDBGrid factory registered.
+I-AliReconstruction::InitQA: Initializing the global QA data maker
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCDBGrid::GetEntryId: Only latest version will be returned
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/cern.ch/user/l/laphecet/OCDB/GRP/CTP/Aliases/Run0_999999999_v3_s0.root in SE <ALICE::CERN::EOS>
+fSelectTriggerExpr:  C0MSL-ABCE-NOPF-ALLNOTRD 
+I-AliReconstruction::ProcessTriggerAliases: Aliases defined:
+Collection name='THashList', class='THashList', size=1
+ OBJ: TNamed	kCosmic	 C0MSL-ABCE-NOPF-ALLNOTRD 
+I-AliReconstruction::SlaveBegin: 100.00% of HLT ESD events will be stored
+I-AliReconstruction::SlaveBegin: 3.00% of ESD friends  will be stored
+I-AliReconstruction::Run: Starting looping over events
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 0 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+I-AliMUONReconstructor::DigitStore: Options=
+I-AliMUONReconstructor::DigitStore: Will use AliMUONDigitStoreV2R to store digits during reconstruction
+I-AliMUONReconstructor::CreateCalibrationData: Run with MUON TRIGGER : YES and MUON TRACKER : YES
+I-AliMUONReconstructor::CreateCalibrator: Calibration will occur.
+I-AliMUONReconstructor::CreateClusterServer: Created AliMUONSimpleClusterServer (0x7f93597e8b00) for specie 8 with clustering = AliMUONClusterFinderMLEM (following requesting clustering mode MLEM)
+I-AliITSReconstructor::Init: Geometry name: AliITSv11
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/SPDNoisy/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/SPDDead/Run250050_250050_v2_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/SPDSparseDead/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/CalibSDD/Run250040_999999999_v18_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/RespSDD/Run0_999999999_v2_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/DriftSpeedSDD/Run250041_999999999_v18_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/DDLMapSDD/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/MapsTimeSDD/Run0_999999999_v2_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/NoiseSSD/Run250016_999999999_v11_s0.root in SE <ALICE::CERN::OCDB>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/GainSSD/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/ITS/Calib/BadChannelsSSD/Run250016_999999999_v11_s0.root in SE <ALICE::CERN::OCDB>
+I-AliITSDetTypeRec::GetCalibration: 240 SPD, 260 SDD and 1698 SSD in calibration database
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliMUONReconstructor::CreateTracker: Created tracker 0x7f93596aeda0 for recoparam of type Cosmic es=8
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+W-AliReconstruction::CreateMultFinder: ITS is not in reconstruction, switching off RunMultFinder
+I-AliReconstruction::ProcessEvent: ======================= End Event 0: Res 641( 62 < 62>) Vir 785(127 <127>) CPU  1.07 < 1.07> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+AliEMCALGeometry::GetInstanceFromRunNumber() - Initialized geometry with name <<EMCAL_COMPLETE12SMV1_DCAL_8SM>>
+I-AliEMCALGeometry::AliEMCALGeometry: Name <<EMCAL_COMPLETE12SMV1_DCAL_8SM>>
+I-AliEMCALGeometry::AliEMCALGeometry: EMCAL Trigger Mapping Version V2 Enabled
+I-AliEMCALQADataMakerRec::AliEMCALQADataMakerRec: Geometry name: <<EMCAL_COMPLETE12SMV1_DCAL_8SM>>
+I-AliMUONQADataMakerRec::AliMUONQADataMakerRec: tracker=0 trigger=0
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliHLTQADataMakerRec::LoadPlugins: using HLT QA plugin AliHLTTPCQADataMaker
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 1 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 1: Res 647(  5 < 34>) Vir 785(  0 < 64>) CPU  0.20 < 0.63> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 2 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 2: Res 649(  1 < 23>) Vir 786(  0 < 43>) CPU  0.10 < 0.45> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 3 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 3: Res 651(  1 < 18>) Vir 794(  8 < 35>) CPU  0.13 < 0.37> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 4 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 4: Res 652(  0 < 15>) Vir 794(  0 < 28>) CPU  0.09 < 0.32> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 5 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 5: Res 652(  0 < 13>) Vir 794(  0 < 24>) CPU  0.15 < 0.29> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 6 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 6: Res 652(  0 < 12>) Vir 794(  0 < 21>) CPU  0.09 < 0.26> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 7 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 7: Res 654(  1 < 11>) Vir 795(  1 < 19>) CPU  0.16 < 0.25> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 8 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 8: Res 656(  2 < 10>) Vir 795(  0 < 17>) CPU  0.21 < 0.24> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 9 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 9: Res 656(  0 <  9>) Vir 795(  0 < 16>) CPU  0.10 < 0.23> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 10 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 10: Res 656(  0 <  9>) Vir 795(  0 < 15>) CPU  0.09 < 0.21> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 11 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 11: Res 656(  0 <  9>) Vir 795(  0 < 14>) CPU  0.11 < 0.21> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 12 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 12: Res 656(  0 <  9>) Vir 795(  0 < 13>) CPU  0.13 < 0.20> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 13 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 13: Res 656(  0 <  9>) Vir 795(  0 < 13>) CPU  0.18 < 0.20> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 14 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 14: Res 656(  0 <  9>) Vir 795(  0 < 13>) CPU  0.08 < 0.19> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB!
+I-AliCentralTrigger::CheckTriggeredDetectors: Cluster mask from trigger classes (216d67) and from data (80236d67) differ. Concurrent DAQ run(s) could be the reason.
+I-AliReconstruction::ProcessEvent: ================================= Processing event 15 of type Cosmic     ==================================
+EventInfo for EventType:	7 Cosmic:ON Laser:OFF Other:OFF
+fTriggerMask/fTriggerMaskNext50:	0x20/0
+TriggerCluster:	ITSSPD ITSSDD ITSSSD TOF HMPID CPV MUONTRK MUONTRG T0 VZERO ACORDE TRG AD 
+TriggerClasses:	 C0MSL-ABCE-NOPF-ALLNOTRD 
+HLT desicion  :	
+I-AliReconstruction::FillRawEventHeaderESD: Filling information from RawReader Header
+ <message repeated 1 time>
+I-AliReconstruction::RunLocalEventReconstruction: kNDetectors = 18
+I-AliReconstruction::RunLocalEventReconstruction: running reconstruction for MUON
+W-AliReconstruction::CreateVertexer: couldn't create a vertexer for ITS
+I-AliReconstruction::RunTracking: running tracking
+I-AliReconstruction::DecideFriendsStorage: AliESDfriends event stored: non-standard field event
+I-AliReconstruction::ProcessEvent: No TPC clusters: VertexerTracks will run with ITSpureSA tracks
+I-AliCascadeVertexer::V0sTracks2CascadeVertices: Number of reconstructed cascades: 0
+I-AliReconstruction::FillTriggerESD: Filling trigger information into the ESD
+I-AliReconstruction::ProcessEvent: ======================= End Event 15: Res 657(  0 <  9>) Vir 796(  1 < 13>) CPU  0.17 < 0.19> ===================
+I-AliReconstruction::CleanProcessedEvent: ======================= End Event ===================
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-TCanvas::Print: ps file QAImageRec0.ps has been created
+I-AliITSQAChecker::InitQACheckerLimits: Setting of tolerance values
+
+I-AliCDBPath::InitPath: Invalid AliCDBPath <HMPID/QA/>!
+E-AliQAManager::Get: Run number neither specified in query nor set in AliCDBManager! Use AliCDBManager::SetRun.
+I-TAlienFile::Open: Accessing image 1 of alien:///alice/data/2016/OCDB/AD/Calib/QAParam/Run0_999999999_v1_s0.root in SE <ALICE::Legnaro::SE>
+E-TMacOSXSystem::DynamicPathName: FITqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+E-TMacOSXSystem::DynamicPathName: MFTqadm[.so | .dll | .dylib | .sl | .dl | .a] does not exist in /Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib:/Users/laurent/alicesw/aliroot/reco-2016/inst/lib/tgt_macosx64:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib:/Users/laurent/alicesw/alien/api/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib:/Users/laurent/alicesw/geant3/v2-0/inst/lib::.:/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib::/Users/laurent/alicesw/root/alice_v5-34-30/inst/lib/cint/cint/stl
+I-TCanvas::Print: Current canvas added to ps file QAImageRec0.ps
+I-AliMUONPadStatusMaker::Report: 
+According to mask 400be80 (human readable form below)  61833 pads are bad (over a total of 1064008, i.e.    5.81 %)
+  Ped Mean is Zero | Ped Mean Too Low | Ped Mean Too High | Ped Sigma Too Low | Ped Sigma Too High | Ped is missing | HV is missing | manu occupancy too high 
+--------
+The message (                                                                                      Ped Mean Too High & LV is missing ) occured              75 times ( 0.0070 %)
+The message (                                                                 Ped Mean Too High & Ped Sigma Too High & LV is missing ) occured           14107 times ( 1.3258 %)
+The message (                                                                                      Ped Sigma Too Low & LV is missing ) occured               7 times ( 0.0007 %)
+The message (                                                                                LV is missing & manu occupancy too high ) occured            4483 times ( 0.4213 %)
+The message (                                       Ped Mean Too High & Ped Sigma Too High & LV is missing & manu occupancy too high ) occured             278 times ( 0.0261 %)
+The message (                                                                                       Ped Mean Too Low & LV is missing ) occured             315 times ( 0.0296 %)
+The message (                                                                                         Ped is missing & LV is missing ) occured           29162 times ( 2.7408 %)
+The message (                                                            Ped Sigma Too Low & LV is missing & manu occupancy too high ) occured               6 times ( 0.0006 %)
+The message (                                                            Ped Mean Too High & LV is missing & manu occupancy too high ) occured              61 times ( 0.0057 %)
+The message (                                                                  Ped Mean Too High & Ped Sigma Too Low & LV is missing ) occured              42 times ( 0.0039 %)
+The message (                                                             Ped Mean Too Low & LV is missing & manu occupancy too high ) occured              24 times ( 0.0023 %)
+The message (        Ped Mean Too High & Ped Sigma Too High & LV is missing & manu occupancy too high & bus patch occupancy too high ) occured            2646 times ( 0.2487 %)
+The message (                                                 LV is missing & manu occupancy too high & bus patch occupancy too high ) occured            7487 times ( 0.7037 %)
+The message (                              Ped Mean Too Low & LV is missing & manu occupancy too high & bus patch occupancy too high ) occured            1353 times ( 0.1272 %)
+The message (          Ped Mean Too Low & Ped Sigma Too Low & LV is missing & manu occupancy too high & bus patch occupancy too high ) occured              36 times ( 0.0034 %)
+The message (            LV is missing & HV is Too Low & HV has channel OFF & manu occupancy too high & bus patch occupancy too high ) occured            1041 times ( 0.0978 %)
+The message (  Ped Mean Too Low & LV is missing & HV is Too Low & HV has channel OFF & manu occupancy too high & bus patch occupancy too high ) occured             214 times ( 0.0201 %)
+The message (  Ped Mean Too High & Ped Sigma Too High & LV is missing & HV is Too Low & HV has channel OFF & manu occupancy too high & bus patch occupancy too high ) occured             372 times ( 0.0350 %)
+The message (  Ped Mean Too Low & Ped Sigma Too Low & LV is missing & HV is Too Low & HV has channel OFF & manu occupancy too high & bus patch occupancy too high ) occured               5 times ( 0.0005 %)
+The message (                                  Ped Mean Too High & Ped Sigma Too High & LV is missing & bus patch occupancy too high ) occured             106 times ( 0.0100 %)
+The message (                             Ped Mean Too High & LV is missing & manu occupancy too high & bus patch occupancy too high ) occured               1 times ( 0.0001 %)
+The message (                                        Ped Mean Too High & Ped Sigma Too Low & LV is missing & manu occupancy too high ) occured               1 times ( 0.0001 %)
+The message (                                                                                     Ped Sigma Too High & LV is missing ) occured               2 times ( 0.0002 %)
+The message (                                                                   Ped Mean Too Low & Ped Sigma Too Low & LV is missing ) occured               9 times ( 0.0008 %)
+Map UniqueID = 272
+I-AliMUONDigitCalibrator::~AliMUONDigitCalibrator: Summary of messages:
+   0  ChargeSigmaCut used = 4.000000e+00   4473
+I-AliMUONDigitCalibrator::~AliMUONDigitCalibrator: We have seen 132615 pads, and rejected 128142 (  96.63 %)
+I-AliMUONClusterFinderMLEM::~AliMUONClusterFinderMLEM: Total clusters 0 AddVirtualPad needed 0
+I-AliESDTagCreator::CreateESDTags: Creating the ESD tags.......
+I-AliESDTagCreator::CreateESDTags: writing tags to file Run250050.Event0_15.ESD.tag.root
+AliMUONCalibrationData
+   AliMUONCalibrationData  R:0.0000s C:0.0000s (1 slices)
+   CreateHV hvMap=0x7f937241b9d0 R:0.0018s C:0.0000s (1 slices)
+   CreateObject 
+        000250050 : MUON/Calib/Config R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/GlobalTriggerCrateConfig R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/HV R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/LocalTriggerBoardMasks R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/Neighbours R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/OccupancyMap R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/Pedestals R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/RegionalTriggerConfig R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/RejectList R:0.0000s C:0.0000s (1 slices)
+        000250050 : MUON/Calib/TriggerLut R:0.0000s C:0.0000s (1 slices)
+   PatchSt1DCSAliases hvMap=0x7f937241b9d0 R:0.0012s C:0.0000s (1 slices)
+AliMUONClusterFinderMLEM
+   CheckPrecluster  R:0.0003s C:0.0000s (59 slices)
+AliMUONDigitMaker
+   ReadTrackerDDL  R:0.2579s C:0.2800s (16 slices)
+   TriggerDigits  R:0.2314s C:0.2000s (4582 slices)
+AliMUONLegacyClusterServer
+   Clusterize 
+        Chamber 0 R:0.0004s C:0.0000s (16 slices)
+        Chamber 1 R:0.0001s C:0.0000s (16 slices)
+        Chamber 2 R:0.0001s C:0.0000s (16 slices)
+        Chamber 3 R:0.0001s C:0.0000s (16 slices)
+        Chamber 4 R:0.0001s C:0.0000s (16 slices)
+        Chamber 5 R:0.0001s C:0.0000s (16 slices)
+        Chamber 6 R:0.0001s C:0.0000s (16 slices)
+        Chamber 7 R:0.0001s C:0.0000s (16 slices)
+        Chamber 8 R:0.0001s C:0.0000s (16 slices)
+        Chamber 9 R:0.0001s C:0.0000s (16 slices)
+AliMUONPadStatusMaker
+   HVSt12Status  R:0.0002s C:0.0000s (48 slices)
+   HVSt345Status  R:0.0037s C:0.0000s (600 slices)
+   HVStatus  R:0.0330s C:0.0400s (16828 slices)
+   PadStatus ComputeStatus R:0.0331s C:0.0100s (3533 slices)
+   Report  R:0.2186s C:0.2200s (1 slices)
+   SetHVStatus  R:0.0030s C:0.0100s (648 slices)
+AliMUONPadStatusMapMaker
+   ComputeStatusMap (Int_t,Int_t) R:0.0867s C:0.0700s (3533 slices)
+AliMUONReconstructor
+   Calibrate AliMUONDigitCalibrator::Calibrate(AliMUONVDigitStore*) R:0.1341s C:0.1100s (16 slices)
+   ConvertDigits AliMUONDigitMaker::Raw2Digits(AliRawReader*,AliMUONVDigitStore*,AliMUONVTriggerStore*) for Cosmic R:0.3015s C:0.3200s (16 slices)
+   CreateCalibrationData  R:0.0019s C:0.0000s (1 slices)
+   CreateCalibrator  R:0.2862s C:0.2900s (1 slices)
+   CreateClusterServer  R:0.0002s C:0.0000s (16 slices)
+   CreateDigitMaker  R:0.0000s C:0.0000s (1 slices)
+   CreateTriggerCircuit  R:0.0082s C:0.0000s (1 slices)
+   CreateTriggerUtilities  R:0.3928s C:0.4000s (1 slices)
+   FillTreeR  R:0.0336s C:0.0400s (16 slices)
+   ResponseRemovingChambers  R:0.0021s C:0.0000s (16 slices)
+AliMUONSimpleClusterServer
+   Clusterize 
+        Chamber 0 R:0.0016s C:0.0000s (16 slices)
+        Chamber 1 R:0.0013s C:0.0100s (16 slices)
+        Chamber 2 R:0.0021s C:0.0000s (16 slices)
+        Chamber 3 R:0.0014s C:0.0100s (16 slices)
+        Chamber 4 R:0.0017s C:0.0000s (16 slices)
+        Chamber 5 R:0.0013s C:0.0000s (16 slices)
+        Chamber 6 R:0.0014s C:0.0000s (16 slices)
+        Chamber 7 R:0.0010s C:0.0000s (16 slices)
+        Chamber 8 R:0.0029s C:0.0000s (16 slices)
+        Chamber 9 R:0.0014s C:0.0000s (16 slices)
+AliMUONTrackHitPattern
+   GetHitPattern  R:0.1010s C:0.0800s (29 slices)
+AliMUONTrackReconstructorK
+   EventReconstruct  R:0.0031s C:0.0100s (16 slices)
+   EventReconstructTrigger  R:0.0002s C:0.0000s (16 slices)
+   MakeSegmentsBetweenChambers  R:0.0002s C:0.0000s (32 slices)
+   ValidateTracksWithTrigger  R:0.1012s C:0.0800s (16 slices)
+AliMUONTracker
+   Clusters2Tracks  R:0.1079s C:0.0900s (16 slices)
+   FillESD  R:0.0027s C:0.0000s (16 slices)
+AliMUONTrackerData
+   CreateBusPatchParam  R:0.0016s C:0.0000s (870 slices)
+   CreateChamberParam  R:0.0008s C:0.0000s (10 slices)
+   CreateDetectionElementParam  R:0.0007s C:0.0000s (156 slices)
+   CreateManuParam  R:0.0198s C:0.0300s (16247 slices)
+   CreatePCBParam  R:0.0013s C:0.0000s (600 slices)
+AliMUONTriggerElectronics
+   Digits2Trigger  R:0.1272s C:0.1600s (235 slices)
+   Feed  R:0.0858s C:0.1100s (235 slices)
+   GlobalResponse  R:0.0109s C:0.0300s (235 slices)
+   LocalResponse  R:0.0088s C:0.0000s (235 slices)
+   RegionalResponse  R:0.0093s C:0.0100s (235 slices)
+   ResponseRemovingChambers  R:0.0015s C:0.0000s (16 slices)
+AliMpDCSNamer
+   ManuId2PCBIndex  R:0.0306s C:0.0400s (19556 slices)
+   ManuId2Sector  R:0.0096s C:0.0200s (7200 slices)
+AliMpDetElement
+   AddManu 
+         R:0.2458s C:0.2500s (16828 slices)
+        slat R:0.1198s C:0.1100s (9676 slices)
+        st12 R:0.0881s C:0.1000s (7152 slices)
+AliMpFastSegmentation
+   AliMpFastSegmentation 
+        AliMpSectorSegmentation R:0.0112s C:0.0300s (4 slices)
+        AliMpSlatSegmentation R:0.0147s C:0.0300s (38 slices)
+AliMpMotifMap
+   GetMotifPosition  R:0.0153s C:0.0300s (7152 slices)
+AliReconstruction
+   Begin  R:41.0661s C:2.8000s (1 slices)
+   FillESD  R:0.4211s C:0.0800s (16 slices)
+   FillTriggerESD  R:0.0071s C:0.0000s (16 slices)
+   GetEventInfo  R:0.5149s C:0.0400s (17 slices)
+   InitCDB  R:0.0132s C:0.0000s (1 slices)
+   InitQA  R:0.0559s C:0.0000s (1 slices)
+   InitRawReader  R:0.1020s C:0.0800s (1 slices)
+   InitRun  R:1.9841s C:0.1600s (1 slices)
+   LoadCDB  R:29.3783s C:1.6400s (1 slices)
+   LoadTriggerScalersCDB  R:0.3180s C:0.0000s (1 slices)
+   MergeQA  R:0.0136s C:0.0000s (1 slices)
+   ProcessEvent  R:10.6501s C:2.2000s (16 slices)
+   Run  R:56.6378s C:7.2300s (1 slices)
+   RunLocalEventReconstruction  R:1.0147s C:0.8200s (16 slices)
+   RunMultFinder  R:0.0000s C:0.0000s (1 slices)
+   RunMuonTracking  R:0.5336s C:0.5000s (16 slices)
+   RunTracking  R:0.2051s C:0.0200s (16 slices)
+   RunVertexFinder  R:5.0797s C:0.2000s (16 slices)
+   SlaveBegin  R:1.0640s C:0.5800s (1 slices)
+   SlaveTerminate  R:0.7302s C:0.4000s (1 slices)
+   Terminate  R:0.0908s C:0.0900s (1 slices)
+General
+   CreateClusterFinder  R:0.0001s C:0.0000s (1 slices)

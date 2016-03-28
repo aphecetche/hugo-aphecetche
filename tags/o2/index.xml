@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>O2 on Laurent Aphecetche - High Energy Collisions Investigator</title>
+    <link>http://aphecetche.github.io/tags/o2/</link>
+    <description>Recent content in O2 on Laurent Aphecetche - High Energy Collisions Investigator</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Laurent Aphecetche</copyright>
+    <lastBuildDate>Sun, 13 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://aphecetche.github.io/tags/o2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>O2 - Creating MCH digit files from filtered RAW data</title>
+      <link>http://aphecetche.github.io/2016/03/13/o2createdigitfiles/</link>
+      <pubDate>Sun, 13 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://aphecetche.github.io/2016/03/13/o2createdigitfiles/</guid>
+      <description>&lt;p&gt;First, get the code from AliRoot (feature-muonhlt) branch in MUON/MUON2 directory, and put it on SAF3&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sshfs -o ssh_command=&amp;quot;gsissh -p1975&amp;quot; nansafmaster3.in2p3.fr:/home/laphecet ~/saf3
+mkdir -p $HOME/saf3/o2
+cp $ALICE_ROOT/../src/MUON/MUONO2/O2Muon.* $HOME/saf3/o2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check on SAF3 that the code is compiling under Root :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;saf3-enter
+root
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;gSystem-&amp;gt;SetIncludePath(&amp;quot;-I$ALICE_ROOT/include&amp;quot;);
+.L O2Muon.cxx++
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And test on a single file that the code is behaving as expected :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo &amp;quot;root://nansafmaster2//alice/data/2011/LHC11h/000169099/raw/11000169099032.133.FILTER_RAWMUON_WITH_ALIPHYSICS_vAN-20150213.root&amp;quot; &amp;gt; input.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;gSystem-&amp;gt;SetIncludePath(&amp;quot;-I$ALICE_ROOT/include&amp;quot;)
+.L O2Muon.cxx++
+O2Muon o2m(&amp;quot;local:///cvmfs/alice-ocdb.cern.ch/calibration/data/2011/OCDB&amp;quot;);
+o2m.makeDigitFiles(&amp;quot;input.txt&amp;quot;,&amp;quot;CPBI2_B1-B-NOPF-ALLNOTRD&amp;quot;,true);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then use &lt;code&gt;condor&lt;/code&gt; for the heavy lifting. Prepare a file list for a given run or part of it, in a file ending with the extension &lt;code&gt;.list&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root://nansafmaster2//alice/data/2011/LHC11h/000169099/raw/11000169099032.133.FILTER_RAWMUON_WITH_ALIPHYSICS_vAN-20150213.root
+root://nansafmaster2//alice/data/2011/LHC11h/000169099/raw/11000169099063.163.FILTER_RAWMUON_WITH_ALIPHYSICS_vAN-20150213.root
+root://nansafmaster2//alice/data/2011/LHC11h/000169099/raw/11000169099065.113.FILTER_RAWMUON_WITH_ALIPHYSICS_vAN-20150213.root
+root://nansafmaster2//alice/data/2011/LHC11h/000169099/raw/11000169099054.124.FILTER_RAWMUON_WITH_ALIPHYSICS_vAN-20150213.root
+root://nansafmaster2//alice/data/2011/LHC11h/000169099/raw/11000169099060.150.FILTER_RAWMUON_WITH_ALIPHYSICS_vAN-20150213.root
+root://nansafmaster2//alice/data/2011/LHC11h/000169099/raw/11000169099065.166.FILTER_RAWMUON_WITH_ALIPHYSICS_vAN-20150213.root
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use the following &lt;code&gt;makedigits.condor&lt;/code&gt; file :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;universe=vanilla
+
+executable=$ENV(HOME)/o2/makedigits/makedigits.sh
+
+# Don&#39;t send annoying email notifications
+Notification = Never
+
+# stdout and stderr of PoD jobs
+Output        = makedigits.out
+Error         = makedigits.err
+Log           = makedigits.log
+
+# we want to transfer files
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+rank = -SlotID
+
+Input = $ENV(HOME)/.PoD/user_worker_env.sh
+
+include : $ENV(HOME)/o2/makedigits/list-input.sh |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where the &lt;code&gt;list-input.sh&lt;/code&gt; script is generating the &lt;code&gt;queue&lt;/code&gt; commands from any file with extension &lt;code&gt;.list&lt;/code&gt;. In that file you might want to change the &lt;code&gt;ninput&lt;/code&gt; parameter which decide how many files you will process per condor job.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+# split by chunks of n raw files
+ninput=50
+
+for file in $(ls $HOME/o2/makedigits/*.list)
+do
+
+	n=0
+	index=0
+
+	f=$(basename $file)
+
+	mkdir -p $HOME/o2/makedigits/$f.dir
+
+	cd $HOME/o2/makedigits/$f.dir
+	rm -rf input.*
+
+	for l in $(cat $file)
+	do
+		echo $l &amp;gt;&amp;gt; input.$index
+		(( n += 1))
+		if (( $n % $ninput == 0 ))
+		then
+			echo &amp;quot;transfer_input_files=\$ENV(HOME)/o2/makedigits/$f.dir/input.$index,\$ENV(HOME)/o2/O2Muon.cxx,\$ENV(HOME)/o2/O2Muon.h&amp;quot;
+			echo &amp;quot;arguments = input.$index&amp;quot;
+			echo &amp;quot;queue&amp;quot;
+			(( index +=1 ))
+			n=0
+		fi
+	done
+done
+
+if (( $n &amp;gt; 0 &amp;amp;&amp;amp; $n &amp;lt; $ninput ))
+then
+	echo &amp;quot;transfer_input_files=\$ENV(HOME)/o2/makedigits/$f.dir/input.$index,\$ENV(HOME)/o2/O2Muon.cxx,\$ENV(HOME)/o2/O2Muon.h&amp;quot;
+	echo &amp;quot;arguments = input.$index&amp;quot;
+	echo &amp;quot;queue&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And finally the script doing the job, &lt;code&gt;makedigits.sh&lt;/code&gt;, which is using the &lt;code&gt;O2Muon&lt;/code&gt; class from AliRoot/MUON/MUONo2 package.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+source  /cvmfs/alice.cern.ch/etc/login.sh
+source `which alienv` setenv VO_ALICE@AliRoot::v5-08-02-1
+
+alienv list
+
+echo &amp;quot;arg=$1&amp;quot;
+
+pwd
+ls -al
+
+  root -b &amp;lt;&amp;lt; EOF
+    gSystem-&amp;gt;SetIncludePath(&amp;quot;-I$ALICE_ROOT/include&amp;quot;);
+    .L O2Muon.cxx++
+    O2Muon o2m(&amp;quot;local:///cvmfs/alice-ocdb.cern.ch/calibration/data/2011/OCDB&amp;quot;);
+    o2m.makeDigitFiles(&amp;quot;$1&amp;quot;,&amp;quot;CPBI2_B1-B-NOPF-ALLNOTRD&amp;quot;,true);
+    .q
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

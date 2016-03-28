@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>V0 performance &middot; Laurent Aphecetche</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.15" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://aphecetche.github.io/css/normalize.css">
+        <link rel="stylesheet" href="http://aphecetche.github.io/css/highlight.css">
+        <link rel="stylesheet" href="http://aphecetche.github.io/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="Laurent Aphecetche - High Energy Collisions Investigator" href="http://aphecetche.github.io/">Laurent Aphecetche - High Energy Collisions Investigator</a>
+                            </h1>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/aphecetche">
+                                <i class="fa fa-github"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+
+                        
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a title="Reco on SAF3" href="/saf3-reco/">Reco on SAF3</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a title="SAF3 User Manual" href="/saf3-usermanual/">SAF3 User Manual</a>
+    </li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">V0 performance</h1>
+    
+    <p class="post-date">
+        <span><time datetime="2015-07-15" itemprop="datePublished">Wed, Jul 15, 2015</time></span>
+    </p>
+</header>
+
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<p>Started with a mail from Cvetan : &ldquo;In order to assess the V0 performance one has to look at the single and di-muon spectra taken with C0M* and CM*7, both with and without phys selection, and for each beam-beam BC separately. Who can produce these?&rdquo;</p>
+
+<h2 id="run-230301-fill-3992-50ns-476b-414-32-397-72bpi10inj:07f71654389330358a1c8e4c921f1932">Run 230301 - Fill 3992 - 50ns_476b_414_32_397_72bpi10inj</h2>
+
+<p>Dumb method : run once the <code>AliAnalysisMuMuGlobal</code> to get the BCX histogram to know the bunch crossing numbers  : bunch-crossing IDs = 2404, 2406, 2408 .. 2462 (train, 30 bunches) and 2472 and 2474.</p>
+
+<p>Then add an event selection IsBCX method to <code>AliAnalysisMuMuGlobal</code> :</p>
+
+<pre><code>Bool_t AliAnalysisMuMuGlobal::IsBCX(const AliVEvent&amp; event, const Int_t bunchCrossingNumber) const
+{
+ return Event()-&gt;GetBunchCrossNumber() == bunchCrossingNumber;
+}
+
+void AliAnalysisMuMuGlobal::NameOfIsBCX(TString&amp; name, const Int_t bunchCrossingNumber) const
+{
+name.Form(&quot;BCX%d&quot;,bunchCrossingNumber);
+}
+</code></pre>
+
+<p>And use it in the AddTaskMuMuMinv&hellip; Seems to bog down the SAF =&gt; too much memory used ?</p>
+
+<p>So instead I&rsquo;m adding histograms per BCX,  for a given event selection (i.e. either physics selected or not)&hellip; =&gt; a bit more intrusive in the code itself (AliAnalysisMuMuSingle.cxx), but it&rsquo;s working fine&hellip;</p>
+
+<pre><code>TH1* h = Histo(eventSelection,triggerClassName,centrality,trackCutName,Form(&quot;PtEtaMu%s&quot;,charge.Data()));
+
+h-&gt;Fill(p.Eta(),p.Pt());
+
+TH1* hbcx = Histo(eventSelection,triggerClassName,centrality,trackCutName,Form(&quot;PtEtaMu%sBCX%d&quot;,charge.Data(),Event()-&gt;GetBunchCrossNumber()));
+
+if (!hbcx)
+{
+  hbcx = static_cast&lt;TH1*&gt;(h-&gt;Clone(Form(&quot;PtEtaMu%sBCX%d&quot;,charge.Data(),Event()-&gt;GetBunchCrossNumber())));
+  HistogramCollection()-&gt;Adopt(Form(&quot;/%s/%s/%s/%s&quot;,eventSelection,triggerClassName,centrality,trackCutName),hbcx);
+}
+</code></pre>
+
+<h2 id="results-cmul7-c0mul:07f71654389330358a1c8e4c921f1932">Results : CMUL7 / C0MUL</h2>
+
+<p><img src="/images/lhc15g/jul-10/bcxtrackratio-all.png" alt="BCX ratio for sRABSETA tracks in all events" />
+<img src="/images/lhc15g/jul-10/bcxtrackratio-v0bb.png" alt="BCX ratio for sRABSETA tracks in V0BB events" />
+<img src="/images/lhc15g/jul-10/pttrackratio-all.png" alt="ratio of pT spectra for sRABSETA tracks in all events" />
+<img src="/images/lhc15g/jul-10/pttrackratio-v0bb.png" alt="ratio of pT spectra for sRABSETA tracks in V0BB events" /></p>
+
+<p>where V0BB is a VZERO-only physics selection :</p>
+
+<pre><code>Bool_t AliAnalysisMuMuGlobal::IsV0BB(const AliVEvent&amp; event) const
+{
+return
+Event()-&gt;GetVZEROData()-&gt;GetV0ADecision() == AliVVZERO::kV0BB &amp;&amp;
+Event()-&gt;GetVZEROData()-&gt;GetV0CDecision() == AliVVZERO::kV0BB ;
+}
+</code></pre>
+
+<p>The conclusion is that the effect (on physics selected events) is small (1-2%) and not BCX-dependent (at least &lt; 1%)</p>
+
+</div>
+
+
+        <footer class="post-footer clearfix">
+    
+</footer>
+
+
+    </article>
+
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="Laurent Aphecetche - High Energy Collisions Investigator" href="http://aphecetche.github.io/">Laurent Aphecetche - High Energy Collisions Investigator</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="http://aphecetche.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+        <script src="http://aphecetche.github.io/js/jquery.fitvids.js"></script>
+        <script src="http://aphecetche.github.io/js/scripts.js"></script>
+    </body>
+</html>
+

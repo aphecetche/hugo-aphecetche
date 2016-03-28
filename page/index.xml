@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Laurent Aphecetche - High Energy Collisions Investigator</title>
+    <link>http://aphecetche.github.io/page/</link>
+    <description>Recent content in Pages on Laurent Aphecetche - High Energy Collisions Investigator</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Laurent Aphecetche</copyright>
+    <lastBuildDate>Sat, 26 Mar 2016 18:24:09 +0100</lastBuildDate>
+    <atom:link href="http://aphecetche.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>about</title>
+      <link>http://aphecetche.github.io/page/about/</link>
+      <pubDate>Sat, 26 Mar 2016 18:24:09 +0100</pubDate>
+      
+      <guid>http://aphecetche.github.io/page/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reconstruction on SAF</title>
+      <link>http://aphecetche.github.io/saf3-reco</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://aphecetche.github.io/saf3-reco</guid>
+      <description>
+
+&lt;p&gt;Warning : this is not for general use ! The scripts below are just given as examples and are not supposed to work out-of-the-box !&lt;/p&gt;
+
+&lt;p&gt;The idea here is to use the SAF3 batch system (condor) to do reconstruction on previously staged (filtered) raw data.&lt;/p&gt;
+
+&lt;p&gt;For that the following &lt;a href=&#34;http://aphecetche.github.io/code/saf3-reco/recojob.condor&#34;&gt;condor job&lt;/a&gt; is used :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;recodir=$ENV(HOME)/reco/LHC15m
+
+universe=vanilla
+executable=$(recodir)/runreco.sh
+Notification = Never
+Output        = runreco.out
+Error         = runreco.err
+Log           = runreco.log
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+rank = -SlotID
+transfer_input_files = $(recodir)/runDataReconstruction.C, $(recodir)/OCDB
+include : $(recodir)/list-input.sh |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The reconstruction macro to be used should be in &lt;a href=&#34;http://aphecetche.github.io/code/saf3-reco/runDataReconstruction.C&#34;&gt;$HOME/reco/runDataReconstruction.C&lt;/a&gt; and you can possibly use your own OCDB for specific storage (in this example MUON/Calib/RecoParam) on top of the normal OCDB which is taken from cvmfs.&lt;/p&gt;
+
+&lt;p&gt;The last line is probably the most important as it&amp;rsquo;s the one which is actually queuing the jobs.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;for file in $(cat filelist.txt)
+do
+ 	search=&amp;quot;/alice/data&amp;quot;
+  	a=$(expr match &amp;quot;$file&amp;quot; &amp;quot;.*$search&amp;quot;)
+  	search=&amp;quot;FILTER&amp;quot;
+  	b=$(expr match &amp;quot;$file&amp;quot; &amp;quot;.*$search&amp;quot;)
+  	dir=${file:a+1:b-a - $(expr length &amp;quot;$search&amp;quot;)-2}
+  	search=&amp;quot;raw&amp;quot;
+  	d=$(expr match &amp;quot;$file&amp;quot; &amp;quot;.*$search&amp;quot;)
+  	desc=${file:d+12:b-d-13 - $(expr length &amp;quot;FILTER&amp;quot;)}
+  	mkdir -p $dir
+  	if [ ! -e $dir/runreco.log ]; then
+  		echo &amp;quot;initialdir = &amp;quot;$(pwd)&amp;quot;/$dir&amp;quot;
+  		echo &amp;quot;arguments = $file $dir&amp;quot;
+    	echo &amp;quot;description=$desc&amp;quot;
+  		echo &amp;quot;queue&amp;quot;
+  	fi
+done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The input to &lt;a href=&#34;http://aphecetche.github.io/code/saf3-reco/list-input.sh&#34;&gt;list-input.sh&lt;/a&gt; is a filelist.txt containing the list of input raw files, e.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-Text&#34;&gt;	root://nansaf01.in2p3.fr//alice/data/2013/LHC13d/000195767/raw/13000195767000.10.FILTER_RAWMUON_WITH_ALIPHYSICS_v5-06-04-01.root
+	root://nansaf05.in2p3.fr//alice/data/2013/LHC13d/000195767/raw/13000195767000.11.FILTER_RAWMUON_WITH_ALIPHYSICS_v5-06-04-01.root
+	root://nansaf09.in2p3.fr//alice/data/2013/LHC13d/000195767/raw/13000195767000.12.FILTER_RAWMUON_WITH_ALIPHYSICS_v5-06-04-01.root
+	root://nansaf07.in2p3.fr//alice/data/2013/LHC13d/000195767/raw/13000195767000.13.FILTER_RAWMUON_WITH_ALIPHYSICS_v5-06-04-01.root
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The list-input.sh script will loop on those file and for each will create a local directory to store (temporarily) the output of the reconstruction of that file. Note that if the directory already exists and already contains a runreco.log that file is skipped. And for each file a queue instruction will be added to the condor job description file.&lt;/p&gt;
+
+&lt;p&gt;Then you simply do &lt;code&gt;condor_submit recojob.condor&lt;/code&gt; which will submit as many jobs as there are files in the &lt;code&gt;filelist.txt&lt;/code&gt;. Note that only 88 jobs are allowed to be running at the same time for a given user, though. Meaning that you can have a very long queue of idle jobs, but only 88 running concurrently.&lt;/p&gt;
+
+&lt;p&gt;As the output of the reconstruction is potentially large, the &lt;code&gt;runreco.sh&lt;/code&gt; script below is copying the output of each job to the SAF3 storage.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+source /cvmfs/alice.cern.ch/etc/login.sh
+
+source `which alienv` setenv VO_ALICE@AliRoot::v5-07-08-1
+
+aliroot -b -q runDataReconstruction.C\(\&amp;quot;$1\&amp;quot;\) 2&amp;gt;&amp;amp;1 | tee rundatareco.log
+
+zip -n root root_archive *.root
+zip log_archive rundatareco.log
+
+xrdcp root_archive.zip root://nansafmaster2.in2p3.fr//PWG3/laphecet/$2/root_archive.zip
+
+echo &amp;quot;Copying root archive to root://nansafmaster2.in2p3.fr//PWG3/laphecet/$2/root_archive.zip&amp;quot;
+
+if [ $? -eq 0 ]; then
+		echo &amp;quot;Successfully copied root archive to root://nansafmaster2.in2p3.fr//PWG3/laphecet/$2/root_archive.zip&amp;quot;
+		rm -f *.root root_archive.zip
+else
+		echo &amp;quot;Could not copy output root archive !!!&amp;quot;
+fi
+
+xrdcp log_archive.zip root://nansafmaster2.in2p3.fr//PWG3/laphecet/$2/log_archive.zip
+
+echo &amp;quot;Copying log archive to root://nansafmaster2.in2p3.fr//PWG3/laphecet/$2/log_archive.zip&amp;quot;
+
+if [ $? -eq 0 ]; then
+		echo &amp;quot;Successfully copied log archive to root://nansafmaster2.in2p3.fr//PWG3/laphecet/$2/log_archive.zip&amp;quot;
+		rm -f rundatareco.log log_archive.zip
+else
+		echo &amp;quot;Could not copy output log archive !!!&amp;quot;
+fi
+rm -f syswatch* *.ps
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;checklist:73a99ce7ccad318bb6340a9e2ddf985c&#34;&gt;Checklist&lt;/h3&gt;
+
+&lt;p&gt;In the scripts you&amp;rsquo;ll have to change a few things.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;in runreco.sh :  the output destination to reflect your group/username, as well as the AliRoot version to be used.&lt;/li&gt;
+&lt;li&gt;in recojob.condor : the top directory (recodir)&lt;/li&gt;
+&lt;li&gt;in runDataReconstruction.C : whatever change to the reconstruction you&amp;rsquo;d like to perform&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note also that the reco is meant to run from the cvmfs OCDB, as there&amp;rsquo;s no handling of the alien token whatsoever&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SAF3 quick-start documentation</title>
+      <link>http://aphecetche.github.io/saf3-usermanual</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://aphecetche.github.io/saf3-usermanual</guid>
+      <description>
+
+&lt;h1 id=&#34;connecting-to-saf3:51208290e251b852ec70f1e0643fdf91&#34;&gt;Connecting to SAF3&lt;/h1&gt;
+
+&lt;p&gt;You need to use GSISSH to connect to nansafmaster3, i.e. you will connect using your grid certificate.&lt;/p&gt;
+
+&lt;p&gt;To get gsissh (and related commands), install the Globus Toolkit. &lt;a href=&#34;http://toolkit.globus.org/toolkit/downloads/6.0/&#34;&gt;Version 6&lt;/a&gt; has a Mac package.&lt;/p&gt;
+
+&lt;p&gt;Then define those two aliases in your .bashrc :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;alias gscp=&#39;gsiscp -S `which gsissh` -P 1975&#39;
+alias gssh=&#39;gsissh -p 1975&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To connect to saf3, use :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;grid-proxy-init
+gssh nansafmaster3.in2p3.fr
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will work if your environment is OK. One sure way is to use Dario&amp;rsquo;s script alice-env.sh to set it (whatever aliroot and/or aliphysics version)&lt;/p&gt;
+
+&lt;p&gt;Once you are in nansafmaster3, setup your env using :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;saf3-enter
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;the next steps are like on the &lt;a href=&#34;https://dberzano.github.io/alice/vcaf/usersguide/&#34;&gt;VCAF&lt;/a&gt;. In a nutshell, once you have selected your AliPhysics (or AliRoot version) in ~/.vaf/vaf.conf, start a proof server :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vafctl start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;request some workers :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vafreq 88
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;wait a bit for them to start :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vafcount
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then start a proof session :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; root -b
+root[0] TProof::Open(&amp;quot;pod://&amp;quot;);
+root[1] .x runXXX.C
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Your &lt;code&gt;runXXX.C&lt;/code&gt; must Upload and Enable the special AliceVaf.par package (note that you can &lt;em&gt;not&lt;/em&gt; use the same as for the VAF), like this :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;TList *list = new TList();
+list-&amp;gt;Add(new TNamed(&amp;quot;ALIROOT_EXTRA_LIBS&amp;quot;, &amp;quot;OADB:ESD&amp;quot;));
+list-&amp;gt;Add(new TNamed(&amp;quot;ALIROOT_ENABLE_ALIEN&amp;quot;, &amp;quot;1&amp;quot;));
+
+ TFile::Cp(&amp;quot;https://github.com/aphecetche/aphecetche.github.io/blob/master/saf/saf3/AliceVaf.par?raw=true&amp;quot;,&amp;quot;AliceVaf.par&amp;quot;);
+gProof-&amp;gt;UploadPackage(&amp;quot;AliceVaf.par&amp;quot;);
+gProof-&amp;gt;EnablePackage(&amp;quot;AliceVaf&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;getting-files-in-and-out-from-saf3:51208290e251b852ec70f1e0643fdf91&#34;&gt;Getting files in and out from SAF3&lt;/h1&gt;
+
+&lt;p&gt;You can of course simply use &lt;code&gt;gsiscp&lt;/code&gt; if you&amp;rsquo;re happy with that. But the usual way to work on an AF (well, at least that&amp;rsquo;s the way I work)
+typically involves having a text editor opened with at least the steering macro (&lt;code&gt;runXXX.C&lt;/code&gt;) and the &lt;code&gt;AddTaskXXX.C&lt;/code&gt;. Having to gsiscp those each time you make a modification is clearly unpractical, IMO.&lt;/p&gt;
+
+&lt;p&gt;A better option is to use &lt;code&gt;SSHFS&lt;/code&gt; to mount your saf3 home on your local machine.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sshfs -o ssh_command=&amp;quot;gsissh -p1975&amp;quot; nansafmaster3.in2p3.fr:/home/username ~/saf3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and then you can access your files on saf3 (under $HOME/~saf3 in the example above) e.g. with your local editor.&lt;/p&gt;
+
+&lt;h1 id=&#34;datasets:51208290e251b852ec70f1e0643fdf91&#34;&gt;Datasets&lt;/h1&gt;
+
+&lt;p&gt;The syntax for datasets is in principle the same as in SAF2, with a small temporary change (until the &lt;a href=&#34;https://sft.its.cern.ch/jira/browse/ROOT-7703&#34;&gt;root bug&lt;/a&gt; is fixed), namely you have to add &amp;ldquo;Mode=cache&amp;rdquo; in the end of the query string. So, for the time being, the recommend procedure to work with a dataset is :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;connect to SAF2 master and issue there a ShowDataSet to check whether the dataset is staged (if not, request the staging from SAF2 as well)&lt;/li&gt;
+&lt;li&gt;then connect to SAF3 and use the same query but with adding &amp;ldquo;Mode=cache&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note that you can also use the recent interface method introduced to the &lt;code&gt;AliAnalysisManager&lt;/code&gt; (commit a2d8ed5 to aliroot, Nov. 20th 2015) to use a &lt;code&gt;TFileCollection&lt;/code&gt; directly (that &lt;em&gt;must&lt;/em&gt; be named &amp;ldquo;dataset&amp;rdquo;), e.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;TFile* d = TFile::Open(&amp;quot;dataset.root&amp;quot;);
+TFileCollection* fc = static_cast&amp;lt;TFileCollection*&amp;gt;(d-&amp;gt;Get(&amp;quot;dataset&amp;quot;));
+...
+mgr-&amp;gt;StartAnalysis(&amp;quot;proof&amp;quot;,fc);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where the &lt;code&gt;dataset.root&lt;/code&gt; might be created on SAF2 or manually.&lt;/p&gt;
+
+&lt;h1 id=&#34;when-things-go-wrong:51208290e251b852ec70f1e0643fdf91&#34;&gt;When things go wrong &amp;hellip;&lt;/h1&gt;
+
+&lt;p&gt;You may want to inspect the log files from the Proof session. For this you need to :&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;take note of the condor master job id of your session, using condor_q&lt;/li&gt;
+&lt;li&gt;cd into an empty directory and use the following script to extract the logs : the first parameter is the id of step 1&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+condorpid=$1
+
+for archive in $(ls /tmp/pod-log-$USER/$condorpid/proof_log.*.tgz)
+do
+	tar -zvxf $archive --wildcards --no-anchored &#39;*.log&#39;
+done
+
+for log in $(find var -name *.log)
+do
+	cp $log .
+done
+
+#rm -rf var
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
