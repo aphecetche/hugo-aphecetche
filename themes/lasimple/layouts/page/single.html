@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+
+<div class="container">
+    <article class="post-container">
+        {{ partial "page-header.html" . }}
+        {{ if not .Params.notoc }}
+           <div id="toc" class="clearfix">
+           {{ .TableOfContents }}
+           </div>
+         {{ end }}
+        {{ partial "page-content.html" . }}
+    </article>
+</div>
+
+{{ partial "footer.html" . }}

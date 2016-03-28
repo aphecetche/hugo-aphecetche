@@ -1,0 +1,16 @@
+name = "lasimple"
+license = "MIT"
+licenselink = "https://github.com/jbub/ghostwriter/blob/master/LICENSE.md"
+description = "A simple Hugo theme inspired from ghostwriter theme"
+#homepage = "https://github.com/jbub/ghostwriter"
+#tags = ["blog", "technical", "personal"]
+#features = ["blog", "technical", "personal"]
+min_version = 0.15
+
+[author]
+  name = "Laurent Aphecetche"
+  homepage = "https://github.com/aphecetche"
+  
+[original]
+    name = "Juraj Bubniak"
+    homepage = "https://github.com/jbub"
