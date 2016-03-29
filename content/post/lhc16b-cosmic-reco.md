@@ -4,7 +4,6 @@ date = "2016-03-28T13:09:45+02:00"
 description = ""
 tags = []
 title = "lhc16b cosmic reco"
-draft = true
 +++
 
 Preparation steps for the reconstruction of the LHC16b period, containing only cosmic data. Main purpose is to get some first data for the 2016 alignment.
@@ -28,6 +27,41 @@ The idea for this year would be to do thing "properly", i.e. prepare a RecoParam
 
 Problem with this plan is that cosmic event specie is only set for triggers that are in the `kCosmic` trigger alias (`GRP/CTP/Aliases`).
 
-So added a function `AliMUONCDB::WriteCosmicAliases(const char* triggerList, Int_t startRun, Int_t endRun)` to generate a fake aliases object, putting all the triggers in the coma separated `triggerList` in the `kCosmic` alias.
+So added a function `AliMUONCDB::WriteCosmicAliases(const char* triggerList, Int_t startRun, Int_t endRun)` to generate a fake aliases object, putting all the triggers in the comma separated `triggerList` in the `kCosmic` alias.
 
 The cosmic specie issue being "solved", the test [reconstruction](/log/lhc16b-cosmic-reco/rundatareco.log) log still contains some strange messages...
+
+First some errors about the geometry :
+
+```
+I-TGeoManager::Voxelize: Voxelizing...
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume S0R2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SC1A
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume S0R8
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SC1A
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume S0L2
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SC1A
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume S0L8
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SC1A
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV11E0
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV11E1
+E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV11E2
+...etc...
+```
+
+Then some worrisome warnings about the alignment :
+
+```
+W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 73 alignment objects loaded for TPC, which has 72 alignable volumes
+W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 16 alignment objects loaded for PHOS, which has 11 alignable volumes
+W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 176 alignment objects loaded for MUON, which has 248 alignable volumes
+W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 2 alignment objects loaded for T0, which has 24 alignable volumes
+```
+
+And an information message that appear at each event (while I would expect the OCDB to be accessed only once ?)
+
+```
+I-AliCentralTrigger::LoadConfiguration: Getting trigger configuration from OCDB
+```
+
+Those put aside, the reconstruction seems to perform correctly. The number of `C0MSL` is much lower than the number of events in the chunk (16 over 8000), and hence the reco is pretty fast.
