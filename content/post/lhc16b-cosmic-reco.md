@@ -49,6 +49,8 @@ E-TGeoVoxelFinder::SortAll: Wrong bounding box for volume SV11E2
 ...etc...
 ```
 
+<i class="fa fa-check"></i> This one has been fixed in [ALIROOT-6601](https://alice.its.cern.ch/jira/browse/ALIROOT-6601).
+
 Then some worrisome warnings about the alignment :
 
 ```
@@ -57,6 +59,8 @@ W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 16 alignment objects loaded for
 W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 176 alignment objects loaded for MUON, which has 248 alignable volumes
 W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 2 alignment objects loaded for T0, which has 24 alignable volumes
 ```
+
+<i class="fa fa-check"></i> Apparently not an issue either, just indicates that the volumes from MTR are not aligned. 
 
 And an information message that appear at each event (while I would expect the OCDB to be accessed only once ?)
 
