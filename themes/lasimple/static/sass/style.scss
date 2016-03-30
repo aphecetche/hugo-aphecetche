@@ -2,8 +2,9 @@
 // Colours //
 // ============================================================ //
 
-$primary: #400080;
 $secondary: #303030; /* main color of text */
+/*$primary: #400080;*/
+$primary: darken(#400080,10%);
 $background: #FEFEFE;
 $codebackground: #f2f2f2; /*#F1F0EA;*/
 
@@ -56,6 +57,7 @@ ul, ol {
         &:last-of-type { margin-bottom: 0; }
     }
 }
+
 
 blockquote {
     /*background: darken($primary,30%);*/
@@ -164,13 +166,13 @@ table {
     height: auto;
         min-height: 100%;
     /* This must be the same as the height of the footer */
-    margin-bottom: -265px;
+    margin-bottom: -200px;
 
     &:after {
         content: "";
         display: block;
         /* This must be the same as the height of the footer */
-        height: 265px;
+        height: 200px;
     }
 }
 
@@ -192,7 +194,7 @@ table {
     color: #FFF;
     float: left;
     font-size: 17px;
-    margin: 0 0 0 10px;
+    margin: 0 10px 0 10px;
     padding: 3px 8px 4px;
 
     &:hover { background: $secondary; }
@@ -218,7 +220,7 @@ table {
 /* ============================================================ */
 
 .site-header {
-    padding: 40px 0 0;
+    padding: 0px 0 0;
     overflow: auto;
     text-align: center;
     text-transform: uppercase;
@@ -227,23 +229,27 @@ table {
 .site-title-wrapper {
     display: table;
     margin: 0 auto;
+    width: 100%;
 }
 
 .site-title {
-    float: left;
-    font-size: 14px;
-    font-weight: 600;
+    /*float: left;*/
+    font-size: 20px;
+    font-weight: 100;
     margin: 0;
-    text-transform: capitalize; /*uppercase;*/
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    width: 100%;
     a {
-        float: left;
+        float: none;
         background: $primary;
         color: lighten($secondary,70%);
-        padding: 5px 10px 6px;
-
+        padding: 25px 20px;
+        display: block;
         &:hover { background: $secondary; }
     }
 }
+
 .site-logo {
     display: block;
 
@@ -252,14 +258,16 @@ table {
 
 .site-nav {
     list-style: none;
-    margin: 28px 0 10px;
+    /*margin: 28px 0 10px;*/
 }
 
 .site-nav-item {
     display: inline-block;
     font-size: 14px;
-    font-weight: 700;
-    margin: 0 10px;
+    font-weight: 400;
+    text-transform:capitalize;
+    margin: 5px 20px;
+/*    margin: 0 10px;*/
     a:hover { color: $secondary; }
 }
 
@@ -269,7 +277,9 @@ table {
 
 #latest-post { display: none; }
 
-.post-container { margin: 0 40px; }
+.post-container {
+  margin: 0 40px;
+}
 
 .post-header {
     border-bottom: 2px solid $secondary;
@@ -294,9 +304,9 @@ table {
 .blog-description {
     color: lighten($secondary,60%);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 100;
     line-height: 1;
-    margin: 25px 0 0;
+    margin: 5px 0 0;
 
     a { color: lighten($secondary,60%); }
     a:hover { color: $primary; }
@@ -523,13 +533,15 @@ table {
 /* ============================================================ */
 
 .footer {
-    background: $secondary;
-    color: #D3D3D3;
-    height: 265px;
-    margin-top: 95px;
+  max-width: 889px;
+  margin: 150px auto;
+  margin-bottom: 0px;
+
+    background: $primary;/*$secondary;*/
+    height: 200px;
     overflow: auto;
 
-    .site-title-wrapper { margin: 80px auto 35px; }
+    /*.site-title-wrapper { margin: 80px auto 35px; }*/
 
     .site-title a:hover,
     .button-square:hover {
@@ -537,24 +549,20 @@ table {
     }
 
     .button-jump-top {
-        font-size: 23px;
-        line-height: 1.1;
-        padding-top: 1px;
+        font-size: 20px;
     }
 }
 
 .footer-copyright {
-    color: #656565;
+    color: lighten($secondary,30%);
     font-size: 14px;
     margin: 0;
+    margin-top: 20px;
     text-align: center;
     text-transform: uppercase;
-
     a {
-        color: #656565;
-        font-weight: 700;
-
-        &:hover { color: #FEFEFE; }
+      color: inherit;
+        &:hover { color: lighten($secondary,70%); }
     }
 }
 
@@ -598,11 +606,19 @@ table {
         padding-top: 40px;
     }
 
+    .site-title-wrapper {
+      background: $primary;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
     .site-title {
         float: none;
-        margin-bottom: 15px;
+        /*margin-bottom: 5px;*/
 
         a {
+            background: none;
             float: none;
         }
     }
@@ -677,7 +693,8 @@ table {
     }
 
     .footer {
-        margin-top: 50px;
+      background: none;
+        margin-top: 0px;
     }
 }
 
@@ -740,23 +757,26 @@ table {
   float: center;
   font-size: 14px;
   padding: 5px 0px;
+
   ul ul {
     li:before {
-      content: "\f096";
-      color: $primary;
-      font-family: FontAwesome;
+      // content: "\f096";
+      // color: $primary;
+      // font-family: FontAwesome;
       padding-left: 20px;
     }
+    padding-top: 2px;
   }
   ul {
     li {
       list-style: none;
-      padding: 1px;
+      padding: 2px 0;
+      /*padding: 2px;*/
     }
     li:before {
-      content: "\f097";
-      color: $primary;
-      font-family: FontAwesome;
+      content: ""; //"\f097";
+      // color: $primary;
+      // font-family: FontAwesome;
       padding-right: 7px;
     }
     padding: 0;

@@ -3,7 +3,7 @@ author = ""
 date = "2016-03-28T13:09:45+02:00"
 description = ""
 tags = []
-title = "lhc16b cosmic reco"
+title = "LHC16b cosmic reco"
 +++
 
 Preparation steps for the reconstruction of the LHC16b period, containing only cosmic data. Main purpose is to get some first data for the 2016 alignment.
@@ -60,7 +60,7 @@ W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 176 alignment objects loaded fo
 W-AliGeomManager::LoadAlignObjsFromCDBSingleDet: 2 alignment objects loaded for T0, which has 24 alignable volumes
 ```
 
-<i class="fa fa-check"></i> Apparently not an issue either, just indicates that the volumes from MTR are not aligned. 
+<i class="fa fa-check"></i> Apparently not an issue either, just indicates that the volumes from MTR are not aligned.
 
 And an information message that appear at each event (while I would expect the OCDB to be accessed only once ?)
 

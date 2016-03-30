@@ -1,4 +1,4 @@
-title = "Laurent Aphecetche - High Energy Collisions Investigator"
+title = "High Energy Collisions Investigations"
 baseurl = "http://aphecetche.github.io/"
 theme = "lasimple"
 languageCode = "en-US"
@@ -12,7 +12,7 @@ buildDrafts = false
     tag = "tags"
 
 [Params]
-    intro = true
+    intro = false
     github = "https://github.com/aphecetche"
 #    headline = "Investigating High Energy Collisions"
 
