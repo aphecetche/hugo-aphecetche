@@ -58,8 +58,9 @@ ul, ol {
 }
 
 blockquote {
-    border-left: 1px dotted $primary;
-    margin: 40px 0;
+    /*background: darken($primary,30%);*/
+    border-left: 2px solid $primary;
+    margin: 40px 40px;
     padding: 5px 30px;
 
     p {
@@ -316,6 +317,14 @@ table {
     }
 
     &:last-child { margin-bottom: 0; }
+
+   h1 {
+      padding-top: 0.5em;
+      margin-top: 2em;
+      border-top: 1px dashed $secondary;
+    }
+
+
 }
 
 .post-footer { margin-top: 5px; }
@@ -731,13 +740,21 @@ table {
   float: center;
   font-size: 14px;
   padding: 5px 0px;
+  ul ul {
+    li:before {
+      content: "\f096";
+      color: $primary;
+      font-family: FontAwesome;
+      padding-left: 20px;
+    }
+  }
   ul {
     li {
       list-style: none;
       padding: 1px;
     }
     li:before {
-      content: "\f07b";
+      content: "\f097";
       color: $primary;
       font-family: FontAwesome;
       padding-right: 7px;
