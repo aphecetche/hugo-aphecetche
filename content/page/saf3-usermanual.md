@@ -92,16 +92,18 @@ gProof->EnablePackage("AliceVaf");
 If you want to work completely from your local machine and be shielded from all the SAF3 details, have a look at the
 [alice-analysis-utils](https://github.com/dstocco/alice-analysis-utils) developped by Diego Stocco.
 
-# Getting files in and out from SAF3
+## Getting files in and out from SAF3
 
-You can of course simply use `gsiscp` if you're happy with that. But the usual way to work on an AF (well, at least that's the way I work)
-typically involves having a text editor opened with at least the steering macro (`runXXX.C`) and the `AddTaskXXX.C`. Having to gsiscp those each time you make a modification is clearly unpractical, IMO.
+If you work in the manual way you'll have to transfer files to/from the SAF3. You can of course simply use `gsiscp` if you're happy with that. But the manual way to work on an AF
+typically involves having a text editor opened with at least the steering macro (`runXXX.C`) and the `AddTaskXXX.C`. Having to gsiscp those each time you make a modification is clearly unpractical.
 
 A better option is to use `SSHFS` to mount your saf3 home on your local machine.
 
-	sshfs -o ssh_command="gsissh -p1975" nansafmaster3.in2p3.fr:/home/username ~/saf3
+```bash
+sshfs -o ssh_command="gsissh -p1975" nansafmaster3.in2p3.fr:/home/username ~/saf3
+```
 
-and then you can access your files on saf3 (under $HOME/~saf3 in the example above) e.g. with your local editor.
+and then you can access your files on saf3 (under `$HOME/~saf3` in the example above) e.g. with your local editor.
 
 > Please note that you should consider your home directory on SAF3 as a scratch, i.e. there's no guarantee about the lifetime of your files over there.
 
