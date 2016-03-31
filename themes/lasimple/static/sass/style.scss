@@ -8,6 +8,14 @@ $primary: darken(#400080,10%);
 $background: #FEFEFE;
 $codebackground: #f2f2f2; /*#F1F0EA;*/
 
+$fa-ticket: "\f145";
+$fa-bug: "\f188";
+$fa-paperclip: "\f0c6";
+$fa-github: "\f09b";
+
+$light-text: lighten($secondary,20%);
+$maxwidth: 749px;
+
 /* ============================================================ */
 /* Base */
 /* ============================================================ */
@@ -159,7 +167,7 @@ table {
     margin: 0 auto;
     position: relative;
     width: 100%;
-    max-width: 889px;
+    max-width: $maxwidth;
 }
 
 #wrapper {
@@ -220,7 +228,7 @@ table {
 /* ============================================================ */
 
 .site-header {
-    padding: 0px 0 0;
+    padding: 20px 0 0;
     overflow: auto;
     text-align: center;
     text-transform: uppercase;
@@ -235,18 +243,21 @@ table {
 .site-title {
     /*float: left;*/
     font-size: 20px;
-    font-weight: 100;
+    font-weight: 400;
     margin: 0;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    width: 100%;
+    letter-spacing: 0.15em;
+    /*width: 100%;*/
     a {
         float: none;
-        background: $primary;
-        color: lighten($secondary,70%);
-        padding: 25px 20px;
-        display: block;
-        &:hover { background: $secondary; }
+        /*background: $primary;
+        color: lighten($secondary,70%);*/
+        padding: 25px 0px;
+        padding-bottom: 3px;
+        display: inline-block;
+        /*&:hover { background: $secondary; }*/
+        border-bottom: 2px solid;
     }
 }
 
@@ -269,6 +280,7 @@ table {
     margin: 5px 20px;
 /*    margin: 0 10px;*/
     a:hover { color: $secondary; }
+    a:before { content: $fa-paperclip; font-family: FontAwesome; margin-right: 2px; }
 }
 
 /* ============================================================ */
@@ -436,7 +448,8 @@ table {
 }
 
 a.post-stub-jira {
-  color: $primary;
+
+  color: $light-text;
   vertical-align: middle;
   transition: none;
   padding: 0px;
@@ -449,7 +462,7 @@ a.post-stub-jira {
     font-weight: 600;
   }
   &:before {
-      content: "\f188";
+      content: $fa-ticket;
       font-family: FontAwesome;
       padding-right: 2px;
   }
@@ -459,15 +472,10 @@ a.post-stub-jira {
 }
 
 .post-stub-tag  {
-    background: $secondary;
-    border-radius: 3px;
-    color: #FFF;
-    /*float: right;*/
-    font-size: 10px;
+    font-size: 12px;
     margin: 0;
     padding: 0;
     display: inline-block;
-    /*margin: 7px 0 0;*/
     padding: 0 5px;
     vertical-align: middle;
     text-transform: uppercase;
@@ -477,7 +485,12 @@ a.post-stub-tag  {
   margin: 0;
   padding: 1px 3px;
   display: inline-block;
-  color: lighten($secondary,60%);
+  color: $light-text;
+  &:before {
+    content: '\f02b';
+    font-family: FontAwesome;
+    margin-right: 2px;
+  }
 }
 
 .post-stub-title {
@@ -494,9 +507,8 @@ a.post-stub-tag  {
 
 .post-stub-date {
     display: inline-block;
-    font-size: 12px;
-    vertical-align: middle;
-    &:before { content: " | "; }
+    font-size: 10px;
+    color: $primary;
 }
 
 .next-posts-link a,
@@ -576,36 +588,34 @@ a.post-stub-tag  {
 /* ============================================================ */
 
 .footer {
-  max-width: 889px;
-  margin: 150px auto;
-  margin-bottom: 0px;
 
-    background: $primary;/*$secondary;*/
+  max-width: $maxwidth;
     height: 200px;
     overflow: auto;
-
-    /*.site-title-wrapper { margin: 80px auto 35px; }*/
-
-    .site-title a:hover,
-    .button-square:hover {
-        background: #121212;
-    }
 
     .button-jump-top {
         font-size: 20px;
     }
+
+    margin: 0px auto;
+    margin-top: 100px;
+
+    .container {
+      text-align: center;
+    }
 }
 
 .footer-copyright {
-    color: lighten($secondary,30%);
+  display: inline-block;
+    border-top: 2px solid $primary;
+    color: $primary;
     font-size: 14px;
-    margin: 0;
-    margin-top: 20px;
     text-align: center;
+    //margin: 5px auto;
     text-transform: uppercase;
     a {
       color: inherit;
-        &:hover { color: lighten($secondary,70%); }
+        &:hover { color: lighten($secondary,50%); }
     }
 }
 
@@ -627,7 +637,8 @@ a.post-stub-tag  {
 /* ============================================================ */
 
 @media only screen and (max-width: 800px) {
-    .post-stub-tag { display: none; }
+    a.post-stub-tag { display: none; } 
+    a.post-stub-jira { display: none; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -645,30 +656,10 @@ a.post-stub-tag  {
 
     hr { margin: 35px 0; }
 
-    .site-header {
-        padding-top: 40px;
-    }
-
-    .site-title-wrapper {
-      background: $primary;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-    }
-
-    .site-title {
-        float: none;
-        /*margin-bottom: 5px;*/
-
-        a {
-            background: none;
-            float: none;
-        }
-    }
-
     .site-nav-item {
         display: block;
-        margin: 15px 0;
+        float: right;
+        margin: 5px 5px;
     }
 
     .post-header {
@@ -700,12 +691,19 @@ a.post-stub-tag  {
         }
     }
 
-    .post-stub-title { display: block; }
-
-    .post-stub-date:before {
-        content: "";
-        display: block;
+    .post-stub-title {
+      display: inline;
     }
+
+    .post-stub-date {
+      margin: 0px;
+      padding: 0px;
+      display: inline;
+    }
+    // .post-stub-date:before {
+    //     content: "";
+    //     display: block;
+    // }
 
     .post-list {
         margin-top: 20px;
@@ -722,8 +720,14 @@ a.post-stub-tag  {
 
     .post-stub a,
     .post-stub a:hover {
-        padding-top: 12px;
-        padding-bottom: 12px;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .post-stub-title  {
+      display: inline-block;
+      margin-top: 10px;
     }
 
     .share {
@@ -735,10 +739,13 @@ a.post-stub-tag  {
         }
     }
 
-    .footer {
-      background: none;
-        margin-top: 0px;
-    }
+    // a.post-stub-jira {
+    //   display: inline;
+    // }
+    //
+    // a.post-stub-tag {
+    //   display: none;
+    // }
 }
 
 @media only screen and (max-width: 400px) {
@@ -792,8 +799,6 @@ a.post-stub-tag  {
         display: block;
         margin: 18px 0;
     }
-
-    .footer-copyright { padding: 0 10px; }
 }
 
 #TableOfContents {
@@ -836,7 +841,7 @@ a.post-stub-tag  {
     &:hover { font-weight: 600; }
   }
   a:before {
-    content: "\f188";
+    content: $fa-ticket;
     font-family: FontAwesome;
     padding-right: 5px;
   }
