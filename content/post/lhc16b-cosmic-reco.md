@@ -4,6 +4,7 @@ date = "2016-03-28T13:09:45+02:00"
 description = ""
 tags = []
 title = "LHC16b cosmic reco"
+jira = [ "ALIROOT-6607", "ALIROOT-6601" ]
 +++
 
 Preparation steps for the reconstruction of the LHC16b period, containing only cosmic data. Main purpose is to get some first data for the 2016 alignment.
@@ -28,6 +29,9 @@ The idea for this year would be to do thing "properly", i.e. prepare a RecoParam
 Problem with this plan is that cosmic event specie is only set for triggers that are in the `kCosmic` trigger alias (`GRP/CTP/Aliases`).
 
 So added a function `AliMUONCDB::WriteCosmicAliases(const char* triggerList, Int_t startRun, Int_t endRun)` to generate a fake aliases object, putting all the triggers in the comma separated `triggerList` in the `kCosmic` alias.
+
+> Actually the [production team prefers to stay with the old way of doing it](https://alice.its.cern.ch/jira/browse/ALIROOT-6607), so I saved the changes in the
+`feature-lhc16b-cosmic-reco` branch.
 
 The cosmic specie issue being "solved", the test [reconstruction](/log/lhc16b-cosmic-reco/rundatareco.log) log still contains some strange messages...
 

@@ -267,6 +267,9 @@ table {
 .page-title {
   margin: 15px 40px; }
 
+.post-description {
+  text-transform: none; }
+
 .post-date,
 .blog-description {
   color: #c9c9c9;
@@ -352,34 +355,62 @@ table {
 .post-stub {
   border-bottom: 1px dotted #303030;
   margin: 0;
-  position: relative; }
+  /*position: relative;*/ }
   .post-stub:first-child {
     padding-top: 0; }
   .post-stub a {
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    display: block;
+    display: inline-block;
     color: #303030;
     padding: 20px 5px; }
     .post-stub a:hover {
       background: #f2f2f2;
       /* #FCF5F5; */
-      color: #26004d;
-      padding: 20px 24px;
-      /*12px;*/ }
+      color: #26004d; }
       .post-stub a:hover .post-stub-tag {
         background: #26004d; }
+
+a.post-stub-jira {
+  color: #26004d;
+  vertical-align: middle;
+  transition: none;
+  padding: 0px;
+  margin: 0px;
+  background: none;
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase; }
+  a.post-stub-jira:hover {
+    padding: 0px;
+    margin: 0px;
+    background: none;
+    font-weight: 600; }
+  a.post-stub-jira:before {
+    content: "\f188";
+    font-family: FontAwesome;
+    padding-right: 2px; }
 
 .post-stub-tag {
   background: #303030;
   border-radius: 3px;
   color: #FFF;
-  float: right;
+  /*float: right;*/
   font-size: 10px;
-  margin: 7px 0 0;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  /*margin: 7px 0 0;*/
   padding: 0 5px;
+  vertical-align: middle;
   text-transform: uppercase; }
+
+a.post-stub-tag {
+  margin: 0;
+  padding: 1px 3px;
+  display: inline-block;
+  color: #c9c9c9; }
 
 .post-stub-title {
   display: inline-block;
@@ -393,10 +424,10 @@ table {
 
 .post-stub-date {
   display: inline-block;
-  font-size: 10px;
+  font-size: 12px;
   vertical-align: middle; }
   .post-stub-date:before {
-    content: "/ "; }
+    content: " | "; }
 
 .next-posts-link a,
 .previous-posts-link a {
@@ -672,3 +703,16 @@ table {
     #TableOfContents ul li:before {
       content: "";
       padding-right: 7px; }
+
+.jira-ticket {
+  display: inline;
+  margin: 0 5px;
+  font-size: 14px; }
+  .jira-ticket a {
+    display: inline; }
+    .jira-ticket a:hover {
+      font-weight: 600; }
+  .jira-ticket a:before {
+    content: "\f188";
+    font-family: FontAwesome;
+    padding-right: 5px; }

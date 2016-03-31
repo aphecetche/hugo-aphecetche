@@ -300,6 +300,10 @@ table {
 
 .page-title { margin: 15px 40px; }
 
+.post-description {
+  text-transform: none;
+}
+
 .post-date,
 .blog-description {
     color: lighten($secondary,60%);
@@ -401,40 +405,79 @@ table {
     list-style: none;
 }
 
+
 .post-stub {
     border-bottom: 1px dotted $secondary;
     margin: 0;
-    position: relative;
+    /*position: relative;*/
 
     &:first-child { padding-top: 0; }
+
 
     a {
         -webkit-transition: all 0.2s ease-in-out;
         -moz-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
-        display: block;
+        display: inline-block;
         color: $secondary;
         padding: 20px 5px;
 
         &:hover {
             background: $codebackground; /* #FCF5F5; */
             color: $primary;
-            padding: 20px 24px; /*12px;*/
 
-            .post-stub-tag { background: $primary; }
+
+            .post-stub-tag { background: $primary;}
+
         }
+
     }
+
 }
 
-.post-stub-tag {
+a.post-stub-jira {
+  color: $primary;
+  vertical-align: middle;
+  transition: none;
+  padding: 0px;
+  margin: 0px;
+  background: none;
+  &:hover {
+    padding: 0px;
+    margin: 0px;
+    background:none;
+    font-weight: 600;
+  }
+  &:before {
+      content: "\f188";
+      font-family: FontAwesome;
+      padding-right: 2px;
+  }
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.post-stub-tag  {
     background: $secondary;
     border-radius: 3px;
     color: #FFF;
-    float: right;
+    /*float: right;*/
     font-size: 10px;
-    margin: 7px 0 0;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    /*margin: 7px 0 0;*/
     padding: 0 5px;
+    vertical-align: middle;
     text-transform: uppercase;
+}
+
+a.post-stub-tag  {
+  margin: 0;
+  padding: 1px 3px;
+  display: inline-block;
+  color: lighten($secondary,60%);
 }
 
 .post-stub-title {
@@ -451,9 +494,9 @@ table {
 
 .post-stub-date {
     display: inline-block;
-    font-size: 10px;
+    font-size: 12px;
     vertical-align: middle;
-    &:before { content: "/ "; }
+    &:before { content: " | "; }
 }
 
 .next-posts-link a,
@@ -781,5 +824,20 @@ table {
     }
     padding: 0;
     margin: 0;
+  }
+}
+
+.jira-ticket {
+  display: inline;
+  margin:0 5px;
+  font-size: 14px;
+  a {
+    display: inline;
+    &:hover { font-weight: 600; }
+  }
+  a:before {
+    content: "\f188";
+    font-family: FontAwesome;
+    padding-right: 5px;
   }
 }

@@ -2,6 +2,7 @@
 title: MCH Bus Patch Occupancy Evolution DA
 date: "2015-09-08"
 tags: ["mch","da","raw","deroot","aliroot","online"]
+jira: [ "ALIROOT-6278" ]
 ---
 
 In order to get a more precise idea on how the MCH occupancy is behaving, I've started to develop a new DA, MCHBPEVOda, that will monitoring the bus patch occupancy as a function of time. Possibly it will also issue, on regular basis, a list of "faulty" bus patches (BP with too high occupancy). In turn, that list could be used online to remove those bus patches from the configuration, on-the-fly.

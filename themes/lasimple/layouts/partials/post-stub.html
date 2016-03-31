@@ -1,9 +1,15 @@
 <li class="post-stub" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
     <a href="{{ .Permalink }}" itemprop="url" title="Go to post detail">
         <h4 class="post-stub-title" itemprop="name">{{ .Title }}</h4>
-        <time class="post-stub-date" datetime="{{ .Date.Format "2006-01-02" }}">Published {{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        {{ with .Params.featured }}
-            <span class="post-stub-tag">Featured</span>
-        {{ end }}
+        <time class="post-stub-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
     </a>
-</li>
+    {{ range $jira := .Params.jira }}
+    <a class="post-stub-jira" href="https://alice.its.cern.ch/jira/browse/{{ $jira }}">{{ $jira }}</a>
+    {{ end }}
+    {{ with .Params.featured }}
+        <span class="post-stub-tag">Featured</span>
+    {{ end }}
+    {{ range .Params.tags }}
+    <a href="/tags/{{ . }}" class="post-stub-tag">{{ . }}</a>
+    {{ end }}
+  </li>

@@ -2,9 +2,8 @@
 title: Adding LV values to the reconstruction
 tags: [ "DCS","LV","aliroot" ]
 date: "2016-03-20"
+jira: [ "ALIROOT-6590","ALIDCS-540" ]
 ---
-
-[JIRA](https://alice.its.cern.ch/jira/browse/ALIROOT-6590)
 
 ## Mapping
 

@@ -4,7 +4,7 @@ title: SAF3 User Manual
 url: saf3-usermanual
 aliases:
  - /saf/saf3
-#description: User manual of the Subatech Analysis Facility
+tags: [ saf" ]
 ---
 
 # What is SAF ?
