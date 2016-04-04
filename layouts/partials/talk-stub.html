@@ -1,0 +1,14 @@
+<li class="talk-stub">
+  <time class="talk-stub-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02-01-2006" }}</time>
+    <a href="{{ .Permalink }}">
+        <h4 class="talk-stub-title">{{ .Title }}</h4>
+        {{ if .Description }}
+            <p class="talk-stub-description">{{ .Description }}</p>
+        {{ end }}
+    </a>
+
+    {{ range .Params.tags }}
+    <a href="/tags/{{ . }}" class="talk-stub-tag">{{ . }}</a>
+    {{ end }}
+
+</li>

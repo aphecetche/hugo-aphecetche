@@ -27,4 +27,9 @@ buildDrafts = false
 [[menu.main]]
     name = "Reco on SAF3"
     url = "/saf3-reco"
-    weight = 1
+    weight = 2
+
+[[menu.main]]
+  name = "talks"
+  url = "/talk"
+  weight = 3

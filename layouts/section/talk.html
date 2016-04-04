@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+
+<div id="talk-index" class="container">
+    {{ partial "intro.html" . }}
+
+    <ul class="talk-list">
+        {{ $pag := .Paginate .Data.Pages }}
+        {{ range $pag.Pages }}
+            {{ partial "talk-stub.html" . }}
+        {{ end }}
+    </ul>
+
+    <div class="talk-navigation">
+        {{ partial "pagination.html" . }}
+    </div>
+</div>
+
+{{ partial "footer.html" . }}
