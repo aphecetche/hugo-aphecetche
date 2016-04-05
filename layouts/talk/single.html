@@ -69,11 +69,15 @@
 			</div>
 
 
-{{ with .Params.homebutton }}
-			<nav>
-				<a class="button" href="/" role="button"></a>
-			</nav>
-{{ end }}
+<nav>
+	{{ with .Params.homebutton }}
+				<a class="button home" href="/" role="button"></a>
+	{{ end }}
+	{{ with .Params.printbutton }}
+				<a class="button print" href="?print-pdf" role="button"></a>
+	{{ end }}
+</nav>
+
 		</div>
 
 

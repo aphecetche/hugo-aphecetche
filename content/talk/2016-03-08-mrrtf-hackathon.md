@@ -5,11 +5,11 @@ description = ""
 tags = [ "mrrtf","hackathon","alice","o2","coding" ]
 title = "Muon Run3 Reconstruction Task Force"
 headline = "Let's start at last !"
-draft = true
 controls = false
 progress = true
 slidenumbers = true
 homebutton = true
+printbutton = true
 +++
 
 # Agenda

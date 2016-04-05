@@ -118,6 +118,20 @@ a.button {
 			z-index: 31;
 }
 
+
+a.button.print {
+		left: 39px;
+		&:before {
+			content: '\f02f';
+			font-family: FontAwesome;
+			font-size: $mainFontSize;
+			color: white;
+			line-height: 1;
+		}
+}
+
+
+
 .reveal .progress {
 	height: 5px;
 	span {

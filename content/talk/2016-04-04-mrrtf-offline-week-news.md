@@ -6,6 +6,7 @@ tags = [ "mrrtf","talks","alice","o2" ]
 title = "Some Quick News from the offline week"
 headline = "[https://indico.cern.ch/event/508147/](https://indico.cern.ch/event/508147/)"
 homebutton = true
+printbutton = true
 +++
 ## Applicable to code ~now
 
