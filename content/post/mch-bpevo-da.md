@@ -64,12 +64,12 @@ To ease the interpretation, the ComputeOccupancies function of the MCHBPEVOdaUti
 
 First, start with a global view : the occupancy time evolution of the stations (black : full station, red : right part, blue : left part).
 
-![Occupancy Evolution for Stations](/images/lhc15i/mchbpevo-run235201-stations.png)
+![Occupancy Evolution for Stations](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-stations.png)
 
 We see that something strange happened about half-way into the run with Station3, and the occupancy of Station4 (right) is pretty high. Let's have a closer look at their chambers.
 
-![Occupancy Evolution for Station 3](/images/lhc15i/mchbpevo-run235201-station-3.png)
-![Occupancy Evolution for Station 4](/images/lhc15i/mchbpevo-run235201-station-4.png)
+![Occupancy Evolution for Station 3](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-station-3.png)
+![Occupancy Evolution for Station 4](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-station-4.png)
 
 So the culprits are CH5R and CH8R. Continuing to go down, we get to the detection elements :
 
@@ -81,5 +81,5 @@ So the culprits are CH5R and CH8R. Continuing to go down, we get to the detectio
 * BP1108 and 1107 with the dip
 * BP1535 to 1544 (almost all of bottom CH8R, except for DE0824), DDL 2575
 
-![Occupancy Evolution for DDLs](/images/lhc15i/mchbpevo-run235201-ddl.png)
-![Occupancy Evolution for bus patches of DDL 2575](/images/lhc15i/mchbpevo-run235201-bp-of-ddl2575.png)
+![Occupancy Evolution for DDLs](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-ddl.png)
+![Occupancy Evolution for bus patches of DDL 2575](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-bp-of-ddl2575.png)

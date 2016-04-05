@@ -26,12 +26,12 @@ Luminosity estimated assuming a T0VX cross-section of 39 mb
 
 Total CMUL7 lumi 195 nb^-1
 
-![C0MUL rate](/images/lhc15g/jul-16/C0MUL-B-NOPF-MUON-L2ARATE.png)
-![CINT7 rate](/images/lhc15g/jul-16/CINT7-B-NOPF-MUON-MU.png)
-![CMUL7 rate](/images/lhc15g/jul-16/CMUL7-B-NOPF-MUON-L2ARATE.png)
+![C0MUL rate](/post/lhc15g-jul16/C0MUL-B-NOPF-MUON-L2ARATE.png)
+![CINT7 rate](/post/lhc15g-jul16/CINT7-B-NOPF-MUON-MU.png)
+![CMUL7 rate](/post/lhc15g-jul16/CMUL7-B-NOPF-MUON-L2ARATE.png)
 
 ## Acc x Eff
-![Acc x Eff](/images/lhc15g/jul-16/acceff.png)
+![Acc x Eff](/post/lhc15g-jul16/acceff.png)
 
 Note that the weighted (by number of triggers) mean of Acc x Eff is around 0.16
 
@@ -41,6 +41,6 @@ Concerning the Acc x Eff, please note that there is no matching condition on any
 
 And, just for the fun, an invariant mass plot extended towards the up(otato)silon.
 
-![Minv Spectra](/images/lhc15g/jul-16/CMUL7-B-NOPF-MUON-PSALL-pRABSETAMATCHLOWPAIRY-PP.png)
+![Minv Spectra](/post/lhc15g-jul16/CMUL7-B-NOPF-MUON-PSALL-pRABSETAMATCHLOWPAIRY-PP.png)
 
 Note that the selection on event and pairs is a bit more strict (more like usual in fact) than before : I request physics selection and track matching to the trigger.
