@@ -39,10 +39,10 @@ So instead I'm adding histograms per BCX,  for a given event selection (i.e. eit
 
 ## Results : CMUL7 / C0MUL
 
-![BCX ratio for sRABSETA tracks in all events](/images/lhc15g/jul-10/bcxtrackratio-all.png)
-![BCX ratio for sRABSETA tracks in V0BB events](/images/lhc15g/jul-10/bcxtrackratio-v0bb.png)
-![ratio of pT spectra for sRABSETA tracks in all events](/images/lhc15g/jul-10/pttrackratio-all.png)
-![ratio of pT spectra for sRABSETA tracks in V0BB events](/images/lhc15g/jul-10/pttrackratio-v0bb.png)
+![BCX ratio for sRABSETA tracks in all events](/post/lhc15g-jul10/bcxtrackratio-all.png)
+![BCX ratio for sRABSETA tracks in V0BB events](/post/lhc15g-jul10/bcxtrackratio-v0bb.png)
+![ratio of pT spectra for sRABSETA tracks in all events](/post/lhc15g-jul10/pttrackratio-all.png)
+![ratio of pT spectra for sRABSETA tracks in V0BB events](/post/lhc15g-jul10/pttrackratio-v0bb.png)
 
 where V0BB is a VZERO-only physics selection :
 

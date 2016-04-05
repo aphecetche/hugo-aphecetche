@@ -1,10 +1,11 @@
 ---
-title : ALIROOT 6402 bug
+title : MCH St1 HV DCS alias bug
 date: "2015-11-09"
 aliases:
     - /ALIROOT-6402/
 jira: [ "ALIROOT-6402","ALIROOT-4805" ]
 ---
+
 
 This bug is about the runs and reconstruction passes affected by the double remapping of the St1 HV DCS aliases.
 
@@ -21,7 +22,8 @@ Most of the runs potentially affected (because of a HV sector -the one closest t
 
 Only 1 run affected : 195767, because, again, of DE202 which had a voltage below nominal (1400 instead of 1600 V). Still the efficiency is not zero in this region (see below the recpoints map, built with a special reconstruction pass on SAF3 without any cut on the chamber 2 HV values), but the resolution should be pretty poor.
 
-![rec point map of chamber 2 for run 195767](/images/ALIROOT-6402/cluster-pos-chamber2.png)
+![rec point map of chamber 2 for run 195767](/post/station1-hv-dcs-alias-remapping-bug
+/cluster-pos-chamber2.png)
 
 | Pass | AliRoot version | approx. reco date | affected |
 |:-----:|:------------------:|:--------------------:|:---------:|

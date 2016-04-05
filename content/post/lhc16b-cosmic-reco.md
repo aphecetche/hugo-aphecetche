@@ -33,7 +33,7 @@ So added a function `AliMUONCDB::WriteCosmicAliases(const char* triggerList, Int
 > Actually the [production team prefers to stay with the old way of doing it](https://alice.its.cern.ch/jira/browse/ALIROOT-6607), so I saved the changes in the
 `feature-lhc16b-cosmic-reco` branch (in `/Users/laurent/alicesw/aliroot/git` repo)
 
-The cosmic specie issue being "solved", the test [reconstruction](/log/lhc16b-cosmic-reco/rundatareco.log) log still contains some strange messages...
+The cosmic specie issue being "solved", the test [reconstruction](/post/lhc16b-cosmic-reco/rundatareco.log) log still contains some strange messages...
 
 First some errors about the geometry :
 

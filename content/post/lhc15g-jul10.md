@@ -57,10 +57,10 @@ We assume for the moment that the problem is not in the scalers (hence the lumin
 
 #### Rates
 
-![CINT7-B-NOPF-CENTNOTRD rate](/images/lhc15g/jul-10/CINT7-B-NOPF-CENTNOTRD-L2ARATE.png)
-![CMUL7-B-NOPF-MUON rate](/images/lhc15g/jul-10/CMUL7-B-NOPF-MUON-L2ARATE.png)
-![&mu;](/images/lhc15g/jul-10/CINT7-B-NOPF-CENTNOTRD-MU.png)
-![Pile up correction factor](/images/lhc15g/jul-10/CINT7-B-NOPF-CENTNOTRD-PILEUPFACTOR.png)
+![CINT7-B-NOPF-CENTNOTRD rate](/post/lhc15g-jul10/CINT7-B-NOPF-CENTNOTRD-L2ARATE.png)
+![CMUL7-B-NOPF-MUON rate](/post/lhc15g-jul10/CMUL7-B-NOPF-MUON-L2ARATE.png)
+![&mu;](/post/lhc15g-jul10/CINT7-B-NOPF-CENTNOTRD-MU.png)
+![Pile up correction factor](/post/lhc15g-jul10/CINT7-B-NOPF-CENTNOTRD-PILEUPFACTOR.png)
 
 ## Invariant mass
 
@@ -75,14 +75,14 @@ gives :
 		               mJPsi     3.098 +- 0.002 (0.049 %)
 		               sJPsi     0.076 +- 0.002 (2.136 %)
 
-![inv. mass for cmul7-b-nopf-muon](/images/lhc15g/jul-10/CMUL7-B-NOPF-MUON-ALL-pRABSETAPAIRY.png)
+![inv. mass for cmul7-b-nopf-muon](/post/lhc15g-jul10/CMUL7-B-NOPF-MUON-ALL-pRABSETAPAIRY.png)
 
 	NRUNS 16 - NTRIGGER   91879134 - PT NOTRIGGERSELECTION-ALL-pRABSETAPAIRY-V0A  
 		             NofJPsi 10926.360 +- 219.390 ( 2.01 %)
 		               mJPsi     3.097 +- 0.002 (0.055 %)
 		               sJPsi     0.078 +- 0.002 (2.283 %)
 
-![inv. mass for notriggerselection](/images/lhc15g/jul-10/NOTRIGGERSELECTION-ALL-pRABSETAPAIRY.png)
+![inv. mass for notriggerselection](/post/lhc15g-jul10/NOTRIGGERSELECTION-ALL-pRABSETAPAIRY.png)
 
 The ratio in the number of J/&psi; seems in CMUL vs all triggers (~30% loss) seems consistent with the trigger threshold of 1 GeV/c (?)
 
@@ -99,7 +99,7 @@ Again, first look = brute force = not tuned at all. Simulations using `pp503` pa
 	a.Run("test")
 	a.Submit(false)
 
-![Acc x Eff vs run number](/images/lhc15g/jul-10/accxeff.png)
+![Acc x Eff vs run number](/post/lhc15g-jul10/accxeff.png)
 
 Acc x Eff averaged over the analyzed runs is ~ 0.18
 
