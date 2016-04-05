@@ -11,9 +11,15 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/css/reveal.css">
 
-		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/css/theme/white.css" id="theme">
+{{ if .Params.theme }}
+		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/css/theme/{{ .Params.theme }}.css" id="theme">
+{{ else }}
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/css/theme/lasimple.css" id="theme">
+{{ end }}
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/lib/css/zenburn.css">
@@ -37,13 +43,20 @@
 		<div class="reveal">
 
 			<div class="slides">
-<!--
-      <section data-markdown="{{ .Site.BaseURL }}{{ .URL }}/slides.md"
-			         data-separator="^---"
-			         data-separator-vertical="^--"
-			         data-separator-notes="^Note:"
-			         data-charset="iso-8859-15">
-			</section> -->
+
+				<section class="title-slide" data-markdown
+				         data-separator="^---"
+				         data-separator-vertical="^--"
+				         data-separator-notes="^Note:"
+				         data-charset="iso-8859-15">
+# {{ .Title }}
+
+## {{ .Params.headline }}
+
+### {{ .Params.author }}
+
+#### {{ .Date.Format "02-March-2006" }}
+</section>
 
 			<section data-markdown
 			         data-separator="^---"
@@ -55,7 +68,14 @@
 
 			</div>
 
+
+{{ with .Params.homebutton }}
+			<nav>
+				<a class="button" href="/" role="button"></a>
+			</nav>
+{{ end }}
 		</div>
+
 
 		<script src="{{ .Site.BaseURL }}reveal/lib/js/head.min.js"></script>
 		<script src="{{ .Site.BaseURL }}reveal/js/reveal.js"></script>
@@ -68,13 +88,25 @@
 
 				width: 1024,
 				height: 768,
-				margin: 0.15,
+				//margin: 0.15,
 
-				controls: true,
+{{ if .Params.controls }}
+				controls: {{ .Params.controls }},
+{{ else }}
+				controls: false,
+{{ end }}
+{{ if .Params.progress }}
+				progress: {{ .Params.progress }},
+{{ else }}
 				progress: true,
+{{ end }}
 				history: true,
-				center: true,
+				center: false,
+{{ if .Params.slidenumbers }}
+				slideNumber: {{ .Params.slidenumbers }},
+{{ else }}
 				slideNumber: true,
+{{ end }}
 
 				transition: 'none', // none/fade/slide/convex/concave/zoom
 

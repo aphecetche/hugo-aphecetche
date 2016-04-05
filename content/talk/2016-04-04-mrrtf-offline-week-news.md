@@ -1,16 +1,12 @@
 +++
-author = ""
-date = "2016-04-04T18:07:34+02:00"
+author = "Laurent Aphecetche"
+date = "2016-04-05T18:07:34+02:00"
 description = ""
 tags = [ "mrrtf","talks","alice","o2" ]
-title = "MRRTF Montly Meeting - April"
+title = "Some Quick News from the offline week"
+headline = "[https://indico.cern.ch/event/508147/](https://indico.cern.ch/event/508147/)"
+homebutton = true
 +++
-# Some Quick News from the offline week
-
-[https://indico.cern.ch/event/508147/](https://indico.cern.ch/event/508147/)
-
----
-
 ## Applicable to code ~now
 
 - [New build procedure for the ALICE software](https://indico.cern.ch/event/508147/session/5/contribution/7/attachments/1250734/1844016/2016-offline-week-alibuild.pdf)
