@@ -2,6 +2,10 @@
 // Colours //
 // ============================================================ //
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic);
+
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
 $secondary: #303030; /* main color of text */
 /*$primary: #400080;*/
 $primary: darken(#400080,10%);
@@ -44,6 +48,7 @@ h6 { font-size: 14px; margin-bottom: 12px; }
 p {
     line-height: 1.8;
     margin: 0 0 30px;
+    text-align: justify;
 }
 
 a {
@@ -323,6 +328,7 @@ table {
     font-weight: 100;
     line-height: 1;
     margin: 5px 0 0;
+    text-align: center;
 
     a { color: lighten($secondary,60%); }
     a:hover { color: $primary; }
@@ -806,6 +812,11 @@ a.post-stub-tag  {
   font-size: 14px;
   padding: 5px 0px;
 
+  ul ul ul {
+    li:before {
+      padding-left: 38px;
+    }
+  }
   ul ul {
     li:before {
       // content: "\f096";
@@ -895,5 +906,19 @@ a.post-stub-tag  {
              font-family: FontAwesome;
              // margin-right: 2px;
            }
+  }
+}
+
+.post-date .published {
+  &:before {
+    content: "Published on ";
+  }
+}
+
+.post-date .lastmod {
+  color: lighten($secondary,40%); // a bit darker than the published date
+  text-transform: none;
+  &:before {
+    content: "Last modified: ";
   }
 }
