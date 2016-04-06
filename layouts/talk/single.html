@@ -38,6 +38,13 @@
 		<![endif]-->
 	</head>
 
+{{ with .Params.nobackground }}
+<style type="text/css">
+   .reveal {
+		 background: white;
+	 }
+	 </style>
+{{ end }}
 	<body>
 
 		<div class="reveal">
