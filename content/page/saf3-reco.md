@@ -5,6 +5,7 @@ url: saf3-reco
 aliases:
  - saf/saf3reco
 notoc: true
+date: "2015-11-12"
 ---
 
 Warning : this is not for general use ! The scripts below are just given as examples and are not supposed to work out-of-the-box !
