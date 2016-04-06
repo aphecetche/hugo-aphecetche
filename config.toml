@@ -5,6 +5,11 @@ languageCode = "en-US"
 copyright = "Laurent Aphecetche"
 buildDrafts = false
 
+[blackfriday]
+  angledQuotes = true
+  fractions = false
+  plainIDAnchors = true
+
 [Author]
     name = "Laurent Aphecetche"
 
