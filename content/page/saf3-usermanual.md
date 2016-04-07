@@ -84,7 +84,7 @@ TList *list = new TList();
 list->Add(new TNamed("ALIROOT_EXTRA_LIBS", "OADB:ESD"));
 list->Add(new TNamed("ALIROOT_ENABLE_ALIEN", "1"));
 
-TFile::Cp("https://github.com/aphecetche/aphecetche.github.io/blob/master/saf/saf3/AliceVaf.par?raw=true","AliceVaf.par");
+TFile::Cp("http://aphecetche.github.io/page/saf3-usermanual/AliceVaf.par","AliceVaf.par");
 gProof->UploadPackage("AliceVaf.par");
 gProof->EnablePackage("AliceVaf");
 ```
