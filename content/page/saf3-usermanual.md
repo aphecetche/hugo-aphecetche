@@ -77,7 +77,7 @@ root[0] TProof::Open("pod://");
 root[1] .x runXXX.C
 ```
 
-Your `runXXX.C` must Upload and Enable the special AliceVaf.par package (note that you can *not* use the same as for the VAF), like this :
+Your `runXXX.C` must Upload and Enable the special AliceVaf.par package, like this :
 
 ```c++
 TList *list = new TList();
@@ -88,6 +88,15 @@ TFile::Cp("https://github.com/aphecetche/aphecetche.github.io/blob/master/page/s
 gProof->UploadPackage("AliceVaf.par");
 gProof->EnablePackage("AliceVaf");
 ```
+
+Note that currently you can *not* use the same `AliceVaf.par` as the one for the VAF. The SAF3 has this extra line in the `SETUP.C` :
+
+```
+// Enforce, for now, the usage of old TXNetFile...
+gEnv->SetValue("XNet.UseOldClient",1);
+```
+
+to overcome an issue we have on SAF with the root-xrootd combo.
 
 ## Clever (aka automated) way
 
