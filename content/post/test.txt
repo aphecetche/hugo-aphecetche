@@ -1,0 +1,7 @@
+  1. Déplacez le curseur sur cette ligne.
+
+  2. Appuyez  v  et déplacez le curseur vers la cinquième ligne plus bas.
+     Remarquez que le texte est en surbrillance.
+
+  3. Appuyez  :  . En bas de l'écran  :'<,'> va apparaître.
+

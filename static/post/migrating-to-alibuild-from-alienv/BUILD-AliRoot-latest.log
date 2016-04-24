@@ -1,0 +1,53 @@
++ cmake /Users/laurent/o2/o2work/sw/SOURCES/AliRoot/0/0 -DCMAKE_INSTALL_PREFIX=/Users/laurent/o2/o2work/sw/osx_x86-64/AliRoot/0-1 -DROOTSYS=/Users/laurent/o2/o2work/sw/osx_x86-64/ROOT/v5-34-30-alice-1 -DCMAKE_BUILD_TYPE=RELWITHDEBINFO -DALIEN=/Users/laurent/o2/o2work/sw/osx_x86-64/AliEn-Runtime/v2-19-le-1 -DOCDB_INSTALL=PLACEHOLDER
+-- The CXX compiler identification is AppleClang 7.3.0.7030029
+-- The C compiler identification is AppleClang 7.3.0.7030029
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- CMake platform: Darwin-15.4.0
+-- Build folder: /Users/laurent/o2/o2work/sw/BUILD/f406bed359e455b8fe47b3a8da978278a46c43d6/AliRoot
+-- Source folder: /Users/laurent/o2/o2work/sw/SOURCES/AliRoot/0/0
+-- Installation folder: /Users/laurent/o2/o2work/sw/osx_x86-64/AliRoot/0-1
+-- Build type: RELWITHDEBINFO (-O2 -g -DNDEBUG)
+CMake Warning at cmake/CheckGitVersion.cmake:198 (message):
+  AliRoot sources not downloaded from a Version Control System.  I can't tell
+  which revision you are using!
+Call Stack (most recent call first):
+  CMakeLists.txt:84 (include)
+
+
+CMake Error at cmake/CheckGitVersion.cmake:202 (string):
+  string sub-command REGEX, mode REPLACE needs at least 6 arguments total to
+  command.
+Call Stack (most recent call first):
+  CMakeLists.txt:84 (include)
+
+
+CMake Error at cmake/CheckGitVersion.cmake:203 (string):
+  string sub-command REGEX, mode REPLACE needs at least 6 arguments total to
+  command.
+Call Stack (most recent call first):
+  CMakeLists.txt:84 (include)
+
+
+CMake Error at cmake/CheckGitVersion.cmake:210 (if):
+  if given arguments:
+
+    "STREQUAL" "BRANCH"
+
+  Unknown arguments specified
+Call Stack (most recent call first):
+  CMakeLists.txt:84 (include)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/laurent/o2/o2work/sw/BUILD/f406bed359e455b8fe47b3a8da978278a46c43d6/AliRoot/CMakeFiles/CMakeOutput.log".

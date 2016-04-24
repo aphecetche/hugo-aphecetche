@@ -38,3 +38,7 @@ mkdir -p o2/o2work
 git clone https://git.cern.ch/reps/AliRoot
 aliBuild build AliRoot
 ```
+
+and that did not work...
+
+Let's come back to this a little bit later on...

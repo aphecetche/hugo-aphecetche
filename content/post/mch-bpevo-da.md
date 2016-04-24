@@ -1,6 +1,7 @@
 ---
 title: MCH Bus Patch Occupancy Evolution DA
 date: "2015-09-08"
+lastmod : "2016-04-24"
 tags: ["mch","da","raw","deroot","aliroot","online"]
 jira: [ "ALIROOT-6278" ]
 ---
@@ -17,12 +18,20 @@ The DA is developped with AliRoot in a SLC6 VMware Fusion 7 Pro machine on my Ma
 * made use of the filtering facility of the SAF2 to stage (filtered) RAW data of complete runs,
 * create one (two, for Run1 data, i.e. data with CDH v2) FIFO pipe : mknod /tmp/deroot p (mknod /tmp/mpconvert p)
 * in one terminal, launch the deroot program to run on a collection of files (ideally all the files of one run), and send the output to a FIFO
-	* deroot collection://filelist.txt /tmp/deroot
-* (only for CDH v2 data), in another terminal, launch the mpconvert program to run from /tmp/deroot and send its output to the FIFO /tmp/mpconvert
-	* /date/monitoring/Linux/mpConvert /tmp/deroot /tmp/mpconvert
-* in yet another terminal, launch the DA to read from the FIFO (either /tmp/deroot for recent data or /tmp/mpconvert for CDH v2) :
-	* MCHBPEVOda.exe /tmp/deroot "start-date" output.root
 
+```
+deroot collection://filelist.txt /tmp/deroot
+```
+* (only for CDH v2 data), in another terminal, launch the mpconvert program to run from /tmp/deroot and send its output to the FIFO /tmp/mpconvert
+
+```
+/date/monitoring/Linux/mpConvert /tmp/deroot /tmp/mpconvert
+```
+* in yet another terminal, launch the DA to read from the FIFO (either /tmp/deroot for recent data or /tmp/mpconvert for CDH v2) :
+
+```
+MCHBPEVOda.exe /tmp/deroot "start-date" output.root
+```
 Note the DA, when used locally, _must_ be given the start date of the considered run to get the reference time where to start the histograms time-axis. Online, this reference time will be the start time of the DA executable. Optionally, the last parameter gives the name of the output Root file (mchbpevo.root if not given).
 
 The output file contains one AliMergeableCollection (named bpevo) containing, for each time resolution chosen, 889 histograms : 1 for hits count per bus patch + 1 for the number of events in each time bin.
@@ -64,12 +73,12 @@ To ease the interpretation, the ComputeOccupancies function of the MCHBPEVOdaUti
 
 First, start with a global view : the occupancy time evolution of the stations (black : full station, red : right part, blue : left part).
 
-![Occupancy Evolution for Stations](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-stations.png)
+![Occupancy Evolution for Stations](/post/mch-bpevo-da/mchbpevo-run235201-stations.png)
 
 We see that something strange happened about half-way into the run with Station3, and the occupancy of Station4 (right) is pretty high. Let's have a closer look at their chambers.
 
-![Occupancy Evolution for Station 3](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-station-3.png)
-![Occupancy Evolution for Station 4](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-station-4.png)
+![Occupancy Evolution for Station 3](/post/mch-bpevo-da/mchbpevo-run235201-station-3.png)
+![Occupancy Evolution for Station 4](/post/mch-bpevo-da/mchbpevo-run235201-station-4.png)
 
 So the culprits are CH5R and CH8R. Continuing to go down, we get to the detection elements :
 
@@ -81,5 +90,5 @@ So the culprits are CH5R and CH8R. Continuing to go down, we get to the detectio
 * BP1108 and 1107 with the dip
 * BP1535 to 1544 (almost all of bottom CH8R, except for DE0824), DDL 2575
 
-![Occupancy Evolution for DDLs](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-ddl.png)
-![Occupancy Evolution for bus patches of DDL 2575](/post/mch-bpevo-da/lhc15i/mchbpevo-run235201-bp-of-ddl2575.png)
+![Occupancy Evolution for DDLs](/post/mch-bpevo-da/mchbpevo-run235201-ddl.png)
+![Occupancy Evolution for bus patches of DDL 2575](/post/mch-bpevo-da/mchbpevo-run235201-bp-of-ddl2575.png)

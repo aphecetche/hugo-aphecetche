@@ -1,0 +1,23 @@
+
+<section class="{{ $.tag }}">
+<a name="{{ $.tag }}"></a>
+<h2>{{ $.tag }}</h2>
+<ol class="onepage">
+{{ range $key,$taxo := .content.Site.Taxonomies.tags }}
+{{ if eq $key $.tag }}
+{{ range $taxo }}
+<li class="onepage"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> 
+    {{ range $jira := .Page.Params.jira }}
+    <a class="post-stub-jira" href="https://alice.its.cern.ch/jira/browse/{{ $jira }}">{{ $jira }}</a>
+    {{ end }}
+    {{ range .Page.Params.tags }}
+    <a href="/tags/{{ . }}" class="post-stub-tag">{{ . }}</a>
+    {{ end }}
+</li>
+{{end}}
+{{end}}
+{{end}}
+<footer class="{{ $.tag }}">
+</footer>
+</section>
+

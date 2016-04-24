@@ -8,6 +8,9 @@
                     <span>
                       <a class="button-jump-top js-jump-top" href="#">
                           <i class="fa fa-angle-up"></i>
+                      </a> |
+                      <a class="button-jump-home js-jump-home" href="/">
+                          <i class="fa fa-bars"></i>
                       </a> | &copy; {{ .Site.LastChange.Format "2006" }} | <a title="{{ .Title }}" href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a>
                       {{ with .Site.Params.github }}
                         | <a  data-hint="Github" title="Github" href="{{ . }}">

@@ -18,4 +18,23 @@
         {{ template "_internal/google_analytics.html" . }}
 
         <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        {{ with .Site.Params.logo }}
+                            <a class="site-logo" title="{{ .Title }}" href="{{ .Site.BaseURL }}">
+                                <img src="{{ . }}" alt="{{ .Title }}" />
+                            </a>
+                        {{ else }}
+                            <h1 class="site-title">
+                                <a title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+                            </h1>
+                        {{ end }}
+                    <ul class="site-nav">
+                        {{ partial "navigation.html" . }}
+                    </ul>
+                    </div>
+                </div>
+            </header>
+
             <div id="container">

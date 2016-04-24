@@ -1,7 +1,7 @@
 ---
-title: O2 - Creating MCH digit files from filtered RAW data
+title: Creating MCH digit files from filtered RAW data
 date: "2016-03-13"
-tags: [ "o2","hlt","aliroot","raw","digits","saf","condor" ]
+tags: [ "o2","hlt","raw","digits","saf","condor" ]
 ---
 
 First, get the code from AliRoot (feature-muonhlt) branch in MUON/MUON2 directory, and put it on SAF3

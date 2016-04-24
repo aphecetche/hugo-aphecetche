@@ -5,7 +5,7 @@ description = ""
 tags = [ "aliroot","hlt","o2" ]
 jira = [ "ALIHLT-142" ]
 title = "Using HLT recraw local macro"
-draft = true
+draft = false
 +++
 
 The proper way to test for reconstruction modules in HLT (according to [David Rorh](https://alice.its.cern.ch/jira/browse/ALICEHLT-142)) is to use the `HLT/exe/recraw-local.C`

@@ -1,6 +1,5 @@
 {{ partial "header.html" . }}
-
-layout/post
+toto
 
 <div id="post-index" class="container">
     {{ partial "intro.html" . }}
@@ -8,7 +7,7 @@ layout/post
     <ol class="post-list">
         {{ $pag := .Paginate .Data.Pages }}
         {{ range $pag.Pages }}
-            {{ partial "post-stub.html" . }}
+            {{ partial "page-stub.html" . }}
         {{ end }}
     </ol>
 

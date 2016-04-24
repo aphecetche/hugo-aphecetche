@@ -1,0 +1,10 @@
+<li class="onepage">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{ range $jira := .Params.jira }}
+    <a class="post-stub-jira" href="https://alice.its.cern.ch/jira/browse/{{ $jira }}">{{ $jira }}</a>
+    {{ end }}
+    {{ range .Params.tags }}
+    <a href="/tags/{{ . }}" class="post-stub-tag">{{ . }}</a>
+    {{ end }}
+</li>
+

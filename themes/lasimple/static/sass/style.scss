@@ -4,18 +4,29 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic);
 
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,100,300,500,700);
+
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
+$lightstep:4%;
+$gray-very-light: hsl(0,0%,96%);
+$gray-light: darken($gray-very-light,$lightstep);
+$gray-medium: darken($gray-light,$lightstep);
+$gray-medium-dark: darken($gray-medium,$lightstep);
 $secondary: #303030; /* main color of text */
 /*$primary: #400080;*/
-$primary: darken(#400080,10%);
-$background: #FEFEFE;
+$primary: #333333; /* darken(#400080,10%); */
+$background: lighten($gray-very-light,$lightstep/2);
 $codebackground: #f2f2f2; /*#F1F0EA;*/
 
 $fa-ticket: "\f145";
 $fa-bug: "\f188";
 $fa-paperclip: "\f0c6";
 $fa-github: "\f09b";
+$fa-link: "\f0c1";
+$fa-tag: "\f02b";
 
 $light-text: lighten($secondary,20%);
 $maxwidth: 749px;
@@ -30,6 +41,7 @@ body {
     background: $background;
     color: $secondary; /*#424242;*/
     font-family: "Open Sans", arial, sans-serif;
+    font-weight: 300;
     font-size: 18px;
 }
 
@@ -52,7 +64,7 @@ p {
 }
 
 a {
-    color: $primary;
+    color: lighten($primary,20%);
     text-decoration: none;
 }
 
@@ -177,7 +189,7 @@ table {
 
 #wrapper {
     height: auto;
-        min-height: 100%;
+    min-height: 100%;
     /* This must be the same as the height of the footer */
     margin-bottom: -200px;
 
@@ -213,10 +225,10 @@ table {
     &:hover { background: $secondary; }
 
     .fa {
-      padding: 0px;
-      margin: 0px;
-      font-size: 19px;
-      vertical-align: middle;
+        padding: 0px;
+        margin: 0px;
+        font-size: 19px;
+        vertical-align: middle;
     }
 }
 
@@ -233,36 +245,27 @@ table {
 /* ============================================================ */
 
 .site-header {
-    padding: 20px 0 0;
     overflow: auto;
-    text-align: center;
-    text-transform: uppercase;
 }
 
 .site-title-wrapper {
     display: table;
+    padding-top: 20px;
+    background: $gray-very-light;
     margin: 0 auto;
     width: 100%;
 }
 
 .site-title {
-    /*float: left;*/
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 34px;
+    font-weight: 200;
     margin: 0;
     margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    /*width: 100%;*/
+    text-transform: capitalize;
+    letter-spacing: 0.13em;
     a {
-        float: none;
-        /*background: $primary;
-        color: lighten($secondary,70%);*/
-        padding: 25px 0px;
-        padding-bottom: 3px;
-        display: inline-block;
-        /*&:hover { background: $secondary; }*/
-        border-bottom: 2px solid;
+        padding-left: 20px;
+display: inline-block;
     }
 }
 
@@ -281,11 +284,11 @@ table {
     display: inline-block;
     font-size: 14px;
     font-weight: 400;
-    text-transform:capitalize;
+    text-transform:lowercase;
     margin: 5px 20px;
-/*    margin: 0 10px;*/
+    /*    margin: 0 10px;*/
     a:hover { color: $secondary; }
-    a:before { content: $fa-paperclip; font-family: FontAwesome; margin-right: 2px; }
+    a:before { content: $fa-link; font-family: FontAwesome; margin-right: 2px; }
 }
 
 /* ============================================================ */
@@ -295,7 +298,7 @@ table {
 #latest-post { display: none; }
 
 .post-container {
-  margin: 0 40px;
+    margin: 0 40px;
 }
 
 .post-header {
@@ -318,7 +321,7 @@ table {
 .page-title { margin: 15px 40px; }
 
 .post-description {
-  text-transform: none;
+    text-transform: none;
 }
 
 .post-date,
@@ -350,10 +353,10 @@ table {
 
     &:last-child { margin-bottom: 0; }
 
-   h1 {
-      padding-top: 0.5em;
-      margin-top: 2em;
-      border-top: 1px dashed $secondary;
+    h1 {
+        padding-top: 0.5em;
+        margin-top: 2em;
+        border-top: 1px dashed $secondary;
     }
 
 
@@ -455,26 +458,26 @@ table {
 
 a.post-stub-jira {
 
-  color: $light-text;
-  vertical-align: middle;
-  transition: none;
-  padding: 0px;
-  margin: 0px;
-  background: none;
-  &:hover {
+    color: $light-text;
+    vertical-align: middle;
+    transition: none;
     padding: 0px;
     margin: 0px;
-    background:none;
-    font-weight: 600;
-  }
-  &:before {
-      content: $fa-ticket;
-      font-family: FontAwesome;
-      padding-right: 2px;
-  }
-  display: inline-block;
-  font-size: 12px;
-  text-transform: uppercase;
+    background: none;
+    &:hover {
+        padding: 0px;
+        margin: 0px;
+        background:none;
+        font-weight: 600;
+    }
+    &:before {
+        content: $fa-ticket;
+        font-family: FontAwesome;
+        padding-right: 2px;
+    }
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 .post-stub-tag  {
@@ -488,15 +491,15 @@ a.post-stub-jira {
 }
 
 a.post-stub-tag  {
-  margin: 0;
-  padding: 1px 3px;
-  display: inline-block;
-  color: $light-text;
-  &:before {
-    content: '\f02b';
-    font-family: FontAwesome;
-    margin-right: 2px;
-  }
+    margin: 0;
+    padding: 1px 3px;
+    display: inline-block;
+    color: $light-text;
+    &:before {
+        content: $fa-tag;
+        font-family: FontAwesome;
+        margin-right: 2px;
+    }
 }
 
 .post-stub-title {
@@ -595,7 +598,7 @@ a.post-stub-tag  {
 
 .footer {
 
-  max-width: $maxwidth;
+    max-width: $maxwidth;
     height: 200px;
     overflow: auto;
 
@@ -607,12 +610,12 @@ a.post-stub-tag  {
     margin-top: 100px;
 
     .container {
-      text-align: center;
+        text-align: center;
     }
 }
 
 .footer-copyright {
-  display: inline-block;
+    display: inline-block;
     border-top: 2px solid $primary;
     color: $primary;
     font-size: 14px;
@@ -620,7 +623,7 @@ a.post-stub-tag  {
     //margin: 5px auto;
     text-transform: uppercase;
     a {
-      color: inherit;
+        color: inherit;
         &:hover { color: lighten($secondary,50%); }
     }
 }
@@ -664,8 +667,7 @@ a.post-stub-tag  {
 
     .site-nav-item {
         display: block;
-        float: right;
-        margin: 5px 5px;
+   //     margin: 5px 5px;
     }
 
     .post-header {
@@ -698,13 +700,13 @@ a.post-stub-tag  {
     }
 
     .post-stub-title {
-      display: inline;
+        display: inline;
     }
 
     .post-stub-date {
-      margin: 0px;
-      padding: 0px;
-      display: inline;
+        margin: 0px;
+        padding: 0px;
+        display: inline;
     }
     // .post-stub-date:before {
     //     content: "";
@@ -726,14 +728,14 @@ a.post-stub-tag  {
 
     .post-stub a,
     .post-stub a:hover {
-      padding: 0;
-      margin: 0;
-      margin-bottom: 10px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px;
     }
 
     .post-stub-title  {
-      display: inline-block;
-      margin-top: 10px;
+        display: inline-block;
+        margin-top: 10px;
     }
 
     .share {
@@ -755,9 +757,10 @@ a.post-stub-tag  {
 }
 
 @media only screen and (max-width: 400px) {
-    .site-header {
+  /*  .site-header {
         padding-top: 40px;
     }
+*/
 
     .post-title,
     .page-title,
@@ -808,117 +811,216 @@ a.post-stub-tag  {
 }
 
 #TableOfContents {
-  float: center;
-  font-size: 14px;
-  padding: 5px 0px;
+    float: center;
+    font-size: 14px;
+    padding: 5px 0px;
 
-  ul ul ul {
-    li:before {
-      padding-left: 38px;
+    ul ul ul {
+        li:before {
+            padding-left: 38px;
+        }
     }
-  }
-  ul ul {
-    li:before {
-      // content: "\f096";
-      // color: $primary;
-      // font-family: FontAwesome;
-      padding-left: 20px;
+    ul ul {
+        li:before {
+            // content: "\f096";
+            // color: $primary;
+            // font-family: FontAwesome;
+            padding-left: 20px;
+        }
+        padding-top: 2px;
     }
-    padding-top: 2px;
-  }
-  ul {
-    li {
-      list-style: none;
-      padding: 2px 0;
-      /*padding: 2px;*/
+    ul {
+        li {
+            list-style: none;
+            padding: 2px 0;
+            /*padding: 2px;*/
+        }
+        li:before {
+            content: ""; //"\f097";
+            // color: $primary;
+            // font-family: FontAwesome;
+            padding-right: 7px;
+        }
+        padding: 0;
+        margin: 0;
     }
-    li:before {
-      content: ""; //"\f097";
-      // color: $primary;
-      // font-family: FontAwesome;
-      padding-right: 7px;
-    }
-    padding: 0;
-    margin: 0;
-  }
 }
 
 .jira-ticket {
-  display: inline;
-  margin:0 5px;
-  font-size: 14px;
-  a {
     display: inline;
-    &:hover { font-weight: 600; }
-  }
-  a:before {
-    content: $fa-ticket;
-    font-family: FontAwesome;
-    padding-right: 5px;
-  }
+    margin:0 5px;
+    font-size: 14px;
+    a {
+        display: inline;
+        &:hover { font-weight: 600; }
+    }
+    a:before {
+        content: $fa-ticket;
+        font-family: FontAwesome;
+        padding-right: 5px;
+    }
 }
 
 
 #talk-index.container {
-  padding: 0;
+    padding: 0;
 }
 
 .talk-list {
 
-  padding: 0;
-  margin: 0;
-
-  time.talk-stub-date {
-    margin: auto 0;
-    margin-right: 20px;
     padding: 0;
-    font-size: 14px;
-    display: inline-block;
-  }
+    margin: 0;
 
-  li {
-    width: 100%;
-    display: inline-block;
-    border-bottom: 1px dashed $secondary;
-    a {
-      padding: 0;
-      margin: 0;
-      display: inline-block;
-      margin-right: 20px;
-      h4 {
-        text-transform: capitalize;
-      }
+    time.talk-stub-date {
+        margin: auto 0;
+        margin-right: 20px;
+        padding: 0;
+        font-size: 14px;
+        display: inline-block;
     }
-  }
 
-  .talk-stub-tag  {
+    li {
+        width: 100%;
+        display: inline-block;
+        border-bottom: 1px dashed $secondary;
+        a {
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            margin-right: 20px;
+            h4 {
+                text-transform: capitalize;
+            }
+        }
+    }
 
-    color: $light-text;
-      font-size: 12px;
-      margin: 0;
-      padding: 0;
-      display: block;
-      padding: 0 5px;
-      text-transform: uppercase;
-      display: inline-block;
-      &:before {
-             content: '\f02b';
-             font-family: FontAwesome;
-             // margin-right: 2px;
-           }
-  }
+    .talk-stub-tag  {
+
+        color: $light-text;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        display: block;
+        padding: 0 5px;
+        text-transform: uppercase;
+        display: inline-block;
+        &:before {
+            content: '\f02b';
+            font-family: FontAwesome;
+            // margin-right: 2px;
+        }
+    }
 }
 
 .post-date .published {
-  &:before {
-    content: "Published on ";
-  }
+    &:before {
+        content: "Published on ";
+    }
 }
 
 .post-date .lastmod {
-  color: lighten($secondary,40%); // a bit darker than the published date
-  text-transform: none;
-  &:before {
-    content: "Last modified: ";
-  }
+    color: lighten($secondary,40%); // a bit darker than the published date
+    text-transform: none;
+    &:before {
+        content: "Last modified: ";
+    }
+}
+
+
+//div.triangle { height: 0px; width: 0px; border-top: 0px solid transparent; border-right: 100px solid transparent; border-bottom: 100px black solid; border-left: 100px solid transparent; }
+
+
+section {
+    padding: 0;
+    margin: 0 auto;
+    max-width: $maxwidth; 
+    // background: transparent;
+    background: $gray-light;
+    h2,a.nav {
+        margin: 0;
+        padding: 20px;
+        margin-bottom: 20px;
+        // border-bottom: 1px solid black;
+        font-size: 50px;
+        font-weight: 100;
+        line-height: 1.0;
+        font-family: "Roboto Mono";
+        font-weight:100;
+        color: darken($gray-light,10%);
+
+    }
+    a.nav {
+        font-size: 100px;
+        color: darken($gray-very-light,10%);
+    }
+    i.fa.fa-angle-up {
+        margin-bottom: 20px;
+    }
+    li {
+        margin-left: 50px;
+    }
+    footer {
+        min-height: 50px;
+    }
+    display: block;
+    border: 1px solid transparent;
+}
+
+.aliroot,.finalize {
+    h2 {
+        color: darken($gray-light,10%);
+    }
+    background: $gray-light; 
+}
+
+.finalize {
+       color: darken($gray-very-light,10%);
+       li.onepage {
+           padding: 0px;
+           margin: 0;
+           margin-left: 50px;
+       }
+
+    i.fa.fa-github {
+        color: darken($gray-very-light,10%);
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    background: $gray-very-light;
+}
+
+.o2,.talks {
+    h2 {
+        color: darken($gray-medium,10%);
+    }
+    background: $gray-medium; 
+}
+.saf 
+{
+    h2 {
+        color: darken($gray-medium-dark,10%);
+    }
+    background: $gray-medium-dark;
+}
+
+ol.onepage {
+    list-style: none;
+}
+
+.onepage {
+    li {
+        margin-bottom: 20px;
+    }
+    li a {
+    }
+
+}
+
+h2 > i.fa.fa-tag {
+  margin-right: 5px;
+  vertical-align: sub;
+}
+
+section.da h2 {
+   vertical-align: text-top; 
 }

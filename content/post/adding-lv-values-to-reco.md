@@ -2,7 +2,7 @@
 title: Adding LV values to the reconstruction
 tags: [ "DCS","LV","aliroot" ]
 date: "2016-03-20"
-lastmod : "2016-04-06"
+lastmod : "2016-04-24"
 jira: [ "ALIROOT-6590","ALIDCS-540" ]
 ---
 
@@ -14,37 +14,37 @@ LV channels belong to groups. Each group has 3 voltages : -2.5, 2.5 and 3.3 Volt
 
 The DCS aliases do have the form :
 
-> note that alias naming changed on April 4th (just adding .MeasurementSenseValue at
+> note that alias naming changed on April 4th (just adding .MeasurementSenseVoltage at
 the end of the names)...
 
 
 ```
 // St 1-2 have 4 LV groups
 
-MchHvLvLeft/Chamber[01..10]Left/Group[1..4]dig.MeasurementSenseValue
-MchHvLvLeft/Chamber[01..10]Left/Group[1..4]ann.MeasurementSenseValue
-MchHvLvLeft/Chamber[01..10]Left/Group[1..4]anp.MeasurementSenseValue
-MchHvLvRight/Chamber[01..10]Right/Group[1..4]dig.MeasurementSenseValue
-MchHvLvRight/Chamber[01..10]Right/Group[1..4]ann.MeasurementSenseValue
-MchHvLvRight/Chamber[01..10]Right/Group[1..4]anp.MeasurementSenseValue
+MchHvLvLeft/Chamber[01..10]Left/Group[1..4]dig.MeasurementSenseVoltage
+MchHvLvLeft/Chamber[01..10]Left/Group[1..4]ann.MeasurementSenseVoltage
+MchHvLvLeft/Chamber[01..10]Left/Group[1..4]anp.MeasurementSenseVoltage
+MchHvLvRight/Chamber[01..10]Right/Group[1..4]dig.MeasurementSenseVoltage
+MchHvLvRight/Chamber[01..10]Right/Group[1..4]ann.MeasurementSenseVoltage
+MchHvLvRight/Chamber[01..10]Right/Group[1..4]anp.MeasurementSenseVoltage
 
 // St3 has 5 LV groups
 
-MchHvLvLeft/Chamber[05..06]Left/Group[5..5]dig.MeasurementSenseValue
-MchHvLvLeft/Chamber[05..06]Left/Group[5..5]ann.MeasurementSenseValue
-MchHvLvLeft/Chamber[05..06]Left/Group[5..5]anp.MeasurementSenseValue
-MchHvLvRight/Chamber[05..06]Right/Group[5..5]dig.MeasurementSenseValue
-MchHvLvRight/Chamber[05..06]Right/Group[5..5]ann.MeasurementSenseValue
-MchHvLvRight/Chamber[05..06]Right/Group[5..5]anp.MeasurementSenseValue
+MchHvLvLeft/Chamber[05..06]Left/Group[5..5]dig.MeasurementSenseVoltage
+MchHvLvLeft/Chamber[05..06]Left/Group[5..5]ann.MeasurementSenseVoltage
+MchHvLvLeft/Chamber[05..06]Left/Group[5..5]anp.MeasurementSenseVoltage
+MchHvLvRight/Chamber[05..06]Right/Group[5..5]dig.MeasurementSenseVoltage
+MchHvLvRight/Chamber[05..06]Right/Group[5..5]ann.MeasurementSenseVoltage
+MchHvLvRight/Chamber[05..06]Right/Group[5..5]anp.MeasurementSenseVoltage
 
 // St4-5 have 7 LV groups
 
-MchHvLvLeft/Chamber[07..10]Left/Group[5..7]dig.MeasurementSenseValue
-MchHvLvLeft/Chamber[07..10]Left/Group[5..7]ann.MeasurementSenseValue
-MchHvLvLeft/Chamber[07..10]Left/Group[5..7]anp.MeasurementSenseValue
-MchHvLvRight/Chamber[07..10]Right/Group[5..7]dig.MeasurementSenseValue
-MchHvLvRight/Chamber[07..10]Right/Group[5..7]ann.MeasurementSenseValue
-MchHvLvRight/Chamber[07..10]Right/Group[5..7]anp.MeasurementSenseValue
+MchHvLvLeft/Chamber[07..10]Left/Group[5..7]dig.MeasurementSenseVoltage
+MchHvLvLeft/Chamber[07..10]Left/Group[5..7]ann.MeasurementSenseVoltage
+MchHvLvLeft/Chamber[07..10]Left/Group[5..7]anp.MeasurementSenseVoltage
+MchHvLvRight/Chamber[07..10]Right/Group[5..7]dig.MeasurementSenseVoltage
+MchHvLvRight/Chamber[07..10]Right/Group[5..7]ann.MeasurementSenseVoltage
+MchHvLvRight/Chamber[07..10]Right/Group[5..7]anp.MeasurementSenseVoltage
 ```
 
 where `ann` stands for analog negative (-2.5 V), `anp` for analog positive (2.5 V) and `dig` for digital (3.3 V).
@@ -78,4 +78,4 @@ Should printout values around 2.5 for the `ann` groups or `anp` groups and aroun
 
 Setting a specific storage for GRP to point to a real OCDB (compared to the local one $ALICE_ROOT/OCDB) to get the run start and end time.
 
-Next step is to use `mchview` to get the ultimate graphical view on those values, and that is working as well.
+`mchview` has also been modified to get a graphical view on those values.

@@ -25,16 +25,22 @@ buildDrafts = false
   post = "/:year/:month/:day/:filename/"
 
 [[menu.main]]
-    name = "SAF3 User Manual"
-    url = "/saf3-usermanual"
+    name = "aliroot"
+    url = "/#aliroot"
     weight = 1
 
 [[menu.main]]
-    name = "Reco on SAF3"
-    url = "/saf3-reco"
+    name = "o2"
+    url = "/#o2"
     weight = 2
 
 [[menu.main]]
-  name = "talks"
-  url = "/talk"
+  name = "saf"
+  url = "/#saf"
   weight = 3
+
+[[menu.main]]
+  name = "talks"
+  url = "/#talks"
+  weight = 4
+

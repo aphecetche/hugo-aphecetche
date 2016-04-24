@@ -1,18 +1,19 @@
-{{ partial "header.html" . }}
+{{ partial "main-header.html" . }}
 
-<div id="post-index" class="container">
-    {{ partial "intro.html" . }}
+{{ $tag := index ( split .URLPath.URL "/" ) 2 }}
 
-    <ol class="post-list">
+<section class="{{ $tag }}">
+    <a name="{{ $tag }}"></a>
+    <h2><i class="fa fa-tag"></i>{{ $tag }}</h2>
+
+    <ol class="onepage">
         {{ $pag := .Paginate .Data.Pages }}
         {{ range $pag.Pages }}
-            {{ partial "page-stub.html" . }}
+        {{ partial "onepage-post-stub.html" . }}
         {{ end }}
     </ol>
 
-    <div class="post-navigation">
-        {{ partial "pagination.html" . }}
-    </div>
-</div>
 
-{{ partial "footer.html" . }}
+</section>
+
+{{ partial "finalize.html" . }}

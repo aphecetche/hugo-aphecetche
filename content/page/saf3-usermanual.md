@@ -4,7 +4,7 @@ title: SAF3 User Manual
 url: saf3-usermanual
 aliases:
  - /saf/saf3
-tags: [ saf" ]
+tags: [ "saf" ]
 date: "2015-10-15"
 lastmod: "2016-04-22"
 ---
