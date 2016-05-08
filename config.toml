@@ -44,3 +44,8 @@ buildDrafts = false
   url = "/#talks"
   weight = 4
 
+[[menu.main]]
+  name = "geek"
+  url = "/#geek"
+  weight = 5
+

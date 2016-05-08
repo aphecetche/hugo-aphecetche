@@ -1,7 +1,7 @@
 ---
 title: SAF3 reconstruction of "pilot" PbPb 2015 run 243984
 date: "2015-11-20"
-tags: [ "saf","reco","lhc15o","pbpb" ]
+tags: [ "aliroot", "saf","reco","lhc15o","pbpb" ]
 jira: [ "ALIROOT-6437" ]
 ---
 

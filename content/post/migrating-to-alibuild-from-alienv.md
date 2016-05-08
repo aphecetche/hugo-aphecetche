@@ -3,13 +3,15 @@ author = "Laurent Aphecetche"
 date = "2016-04-08T15:48:45+02:00"
 description = ""
 tags = [ "aliroot", "build", "alibuild", "alienv" ]
+jira = [ "ALIROOT-6678" ]
 title = "Migrating to aliBuild from alice-env"
 draft = false
+lastmod = "2016-05-07"
 +++
 
-This page is a short recap of what I ~~have done~~ am trying to do to migrate my development environment from the usage of the [alice-env.conf way](https://dberzano.github.io/alice/install-aliroot/manual/) of installing things to the new [alibuild way](https://dberzano.github.io/alice/alibuild).
+This page is a short recap of what I have done to migrate my development environment from the usage of the [alice-env.conf way](https://dberzano.github.io/alice/install-aliroot/manual/) of installing things to the new [alibuild way](https://dberzano.github.io/alice/alibuild).
 
-The main issue is that I'm used to work with different workdirs, one for each major branch I'm developping in.
+> The main issue is that I'm used to work with different workdirs, one for each major branch I'm developping in.
 
 For instance, for AliRoot, my existing setup was :
 
@@ -77,7 +79,7 @@ lrwxr-xr-x   1 laurent  staff       43 16 déc  2014 svn -> /Users/laurent/alice
 
 In the `alibuild` world, the way to avoid to have a clone made for any package when using the `aliBuild init -z AliRoot destdir` command is to *prepare* the `destdir` and pre-populate it with an `AliRoot` clone *before* issuing the command. Mind the case, it has to be `AliRoot`, not aliroot or ALIROOT or aliRoot... (the actual case is to be found in the Package key of the alidist recipe for the package, see e.g. `alidist/aliroot.sh`).
 
-But to avoid wasting space I'd prefer use [worktrees](https://git-scm.com/docs/git-worktree), which should be the modern way of doing the equivalent of `git-new-workdir`...
+But to avoid wasting space and to retain all the information about my local branches (and being able to share that information between different working directories) I'd prefer use [worktrees](https://git-scm.com/docs/git-worktree), which should be the modern way of doing the equivalent of `git-new-workdir`...
 
 The worktree stuff is not completely ideal. At least I did not succeed to get let's say a bare repo and several worktrees (including one with master). So I ended up having the primary clone be at master and the other worktress at different branches.
 
@@ -116,23 +118,88 @@ The resulting structure is something like this :
 │   └── alidist
 ```
 
-Note the master being a direct link to the "primary" clone, all the other ones where created with the `git worktree` command.
+Note the master being a direct link to the "primary" clone, all the other ones were created with the `git worktree` command.
 
-But then it simply does not work :
+Then to build use : 
 
 ```
 > cd $HOME/o2/o2work/aliroot-master
+> aliBuild -z -w ../sw-run2 -d build AliRoot --disable GEANT3,GEANT4,GEANT4_VMC,fastjet,HepMC,EPOS,JEWEL
+```
+
+(there was an issue at first, fixed in [JIRA 6678](https://alice.its.cern.ch/jira/browse/ALIROOT-6678))
+
+Note that in the above the destination directory is `sw-run2` while the default is assumed to be `sw`, so one then has
+to specify it in the subsequent `alienv` command, e.g. :
+
+```
+> alienv -w $HOME/o2/o2work/sw-run2 q
+VO_ALICE@AliEn-Runtime::latest
+VO_ALICE@AliEn-Runtime::v2-19-le-1
+VO_ALICE@AliRoot::0-1
+VO_ALICE@AliRoot::latest
+VO_ALICE@AliRoot::latest-aliroot-feature-muonhlt
+VO_ALICE@AliRoot::latest-aliroot-master
+VO_ALICE@AliRoot::latest-aliroot-reco-2016
+VO_ALICE@BASE::1.0
+VO_ALICE@GEANT3::latest
+VO_ALICE@GEANT3::v2-1-1
+VO_ALICE@GEANT4::latest
+VO_ALICE@GEANT4::v4.10.01.p03-1
+VO_ALICE@GEANT4_VMC::latest
+VO_ALICE@GEANT4_VMC::v3-2-p1-1
+VO_ALICE@GMP::latest
+VO_ALICE@GMP::v6.0.0-1
+VO_ALICE@GSL::latest
+VO_ALICE@GSL::v1.16-1
+VO_ALICE@MPFR::latest
+VO_ALICE@MPFR::v3.1.3-1
+VO_ALICE@ROOT::latest
+VO_ALICE@ROOT::v5-34-30-alice-1
+VO_ALICE@boost::latest
+VO_ALICE@boost::v1.59.0-1
+VO_ALICE@vgm::4.3-1
+VO_ALICE@vgm::latest
+> alienv -w $HOME/o2/o2work/sw-run2 enter VO_ALICE@AliRoot::latest-aliroot-reco-2016
+```
+
+or, simpler yet, have the `WORK_DIR` environment variable defined to point to it.
+
+To setup a directory to work on an existing remote branch, use the `worktree` command with the `-b` option :
+
+```
+> cd $HOME/o2/o2work
+> mkdir aliroot-ed-detector-experts
+> git worktree add -b ed-detector-experts ../aliroot-ed-detector-experts/AliRoot
+> cd aliroot-ed-detector-experts
+> git clone https://github.com/alisw/alidist -b IB/v5-08/prod
 > aliBuild -z -w ../sw -d build AliRoot --disable GEANT3,GEANT4,GEANT4_VMC,fastjet,HepMC,EPOS,JEWEL
-....
-ERROR:AliRoot:0: Error while executing /Users/laurent/o2/o2work/sw/SPECS/osx_x86-64/AliRoot/0-1/build.sh
-ERROR:AliRoot:0: Log can be found in /Users/laurent/o2/o2work/sw/BUILD/AliRoot-latest/log
 ```
 
-Don't understand what's going on [in the log](/post/migrating-to-alibuild-from-alienv/BUILD-AliRoot-latest.log). Tried to add a message in the  top of the `CheckGitVersion.cmake` but I don't see it ??? (btw, looking at this file I see that my idea of git worktree might not fly without a modification, as there's no `.git` in a worktree... but that'll be for later on...)
-
-So, back to basics to be sure the regular thing is working. Simple thing from scratch :
+In the end I decided on an organization where I have one directory will all the "master" clones I'm interested in, and
+ two separate directories for the legacy (aka Run2) work and the new (aka Run3) work.
 
 ```
+├── repos
+│   ├── AliPhysics
+│   ├── AliRoot
+│   ├── FairRoot
+│   ├── O2
+│   └── ROOT
+├── run2
+│   ├── aliroot-master
+│   ├── aliroot-reco-2016
+│   ├── aliroot-tc-17
+│   └── sw
+└── run3
+    ├── aliroot-ed-detector-experts
+    └── aliroot-feature-muonhlt
+    └── sw
 ```
 
-That is, as expected, working fine. So the issue is really in my organization of clones / worktrees...
+The distinction between the two being made by aliases changing the value of the `WORK_DIR` environment variable :
+
+```
+run2=`export WORK_DIR=~/alicesw/run2/sw`
+run3=`export WORK_DIR=~/alicesw/run3/sw`
+```

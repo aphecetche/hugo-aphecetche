@@ -2,7 +2,7 @@
 author = ""
 date = "2016-03-28T13:09:45+02:00"
 description = ""
-tags = []
+tags = [ "aliroot", "reco" ]
 title = "LHC16b cosmic reco"
 jira = [ "ALIROOT-6607", "ALIROOT-6608", "ALIROOT-6601" ]
 +++

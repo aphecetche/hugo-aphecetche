@@ -3,6 +3,7 @@ title: LHC15g first look - July 10th dataset
 date: "2015-07-10"
 description: First look at LHC15g data, using a limited dataset (aka "July 10" dataset, i.e. whatever was reconstructed up to July 10th)
 jira: [ "ALIROOT-6171" ]
+tags: [ "aliroot" ]
 ---
 
 

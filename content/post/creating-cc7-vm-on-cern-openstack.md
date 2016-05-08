@@ -2,7 +2,7 @@
 author = "Laurent Aphecetche"
 date = "2016-04-07T18:03:46+02:00"
 description = ""
-tags = [ "cern", "lxplus", "openstack", "cloud" ]
+tags = [ "geek", "cern", "lxplus", "openstack", "cloud" ]
 title = "Creating a CC7 VM on CERN OpenStack"
 draft = true
 +++

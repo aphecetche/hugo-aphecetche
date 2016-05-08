@@ -4,6 +4,7 @@ date: "2015-11-09"
 aliases:
     - /ALIROOT-6402/
 jira: [ "ALIROOT-6402","ALIROOT-4805" ]
+tags: [ "aliroot", "mch", "dcs", "bug" ]
 ---
 
 

@@ -2,13 +2,13 @@
 author = "Laurent Aphecetche"
 date = "2016-04-09T17:17:15+02:00"
 description = ""
-tags = [ "geek", "play" ]
-title = "pimp up the terminal"
-
+tags = [ "geek", "play","misc" ]
+title = "Pimp up the terminal"
+lastmod = "2016-04-26"
+draft = true
 +++
 
-
-On this first day of holidays, decided to play a bit with my terminal (iTerm2 actually) and  make it a bit more awesome...
+Decided to play a bit with my terminal (iTerm2 actually) and  make it a bit more awesome...
 
 Started by installing [powerline fonts](https://powerline.readthedocs.org). Changed the `iTerm2` to the `Hack` font.
 
@@ -58,4 +58,6 @@ http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
 
 ## Usefull plugins for vim
 
+## Tmux stuff
 
+[iTerm2 keymaps for tmux](http://tangledhelix.com/blog/2012/04/28/iterm2-keymaps-for-tmux/)
