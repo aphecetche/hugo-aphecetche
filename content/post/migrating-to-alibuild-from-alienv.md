@@ -6,7 +6,7 @@ tags = [ "aliroot", "build", "alibuild", "alienv" ]
 jira = [ "ALIROOT-6678" ]
 title = "Migrating to aliBuild from alice-env"
 draft = false
-lastmod = "2016-05-07"
+lastmod = "2016-05-09"
 +++
 
 This page is a short recap of what I have done to migrate my development environment from the usage of the [alice-env.conf way](https://dberzano.github.io/alice/install-aliroot/manual/) of installing things to the new [alibuild way](https://dberzano.github.io/alice/alibuild).
@@ -165,13 +165,14 @@ VO_ALICE@vgm::latest
 
 or, simpler yet, have the `WORK_DIR` environment variable defined to point to it.
 
-To setup a directory to work on an existing remote branch, use the `worktree` command with the `-b` option :
+To setup a directory to work on an existing remote branch, use the `worktree` command and give the name of the remote
+branch as the last argument :  
 
 ```
-> cd $HOME/o2/o2work
-> mkdir aliroot-ed-detector-experts
-> git worktree add -b ed-detector-experts ../aliroot-ed-detector-experts/AliRoot
-> cd aliroot-ed-detector-experts
+> mkdir ~/alicesw/run3/aliroot-ed-detector-experts
+> cd ~/alicesw/repos/AliRoot 
+> git worktree add ../../run3/aliroot-ed-detector-experts/Aliroot ed-detector-experts
+> cd ~/alicesw/run3/aliroot-ed-detector-experts
 > git clone https://github.com/alisw/alidist -b IB/v5-08/prod
 > aliBuild -z -w ../sw -d build AliRoot --disable GEANT3,GEANT4,GEANT4_VMC,fastjet,HepMC,EPOS,JEWEL
 ```
