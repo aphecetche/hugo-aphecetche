@@ -81,7 +81,7 @@ In the `alibuild` world, the way to avoid to have a clone made for any package w
 
 But to avoid wasting space and to retain all the information about my local branches (and being able to share that information between different working directories) I'd prefer use [worktrees](https://git-scm.com/docs/git-worktree), which should be the modern way of doing the equivalent of `git-new-workdir`...
 
-The worktree stuff is not completely ideal. At least I did not succeed to get let's say a bare repo and several worktrees (including one with master). So I ended up having the primary clone be at master and the other worktress at different branches.
+The worktree stuff is not completely ideal. At least I did not succeed to get let's say a bare repo and several worktrees (including one with master). The problem being that the bare repo is itself considered at master, so one cannot checkout a master branch in a worktree (could use the -f option to force when doing worktree add but then a pull in the master worktree with convert the bare repo in a strange state, i.e. a directory without a .git directory but a checkout = workdir...). So I ended up having the primary clone be at master and the other worktress at different branches.
 
 I chose the following simple naming convention transformation :
 
