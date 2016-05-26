@@ -67,7 +67,7 @@ Fallback :
 The issue :
 
 - for some events the clustering (or the tracking) is aborting for some reason (e.g. too many pads hit)
-- we don't flag those events so we don't easily get an handle on them
+- we don't flag those events so we don't easily get a handle on them
 
 The solution :
 
@@ -126,7 +126,7 @@ So far we are green.
 
 # Reminder of the context
 
-In Run III, Alice will (mainly) becomes trigger-less and acquire MB Pb-Pb collisions at 50 kHz (instead of ~1 kHz currently). Input data to the readout will be huge (1-7 TB/s), and has to be reduced, online, to a more manageable value of 90 GB/s to disk (and 20 GB/s to T0).
+In Run III, Alice will (mainly) becomes trigger-less and acquire MB Pb-Pb collisions at 50 kHz (instead of ~1 kHz currently). Input data to the readout will be huge (~3 TB/s), and has to be reduced, online, to a more manageable value of 90 GB/s to disk (and 20 GB/s to T0).
 
 This _data reduction_ is the top priority of the Run III reconstruction, Alice-wide.
 
@@ -135,7 +135,7 @@ For the muon detectors specifically the numbers are (much) smaller :
 - input to read out ~ few GB/s
 - output of EPN ~ same order (unless we drop the pad information completely)
 
-So we can hope to actually perform _more than a mere data reduction_, i.e. do a _full reconstruction_ with _physics-grade quality_. That's what this group is supposed to deliver at some point.
+So we can hope to actually perform _more than a mere data reduction_, i.e. do a _full reconstruction_ with _physics-grade quality_. That's what the MRRTF group is supposed to deliver at some point.
 
 ---
 <!-- .slide: data-background-image="background-3.png" -->
@@ -225,6 +225,11 @@ Conclusion III : there are lots of things to learn, so slow start might actually
 [Relative memory access speed](http://www.overbyte.com.au/misc/Lesson3/CacheFun.html) -->
 
 <!-- [Interactive latencies](http://www.eecs.berkeley.edu/~rcs/research/interactive_latency.html) -->
+
+---
+
+<!-- .slide: data-state="secondary-slide" -->
+# Questions ?
 
 ---
 
