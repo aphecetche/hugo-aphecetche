@@ -138,6 +138,7 @@ For the muon detectors specifically the numbers are (much) smaller :
 So we can hope to actually perform _more than a mere data reduction_, i.e. do a _full reconstruction_ with _physics-grade quality_. That's what this group is supposed to deliver at some point.
 
 ---
+<!-- .slide: data-background-image="background-3.png" -->
 
 # Muon Run3 Reconstruction Task Force 
 
@@ -156,10 +157,12 @@ To tackle the issue, a "task force" was setup end of 2014...
 - Made a [3 days hackathon](https://indico.cern.ch/event/503464/) in Subatech in march this year.
 
 ---
+<!-- .slide: data-background-image="background-3.png" -->
 
 <img src="snails.png" width="980px" />
 
 ---
+<!-- .slide: data-background-image="background-3.png" -->
 
 # Moving the snail(s)
 
@@ -225,6 +228,7 @@ Conclusion III : there are lots of things to learn, so slow start might actually
 
 ---
 
+<!-- .slide: data-state="secondary-slide" -->
 # Backup
 
 ---
