@@ -204,3 +204,24 @@ The distinction between the two being made by aliases changing the value of the 
 run2=`export WORK_DIR=~/alicesw/run2/sw`
 run3=`export WORK_DIR=~/alicesw/run3/sw`
 ```
+
+Finally, to start working on a new directory for aliroot or o2 with a local dev repo, just prepare the directory with
+the relevant worktree before issuing the `alibuild init -z directory` command.
+
+```
+> cd ~/alicesw/run3
+> mkdir o2-dev
+> cd ~/alicesw/repos/O2
+> git worktree add ~/alicesw/run3/o2-dev/O2 upstream/dev
+> cd ~/alicesw/run3/
+> alibuild init -z o2-dev
+```
+
+The last command above will simply make a clone of `alidist` under `o2-dev` (at the same level as the O2 worktree).
+
+Then good to go for the full build command :
+
+```
+cd ~/alicesw/run3/o2-dev
+alibuild -z -w ~/alicesw/run3/sw --disable fastjet,GEANT4,GEANT4_VMC,HepMC,EPOS,JEWEL,DDS build O2
+```

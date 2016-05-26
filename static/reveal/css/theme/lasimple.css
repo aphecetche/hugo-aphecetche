@@ -373,3 +373,19 @@ section.title-slide {
     font-size: 20px;
     font-weight: 100;
     text-transform: lowercase; }
+
+section.secondary-title-slide 
+{
+    background-color: transparent;
+    height: 100%;
+}
+
+h1.center {
+position: fixed;
+top:50%;
+vertical-align: middle;
+text-align: center;
+display: block;
+font-size: 144px;
+text-transform: uppercase;
+}

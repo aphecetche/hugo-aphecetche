@@ -62,7 +62,7 @@
 
 ### {{ .Params.author }}
 
-#### {{ .Date.Format "02-March-2006" }}
+#### {{ .Date.Format "02 Jan 2006" }}
 </section>
 
 			<section data-markdown
@@ -131,7 +131,13 @@
 					{ src: '{{ .Site.BaseURL }}reveal/plugin/notes/notes.js', async: true }
 				]
 			});
-
+Reveal.addEventListener( 'secondary-slide', function() {
+    // TODO: Sprinkle magic
+    var state = Reveal.getState();
+    var s = Reveal.getSlide(state.indexh,state.indexv);
+    s.classList.add('secondary-title-slide');
+    s.getElementsByTagName('h1')[0].classList.add('center');
+}, false );
 		</script>
 
 	</body>

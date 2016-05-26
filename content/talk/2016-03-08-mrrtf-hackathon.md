@@ -2,8 +2,8 @@
 author = "Laurent Aphecetche"
 date = "2016-03-08T09:00:00+02:00"
 description = ""
-tags = [ "mrrtf","hackathon","alice","o2","coding" ]
-title = "Muon Run3 Reconstruction Task Force"
+tags = [ "talks","mrrtf","hackathon","alice","o2","coding" ]
+title = "Muon Run3 Reconstruction Task Force Hackathon"
 headline = "Let's start at last !"
 controls = false
 progress = true
