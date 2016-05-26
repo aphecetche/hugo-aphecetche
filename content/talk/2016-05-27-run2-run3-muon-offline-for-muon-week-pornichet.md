@@ -185,15 +185,6 @@ Conclusion III : there are lots of things to learn, so slow start might actually
 
 <img src="flowchart-cru-flp-epn-mch-mid-with-status.png" height="650px" />
 
-
----
-<!-- .slide: data-background-image="background-3.png" -->
-
-
-# Hackathon
-
-[3 days face to face gathering of (part of) the team at Subatech](https://indico.cern.ch/event/503464/)
-
 ---
 <!-- .slide: data-background-image="background-3.png" -->
 
