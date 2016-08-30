@@ -237,6 +237,12 @@ The actual staging request can be performed in two ways (basic and libmyaf), see
 staging can *not* be done from SAF3 directly, you'll have to go through the previous
 incarnation, that is SAF2 (i.e. `nansafmaster2` instead of `nansafmaster3`)
 
+
+> In order to be able to use `TProof::Open` from `nansafmaster2` you must either
+> add one line to your `.rootrc` : XSec.GSI.DelegProxy: 2
+> or issue the gEnv->SetValue("XSec.GSI.DelegProxy","2") command from the root
+> prompt prior to do `TProof::Open`.
+
 #### Basic method
 
 This method is the most direct one, but also probably the most cumbersome one. Nevertheless it's good to know and will certainly help if the following method (AF class) does not work for some reason...
