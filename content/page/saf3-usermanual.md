@@ -13,7 +13,7 @@ lastmod: "2016-08-30"
 
 SAF3 is a [PoD](http://pod.gsi.de) Alice Analysis Facility, similar to the CERN [VCAF](https://dberzano.github.io/alice/vcaf/usersguide/), located in Subatech, Nantes, France.
 
-Unlike the `VCAF`, `SAF` is relying on a physical cluster (not a virtual one), of 11 machines, with a dedicated storage of about 30 TB. Contrary to `VCAF` where the data is accessed directly through AliEn, on SAF data must be staged before it can be used.
+Unlike the `VCAF`, `SAF` is relying on a physical cluster (not a virtual one), of 10 machines, with a dedicated storage of about 27 TB. Contrary to `VCAF` where the data is accessed directly through AliEn, on SAF data must be staged before it can be used.
 
 Also unlike `VCAF`, access to `SAF` is not opened to anyone in Alice, but only to _selected_ people from the Muon community.
 
