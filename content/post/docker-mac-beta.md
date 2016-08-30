@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2016-05-21T17:05:38+02:00"
-lastmod = "2016-05-30T09:59:00+02:00"
+lastmod = "2016-06-02T15:38:00+02:00"
 description = ""
 tags = [ "geek", "play", "docker" ]
 title = "Docker Mac Beta"
@@ -52,4 +52,26 @@ qemu-system-x86_64 -drive file=Docker.qcow2 -cdrom $HOME/Downloads/gparted-live-
 
 (and from parted, just let the docker partition take all the available space)
 
+Note that in this end I had to "Reset to factory" Docker Beta as it was stuck at some point...
+
+# Working with X11 applications
+
+see https://forums.docker.com/t/x11-forwarding-issues-with-release-10/11252/4?u=aphecetche
+and also https://blog.bennycornelissen.nl/bwc-gui-apps-in-docker-on-osx/
+
+From the second post I've updated the `docker.zsh` script from my `dotfiles` repo. The basic idea is to first insure the Xquartz setup is correct using the `xquartz_if_not_running` shell function and then call the docker run command with the proper `-e DISPLAY and -v /tmp/.X11-unix etc` options (see below).
+
+
+```
+xhost + 134.158.27.120
+ip=134.158.27.120
+docker run -d --name firefox -e DISPLAY=${ip}:0 -v /tmp/.X11-unix:/tmp/.X11-unix jess/firefox
+docker run -it -e DISPLAY=${ip}:0 -v /tmp/.X11-unix:/tmp/.X11-unix aphecetche/centos7-ali-root5:v1
+```
+
+Made a `xdrun` alias for that.
+
+# Recover an orphaned docker volume for a data container
+
+http://blog.idetailaid.co.uk/how-to-recover-an-orphaned-docker-volume-for-a-data-container/
 
