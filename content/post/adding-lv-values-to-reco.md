@@ -2,7 +2,7 @@
 title: Adding LV values to the reconstruction
 tags: [ "DCS","LV","aliroot" ]
 date: "2016-03-20"
-lastmod : "2016-04-24"
+lastmod : "2016-09-20"
 jira: [ "ALIROOT-6590","ALIDCS-540" ]
 ---
 
@@ -79,3 +79,16 @@ Should printout values around 2.5 for the `ann` groups or `anp` groups and aroun
 Setting a specific storage for GRP to point to a real OCDB (compared to the local one $ALICE_ROOT/OCDB) to get the run start and end time.
 
 `mchview` has also been modified to get a graphical view on those values.
+## Check
+
+From a list of [544 runs](/post/adding-lv-values-to-reco/runlist.lhc16hn) (from LHC16h to LHC16n periods -minus [run 255247](https://alice.its.cern.ch/jira/browse/ALIROOT-6344?focusedCommentId=182921&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-182921) for which the data is not available on cvmfs-), get the [list of detection elements](/post/adding-lv-values-to-reco/scan.lv.hn.txt) that had some trips, using the `AliMUONTrackerLV::Scan` method :
+
+```
+AliCDBManager::Instance()->SetDefaultStorage("local:///cvmfs/alice-ocdb.cern.ch/calibration/data/2016/OCDB")
+AliCDBManager::Instance()->SetRun(260804)
+AliMpCDB::LoadAll()
+AliMUONTrackerLV lv("runlist.lhc16hn","local:///cvmfs/alice-ocdb.cern.ch/calibration/data/2016/OCDB")
+lv.Scan(); 
+```
+
+
