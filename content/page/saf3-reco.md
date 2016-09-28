@@ -1,6 +1,7 @@
 ---
 type: page
 title:  Reconstruction on SAF
+tags: [ "saf", "reco" ]
 url: saf3-reco
 aliases:
  - saf/saf3reco
