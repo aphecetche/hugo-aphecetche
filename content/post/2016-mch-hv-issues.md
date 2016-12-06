@@ -163,5 +163,17 @@ and `runlist.1400` has 8 runs :
 266518,266587,266588,266618,266619,266700,266800,266940
 ```
 
+- 266518 is fluctuating and is currently incorrectly identified as OK by the offline HV cutter
+- 266587 is currently incorrectly identified as OK by the offline HV cutter
+- 266588 is at 1473 V for the full run so correctly rejected by the HV cutter
+- 266618 is fluctuating and currently incorrectly identified as OK by the offline HV cutter
+- 266619 is fluctuating but globally too low so correctly reject by the HV cutter
+- 266700 has tripped (so correctly rejected)
+- 266800 has tripped
+- 266940 is a mess ;-) (ramp-up, fluctuating, then too low), but is correctly rejected
+
+Even if some runs are correctly rejected by the offline HV cutter, I did not want to take any chance, so I explicitely (in the code above) killed sector Quad2Sect1 for those runs to
+insure it will be rejected offline.
+
 <!--- The resulting object were put into `alien://folder=/alice/cern.ch/user/l/laphecet/OCDBCH3L` and requested for upload in --->
 <!--- JIRA Ticket #... --->
