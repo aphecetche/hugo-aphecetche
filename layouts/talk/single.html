@@ -52,10 +52,10 @@
 			<div class="slides">
 
 				<section class="title-slide" data-markdown
-				         data-separator="^---"
-				         data-separator-vertical="^--"
-				         data-separator-notes="^Note:"
-				         data-charset="iso-8859-15">
+             data-separator="(^---$|^---\?.*)"
+             data-separator-vertical="(^\+\+\+$|^\+\+\+\?.*)"
+             data-separator-notes="^Note:"
+             data-charset="utf-8">
 # {{ .Title }}
 
 ## {{ .Params.headline }}
@@ -65,11 +65,11 @@
 #### {{ .Date.Format "02 Jan 2006" }}
 </section>
 
-			<section data-markdown
-			         data-separator="^---"
-			         data-separator-vertical="^--"
-			         data-separator-notes="^Note:"
-			         data-charset="iso-8859-15">
+<section data-markdown
+             data-separator="(^---$|^---\?.*)"
+             data-separator-vertical="(^\+\+\+$|^\+\+\+\?.*)"
+             data-separator-notes="^Note:"
+             data-charset="utf-8">
 							 {{ .RawContent }}
 			</section>
 
@@ -112,15 +112,21 @@
 				progress: true,
 {{ end }}
 				history: true,
+{{ if .Params.center }}
+				center: {{ .Params.center }},
+{{ else }}
 				center: false,
+{{ end }}
 {{ if .Params.slidenumbers }}
 				slideNumber: {{ .Params.slidenumbers }},
 {{ else }}
 				slideNumber: true,
 {{ end }}
-
-				transition: 'none', // none/fade/slide/convex/concave/zoom
-
+{{ if .Params.transition }}
+				transition: {{ .Params.transition }},
+{{ else }}
+				transition: 'none',// none/fade/slide/convex/concave/zoom
+{{ end }}
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: '{{ .Site.BaseURL }}reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
