@@ -11,7 +11,9 @@ center = true
 controls = true
 transition = "slide"
 draft = true
+timeline = true
 +++
+
 
 # Reminder of the problem at hand
 
@@ -129,7 +131,8 @@ draft = true
 - O2 code
 - O2 web
 
----
+
+--- 
 
 # MRRTF
 
@@ -138,6 +141,12 @@ draft = true
 - not moving (fast) enough
 - planning
 - some outcomes still
+
++++
+<div id="timeline"></div>
+<!-- .slide: data-state="timeline" -->
+
++++
 
 # man power issue
 
