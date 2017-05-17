@@ -63,9 +63,14 @@ draft = true
 
 ![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/alice-readout-block-diagram.png)
 
++++
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/heartbeats-cru-flp-epn.png)
+
 ---
 
 # O2 "dictionary"
+
 
 - flp, epn, devices, alfa, (sub,time,heartbeat)frames
 
@@ -120,6 +125,10 @@ draft = true
 
 # O2 links
 
+- O2 TDR
+- O2 code
+- O2 web
+
 ---
 
 # MRRTF
@@ -130,8 +139,140 @@ draft = true
 - planning
 - some outcomes still
 
+# man power issue
+
+- remedy / alleviation @ Subatech : 1 post-doc to free some time from Philippe & Diego
+-
+-
+
 ---
 
 # MRRTF links
 
+---
 
+# BACKUP
+
++++
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/cru-input-rates.png)
+
++++
+
+
+[WP1](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp1.png)
+
+
++++
+
+
+[WP2](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp2.png)
+
++++
+
+[WP3](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp3.png)
+
++++
+
+
+[WP4](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp4.png)
+
++++
+
+
+[WP5](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp5.png)
+
++++
+
+
+[WP6](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp6.png)
+
++++
+
+
+[WP7](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp7.png)
+
++++
+
+
+[WP8](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp8.png)
+
++++
+
+
+[WP9](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp9.png)
+
++++
+
+
+[WP10](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp10.png)
+
++++
+
+
+[WP11](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp11.png)
+
++++
+
+
+[WP12](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp12.png)
+
++++
+
+
+[WP13](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp13.png)
+
++++
+
+
+[WP14](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp14.png)
+
++++
+
+
+[WP15](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp15.png)
+
++++
+
+
+[WP16](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp16.png)
+
+
++++
+
+
+[WP17](https://docs.google.com/document/d/1D2U1xr1QNEaRiP3nezYcsrfti0cnBuDmjtHH_BRWFI4/edit#heading=h.s1087skij9e8)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/wp17.png)
