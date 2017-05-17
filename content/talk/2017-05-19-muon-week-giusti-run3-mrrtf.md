@@ -5,7 +5,7 @@ headline = ""
 homebutton = true
 printbutton = true
 tags = ["talks","alice","o2","mrrtf"]
-title = "Muon Week 2017 - Run3 - MRRTF"
+title = "Muon Week 2017  Run3 - MRRTF"
 theme = "simple"
 center = true
 controls = true
@@ -67,15 +67,26 @@ timeline = true
 
 +++
 
+# Frames everywhere
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/frames.png)
+
++++
+
 ![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/heartbeats-cru-flp-epn.png)
 
----
++++
 
-# O2 "dictionary"
+# ALFA
 
+### Part of O2 is based on ALice FAir framework
 
-- flp, epn, devices, alfa, (sub,time,heartbeat)frames
-
+- working unit is a **device**
+- devices communicate through _messages_
+- devices can be :
+    - single or multi-core
+    - on same machine or on different machines
+    - in different languages
 
 ---
 
@@ -119,44 +130,123 @@ timeline = true
 - WP14 (analysis framework and facilities)
 - WP15 (data management)
 
----
-
-# O2 Milestones ?
-
----
++++
 
 # O2 links
 
-- O2 TDR
-- O2 code
-- O2 web
+- [<i class="fa fa-book" aria-hidden="true"></i> TDR : Upgrade of the Online-Offline Computing System](https://cds.cern.ch/record/2011297)
 
+- [<i class="fa fa-github" aria-hidden="true"></i> Code](https://github.com/AliceO2Group/AliceO2)
 
---- 
+- [<i class="fa fa-bookmark" aria-hidden="true"></i> Web](https://alice-o2.web.cern.ch)
+
+- [<i class="fa fa-calendar" aria-hidden="true"></i> Meetings]()
+    - plenary 1/month
+    - technical 1/month (alternate)
+    - WPs meetings (1/1-2 weeks)
+
+---
 
 # MRRTF
 
-- the task force : mandate, composition
-- some timeline of things that (did not) happened
-- not moving (fast) enough
-- planning
-- some outcomes still
++++
+
+# Muon Run3 Reconstruction Task Force
 
 +++
+
+## Current cast
+
+- Bogdan
+- Diego
+- Gabriele
+- Hugo
+- Ivana
+- Laurent
+- Philippe
+- Sean
+- Sebastien
+
++++
+
+# 1st priority 
+
+## Reconstruction
+
++++
+
+# 2nd priority 
+
+## Simulation
+
++++
+
 <div id="timeline"></div>
 <!-- .slide: data-state="timeline" -->
 
 +++
 
-# man power issue
+# Main issue so far is ... 
 
-- remedy / alleviation @ Subatech : 1 post-doc to free some time from Philippe & Diego
--
--
++++
+
+# (wo)manpower
+
+## <i class="fa fa-frown-o" aria-hidden="true"></i> how did you guess ?
+
++++
+
+## _Availability_ of manpower to be more precise
+
+### We _do_ have volunteers who have little free time so far
+
++++
+
+# Net result being we're (almost) not moving
+
++++
+
+# Remedies ? 
+
+### 1 - Carve some time out of volunteers by finding other people to do part of their job
+
++++
+
+### Example @ Subatech : trying to hire a post-doc focused on physics to free some time for permanent physicists
+
++++
+
+# Remedies ?
+
+### 2 - Hire some skilled people (PhD or otherwise) for a 2-3 years to do part of the job
+
+## Not so easy ?
 
 ---
 
-# MRRTF links
+# Some progress
+
+During the [March Alice Offline Week](https://indico.cern.ch/event/624025/), Sebastien presented his work on a [Go FairMQ device](http://talks.godoc.org/github.com/sbinet/talks/2017/20170331-alice-fer/talk.slide#1)
+
++++
+
+# WIP
+
+## [alo](https://gitpitch.com/mrrtf/alo)
+## [sampa go](https://github.com/mrrtf/sampa)
+## [mid occ](https://github.com/gabrielefronze/AliceO2/tree/my-dev-muon)
+
++++
+
+# Misc.
+
+- [mrrtf](https://mrrtf.github.io) "organization" [on <i class="fa fa-github" aria-hidden="true"></i>](https://github.com/mrrtf)
+- [JIRA "Agile"
+    planning <i class="fa fa-calendar" aria-hidden="true"></i>](https://alice.its.cern.ch/jira/secure/RapidBoard.jspa?rapidView=242&projectKey=MRRTF&view=planning.nodetail&epics=visible)
+
+---
+
+## [Your Question Here]
 
 ---
 

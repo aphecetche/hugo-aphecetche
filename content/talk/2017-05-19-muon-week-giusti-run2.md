@@ -5,15 +5,15 @@ headline = "News"
 homebutton = true
 printbutton = true
 tags = ["talks","alice","offline","run2"]
-title = "Muon Week 2017 - Run2 Offline"
-theme = "white"
+title = "Muon Week 2017 - Run2 Computing"
+theme = "simple"
 center = true
 controls = true
 transition = "slide"
 draft = true
 +++
 
-# [<i class="fa fa-ticket" aria-hidden="true"></i>[ALIROOT-6564](https://alice.its.cern.ch/jira/browse/ALIROOT-6564)
+# [<i class="fa fa-ticket" aria-hidden="true"></i> ALIROOT-6564](https://alice.its.cern.ch/jira/browse/ALIROOT-6564)
 
 ![](/talk/2017-05-19-muon-week-giusti-run2/jira-6564.png)
 
@@ -94,11 +94,11 @@ draft = true
 
 +++
 
-Please use mailing list(s) and/or JIRA for bug reports and question
+Please use mailing list(s) and/or JIRA for bug reports and questions
 
 e.g. alice-dimuon-offline@cern.ch or alice-dimuon-pwg3@cern.ch
 
 ---
 
 
-# [Your question here]
+## [Your question here]
