@@ -29,7 +29,7 @@ timeline = true
 
 ### pieces of code not directly related to reconstruction
 
-### but helps commission, debug, etc...
+### but help commissioning, debug, etc...
 
 +++
 
