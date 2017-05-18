@@ -28,7 +28,7 @@ transition = "slide"
 
 ---
 
-# HV : the 1400 syndrom
+## HV : the 1400 syndrom
 
 ![](/talk/2017-05-19-muon-week-giusti-run2/chamber03left-quad2sect1-run260751.png)
 

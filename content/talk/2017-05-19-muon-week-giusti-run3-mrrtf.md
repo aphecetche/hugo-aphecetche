@@ -154,17 +154,33 @@ timeline = true
 
 +++
 
-## Current cast
+## <i class="fa fa-users" aria-hidden="true"></i> Current cast
 
-- Bogdan
-- Diego
-- Gabriele
-- Hugo
-- Ivana
-- Laurent
-- Philippe
-- Sean
-- Sebastien
+<ul style="list-style:none">
+<li> Diego <i class="devicons devicons-ionic" aria-hidden="true"></i> <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:30%">30%</div></div></li>
+<li> Gabriele <i class="fa fa-graduation-cap" aria-hidden="true"></i> <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:40%">40%</div></div></li>
+<li> Laurent <i class="devicons devicons-ionic" aria-hidden="true"></i> <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:60%">60%</div></div></li>
+<li> Philippe <i class="devicons devicons-ionic" aria-hidden="true"></i> <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:20%">20%</div></div></li>
+</ul>
+
+<ul style="list-style:none">
+<li> Hugo <i class="devicons devicons-ionic" aria-hidden="true"></i> <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:30%">30%</div></div></li>
+</ul>
+
+<ul style="list-style:none">
+<li>Ivana <i class="fa fa-cogs" aria-hidden="true"></i> <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:20%">20%</div></div></li>
+</ul>
+
+<ul style="list-style:none">
+<li> Bogdan <i class="fa fa-cogs" aria-hidden="true"></i> <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:20%">20%</div></div> </li>
+<li> Sebastien <i class="fa fa-cogs" aria-hidden="true"></i> <i class="devicons devicons-go" aria-hidden="true"></i> <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:30%">30%</div></div></li>
+</ul>
+
+<ul style="list-style:none">
+<li> Sean <i class="fa fa-graduation-cap" aria-hidden="true"></i> <i class="fa fa-cogs" aria-hidden="true"></i>  <div class="w3-dark-grey w3-xlarge"><div class="w3-container w3-blue" style="width:40%">40%</div></div></li>
+</ul>
+
+...FTE numbers are just wishes for the moment...
 
 +++
 
@@ -191,13 +207,15 @@ timeline = true
 
 # (wo)manpower
 
-## <i class="fa fa-frown-o" aria-hidden="true"></i> how did you guess ?
+## <i class="fa fa-frown-o" aria-hidden="true"></i> how could you possibly guess ?
 
 +++
 
 ## _Availability_ of manpower to be more precise
 
-### We _do_ have volunteers who have little free time so far
+### We _do_ have volunteers <i class="fa fa-smile-o" aria-hidden="true"></i> 
+
+### but some had little _free_ time so far
 
 +++
 
@@ -207,7 +225,7 @@ timeline = true
 
 # Remedies ? 
 
-### 1 - Carve some time out of volunteers by finding other people to do part of their job
+### 1 - Carve some time out for volunteers by finding other people to do part of their job
 
 +++
 
@@ -219,13 +237,17 @@ timeline = true
 
 ### 2 - Hire some skilled people (PhD or otherwise) for a 2-3 years to do part of the job
 
-## Not so easy ?
+## Easier said than done ?
 
 ---
 
 # Some progress
 
-During the [March Alice Offline Week](https://indico.cern.ch/event/624025/), Sebastien presented his work on a [Go FairMQ device](http://talks.godoc.org/github.com/sbinet/talks/2017/20170331-alice-fer/talk.slide#1)
+### <i class="devicons devicons-go" aria-hidden="true"></i>[Go FairMQ device](http://talks.godoc.org/github.com/sbinet/talks/2017/20170331-alice-fer/talk.slide#1) 
+
+#### ([March Alice Offline Week](https://indico.cern.ch/event/624025/), Sebastien)
+
+Demonstrates FairMQ-like device can be written in a different (i.e. not C++) language
 
 +++
 
@@ -237,15 +259,31 @@ During the [March Alice Offline Week](https://indico.cern.ch/event/624025/), Seb
 
 +++
 
-# Misc.
+## [mrrtf](https://mrrtf.github.io) "organization" [on <i class="fa fa-github" aria-hidden="true"></i>](https://github.com/mrrtf)
 
-- [mrrtf](https://mrrtf.github.io) "organization" [on <i class="fa fa-github" aria-hidden="true"></i>](https://github.com/mrrtf)
-- [JIRA "Agile"
-    planning <i class="fa fa-calendar" aria-hidden="true"></i>](https://alice.its.cern.ch/jira/secure/RapidBoard.jspa?rapidView=242&projectKey=MRRTF&view=planning.nodetail&epics=visible)
+### host code before integration to AliceO2 repo
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/mrrtf-org.png)
+
++++
+
+## [mrrtf on the <i class="fa fa-globe" aria-hidden="true"></i>](https://mrrtf.github.io)
+
+### meant as an information tool for the team 
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/mrrtf-github-io.png)
+
++++
+
+## [JIRA "Agile" planning <i class="fa fa-calendar" aria-hidden="true"></i>](https://alice.its.cern.ch/jira/secure/RapidBoard.jspa?rapidView=242&projectKey=MRRTF&view=planning.nodetail&epics=visible)
+
+![](/talk/2017-05-19-muon-week-giusti-run3-mrrtf/mrrtf-jira.png)
 
 ---
 
-## [Your Question Here]
+# <i class="fa fa-question" aria-hidden="true"></i> or <i class="fa fa-commenting" aria-hidden="true"></i> 
+
+<!-- ### [Your Question Here] -->
 
 ---
 
