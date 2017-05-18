@@ -10,7 +10,6 @@ theme = "simple"
 center = true
 controls = true
 transition = "slide"
-draft = true
 timeline = true
 +++
 

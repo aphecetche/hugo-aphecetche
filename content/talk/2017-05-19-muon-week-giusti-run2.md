@@ -10,7 +10,6 @@ theme = "simple"
 center = true
 controls = true
 transition = "slide"
-draft = true
 +++
 
 # [<i class="fa fa-ticket" aria-hidden="true"></i> ALIROOT-6564](https://alice.its.cern.ch/jira/browse/ALIROOT-6564)
