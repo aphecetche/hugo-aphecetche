@@ -305,7 +305,7 @@ and
 - ch <i class="fa fa-check" aria-hidden="true"></i>
 - ddl <i class="fa fa-check" aria-hidden="true"></i>
 - de <i class="fa fa-check" aria-hidden="true"></i>
-- motif <i class="fa fa-check" aria-hidden="true"></i>
+- motif <i class="fa fa-check" aria-hidden="true"></i>(for slats)
 - pcb <i class="fa fa-check" aria-hidden="true"></i>
 - slat <i class="fa fa-check" aria-hidden="true"></i>
 - sector
