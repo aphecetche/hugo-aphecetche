@@ -312,6 +312,7 @@ and
 
 ... _modulo_ tests, of course ...
 
+see [https://github.com/mrrtf/alo/blob/master/jsonmap/mch-mapping-convert-to-json.cxx](https://github.com/mrrtf/alo/blob/master/jsonmap/mch-mapping-convert-to-json.cxx)
 +++
 
 ## Next Steps
