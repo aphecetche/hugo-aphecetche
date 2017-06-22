@@ -1,8 +1,16 @@
 ---
 title: Creating MCH digit files from filtered RAW data
 date: "2016-03-13"
+lastmod: "2017-06-22"
 tags: [ "o2","hlt","raw","digits","saf","condor" ]
 ---
+
+> Starting June 22nd, 2017, the O2Muon class is accessible in the [`alo` project](https://github.com/mrrtf/alo)
+> in the `r23` directory (and lib), instead of the (now deprecated) feature-muonhlt
+
+> The original `feature-muonhtl` branch is however still available in the
+> legacy AliRoot directory in [gitlab](https://gitlab.cern.ch/alice-legacy/AliRoot-legacy/tree/feature-muonhlt)
+> should you need to have a look.
 
 First, get the code from AliRoot (feature-muonhlt) branch in MUON/MUON2 directory, and put it on SAF3
 
