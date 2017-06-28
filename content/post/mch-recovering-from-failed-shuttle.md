@@ -45,7 +45,8 @@ To recover from this, Chiara Zampolli sent the Shuttle input files : the outputs
  run000272781_MCH_ldc-MUON_TRK-6_PEDESTALS
  ```
 
-From there, using the `MUON/macros/runMCHShuttleOffline.C` macro (cooked for the occasion), 
+From there, using the `MUON/macros/runMCHShuttleOffline.C` macro (cooked for the occasion, see
+[AliRoot PR 290](https://github.com/alisw/AliRoot/pull/290))
  those files were read in by a `Test Shuttle` and uploaded to a local OCDB (in effect
   this macro is "replaying" the MCH Shuttle preprocessors offline).
 
