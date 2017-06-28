@@ -2,7 +2,7 @@
 title: "Recovering from a failed MCH Shuttle"
 date: "2017-06-28"
 tags: ["aliroot","shuttle","mch","online" ]
-jira: ["ALIROOT-7352"]
+jira: ["ALIROOT-7352","ALIROOT-7357" ]
 ---
 
 During LHC17h period, the MCH Shuttle failed for 3 runs : 
@@ -81,7 +81,7 @@ PlotStationOccupancies(*bp);
 ```
 
 Finally the object were archived and sent to Chiara (via [JIRA
-ticket ALIROOT-7352](https://alice.its.cern.ch/jira/browse/ALIROOT-7352)) for upload to RAW ocdb.
+ticket ALIROOT-7357](https://alice.its.cern.ch/jira/browse/ALIROOT-7357)) for upload to RAW ocdb.
 
 ```
 > tar zcvf $HOME/recover-failed-mch-shuttle.tar.gz $(find MUON/Calib -name '*272*' | grep -v Config | tr "\n" " ")
