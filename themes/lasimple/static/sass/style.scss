@@ -4,20 +4,22 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic);
 
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
-
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,100,300,500,700);
 
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
-$lightstep:4%;
-$gray-very-light: hsl(0,0%,96%);
-$gray-light: #EFECCA;
-$gray-medium: #E6E2AF;
-$gray-medium-dark: #A7A37E;
-$primary: #002F2F;
-$secondary: #046380;
-$codebackground: $gray-medium;
+$background: white;
+$primary: black;
+$secondary: #343642;
+$codebackground: darken($background,3%);
+
+$coloraliroot: $secondary;
+$coloro2: #962D3E;
+$colorsaf: #979C9C;
+$colorgeek: darken(#F2EBC7,20%);
+$colortalks: #348899;
+
+$leftblock: 15px;
 
 $fa-ticket: "\f145";
 $fa-bug: "\f188";
@@ -26,11 +28,9 @@ $fa-github: "\f09b";
 $fa-link: "\f0c1";
 $fa-tag: "\f02b";
 
-$light-text: $secondary;
+$light-text: #979C9C;
 $maxwidth: 749px;
 
-$finalize-background: $gray-medium-dark;
-$background: $gray-light;
 
 /* ============================================================ */
 /* Base */
@@ -39,8 +39,7 @@ $background: $gray-light;
 html, body { height: 100%; }
 
 body {
-    background: $background;
-    color: $secondary; /*#424242;*/
+    color: $primary;
     font-family: "Open Sans", arial, sans-serif;
     font-weight: 300;
     font-size: 18px;
@@ -65,7 +64,7 @@ p {
 }
 
 a {
-    color: $primary;
+    color: $secondary;
     text-decoration: none;
 }
 
@@ -136,7 +135,7 @@ table {
 
     tbody > tr:nth-child(odd) > td,
     tbody > tr:nth-child(odd) > th {
-        background-color: $gray-light;
+        background-color: darken($background,10%);
     }
 
     th {
@@ -250,9 +249,9 @@ table {
 }
 
 .site-title-wrapper {
+    background: $background;
     display: table;
     padding-top: 20px;
-    background: $secondary;
     margin: 0 auto;
     width: 100%;
 }
@@ -267,7 +266,6 @@ table {
     a {
         padding-left: 20px;
         display: inline-block;
-        color: $gray-medium;
     }
 }
 
@@ -289,9 +287,26 @@ table {
     text-transform:lowercase;
     margin: 5px 20px;
     /*    margin: 0 10px;*/
-    a { color: $gray-medium-dark; }
-    a:hover { color: $gray-medium; }
+    font-family: "Roboto Mono";
+    font-weight: 300;
+    a[title~=aliroot] {
+        color: $coloraliroot;
+    }
+    a[title~=o2] {
+        color: $coloro2;
+    }
+    a[title~=saf] {
+        color: $colorsaf;
+    }
+    a[title~=talks] {
+        color: $colortalks;
+    }
+    a[title~=geek] {
+        color: $colorgeek;
+    }
+    a:hover { color: $primary; }
     a:before { content: $fa-link; font-family: FontAwesome; margin-right: 2px; }
+
 }
 
 /* ============================================================ */
@@ -301,16 +316,14 @@ table {
 #latest-post { display: none; }
 
 .post-container {
-    margin: 0 0px;
 }
 
 .post-header {
-    border-bottom: 2px solid $secondary;
+    border-bottom: 1px solid $primary;
     margin: 0 0 20px;
     padding: 0 0 20px;
     text-align: center;
     text-transform: uppercase;
-    background: $secondary;
 }
 
 .post-title,
@@ -319,8 +332,8 @@ table {
     font-weight: 700;
     margin: 15px 0;
     text-align: center;
+    a { color: $primary; }
     text-transform: uppercase;
-    a { color: $gray-light; }
 }
 
 .page-title { margin: 15px 40px; }
@@ -331,7 +344,6 @@ table {
 
 .post-date,
 .blog-description {
-    color: $gray-medium-dark;
     font-size: 14px;
     font-weight: 100;
     line-height: 1;
@@ -352,8 +364,9 @@ table {
 
 .post-content {
     a:hover {
-        border-bottom: 1px dotted $primary;
-        padding: 0 0 2px;
+        border-bottom: 1px dashed $secondary;
+        padding: 0;
+        padding-bottom: 1px;
     }
 
     &:last-child { margin-bottom: 0; }
@@ -409,7 +422,7 @@ table {
 .older-posts {
     float: left;
     background: $primary;
-    color: #FEFEFE;
+    color: pink;
     font-size: 14px;
     font-weight: 600;
     margin: 0 5px;
@@ -464,7 +477,7 @@ table {
 a.post-stub-jira {
 
     color: $light-text;
-    vertical-align: middle;
+    vertical-align: baseline;
     transition: none;
     padding: 0px;
     margin: 0px;
@@ -485,13 +498,17 @@ a.post-stub-jira {
     text-transform: uppercase;
 }
 
+li.onepage :nth-child(2) {
+    margin-left: 12px;
+}
+
 .post-stub-tag  {
     font-size: 12px;
     margin: 0;
     padding: 0;
     display: inline-block;
     padding: 0 5px;
-    vertical-align: middle;
+    vertical-align: baseline;
     text-transform: uppercase;
 }
 
@@ -857,7 +874,6 @@ a.post-stub-tag  {
     font-size: 14px;
     a {
         display: inline;
-        color: $gray-medium-dark;
         &:hover { font-weight: 600; }
     }
     a:before {
@@ -925,7 +941,6 @@ a.post-stub-tag  {
 }
 
 .post-date .lastmod {
-    color: $gray-medium-dark;
     text-transform: none;
     &:before {
         content: "Last modified: ";
@@ -937,67 +952,76 @@ a.post-stub-tag  {
 
 
 section {
+    background:$background;
     padding: 0;
     margin: 0 auto;
-    max-width: $maxwidth; 
-    // background: transparent;
-    background: $gray-light;
+    max-width: $maxwidth;
     h2,a.nav {
         margin: 0;
-        padding: 20px;
-        margin-bottom: 20px;
-        // border-bottom: 1px solid black;
+        padding: 5px;
+        margin-bottom: 25px;
         font-size: 50px;
         font-weight: 100;
         line-height: 1.0;
         font-family: "Roboto Mono";
         font-weight:100;
         color: $secondary;
-
     }
     a.nav {
         font-size: 100px;
-        color: $gray-light;
+        color: $primary;
     }
     i.fa.fa-angle-up {
         margin-bottom: 20px;
     }
     li {
-        margin-left: 50px;
+        margin-left: 20px;
     }
     footer {
         min-height: 50px;
     }
     display: block;
-    border: 1px solid transparent;
 }
 
 .aliroot {
-    background: $gray-light;
+    h2,a.nav {
+        border-left: $leftblock solid $coloraliroot;
+    }
 }
 
 .finalize {
-       color: $gray-light;
        li.onepage {
            padding: 0px;
            margin: 0;
-           margin-left: 50px;
+           margin-left: 32px;
        }
 
     i.fa.fa-github {
-        color: $gray-light;
         font-size: 20px;
         margin-bottom: 20px;
     }
-    background: $finalize-background;
 }
 
-.o2,.talks {
-    background: $gray-medium;
+.o2 {
+    h2,a.nav {
+        border-left: 15px solid $coloro2;
+    }
 }
-.saf 
+.talks {
+    h2,a.nav {
+        border-left: 15px solid $colortalks;
+    }
+}
+.geek {
+    h2,a.nav {
+        border-left: 15px solid $colorgeek;
+    }
+}
+.saf
 {
-    background: $gray-light;
+    h2,a.nav {
+        border-left: 15px solid $colorsaf;
+    }
 }
 
 ol.onepage {
