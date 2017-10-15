@@ -12,14 +12,12 @@
 
 $lightstep:4%;
 $gray-very-light: hsl(0,0%,96%);
-$gray-light: darken($gray-very-light,$lightstep);
-$gray-medium: darken($gray-light,$lightstep);
-$gray-medium-dark: darken($gray-medium,$lightstep);
-$secondary: #303030; /* main color of text */
-/*$primary: #400080;*/
-$primary: #333333; /* darken(#400080,10%); */
-$background: lighten($gray-very-light,$lightstep/2);
-$codebackground: #f2f2f2; /*#F1F0EA;*/
+$gray-light: #EFECCA;
+$gray-medium: #E6E2AF;
+$gray-medium-dark: #A7A37E;
+$primary: #002F2F;
+$secondary: #046380;
+$codebackground: $gray-medium;
 
 $fa-ticket: "\f145";
 $fa-bug: "\f188";
@@ -28,8 +26,11 @@ $fa-github: "\f09b";
 $fa-link: "\f0c1";
 $fa-tag: "\f02b";
 
-$light-text: lighten($secondary,20%);
+$light-text: $secondary;
 $maxwidth: 749px;
+
+$finalize-background: $gray-medium-dark;
+$background: $gray-light;
 
 /* ============================================================ */
 /* Base */
@@ -64,7 +65,7 @@ p {
 }
 
 a {
-    color: lighten($primary,20%);
+    color: $primary;
     text-decoration: none;
 }
 
@@ -135,7 +136,7 @@ table {
 
     tbody > tr:nth-child(odd) > td,
     tbody > tr:nth-child(odd) > th {
-        background-color: #f7f7f3;
+        background-color: $gray-light;
     }
 
     th {
@@ -251,7 +252,7 @@ table {
 .site-title-wrapper {
     display: table;
     padding-top: 20px;
-    background: $gray-very-light;
+    background: $secondary;
     margin: 0 auto;
     width: 100%;
 }
@@ -265,7 +266,8 @@ table {
     letter-spacing: 0.13em;
     a {
         padding-left: 20px;
-display: inline-block;
+        display: inline-block;
+        color: $gray-medium;
     }
 }
 
@@ -287,7 +289,8 @@ display: inline-block;
     text-transform:lowercase;
     margin: 5px 20px;
     /*    margin: 0 10px;*/
-    a:hover { color: $secondary; }
+    a { color: $gray-medium-dark; }
+    a:hover { color: $gray-medium; }
     a:before { content: $fa-link; font-family: FontAwesome; margin-right: 2px; }
 }
 
@@ -298,7 +301,7 @@ display: inline-block;
 #latest-post { display: none; }
 
 .post-container {
-    margin: 0 40px;
+    margin: 0 0px;
 }
 
 .post-header {
@@ -307,6 +310,7 @@ display: inline-block;
     padding: 0 0 20px;
     text-align: center;
     text-transform: uppercase;
+    background: $secondary;
 }
 
 .post-title,
@@ -316,6 +320,7 @@ display: inline-block;
     margin: 15px 0;
     text-align: center;
     text-transform: uppercase;
+    a { color: $gray-light; }
 }
 
 .page-title { margin: 15px 40px; }
@@ -326,7 +331,7 @@ display: inline-block;
 
 .post-date,
 .blog-description {
-    color: lighten($secondary,60%);
+    color: $gray-medium-dark;
     font-size: 14px;
     font-weight: 100;
     line-height: 1;
@@ -852,6 +857,7 @@ a.post-stub-tag  {
     font-size: 14px;
     a {
         display: inline;
+        color: $gray-medium-dark;
         &:hover { font-weight: 600; }
     }
     a:before {
@@ -919,7 +925,7 @@ a.post-stub-tag  {
 }
 
 .post-date .lastmod {
-    color: lighten($secondary,40%); // a bit darker than the published date
+    color: $gray-medium-dark;
     text-transform: none;
     &:before {
         content: "Last modified: ";
@@ -946,12 +952,12 @@ section {
         line-height: 1.0;
         font-family: "Roboto Mono";
         font-weight:100;
-        color: darken($gray-light,10%);
+        color: $secondary;
 
     }
     a.nav {
         font-size: 100px;
-        color: darken($gray-very-light,10%);
+        color: $gray-light;
     }
     i.fa.fa-angle-up {
         margin-bottom: 20px;
@@ -966,15 +972,12 @@ section {
     border: 1px solid transparent;
 }
 
-.aliroot,.finalize {
-    h2 {
-        color: darken($gray-light,10%);
-    }
-    background: $gray-light; 
+.aliroot {
+    background: $gray-light;
 }
 
 .finalize {
-       color: darken($gray-very-light,10%);
+       color: $gray-light;
        li.onepage {
            padding: 0px;
            margin: 0;
@@ -982,25 +985,19 @@ section {
        }
 
     i.fa.fa-github {
-        color: darken($gray-very-light,10%);
+        color: $gray-light;
         font-size: 20px;
         margin-bottom: 20px;
     }
-    background: $gray-very-light;
+    background: $finalize-background;
 }
 
 .o2,.talks {
-    h2 {
-        color: darken($gray-medium,10%);
-    }
-    background: $gray-medium; 
+    background: $gray-medium;
 }
 .saf 
 {
-    h2 {
-        color: darken($gray-medium-dark,10%);
-    }
-    background: $gray-medium-dark;
+    background: $gray-light;
 }
 
 ol.onepage {
