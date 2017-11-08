@@ -3,6 +3,7 @@ theme = "lasimple"
 languageCode = "en-US"
 copyright = "Laurent Aphecetche"
 buildDrafts = false
+buildFuture = true
 
 [blackfriday]
   angledQuotes = true
