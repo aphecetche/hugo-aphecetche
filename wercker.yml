@@ -4,7 +4,7 @@ build:
     - arjen/hugo-build@1.23.3:
         version: "0.30.2"
         theme: lasimple
-        flags: -b https://aphecetche.github.io
+        flags: -b https://aphecetche.github.io/
 
 deploy:
   steps:
