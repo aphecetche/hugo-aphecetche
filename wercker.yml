@@ -1,7 +1,7 @@
 box: golang
 build:
   steps:
-    - arjen/hugo-build@1.23.3    
+    - arjen/hugo-build@1.23.3:
         version: "0.30.2"
         theme: lasimple
         flags: -b https://aphecetche.github.io
