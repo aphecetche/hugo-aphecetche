@@ -150,7 +150,7 @@ Demonstrates FairMQ-like device can be written in a different (i.e. not C++) lan
 ---
 
 
-initial <i class="fa fa-lightbulb-o" aria-hidden="true"></i> : use a "simple" (at least simpler than C++) language with built-in concurrency to enter the
+initial <i class="fa fa-lightbulb-o" aria-hidden="true"></i> : use a "simple" (at least simpler than C++) language with built-in concurrency from the get-go to enter the
 concurrency world more easily, with a fresh mindset
 
 
