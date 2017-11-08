@@ -39,9 +39,9 @@ A group of Muon (MCH+MID) people tasked to write the Run3 reconstruction softwar
 
 ## Hackathons
 
-- 2/3 days of coding within a same room
+- 2/3 days of coding within the same room
 - 5 so far (1 virtual)
-- (Too) often « Groundhog Day » for full stack installation
+- (too) often « Groundhog Day » for full stack installation
 - playing with FairMQ devices and/or aliceHLTwrapper
 - somewhat weak throughput
 - but at least a sure way to have people working on Run3 during some time <i class="fa fa-smile-o" aria-hidden="true"></i>
