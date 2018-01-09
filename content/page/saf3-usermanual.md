@@ -6,7 +6,7 @@ aliases:
  - /saf/saf3
 tags: [ "saf" ]
 date: "2015-10-15"
-lastmod: "2016-08-30"
+lastmod: "2018-01-09"
 ---
 
 # What is SAF ?
@@ -80,13 +80,19 @@ root[1] .x runXXX.C
 Your `runXXX.C` must Upload and Enable the special AliceVaf.par package, like this :
 
 ```c++
-TList *list = new TList();
-list->Add(new TNamed("ALIROOT_EXTRA_LIBS", "OADB:ESD"));
-list->Add(new TNamed("ALIROOT_ENABLE_ALIEN", "1"));
-
 TFile::Cp("https://github.com/aphecetche/aphecetche.github.io/blob/master/page/saf3-usermanual/AliceVaf.par?raw=true","AliceVaf.par");
 gProof->UploadPackage("AliceVaf.par");
 gProof->EnablePackage("AliceVaf");
+```
+
+If you need to load specific libraries (should no longer be needed since a while) or require an alien connection, you
+can pass a list of strings as the second argument of `EnablePackage` :
+
+```c++
+TList *list = new TList();
+list->Add(new TNamed("ALIROOT_EXTRA_LIBS", "OADB:ESD"));
+list->Add(new TNamed("ALIROOT_ENABLE_ALIEN", "1"));
+gProof->EnablePackage("AliceVaf",list);
 ```
 
 Note that currently you can *not* use the same `AliceVaf.par` as the one for the VAF. The SAF3 has this extra line in the `SETUP.C` :
