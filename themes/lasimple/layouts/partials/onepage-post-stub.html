@@ -1,5 +1,5 @@
 <li class="onepage">
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <a href="{{ .Permalink }}">{{ .Title }} toto</a>
     {{ range $jira := .Params.jira }}
     <a class="post-stub-jira" href="https://alice.its.cern.ch/jira/browse/{{ $jira }}">{{ $jira }}</a>
     {{ end }}

@@ -6,7 +6,8 @@
 {{ range $key,$taxo := .content.Site.Taxonomies.tags }}
 {{ if eq $key $.tag }}
 {{ range $taxo }}
-<li class="onepage"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> 
+<li class="onepage"><a href="{{ .Page.Permalink }}">{{ .Page.Title }} </a> 
+    <span class="post-stub-date">{{ .Page.PublishDate.Format "Jan 2, 2006" }}</span>
     {{ range $jira := .Page.Params.jira }}
     <a class="post-stub-jira" href="https://alice.its.cern.ch/jira/browse/{{ $jira }}">{{ $jira }}</a>
     {{ end }}
