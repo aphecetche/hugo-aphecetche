@@ -131,7 +131,7 @@ timeline = false
 
 ## Reconstruction planning (1)
 
-![](/talk/2017-11-09-alice-week-mrrtf-status/muon-reco-planning-1.png)
+![](/talk/2018-01-11-mrrtf-status/muon-reco-planning-1.png)
 
 ---
 
