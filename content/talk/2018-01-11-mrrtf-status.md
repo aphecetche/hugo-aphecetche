@@ -202,3 +202,33 @@ BenchAliRoot/PadByPosition/20/1        176 us        176 us       3471 n=5.68363
 BenchAliRoot/PadByPosition/20/0        156 us        156 us       4431 n=6.39301M/s nin=6.39301M/s
 ```
 
+
+---
+
+Test project /Users/laurent/alice/sw/BUILD/alo-latest-clion/alo
+
+```
+    Start 1: testJsonMapCreator
+1/8 Test #1: testJsonMapCreator ...............   Passed    9.11 sec
+    Start 2: testContourCreatorVsAliRoot
+2/8 Test #2: testContourCreatorVsAliRoot ......   Passed    4.81 sec
+    Start 3: testSegmentationVsAliroot
+3/8 Test #3: testSegmentationVsAliroot ........   Passed   23.14 sec
+    Start 4: testSomeGlobalNumbers
+4/8 Test #4: testSomeGlobalNumbers ............   Passed    2.04 sec
+    Start 5: testContour
+5/8 Test #5: testContour ......................   Passed    0.06 sec
+    Start 6: testimpl1
+6/8 Test #6: testimpl1 ........................   Passed    0.46 sec
+    Start 7: testSegmentation1
+7/8 Test #7: testSegmentation1 ................   Passed    1.77 sec
+    Start 8: testSegmentation2
+8/8 Test #8: testSegmentation2 ................***Failed    0.07 sec
+
+88% tests passed, 1 tests failed out of 8
+
+Total Test time (real) =  41.48 sec
+
+The following tests FAILED:
+          8 - testSegmentation2 (Failed)
+```
