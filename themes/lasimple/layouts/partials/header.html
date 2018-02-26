@@ -1,21 +1,2 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ .Title }} &middot; {{ .Site.Author.name }}</title>
-        <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        {{ .Hugo.Generator }}
-        <meta name="robots" content="index,follow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/normalize.css">
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/highlight.css">
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css">
-    </head>
-    <body>
-        {{ template "_internal/google_analytics.html" . }}
-
-        <div id="wrapper">
-            <div id="container">
+ {{ partial "header-base.html" . }}
+        <div id="container">

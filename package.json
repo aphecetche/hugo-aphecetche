@@ -1,0 +1,43 @@
+{
+  "name": "aphecetche.xyz",
+  "version": "0.9.0",
+  "description": "Work Site of Laurent Aphecetche",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -f themes/lasimple/static/css/*.min.css",
+    "clean:public": "rm -rf public",
+    "css:watch": "postcss themes/lasimple/static/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css --watch",
+    "css:build": "postcss themes/lasimple/static/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css",
+    "start": "npm run clean:public && parallelshell 'npm run css:watch' 'hugo serve --disableFastRender --noHTTPCache'",
+    "build": "npm run css:build && hugo --baseURL $URL"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aphecetche/hugo-aphecetche.github.io.git"
+  },
+  "author": "Laurent Aphecetche",
+  "license": "GPL-3.0+",
+  "bugs": {
+    "url": "https://github.com/aphecetche/hugo-aphecetche.github.io.git/issues"
+  },
+  "homepage": "https://github.com/aphecetche/hugo-aphecetche.github.io.git#readme",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "parallelshell": "^3.0.2",
+    "postcss-cli": "^4.1.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-font-awesome": "^0.4.0",
+    "postcss-font-magician": "^2.1.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^17.0.0"
+  },
+  "stylelint" : {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "max-empty-lines": 2,
+      "selector-nested-pattern": "&",
+      "property-no-unknown" : [ true, { "ignoreProperties" : ["font-awesome"] } ]
+    }
+  }
+}
