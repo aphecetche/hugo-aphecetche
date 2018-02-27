@@ -1,5 +1,8 @@
 {{ range .Site.Menus.main.ByWeight }}
-    <li class="site-nav-item">
-        <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a>
-    </li>
+<li class="site-nav-item">
+    <svg viewBox="0 0 16 16" class="icon icon-link">
+        <use xlink:href="#icon-link"></use>
+    </svg>
+    <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a>
+</li>
 {{ end }}

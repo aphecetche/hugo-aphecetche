@@ -14,7 +14,9 @@
                       </a> | &copy; {{ .Site.LastChange.Format "2006" }} | <a title="{{ .Title }}" href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a>
                       {{ with .Site.Params.github }}
                         | <a  data-hint="Github" title="Github" href="{{ . }}">
-                              <i class="fa fa-github"></i>
+                <svg viewBox="0 0 24 24" class="icon icon-github">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
                           </a>
                       {{ end }} | Powered by <a href="http://gohugo.io/">Hugo</a></span>
                 </p>

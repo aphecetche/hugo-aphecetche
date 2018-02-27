@@ -881,15 +881,12 @@ table tr {
   font-size: 14px;
   font-weight: 300;
   text-transform: lowercase;
-  margin: 5px 20px;
+  margin: 16px 20px;
   font-family: "Roboto Mono"
 }
 
-.site-nav-item a::before {
-  font-family: FontAwesome;
-  content: '\f0c1';
-  background: pink;
-  margin-right: 2px;
+.site-nav-item a {
+  margin: -6px;
 }
 
 .site-nav-item a[title~=aliroot] {
@@ -1100,8 +1097,6 @@ a.post-stub-jira {
   vertical-align: baseline;
   -webkit-transition: none;
   transition: none;
-  padding: 0;
-  margin: 0;
   background: none;
 }
 
@@ -1110,12 +1105,6 @@ a.post-stub-jira:hover {
   margin: 0;
   background: none;
   font-weight: 600;
-}
-
-a.post-stub-jira::before {
-  font-family: FontAwesome;
-  content: '\f145';
-  padding-right: 2px;
 }
 
 a.post-stub-jira {
@@ -1141,13 +1130,7 @@ a.post-stub-tag {
   margin: 0;
   padding: 1px 3px;
   display: inline-block;
-  color: #979c9c
-}
-
-a.post-stub-tag::before {
-  font-family: FontAwesome;
-  content: '\f02b';
-  margin-right: 2px;
+  color: #979c9c;
 }
 
 .post-stub-title {
@@ -1542,12 +1525,6 @@ a.post-stub-tag::before {
   font-weight: 600;
 }
 
-.jira-ticket a::before {
-  font-family: FontAwesome;
-  content: '\f145';
-  padding-right: 5px;
-}
-
 #talk-index.container {
   padding: 0;
 }
@@ -1589,11 +1566,6 @@ a.post-stub-tag::before {
   padding: 0 5px;
   text-transform: uppercase;
   display: inline-block;
-}
-
-.talk-list .talk-stub-tag::before {
-  font-family: FontAwesome;
-  content: '\f02b';
 }
 
 .post-date .published::before {
@@ -1701,4 +1673,16 @@ section.da h2 {
   vertical-align: text-top;
 }
 
-/* @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"); */
+.icon-link,
+.icon-ticket,
+.icon-github {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.icon-tag {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}

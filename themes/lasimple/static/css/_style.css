@@ -315,13 +315,11 @@ table {
   font-size: 14px;
   font-weight: 300;
   text-transform: lowercase;
-  margin: 5px 20px;
+  margin: 16px 20px;
   font-family: "Roboto Mono";
 
-  & a::before {
-    font-awesome: link;
-    background: pink;
-    margin-right: 2px;
+  & a {
+    margin: -6px;
   }
 
   & a[title~=aliroot] {
@@ -530,8 +528,6 @@ a.post-stub-jira {
   color: var(--light-text);
   vertical-align: baseline;
   transition: none;
-  padding: 0;
-  margin: 0;
   background: none;
 
   &:hover {
@@ -539,11 +535,6 @@ a.post-stub-jira {
     margin: 0;
     background: none;
     font-weight: 600;
-  }
-
-  &::before {
-    font-awesome: ticket;
-    padding-right: 2px;
   }
 
   display: inline-block;
@@ -569,11 +560,6 @@ a.post-stub-tag {
   padding: 1px 3px;
   display: inline-block;
   color: var(--light-text);
-
-  &::before {
-    font-awesome: tag;
-    margin-right: 2px;
-  }
 }
 
 .post-stub-title {
@@ -961,11 +947,6 @@ a.post-stub-tag {
       font-weight: 600;
     }
   }
-
-  & a::before {
-    font-awesome: ticket;
-    padding-right: 5px;
-  }
 }
 
 #talk-index.container {
@@ -1008,10 +989,6 @@ a.post-stub-tag {
     padding: 0 5px;
     text-transform: uppercase;
     display: inline-block;
-
-    &::before {
-      font-awesome: tag;
-    }
   }
 }
 
@@ -1133,3 +1110,19 @@ h2 > i.fa.fa-tag {
 section.da h2 {
   vertical-align: text-top;
 }
+
+.icon-link,
+.icon-ticket,
+.icon-github {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.icon-tag {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+
