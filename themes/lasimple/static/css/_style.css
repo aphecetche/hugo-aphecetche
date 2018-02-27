@@ -18,6 +18,7 @@
 html,
 body {
   height: 100%;
+  border: 2px solid black;
 }
 
 body {
