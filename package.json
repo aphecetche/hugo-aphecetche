@@ -10,7 +10,7 @@
     "css:watch": "postcss themes/lasimple/static/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css --watch",
     "css:build": "postcss themes/lasimple/static/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css",
     "start": "npm run clean:public && parallelshell 'npm run css:watch' 'hugo serve --disableFastRender --noHTTPCache'",
-    "build": "npm run css:build && hugo --baseURL $URL"
+    "build": "npm run css:build && hugo version && hugo --baseURL $URL"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,6 @@
     "postcss-cli": "^4.1.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-easy-import": "^3.0.0",
-    "postcss-font-awesome": "^0.4.0",
     "postcss-font-magician": "^2.1.0",
     "spritesh": "^1.2.0",
     "stylelint": "^8.4.0",

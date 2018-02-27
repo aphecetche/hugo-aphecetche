@@ -18,8 +18,6 @@ module.exports = {
                      '300': []
                  }
              },
-        }),
-        require('postcss-font-awesome')
-        
+        })
     ]
 };
