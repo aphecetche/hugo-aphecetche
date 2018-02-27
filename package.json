@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aphecetche/hugo-aphecetche.github.io.git"
+    "url": "git+https://github.com/aphecetche/hugo-aphecetche.git"
   },
   "author": "Laurent Aphecetche",
   "license": "GPL-3.0+",
   "bugs": {
-    "url": "https://github.com/aphecetche/hugo-aphecetche.github.io.git/issues"
+    "url": "https://github.com/aphecetche/hugo-aphecetche.git/issues"
   },
-  "homepage": "https://github.com/aphecetche/hugo-aphecetche.github.io.git#readme",
+  "homepage": "https://github.com/aphecetche/hugo-aphecetche.git",
   "devDependencies": {
     "cssnano": "^3.10.0",
     "parallelshell": "^3.0.2",
