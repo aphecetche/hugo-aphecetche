@@ -53,3 +53,8 @@ Thumbs.db
 tags
 .atom*
 .clang*
+
+cmake*
+node_modules
+public
+.idea

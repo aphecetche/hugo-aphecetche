@@ -9,5 +9,7 @@ center = true
 controls = true
 transition = "slide"
 timeline = false
+title = "{{ replace .Name "-" " " | title }}"
+date = {{ .Date }}
+draft = true
 +++
-

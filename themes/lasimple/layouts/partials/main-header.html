@@ -1,40 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ .Title }} &middot; {{ .Site.Author.name }}</title>
-        <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        {{ .Hugo.Generator }}
-        <meta name="robots" content="index,follow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/normalize.css">
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/highlight.css">
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css">
-    </head>
-    <body>
-        {{ template "_internal/google_analytics.html" . }}
+{{ partial "header-base.html" . }}
 
-        <div id="wrapper">
-            <header class="site-header">
-                <div class="container">
-                    <div class="site-title-wrapper">
-                        {{ with .Site.Params.logo }}
-                            <a class="site-logo" title="{{ .Title }}" href="{{ .Site.BaseURL }}">
-                                <img src="{{ . }}" alt="{{ .Title }}" />
-                            </a>
-                        {{ else }}
-                            <h1 class="site-title">
-                                <a title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-                            </h1>
-                        {{ end }}
-                    <ul class="site-nav">
-                        {{ partial "navigation.html" . }}
-                    </ul>
-                    </div>
-                </div>
-            </header>
+<header class="site-header">
+    <div class="container">
+        <div class="site-title-wrapper">
+            {{ with .Site.Params.logo }}
+            <a class="site-logo" title="{{ .Title }}" href="{{ .Site.BaseURL }}">
+                <img src="{{ . }}" alt="{{ .Title }}" />
+            </a>
+            {{ else }}
+            <h1 class="site-title">
+                <a title="{{ .Site.Title }}" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+            </h1>
+            {{ end }}
+            <ul class="site-nav">
+                {{ partial "navigation.html" . }}
+            </ul>
+        </div>
+    </div>
+</header>
 
-            <div id="container">
+<div id="container">

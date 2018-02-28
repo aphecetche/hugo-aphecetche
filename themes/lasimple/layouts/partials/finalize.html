@@ -1,26 +1,27 @@
-
 <section class="finalize">
 
     <a class="nav" href="#">
-            <i class="fa fa-angle-up"></i>
-        </a>
-     
+        <i class="fa fa-angle-up"></i>
+    </a>
+
     <ol class="onepage">
         <li class="onepage">
-            &copy; {{ .Site.LastChange.Format "2006" }} 
+            &copy; {{ .Site.LastChange.Format "2006" }}
         </li>
         <li class="onepage">
             {{ .Site.Author.name }}
         </li>
         <li class="onepage">
             {{ with .Site.Params.github }}
-            <a  data-hint="Github" title="Github" href="{{ . }}">
-                <i class="fa fa-github"></i>
+            <a data-hint="Github" title="Github" href="{{ . }}">
+                <svg viewBox="0 0 24 24" class="icon icon-github">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
             </a>
         </li>
     </ol>
-    {{ end }} 
+    {{ end }}
 
-<footer class="finalize">
-</footer>
+    <footer class="finalize">
+    </footer>
 </section>
