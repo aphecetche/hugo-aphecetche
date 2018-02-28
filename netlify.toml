@@ -6,6 +6,8 @@ command = "npm run build"
 HUGO_VERSION = "0.35"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
+URL = "https://www.aphecetche.xyz"
 
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.35"
+URL = "https://dev--aphecetche.netlify.com/"
