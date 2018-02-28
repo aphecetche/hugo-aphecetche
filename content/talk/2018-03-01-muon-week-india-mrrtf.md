@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
-tags = [ "talks" ]
-headline = ""
+tags = [ "talks","o2" ]
+headline = "Muon Week 2018"
 homebutton = true
 printbutton = true
 theme = "simple"
@@ -11,7 +11,7 @@ transition = "slide"
 timeline = false
 title = "MRRTF Status"
 date = 2018-02-28T12:30:27+01:00
-draft = true
+draft = false
 +++
 
 ## <i class="fa fa-plus" aria-hidden=true></i> Things are starting to move
