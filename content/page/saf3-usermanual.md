@@ -6,7 +6,7 @@ aliases:
  - /saf/saf3
 tags: [ "saf" ]
 date: "2015-10-15"
-lastmod: "2018-01-09"
+lastmod: "2018-03-28"
 ---
 
 # What is SAF ?
@@ -80,7 +80,7 @@ root[1] .x runXXX.C
 Your `runXXX.C` must Upload and Enable the special AliceVaf.par package, like this :
 
 ```c++
-TFile::Cp("https://github.com/aphecetche/aphecetche.github.io/blob/master/page/saf3-usermanual/AliceVaf.par?raw=true","AliceVaf.par");
+gSystem->Exec("wget 'https://github.com/aphecetche/aphecetche.github.io/blob/master/page/saf3-usermanual/AliceVaf.par?raw=true' -O AliceVaf.par");
 gProof->UploadPackage("AliceVaf.par");
 gProof->EnablePackage("AliceVaf");
 ```
