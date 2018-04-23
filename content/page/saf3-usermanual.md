@@ -80,7 +80,7 @@ root[1] .x runXXX.C
 Your `runXXX.C` must Upload and Enable the special AliceVaf.par package, like this :
 
 ```c++
-gSystem->Exec("wget 'https://github.com/aphecetche/hugo-aphecetche/tree/master/static/page/saf3-usermanual/AliceVaf.par?raw=true' -O AliceVaf.par");
+gSystem->Exec("wget 'https://github.com/aphecetche/hugo-aphecetche/blob/master/static/page/saf3-usermanual/AliceVaf.par?raw=true' -O AliceVaf.par");
 gProof->UploadPackage("AliceVaf.par");
 gProof->EnablePackage("AliceVaf");
 ```
