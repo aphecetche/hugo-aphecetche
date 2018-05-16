@@ -4,6 +4,7 @@
   --secondary: #343642;
   --codebackground: darken(var(--background), 3%);
   --coloraliroot: var(--secondary);
+  --linkcolor: #962d3e;
   --coloro2: #962d3e;
   --colorsaf: #979c9c;
   --colorgeek: darken(#f2ebc7, 20%);
@@ -405,6 +406,9 @@ table {
 }
 
 .post-content {
+  & a  {
+    color: var(--linkcolor);
+  }
   & a:hover {
     border-bottom: 1px dashed var(--secondary);
     padding: 0;

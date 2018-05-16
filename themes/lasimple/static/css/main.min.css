@@ -973,6 +973,10 @@ table tr {
   color: black;
 }
 
+.post-content a  {
+  color: #962d3e;
+}
+
 .post-content a:hover {
   border-bottom: 1px dashed #343642;
   padding: 0;

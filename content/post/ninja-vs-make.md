@@ -1,6 +1,7 @@
 +++
 title = "Ninja vs Make"
 date = "2018-05-09T09:19:50+02:00"
+lastmod = "2018-05-10"
 description = ""
 author = ""
 tags = ["o2","build" ]
@@ -86,8 +87,22 @@ And it's also quite a bit slower with `make` (and even more so if not using para
 
 ```
 cmake --build $HOME/alice/sw/BUILD/o2-latest-time-make/O2 -- -j 8 install
-42.91s user 21.02s system 313% cpu 20.379
+42.91s user 21.02s system 313% cpu 20.379 total
 
 cmake --build $HOME/alice/sw/BUILD/o2-latest-time-make/O2 -- -j 1 install
-29.35s user 14.08s system 93% cpu 46.614
+29.35s user 14.08s system 93% cpu 46.614 total
 ```
+
+### DDS
+
+```
+> time aliBuild -w ../sw -z time-dds-make --defaults o2 build DDS
+aliBuild -w ../sw -z time-dds-make --defaults o2 build DDS  591.12s user 56.93s system 266% cpu 4:03.10 total
+
+❯ time CMAKE_GENERATOR=Ninja aliBuild -w ../sw -z time-dds-ninja --defaults o2 build DDS
+not compiling due to a strange syntax (incorrect ?) in add_custom_target(wn_bin)
+which would require a change...
+```
+
+### FairRoot
+
