@@ -19,9 +19,6 @@ Different variations of where the input (source code) and output (build artifact
 1. source code on the Mac (bind mounted in the container), but mounted using the `cached` mount option, other things as above
 1. source code copied within a volume first (using the [`darchive2volume` command](https://github.com/aphecetche/scripts/blob/master/docker/darchive2volume)), and that volume mounted in the container. Other things as above. That's the _everything within the Linux VM_ case
 
-Note that I've not tried to store both the input and the output on the Mac : I only expect that case to be the worst of all ;-) 
-
-
 > Complete results are linked below, but the conclusions are that a)
 the cached mount option is pretty effective
 b) the build in a container is still twice slower than native one (don't quite understand why)
@@ -31,5 +28,9 @@ b) the build in a container is still twice slower than native one (don't quite u
 |:-----:|:---:|:---:|:---:|
 | [7 minutes](/post/build-times-in-docker/shake-report-mac-native.html) | [19 minutes](/post/build-times-in-docker/shake-report-docker-centos7-source-on-mac-xcheck.html) | [13 minutes](/post/build-times-in-docker/shake-report-docker-centos7-source-on-mac-cached.html) | [12 minutes](/post/build-times-in-docker/shake-report-docker-centos7-source-in-a-volume.html) |
 
+Notes :
+
+- I've not tried to store both the input and the output on the Mac : I only expect that case to be the worst of all ;-) 
+- I've not tried the [docker-sync](http://docker-sync.io) way either, yet. Might do at some point. It looks quite convoluted, but the gain might be [substantial](https://github.com/EugenMayer/docker-sync/wiki/4.-Performance). To be confirmed for my use case though. 
 
 
