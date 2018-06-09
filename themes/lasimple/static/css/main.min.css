@@ -2,28 +2,28 @@
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 100;
-  src: local("Roboto Mono Thin"),local(RobotoMono-Thin),url(//fonts.gstatic.com/s/robotomono/v5/aOIeRp72J9_Hp_8KwQ9M-beskzFlZTkzN_FGynPZJZk.eot?#) format("eot"),url(//fonts.gstatic.com/s/robotomono/v5/aOIeRp72J9_Hp_8KwQ9M-dFPPhm6yPYYGACxOp9LMJ4.woff2) format("woff2"),url(//fonts.gstatic.com/s/robotomono/v5/aOIeRp72J9_Hp_8KwQ9M-SeJLMOzE6CCkidNEpZOseY.woff) format("woff");
+  src: local("Roboto Mono Thin"),local(RobotoMono-Thin),url(//fonts.gstatic.com/s/robotomono/v5/L0x7DF4xlVMF-BfR8bXMIjAom32WXg.eot?#) format("eot"),url(//fonts.gstatic.com/s/robotomono/v5/L0x7DF4xlVMF-BfR8bXMIjAom32WWg.woff2) format("woff2"),url(//fonts.gstatic.com/s/robotomono/v5/L0x7DF4xlVMF-BfR8bXMIjAom32WXA.woff) format("woff");
 }
 
 @font-face{
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 300;
-  src: local("Roboto Mono Light"),local(RobotoMono-Light),url(//fonts.gstatic.com/s/robotomono/v5/N4duVc9C58uwPiY8_59Fz7XcjzEax2LfQAlK8DdMzhA.eot?#) format("eot"),url(//fonts.gstatic.com/s/robotomono/v5/N4duVc9C58uwPiY8_59Fz0o2lTMeWA_kmIyWrkNCwPc.woff2) format("woff2"),url(//fonts.gstatic.com/s/robotomono/v5/N4duVc9C58uwPiY8_59Fzx_xHqYgAV9Bl_ZQbYUxnQU.woff) format("woff");
+  src: local("Roboto Mono Light"),local(RobotoMono-Light),url(//fonts.gstatic.com/s/robotomono/v5/L0xkDF4xlVMF-BfR8bXMIjDgiWqxf7s.eot?#) format("eot"),url(//fonts.gstatic.com/s/robotomono/v5/L0xkDF4xlVMF-BfR8bXMIjDgiWqxf78.woff2) format("woff2"),url(//fonts.gstatic.com/s/robotomono/v5/L0xkDF4xlVMF-BfR8bXMIjDgiWqxf7k.woff) format("woff");
 }
 
 @font-face{
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
-  src: local("Open Sans Light"),local(OpenSans-Light),url(//fonts.gstatic.com/s/opensans/v15/DXI1ORHCpsQm3Vp6mXoaTXZ2MAKAc2x4R1uOSeegc5U.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v15/DXI1ORHCpsQm3Vp6mXoaTegdm0LZdjqr5-oayXSOefg.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v15/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format("woff");
+  src: local("Open Sans Light"),local(OpenSans-Light),url(//fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuht.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuhv.woff) format("woff");
 }
 
 @font-face{
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 600;
-  src: local("Open Sans SemiBold"),local(OpenSans-SemiBold),url(//fonts.gstatic.com/s/opensans/v15/MTP_ySUJH_bn48VBG8sNSnZ2MAKAc2x4R1uOSeegc5U.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v15/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v15/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format("woff");
+  src: local("Open Sans SemiBold"),local(OpenSans-SemiBold),url(//fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOUuht.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOUuhp.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOUuhv.woff) format("woff");
 }
 
 @charset "UTF-8";
@@ -357,8 +357,7 @@ figure {
  */
 
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
 }
 
@@ -481,8 +480,7 @@ input {
 
 input[type="checkbox"],
 input[type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
 
@@ -504,8 +502,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield; /* 1 */
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box; /* 2 */
+  box-sizing: content-box; /* 2 */
 }
 
 /**
@@ -573,6 +570,24 @@ th {
   padding: 0;
 }
 
+:root {
+  --background: white;
+  --primary: black;
+  --secondary: #343642;
+  --codebackground: darken(white, 3%);
+  --codebackground: darken(var(--background), 3%);
+  --coloraliroot: #343642;
+  --coloraliroot: var(--secondary);
+  --linkcolor: #962d3e;
+  --coloro2: #962d3e;
+  --colorsaf: #979c9c;
+  --colorgeek: darken(#f2ebc7, 20%);
+  --colortalks: #348899;
+  --leftblock: 15px;
+  --light-text: #979c9c;
+  --maxwidth: 749px;
+}
+
 /* Base */
 
 html,
@@ -582,6 +597,7 @@ body {
 
 body {
   color: black;
+  color: var(--primary);
   font-family: "Open Sans", arial, sans-serif;
   font-weight: 300;
   font-size: 18px;
@@ -633,6 +649,7 @@ p {
 
 a {
   color: #343642;
+  color: var(--secondary);
   text-decoration: none;
 }
 
@@ -661,6 +678,7 @@ ul li:last-of-type, ol li:last-of-type {
 
 blockquote {
   border-left: 2px solid black;
+  border-left: 2px solid var(--primary);
   margin: 40px;
   padding: 5px 30px
 }
@@ -682,6 +700,7 @@ img {
 
 pre {
   background: darken(white, 3%);
+  background: var(--codebackground);
   border: 1px solid #dddbcc;
   border-radius: 3px;
   margin: 0 0 20px;
@@ -693,7 +712,9 @@ code {
   padding: 2px 4px;
   font-size: 90%;
   color: black;
+  color: var(--primary);
   background-color: darken(white, 3%);
+  background-color: var(--codebackground);
   border-radius: 4px;
 }
 
@@ -711,6 +732,7 @@ table {
 table tbody > tr:nth-child(odd) > td,
   table tbody > tr:nth-child(odd) > th {
   background-color: darken(white, 10%);
+  background-color: darken(var(--background), 10%);
 }
 
 table th {
@@ -771,6 +793,7 @@ table tr {
   position: relative;
   width: 100%;
   max-width: 749px;
+  max-width: var(--maxwidth);
 }
 
 #wrapper {
@@ -791,6 +814,7 @@ table tr {
 
 .button {
   background: #343642;
+  background: var(--secondary);
   border: none;
   border-radius: 3px;
   color: #fefefe;
@@ -802,10 +826,12 @@ table tr {
 
 .button:hover {
   background: black;
+  background: var(--primary);
 }
 
 .button-square {
   background: black;
+  background: var(--primary);
   color: #fff;
   float: left;
   font-size: 17px;
@@ -815,6 +841,7 @@ table tr {
 
 .button-square:hover {
   background: #343642;
+  background: var(--secondary);
 }
 
 .button-square .fa {
@@ -844,6 +871,7 @@ table tr {
 
 .site-title-wrapper {
   background: white;
+  background: var(--background);
   display: table;
   padding-top: 20px;
   margin: 0 auto;
@@ -891,26 +919,32 @@ table tr {
 
 .site-nav-item a[title~=aliroot] {
   color: #343642;
+  color: var(--coloraliroot);
 }
 
 .site-nav-item a[title~=o2] {
   color: #962d3e;
+  color: var(--coloro2);
 }
 
 .site-nav-item a[title~=saf] {
   color: #979c9c;
+  color: var(--colorsaf);
 }
 
 .site-nav-item a[title~=talks] {
   color: #348899;
+  color: var(--colortalks);
 }
 
 .site-nav-item a[title~=geek] {
   color: darken(#f2ebc7, 20%);
+  color: var(--colorgeek);
 }
 
 .site-nav-item a:hover {
   color: black;
+  color: var(--primary);
 }
 
 /* ============================================================ */
@@ -925,6 +959,7 @@ table tr {
 
 .post-header {
   border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--primary);
   margin: 0 0 20px;
   padding: 0 0 20px;
   text-align: center;
@@ -941,6 +976,7 @@ table tr {
 
 .post-title a, .page-title a {
   color: black;
+  color: var(--primary);
 }
 
 .post-title,
@@ -967,18 +1003,22 @@ table tr {
 
 .post-date a, .blog-description a {
   color: lighten(#343642, 60%);
+  color: lighten(var(--secondary), 60%);
 }
 
 .post-date a:hover, .blog-description a:hover {
   color: black;
+  color: var(--primary);
 }
 
 .post-content a  {
   color: #962d3e;
+  color: var(--linkcolor);
 }
 
 .post-content a:hover {
   border-bottom: 1px dashed #343642;
+  border-bottom: 1px dashed var(--secondary);
   padding: 0;
   padding-bottom: 1px;
 }
@@ -991,6 +1031,7 @@ table tr {
   padding-top: 0.5em;
   margin-top: 2em;
   border-top: 1px dashed #343642;
+  border-top: 1px dashed var(--secondary);
 }
 
 .post-footer {
@@ -1014,6 +1055,7 @@ table tr {
 
 .post-tags a:hover {
   color: #343642;
+  color: var(--secondary);
 }
 
 .share {
@@ -1022,6 +1064,7 @@ table tr {
 
 .share a {
   background: black;
+  background: var(--primary);
   color: #fff;
   display: inline-block;
   font-size: 16px;
@@ -1033,6 +1076,7 @@ table tr {
 
 .share a:hover {
   background: #343642;
+  background: var(--secondary);
 }
 
 .post-navigation {
@@ -1044,6 +1088,7 @@ table tr {
 .older-posts {
   float: left;
   background: black;
+  background: var(--primary);
   color: pink;
   font-size: 14px;
   font-weight: 600;
@@ -1054,6 +1099,7 @@ table tr {
 
 .newer-posts:hover, .older-posts:hover {
   background: #343642;
+  background: var(--secondary);
 }
 
 .page-number {
@@ -1072,6 +1118,7 @@ table tr {
 
 .post-stub {
   border-bottom: 1px dotted #343642;
+  border-bottom: 1px dotted var(--secondary);
   margin: 0
 }
 
@@ -1080,26 +1127,29 @@ table tr {
 }
 
 .post-stub a {
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   color: #343642;
+  color: var(--secondary);
   padding: 20px 5px;
 }
 
 .post-stub a:hover {
   background: darken(white, 3%);
+  background: var(--codebackground);
   color: black;
+  color: var(--primary);
 }
 
 .post-stub a:hover .post-stub-tag {
   background: black;
+  background: var(--primary);
 }
 
 a.post-stub-jira {
   color: #979c9c;
+  color: var(--light-text);
   vertical-align: baseline;
-  -webkit-transition: none;
   transition: none;
   background: none;
 }
@@ -1135,6 +1185,7 @@ a.post-stub-tag {
   padding: 1px 3px;
   display: inline-block;
   color: #979c9c;
+  color: var(--light-text);
 }
 
 .post-stub-title {
@@ -1153,6 +1204,7 @@ a.post-stub-tag {
   display: inline-block;
   font-size: 10px;
   color: black;
+  color: var(--primary);
 }
 
 .next-posts-link a,
@@ -1173,6 +1225,7 @@ a.post-stub-tag {
 
 .author-profile::after {
   border-bottom: 1px dotted #343642;
+  border-bottom: 1px dotted var(--secondary);
   content: "";
   display: block;
   margin: 40px auto 0;
@@ -1228,6 +1281,7 @@ a.post-stub-tag {
 
 .author-meta a:hover {
   color: black;
+  color: var(--primary);
 }
 
 .author-bio {
@@ -1244,6 +1298,7 @@ a.post-stub-tag {
 
 .footer {
   max-width: 749px;
+  max-width: var(--maxwidth);
   height: 200px;
   overflow: auto
 }
@@ -1264,7 +1319,9 @@ a.post-stub-tag {
 .footer-copyright {
   display: inline-block;
   border-top: 2px solid black;
+  border-top: 2px solid var(--primary);
   color: black;
+  color: var(--primary);
   font-size: 14px;
   text-align: center;
   text-transform: uppercase
@@ -1276,6 +1333,7 @@ a.post-stub-tag {
 
 .footer-copyright a:hover {
   color: lighten(#343642, 50%);
+  color: lighten(var(--secondary), 50%);
 }
 
 /* ============================================================ */
@@ -1286,16 +1344,19 @@ a.post-stub-tag {
 
 #nprogress .bar {
   background: black;
+  background: var(--primary);
 }
 
 #nprogress .peg {
-  -webkit-box-shadow: 0 0 10px black, 0 0 5px black;
-          box-shadow: 0 0 10px black, 0 0 5px black;
+  box-shadow: 0 0 10px black, 0 0 5px black;
+  box-shadow: 0 0 10px var(--primary), 0 0 5px var(--primary);
 }
 
 #nprogress .spinner-icon {
   border-top-color: black;
+  border-top-color: var(--primary);
   border-left-color: black;
+  border-left-color: var(--primary);
 }
 
 /* ============================================================ */
@@ -1550,6 +1611,7 @@ a.post-stub-tag {
   width: 100%;
   display: inline-block;
   border-bottom: 1px dashed #343642;
+  border-bottom: 1px dashed var(--secondary);
 }
 
 .talk-list li a {
@@ -1565,6 +1627,7 @@ a.post-stub-tag {
 
 .talk-list .talk-stub-tag {
   color: #979c9c;
+  color: var(--light-text);
   font-size: 12px;
   margin: 0;
   padding: 0 5px;
@@ -1586,9 +1649,11 @@ a.post-stub-tag {
 
 section {
   background: white;
+  background: var(--background);
   padding: 0;
   margin: 0 auto;
   max-width: 749px;
+  max-width: var(--maxwidth);
 }
 
 section h2,
@@ -1601,11 +1666,13 @@ section h2,
   line-height: 1;
   font-family: "Roboto Mono";
   color: #343642;
+  color: var(--secondary);
 }
 
 section a.nav {
   font-size: 100px;
   color: black;
+  color: var(--primary);
 }
 
 section i.fa.fa-angle-up {
@@ -1627,6 +1694,7 @@ section {
 .aliroot h2,
   .aliroot a.nav {
   border-left: 15px solid #343642;
+  border-left: var(--leftblock) solid var(--coloraliroot);
 }
 
 .finalize li.onepage {
@@ -1643,21 +1711,25 @@ section {
 .o2 h2,
   .o2 a.nav {
   border-left: 15px solid #962d3e;
+  border-left: 15px solid var(--coloro2);
 }
 
 .talks h2,
   .talks a.nav {
   border-left: 15px solid #348899;
+  border-left: 15px solid var(--colortalks);
 }
 
 .geek h2,
   .geek a.nav {
   border-left: 15px solid darken(#f2ebc7, 20%);
+  border-left: 15px solid var(--colorgeek);
 }
 
 .saf h2,
   .saf a.nav {
   border-left: 15px solid #979c9c;
+  border-left: 15px solid var(--colorsaf);
 }
 
 ol.onepage {

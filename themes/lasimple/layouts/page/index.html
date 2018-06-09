@@ -1,11 +1,11 @@
 {{ partial "main-header.html" . }}
 
-{{ partial "onepage-post-list.html" (dict "content" . "tag" "aliroot") }}
 
 
-{{ partial "onepage-post-list.html" (dict "content" . "tag" "o2") }}
-{{ partial "onepage-post-list.html" (dict "content" . "tag" "saf") }}
+{{ partial "onepage-post-list.html" (dict "content" . "tag" "o2" "exclude" "talks") }}
 {{ partial "onepage-post-list.html" (dict "content" . "tag" "talks") }}
+{{ partial "onepage-post-list.html" (dict "content" . "tag" "aliroot") }}
+{{ partial "onepage-post-list.html" (dict "content" . "tag" "saf") }}
 {{ partial "onepage-post-list.html" (dict "content" . "tag" "geek") }}
 
 {{ partial "finalize.html" . }}

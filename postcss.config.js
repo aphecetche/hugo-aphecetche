@@ -5,7 +5,9 @@ module.exports = {
             'prefix': '_',
             'extension': 'css'
         }),
-        require('postcss-cssnext'),
+        require('postcss-preset-env')({
+            stage:0
+        }),
         require('postcss-font-magician')({
             foundries: ['google'],
              variants: {

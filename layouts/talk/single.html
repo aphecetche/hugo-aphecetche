@@ -9,12 +9,11 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/css/reveal.css">
+		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/css/reveal.min.css">
 
 {{ if .Params.theme }}
 		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/css/theme/{{ .Params.theme }}.css" id="theme">
@@ -23,7 +22,7 @@
 {{ end }}
 
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/lib/css/zenburn.css">
+		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/lib/css/{{ .Params.code_theme }}.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -56,7 +55,8 @@
              data-separator="(^---$|^---\?.*)"
              data-separator-vertical="(^\+\+\+$|^\+\+\+\?.*)"
              data-separator-notes="^Note:"
-             data-charset="utf-8">
+			 data-charset="utf-8"
+			 data-state="title-slide">
 # {{ .Title }}
 
 ## {{ .Params.headline }}
@@ -70,8 +70,9 @@
              data-separator="(^---$|^---\?.*)"
              data-separator-vertical="(^\+\+\+$|^\+\+\+\?.*)"
              data-separator-notes="^Note:"
-             data-charset="utf-8">
-							 {{ .RawContent }}
+			 data-charset="utf-8"
+			 data-state="regular-slide">
+			   {{ .RawContent }}
 			</section>
 
 			</div>
@@ -85,12 +86,15 @@
 				<a class="button print" href="?print-pdf" role="button"></a>
 	{{ end }}
 </nav>
+{{ if .Params.footer }}
+<footer>{{ .Params.footer }} </footer>
+{{ end }}
 
 		</div>
 
 
 		<script src="{{ .Site.BaseURL }}reveal/lib/js/head.min.js"></script>
-		<script src="{{ .Site.BaseURL }}reveal/js/reveal.js"></script>
+		<script src="{{ .Site.BaseURL }}reveal/js/reveal.min.js"></script>
 
 		<script>
 
@@ -100,6 +104,7 @@
 
 				width: 1024,
 				height: 768,
+				pdfMaxPagesPerSlide: 1,
 				//margin: 0.15,
 
 {{ if .Params.controls }}
@@ -138,6 +143,7 @@
 					{ src: '{{ .Site.BaseURL }}reveal/plugin/notes/notes.js', async: true }
 				]
 			});
+
 Reveal.addEventListener( 'secondary-slide', function() {
     // TODO: Sprinkle magic
     var state = Reveal.getState();
@@ -145,9 +151,21 @@ Reveal.addEventListener( 'secondary-slide', function() {
     s.classList.add('secondary-title-slide');
     s.getElementsByTagName('h1')[0].classList.add('center');
 }, false );
+
 Reveal.addEventListener( 'timeline', function() {
     drawTimeline();
-}, false );		</script>
+}, false );		
+
+Reveal.addEventListener( 'regular-slide', function() {
+	document.querySelector(".reveal footer").style.display = 'block';
+},false );
+
+Reveal.addEventListener( 'title-slide', function() {
+	document.querySelector(".reveal footer").style.display = 'none';
+}, false );		
+
+
+</script>
 {{ if .Params.timeline }}
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript" src="timeline.js"></script>

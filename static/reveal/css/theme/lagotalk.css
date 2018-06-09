@@ -1,13 +1,13 @@
 /**
- * A simple theme for reveal.js presentations, similar
- * to the default theme. The accent color is darkblue.
  *
- * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
- * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ * Custom th e for reveal.js losely
+ * inspired by go-talks.appspot.com
+ * by Laurent Aphecetche
+ *
  */
 /* W3.CSS 4.10 February 2018 by Jan Egil and Borge Refsnes */
-@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+@import url("http://fonts.googleapis.com/css?family=Indie+Flower");
 html {
   box-sizing: border-box; }
 
@@ -1534,36 +1534,30 @@ a {
 .w3-hover-border-pale-blue:hover {
   border-color: #e7ffff !important; }
 
-section.has-dark-background,
-section.has-dark-background h1,
-section.has-dark-background h2,
-section.has-dark-background h3,
-section.has-dark-background h4,
-section.has-dark-background h5,
-section.has-dark-background h6 {
+section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
   color: #fff; }
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #fff;
-  background-color: #fff; }
+  background: #CCC;
+  background-color: #CCC; }
 
 .reveal {
-  font-family: "Lato", sans-serif;
-  font-size: 40px;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 24px;
   font-weight: normal;
-  color: #000; }
+  color: #222; }
 
 ::selection {
   color: #fff;
-  background: rgba(0, 0, 0, 0.99);
+  background: #a0a0dc;
   text-shadow: none; }
 
 ::-moz-selection {
   color: #fff;
-  background: rgba(0, 0, 0, 0.99);
+  background: #a0a0dc;
   text-shadow: none; }
 
 .reveal .slides > section,
@@ -1581,26 +1575,26 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #000;
-  font-family: "News Cycle", Impact, sans-serif;
-  font-weight: normal;
+  color: #222;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: none;
+  text-transform: capitalize;
   text-shadow: none;
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3.77em; }
+  font-size: 38px; }
 
 .reveal h2 {
-  font-size: 2.11em; }
+  font-size: 34px; }
 
 .reveal h3 {
-  font-size: 1.55em; }
+  font-size: 30px; }
 
 .reveal h4 {
-  font-size: 1em; }
+  font-size: 28px; }
 
 .reveal h1 {
   text-shadow: none; }
@@ -1743,20 +1737,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #7e7a8d;
+  color: #4545b8;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #b3b1bc;
+  color: #7b7bce;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #595664; }
+  background: #303080; }
 
 /*********************************************
  * IMAGES
@@ -1764,7 +1758,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #000;
+  border: 4px solid #222;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {
@@ -1778,32 +1772,109 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #7e7a8d;
+  border-color: #4545b8;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #7e7a8d; }
+  color: #4545b8; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #7e7a8d; }
+  color: #4545b8; }
 
 .reveal .progress span {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
-.reveal footer {
-  position: absolute;
-  font-size: 14px;
+.reveal section {
+  text-align: left; }
+
+.reveal .slides p {
+  padding: 0px 10px; }
+
+.reveal .slides {
+  background: #FEFEFE;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; }
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  width: 96%;
+  padding: 2%;
+  /* width + 2*padding must be 100% */ }
+
+.reveal section img {
+  border: none;
+  box-shadow: none;
+  left-align: center;
+  display: inline; }
+
+a.button {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 0px;
+  margin: 0;
+  padding: 3px;
+  text-decoration: none;
+  position: fixed;
   display: block;
-  width: 100vw;
+  left: 8px;
   bottom: 8px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.4); }
+  z-index: 31; }
+  a.button:before {
+    content: '\f015';
+    font-family: FontAwesome;
+    font-size: 24px;
+    color: white;
+    line-height: 1; }
+  a.button:hover {
+    color: #7b7bce;
+    content: "A"; }
+
+a.button.print {
+  left: 39px; }
+  a.button.print:before {
+    content: '\f02f';
+    font-family: FontAwesome;
+    font-size: 24px;
+    color: white;
+    line-height: 1; }
+
+.reveal .progress {
+  height: 5px; }
+  .reveal .progress span {
+    background-color: rgba(0, 0, 0, 0.4); }
+
+.reveal ul {
+  list-style-position: inside; }
+
+section.title-slide {
+  position: fixed;
+  top: 30%;
+  vertical-align: middle;
+  text-align: center; }
+  section.title-slide h1 {
+    font-size: 47.5px;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+    font-weight: 700; }
+  section.title-slide h2 {
+    font-size: 42.5px;
+    padding-bottom: 50px;
+    text-transform: none;
+    font-weight: 200; }
+  section.title-slide h3 {
+    font-size: 30px;
+    font-family: "Indie Flower";
+    font-weight: 100; }
+  section.title-slide h4 {
+    font-size: 20px;
+    font-weight: 100;
+    text-transform: lowercase; }
