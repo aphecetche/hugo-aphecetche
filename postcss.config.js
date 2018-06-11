@@ -1,7 +1,7 @@
 module.exports = {
     plugins: [
         require('postcss-easy-import')({
-            'path': ['themes/lasimple/static/css/'],
+            'path': ['themes/lasimple/src/css/'],
             'prefix': '_',
             'extension': 'css'
         }),

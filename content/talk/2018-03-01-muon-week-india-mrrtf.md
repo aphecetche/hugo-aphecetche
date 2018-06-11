@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 tags = [ "talks","o2","muon-week" ]
-headline = "Muon Week 2018"
+headline = " "
 homebutton = true
 printbutton = true
 theme = "simple"
@@ -9,7 +9,7 @@ center = true
 controls = true
 transition = "slide"
 timeline = false
-title = "MRRTF Status"
+title = "Muon Week 2018 - MRRTF Status"
 date = 2018-03-01
 draft = false
 +++

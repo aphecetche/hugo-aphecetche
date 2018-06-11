@@ -22,8 +22,11 @@
 {{ end }}
 
 		<!-- Code syntax highlighting -->
+{{ if .Params.code_theme }}
 		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/lib/css/{{ .Params.code_theme }}.css">
-
+{{ else }}
+		<link rel="stylesheet" href="{{ .Site.BaseURL }}reveal/lib/css/zenburn.css">
+{{ end }}
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -160,11 +163,17 @@ Reveal.addEventListener( 'timeline', function() {
 }, false );		
 
 Reveal.addEventListener( 'regular-slide', function() {
-	document.querySelector(".reveal footer").style.display = 'block';
+	var footer = document.querySelector(".reveal footer");
+	if (footer) {
+		footer.style.display = 'block';
+	}
 },false );
 
 Reveal.addEventListener( 'title-slide', function() {
-	document.querySelector(".reveal footer").style.display = 'none';
+	var footer = document.querySelector(".reveal footer");
+	if (footer) {
+		footer.style.display = 'none';
+	}
 }, false );		
 
 
