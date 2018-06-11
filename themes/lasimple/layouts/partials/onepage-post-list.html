@@ -2,7 +2,11 @@
     <a name="{{ $.tag }}"></a>
     <h2>{{ $.tag }}</h2>
     <ol class="onepage">
-        {{ range $key,$taxo := .content.Site.Taxonomies.tags }} {{ if eq $key $.tag }} {{ range $taxo }}
+        {{ range $key,$taxo := .content.Site.Taxonomies.tags }}
+        {{ if eq $key $.tag }} 
+        {{ range $taxo }}
+        {{ $is_excluded := intersect .Page.Params.tags (slice $.exclude) | len | lt 0 }}
+        {{ if not $is_excluded }}
         <li class="onepage">
             <a href="{{ .Page.Permalink }}">{{ .Page.Title }} </a>
             <span class="post-stub-date">{{ .Page.PublishDate.Format "Jan 2, 2006" }}</span>
@@ -20,7 +24,7 @@
                 {{ . }}</a>
             {{ end }}
         </li>
-        {{end}} {{end}} {{end}}
+        {{end}} {{end}} {{end}} {{ end }}
         <footer class="{{ $.tag }}">
         </footer>
 </section>

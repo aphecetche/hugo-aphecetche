@@ -1,11 +1,13 @@
 module.exports = {
     plugins: [
         require('postcss-easy-import')({
-            'path': ['themes/lasimple/static/css/'],
+            'path': ['themes/lasimple/src/css/'],
             'prefix': '_',
             'extension': 'css'
         }),
-        require('postcss-cssnext'),
+        require('postcss-preset-env')({
+            stage:0
+        }),
         require('postcss-font-magician')({
             foundries: ['google'],
              variants: {
