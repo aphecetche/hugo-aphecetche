@@ -36,6 +36,6 @@ cp -f -a $gh/lib/* $dest/lib
 
 # PLUGIN
 
-rm -rf $dest/plugin
-mkdir $dest/plugin
+# rm -rf $dest/plugin
+# mkdir $dest/plugin
 cp -f -a $gh/plugin/* $dest/plugin

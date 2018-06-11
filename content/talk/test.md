@@ -17,7 +17,8 @@ footer = "© L. Aphecetche 2018 | Test | June 9th 2018"
 
 # a super test
 
-{{< smile >}}
+
+:svg-smile:
 
 ---
 

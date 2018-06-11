@@ -140,7 +140,8 @@
 					{ src: '{{ .Site.BaseURL }}reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: '{{ .Site.BaseURL }}reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: '{{ .Site.BaseURL }}reveal/plugin/zoom-js/zoom.js', async: true },
-					{ src: '{{ .Site.BaseURL }}reveal/plugin/notes/notes.js', async: true }
+					{ src: '{{ .Site.BaseURL }}reveal/plugin/notes/notes.js', async: true },
+					{ src: '{{ .Site.BaseURL }}reveal/plugin/svgicons/svgicons.js', async: true }
 				]
 			});
 
