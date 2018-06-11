@@ -10,7 +10,7 @@
     "css:watch": "postcss themes/lasimple/src/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css --watch",
     "css:build": "postcss themes/lasimple/src/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css",
     "start": "npm run clean:public && parallelshell 'npm run css:watch' 'hugo serve --buildDrafts --disableFastRender --noHTTPCache'",
-    "build": "npm run css:build && hugo version && hugo --baseURL $URL",
+    "build": "npm run css:build && hugo version && hugo --baseURL",
     "pdf": "decktape"
   },
   "repository": {
