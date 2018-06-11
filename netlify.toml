@@ -13,6 +13,7 @@ HUGO_VERSION = "0.35"
 URL = "https://dev--aphecetche.netlify.com/"
 
 
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.35"
+[context.deploy-preview]
 command = "URL=$DEPLOY_URL npm run build"
+[context.branch-deploy.environment]
+HUGO_VERSION = "0.35"
