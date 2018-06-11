@@ -13,6 +13,7 @@ center = false
 controls = true
 transition = "slide"
 footer = "© L. Aphecetche 2018 | Test | June 9th 2018"
+drafts = true
 +++
 
 # a super test

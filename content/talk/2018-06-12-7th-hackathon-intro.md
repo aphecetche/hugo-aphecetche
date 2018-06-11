@@ -12,7 +12,8 @@ timeline = false
 code_theme = "solarized-dark"
 title = "7th MRRTF hackathon"
 date = 2018-06-12
-draft = true
+draft = false
+footer = "© L. Aphecetche | June 12th 2018"
 +++
 
 ## Last hackathon was ...
