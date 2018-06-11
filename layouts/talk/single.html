@@ -59,7 +59,9 @@
 			 data-state="title-slide">
 # {{ .Title }}
 
+{{ if .Params.headline }}
 ## {{ .Params.headline }}
+{{ end }}
 
 ### {{ .Params.author }}
 

@@ -1807,3 +1807,8 @@ body {
   bottom: 8px;
   text-align: center;
   color: rgba(0, 0, 0, 0.4); }
+
+
+  .reveal h1 {
+    color: red;
+  }

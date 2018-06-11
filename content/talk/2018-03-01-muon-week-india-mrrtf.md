@@ -1,6 +1,6 @@
 +++
 author = "Laurent Aphecetche"
-tags = [ "talks","o2" ]
+tags = [ "talks","o2","muon-week" ]
 headline = "Muon Week 2018"
 homebutton = true
 printbutton = true
