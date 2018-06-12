@@ -7,10 +7,12 @@
     "clean": "rm -f themes/lasimple/static/css/*.min.css",
     "clean:public": "rm -rf public",
     "sprite": "spritesh --input themes/lasimple/static/icons --output themes/lasimple/layouts/partials/sprite.svg --prefix icon-",
+    "sass:build": "rm -f static/reveal/css/theme/lasimple.css && node-sass --output-style compressed static/reveal/css/theme/source/lasimple.scss > static/reveal/css/theme/lasimple.css",
+    "sass:watch": "onchange 'static/reveal/css/theme/**/*.scss' -- npm run sass:build",
     "css:watch": "postcss themes/lasimple/src/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css --watch",
     "css:build": "postcss themes/lasimple/src/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css",
-    "start": "npm run clean:public && parallelshell 'npm run css:watch' 'hugo serve --buildDrafts --disableFastRender --noHTTPCache'",
-    "build": "npm run css:build && hugo version && hugo --baseURL",
+    "start": "npm run clean:public && parallelshell 'npm run css:watch' 'npm run sass:watch' 'hugo serve --buildDrafts --buildFuture --disableFastRender --noHTTPCache'",
+    "build": "npm run css:build && npm run sass:build && hugo version && hugo --baseURL",
     "pdf": "decktape"
   },
   "repository": {
@@ -26,11 +28,14 @@
   "devDependencies": {
     "cssnano": "^3.10.0",
     "decktape": "^2.8.4",
+    "node-sass": "^4.9.0",
+    "onchange": "^4.0.0",
     "parallelshell": "^3.0.2",
     "postcss-cli": "^4.1.1",
     "postcss-easy-import": "^3.0.0",
     "postcss-font-magician": "^2.1.0",
     "postcss-preset-env": "^5.1.0",
+    "sass": "^1.5.1",
     "spritesh": "^1.2.0",
     "stylelint": "^8.4.0",
     "stylelint-config-standard": "^17.0.0"

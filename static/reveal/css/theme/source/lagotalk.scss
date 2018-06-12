@@ -1,0 +1,174 @@
+/**
+ *
+ * Custom th e for reveal.js losely
+ * inspired by go-talks.appspot.com
+ * by Laurent Aphecetche
+ *
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+@import "w3";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
+@import url('http://fonts.googleapis.com/css?family=Indie+Flower');
+
+//@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #CCC;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: 24px;
+$mainFont: 'Open Sans', Helvetica, sans-serif;
+$headingFont: 'Open Sans', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: capitalize;
+$headingFontWeight: 600;
+$linkColor: lighten(#303080,15%);
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 38px;
+$heading2Size: 34px;
+$heading3Size: 30px;
+$heading4Size: 28px;
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal section {
+	text-align: left;
+}
+
+.reveal .slides p {
+	//background: yellow;
+	padding: 0px 10px;
+}
+
+.reveal .slides {
+	background: #FEFEFE;
+	-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+
+.reveal .slides>section,
+.reveal .slides>section>section {
+	width: 96%;
+	padding: 2%; /* width + 2*padding must be 100% */
+}
+
+.reveal section img {
+	//margin: 15px 0px;
+	//background: rgba(255,255,255,0.12);
+	//border: 4px dashed $mainColor;
+	border: none;
+	box-shadow: none;
+	left-align: center;
+	display: inline;
+}
+
+a.button {
+
+	background-color: rgba( 0, 0, 0, 0.4 );
+
+	border: 0px;
+	margin: 0;
+	padding: 3px;
+
+	&:before {
+		content: '\f015';
+		font-family: FontAwesome;
+		font-size: $mainFontSize;
+		color: white;
+		line-height: 1;
+	}
+
+	&:hover {
+		color: $linkColorHover;
+		content: "A";
+	}
+
+    text-decoration: none;
+		position: fixed;
+		display: block;
+
+			left: 8px;
+			bottom: 8px;
+			z-index: 31;
+}
+
+
+a.button.print {
+		left: 39px;
+		&:before {
+			content: '\f02f';
+			font-family: FontAwesome;
+			font-size: $mainFontSize;
+			color: white;
+			line-height: 1;
+		}
+}
+
+
+
+.reveal .progress {
+	height: 5px;
+	span {
+		background-color: rgba(0,0,0,0.4);
+	}
+}
+
+.reveal ul {
+	list-style-position: inside;
+}
+
+section.title-slide {
+	position: fixed;
+	top: 30%;
+	vertical-align: middle;
+	text-align: center;
+	h1 {
+		font-size: $heading1Size*1.25;
+		padding-bottom: 20px;
+		text-transform: capitalize;
+		font-weight: 700;
+	}
+	h2 {
+		font-size: $heading2Size*1.25;
+		padding-bottom: 50px;
+		text-transform: none;
+		font-weight: 200;
+	}
+	h3 {
+		font-size: $heading3Size;
+		font-family: "Indie Flower";
+		font-weight: 100;
+	}
+	h4 {
+		font-size: 20px;
+		font-weight: 100;
+		text-transform: lowercase;
+	}
+}

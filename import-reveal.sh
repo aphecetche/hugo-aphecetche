@@ -14,11 +14,16 @@ rm -rf $dest/css
 
 mkdir $dest/css
 mkdir $dest/css/theme
+mkdir $dest/css/theme/template
+mkdir $dest/css/theme/source
 mkdir $dest/css/print
 
 
 cp -f $gh/css/print/*.css $dest/css/print/
 cp -f $gh/css/theme/*.css $dest/css/theme/
+cp -f -a $gh/css/theme/template/* $dest/css/theme/template/
+cp -f $gh/css/theme/source/la* $dest/css/theme/source/
+cp -f $gh/css/theme/source/_w3* $dest/css/theme/source/
 cp -f $gh/css/reveal.min.css $dest/css
 
 # JS
@@ -38,4 +43,4 @@ cp -f -a $gh/lib/* $dest/lib
 
 # rm -rf $dest/plugin
 # mkdir $dest/plugin
-cp -f -a $gh/plugin/* $dest/plugin
+#cp -f -a $gh/plugin/* $dest/plugin
