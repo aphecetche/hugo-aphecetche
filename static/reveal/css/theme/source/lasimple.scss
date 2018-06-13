@@ -66,10 +66,14 @@ pre.hljs {
 	max-height: 70vh;
 	box-shadow: none;
 	margin:0 auto;
-	padding:0;
-	
+	padding:0;	
+}
+
+code::selection,
+pre.hljs::selection {
+	background:rgba(85, 117, 221, 0.4);
 }
 
 pre.hljs.stress {
-	color: lightskyblue;
+	color:#81a2be;
 }
