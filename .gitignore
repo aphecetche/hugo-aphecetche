@@ -58,3 +58,4 @@ cmake*
 node_modules
 public
 .idea
+.history
