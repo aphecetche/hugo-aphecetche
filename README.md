@@ -8,7 +8,9 @@ npm run pdf -- [URL] [filename.pdf]
 
 where `URL` is most likely a local one when developing, e.g. `http://localhost:1313/talk/2017-11-09-alice-week-mrrtf-status`
 
-Note that it's not a very fast process...
+Note that it's not a very fast process... and not completely correct either. 
+
+The other option is actually the one from `revealjs` site itself. Open the presentation in `Google Chrome` with `?print-pdf` appended to the URL. Command-P -> change margins to 0 -> print to pdf.
 
 ## There is a new version of revealjs. How to take advantage of it ?
 
