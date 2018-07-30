@@ -13,7 +13,7 @@
     "css:build": "postcss themes/lasimple/src/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css",
     "start": "npm run clean:public && npm-run-all --parallel css:watch sass:watch hugo:watch",
     "hugo:watch" : "hugo serve --buildDrafts --buildFuture --disableFastRender --noHTTPCache",
-    "build": "npm run css:build && npm run sass:build && hugo version && hugo --baseURL",
+    "build": "npm run css:build && npm run sass:build && hugo version && hugo --baseURL /",
     "pdf": "decktape"
   },
   "repository": {
