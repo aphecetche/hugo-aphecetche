@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "npm run build"
+command = "npm run build https://aphecetche.netlify.com/"
 
 [context.production.environment]
 HUGO_VERSION = "0.35"
