@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "npm run build https://www.aphecetche.xyz/"
+command = "npm run build"
 
 [context.production.environment]
 HUGO_VERSION = "0.35"
@@ -8,6 +8,6 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
 [context.branch-deploy]
-command = "npm run build https://$BRANCH--aphecetche.netlify.com/"
+
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.35"
