@@ -81,11 +81,11 @@ Launch the application once to login.
 
 Don't know how to automate this, so go to Preferences and change font to one of the Nerd fonts (downloaded at the Ansible stage). For the color themes, see [https://github.com/lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes), in particular the Pencil ones.
 
-## Apps from Mac App Store 
+## Mac App Store and iCloud 
 
-At this point should enter Apple ID into Mac App Store and get :
+At this point should enter Apple ID into Mac App Store and iCloud and get :
 
-- Airmail
+- Airmail (setup is stored on iCloud)
 
 ## Cloud setup
 
