@@ -89,7 +89,12 @@ At this point should enter Apple ID into Mac App Store and iCloud and get :
 
 ## Cloud setup
 
-- DropBox
-- CERNBox
-- ownCloud CNRS (MyCore)
+### DropBox
+
+DropBox app can be installed using hombrew cask. The setup itself has to be manual though.
+
+### CERNBox
+### ownCloud CNRS (MyCore)
+
+
 
