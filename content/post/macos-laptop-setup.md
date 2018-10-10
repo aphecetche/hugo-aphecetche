@@ -10,7 +10,7 @@ The following procedure has been so far tested on a VMWare Fusion 11 Pro virtual
 (Mojave).
 
 The initial idea was to be able to drive completely a new MacOS laptop _installation_ from another machine using
-Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not.
+Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
 So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
 
 # Manual installation
