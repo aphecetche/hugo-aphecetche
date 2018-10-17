@@ -96,5 +96,24 @@ DropBox app can be installed using hombrew cask. The setup itself has to be manu
 ### CERNBox
 ### ownCloud CNRS (MyCore)
 
+## Certificates
+
+### GRID
+
+Get it from 1Password document : just choose "Open With... Keychain" will add it to the keychain.
+
+Put into under `.globus` for `alien`.
+
+Visit the [MENESR CA page](http://cer.grid-fr.pncn.education.gouv.fr) to retrieve the root certificates. Install them into `System` Keychain. Mark the Root one (ac-grid-fr.cer) as `Always Trust`.
+
+Visit the [CERN CA files](https://cafiles.cern.ch/cafiles/) site to download the CERN Root and Grid Certificates. Install them into `System` Keychain. Mark the Root one as `Always Trust` (that will make the Grid one valid for instance).
+
+### CNRS
+
+Get it from 1Password document : just choose "Open With... Keychain" will add it to the keychain.
+
+Visit the [IGC CNRS page](https://igc.services.cnrs.fr/search_CA_certificate/?CA=CNRS2-Standard&lang=fr&body=view_ca.html) to get CNRS2 and CNRS2-Standard CAs. Mark the CNRS2 one as `Always Trust` (this will make the CNRS2-Standard one valid for instance).
+
+
 
 
