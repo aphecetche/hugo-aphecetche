@@ -79,7 +79,8 @@ Launch the application once to login.
 
 ## Terminal configuration
 
-Don't know how to automate this, so go to Preferences and change font to one of the Nerd fonts (downloaded at the Ansible stage). For the color themes, see [https://github.com/lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes), in particular the Pencil ones.
+Don't know how to automate this, so go to Preferences and change font to one of the Nerd fonts (downloaded at the Ansible stage). 
+For the color themes, see [lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes), in particular the Pencil or Tomorrow ones.
 
 ## Mac App Store and iCloud 
 
