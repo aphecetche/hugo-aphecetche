@@ -92,9 +92,13 @@ At this point should enter Apple ID into Mac App Store and iCloud and get :
 
 ### DropBox
 
-DropBox app can be installed using hombrew cask. The setup itself has to be manual though.
+DropBox app can be installed using homebrew cask. The setup itself has to be manual though.
 
 ### CERNBox
+
+[Download the client](https://cernbox.cern.ch/cernbox/doc/clients.html) and install it manually (can select which subfolders of cernbox to sync to save some disk space on the laptop side).
+
+
 ### ownCloud CNRS (MyCore)
 
 ## Certificates
