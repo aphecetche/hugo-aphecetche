@@ -1,6 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
+lastmod = "2018-11-13"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -40,13 +41,19 @@ See [brew.sh](https://brew.sh) for instructions, but it's as simple as :
 Note that this will install Command Line Tools if needed (which is the case if you're starting from a brand new
 laptop), which include `git` and `gcc` for instance.
 
+# Install Python2 using Homebrew
+
+```
+brew install python@2
+```
+
+Note that this will bring `pip` (version 2) along...
+
 # Install Ansible using Homebrew
 
 ```
 brew install ansible
 ```
-
-Note that this will bring `pip` (version 2) along...
 
 # Clone ansible playbooks repository
 
@@ -59,12 +66,17 @@ git clone https://github.com/aphecetche/ansible
 Execute the laptop playbook on localhost (-K will ask for sudo password) :
 
 ```
+cd ~/github.com/aphecetche
 ansible-playbook -i inventory/localhost laptop.yml -K
 ```
 
-Might need to review the list of ssh public keys to be added to the user : see `roles/user/files`
+Might need to review the list of ssh public keys to be added to the user : see `roles/user/files`. For instance, the step above will create a `$HOME/.ssh/id_rsa.pub` that you might want to copy to `roles/user/files/mbp.pub`
 
 # Manual steps
+
+## Mouse and trackpad
+
+Go the `System Preferences` to select e.g. right click for mouse, for trackpad, etc...
 
 ## hammerspoon
 
@@ -100,6 +112,12 @@ DropBox app can be installed using homebrew cask. The setup itself has to be man
 
 
 ### ownCloud CNRS (MyCore)
+
+```
+brew cask install owncloud
+```
+
+Launch it to configure it manually (e.g. server is `https://mycore.core-cloud.net`)
 
 ## Certificates
 
