@@ -1,5 +1,10 @@
 # FAQ
 
+## npm start fails
+
+- is `hugo` in the path ? Use e.g. `module load go` to insure `hugo` command can be found.
+- did you run `npm install` ?
+
 ## How to convert a talk into a PDF ?
 
 ```bash
