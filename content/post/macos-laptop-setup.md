@@ -137,6 +137,11 @@ Get it from 1Password document : just choose "Open With... Keychain" will add it
 
 Visit the [IGC CNRS page](https://igc.services.cnrs.fr/search_CA_certificate/?CA=CNRS2-Standard&lang=fr&body=view_ca.html) to get CNRS2 and CNRS2-Standard CAs. Mark the CNRS2 one as `Always Trust` (this will make the CNRS2-Standard one valid for instance).
 
+## VIM
 
+(only once) Launch vim (neovim really) and use `:PackUpdate` to install plugins.
 
+(only once) Launch vim and install go binaries for [vim-go](https://github.com/fatih/vim-go) using `:packadd vim-go | GoInstallBinaries` 
+
+Install `Vimmy` Safari extension.
 
