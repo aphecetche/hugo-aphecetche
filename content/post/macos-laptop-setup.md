@@ -145,3 +145,8 @@ Visit the [IGC CNRS page](https://igc.services.cnrs.fr/search_CA_certificate/?CA
 
 Install `Vimmy` Safari extension.
 
+## Google
+
+Connect once to drive.google.com and allow access to Google account from some other apps, like Calendar or Notes for instance (not Mail as it's not needed with Airmail)
+
+
