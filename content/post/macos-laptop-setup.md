@@ -89,6 +89,10 @@ Launch the application once in order to :
 
 Launch the application once to login.
 
+## Docker
+
+Launch the application once to login.
+
 ## Terminal configuration
 
 Don't know how to automate this, so go to Preferences and change font to one of the Nerd fonts (downloaded at the Ansible stage). 
