@@ -99,6 +99,7 @@ For the color themes, see [lysyi3m/macos-terminal-themes](https://github.com/lys
 At this point should enter Apple ID into Mac App Store and iCloud and get :
 
 - Airmail (setup is stored on iCloud)
+- Transmit (version 4 bought through the App Store. Note that there is now a version 5)
 
 ## Cloud setup
 
