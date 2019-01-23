@@ -82,7 +82,7 @@ d3 = "/talk/2019-01-23-muon-plenary-mrrtf-status/d3.js"
 ## Next Steps
 ### (Jan 23rd 2019)
 
-- MID reco in O2 repo (short term, i.e. couple of weeks)
+- MID sim in O2 repo (short term, i.e. couple of weeks)
 - MCH tracking (medium term ?)
 - MCH clustering (long term, i.e. months probably)
 - MCH QC ?
@@ -97,3 +97,16 @@ Hopefully better situation in 2019
 - Michael entering the game 
 - Philippe and Diego should have more time to work on Run3 software
 - Andrea contributing to MCH QC (until summer)
+
+---
+
+## O2 (bad?) news 
+
+
+O2 project being split in 3
+
+- O2/FLP
+- O2/EPN
+- O2/PDP
+
+More details end of this month.
