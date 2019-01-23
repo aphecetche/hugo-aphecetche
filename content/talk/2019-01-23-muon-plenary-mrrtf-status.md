@@ -5,7 +5,7 @@ headline = " "
 homebutton = true
 printbutton = true
 theme = "lasimple"
-center = true
+center = false
 controls = false
 transition = "none"
 timeline = false
@@ -13,7 +13,7 @@ code_theme = "tomorrow-night"
 title = "MRRTF Status"
 date = 2019-01-23
 draft = false
-footer = "L. Aphecetche | Muon Plenary MRRTF Status | Jan 23th 2019"
+footer = "L. Aphecetche | Muon Plenary MRRTF Status | Jan 23rd 2019"
 d3 = "/talk/2019-01-23-muon-plenary-mrrtf-status/d3.js"
 +++
 
@@ -47,7 +47,7 @@ d3 = "/talk/2019-01-23-muon-plenary-mrrtf-status/d3.js"
 <!-- .slide: data-state="d3" -->
 
 - Progress shows _current_ O2 repo situation
-- MID situation is actually much better (both hit creation and digitization
+- MID situation is actually _much_ better (both hit creation and digitization
  are not far from pull requests)
 ---
 
@@ -80,6 +80,7 @@ d3 = "/talk/2019-01-23-muon-plenary-mrrtf-status/d3.js"
 ---
 
 ## Next Steps
+### (Jan 23rd 2019)
 
 - MID reco in O2 repo (short term, i.e. couple of weeks)
 - MCH tracking (medium term ?)
@@ -90,5 +91,8 @@ d3 = "/talk/2019-01-23-muon-plenary-mrrtf-status/d3.js"
 
 ## Manpower
 
-Hopefully better situation in 2019 : Michael entering the game, Philippe and Diego to have more time to work on Run3 software.
+Hopefully better situation in 2019
 
+- Michael entering the game 
+- Philippe and Diego should have more time to work on Run3 software
+- Andrea contributing to MCH QC (until summer)
