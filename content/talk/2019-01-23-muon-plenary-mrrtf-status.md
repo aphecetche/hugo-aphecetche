@@ -86,6 +86,7 @@ d3 = "/talk/2019-01-23-muon-plenary-mrrtf-status/d3.js"
 - MCH tracking (medium term ?)
 - MCH clustering (long term, i.e. months probably)
 - MCH QC ?
+- More detailed reports in April in Cape Town !
 
 ---
 
