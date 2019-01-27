@@ -22,7 +22,7 @@ During that you get to create one user with admin rights (i.e. the user that can
 
 # Turn ssh on
 
-From the command line : 
+From the command line :
 
 ```
 sudo systemsetup -setremotelogin on
@@ -32,7 +32,7 @@ This can also be done in the `System Preferences` application -> Sharing -> Remo
 
 # Install Homebrew
 
-See [brew.sh](https://brew.sh) for instructions, but it's as simple as : 
+See [brew.sh](https://brew.sh) for instructions, but it's as simple as :
 
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -95,10 +95,10 @@ Launch the application once to login.
 
 ## Terminal configuration
 
-Don't know how to automate this, so go to Preferences and change font to one of the Nerd fonts (downloaded at the Ansible stage). 
+Don't know how to automate this, so go to Preferences and change font to one of the Nerd fonts (downloaded at the Ansible stage).
 For the color themes, see [lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes), in particular the Pencil or Tomorrow ones.
 
-## Mac App Store and iCloud 
+## Mac App Store and iCloud
 
 At this point should enter Apple ID into Mac App Store and iCloud and get :
 
@@ -146,7 +146,7 @@ Visit the [IGC CNRS page](https://igc.services.cnrs.fr/search_CA_certificate/?CA
 
 (only once) Launch vim (neovim really) and use `:PackUpdate` to install plugins.
 
-(only once) Launch vim and install go binaries for [vim-go](https://github.com/fatih/vim-go) using `:packadd vim-go | GoInstallBinaries` 
+(only once) Launch vim and install go binaries for [vim-go](https://github.com/fatih/vim-go) using `:packadd vim-go | GoInstallBinaries`
 
 Install `Vimmy` Safari extension.
 
@@ -155,3 +155,10 @@ Install `Vimmy` Safari extension.
 Connect once to drive.google.com and allow access to Google account from some other apps, like Calendar or Notes for instance (not Mail as it's not needed with Airmail)
 
 
+## LibreOffice
+
+(for homework of my daughters...)
+
+`brew cask install libreoffice`
+
+And get the FR language pack from [libreoffice download center](https://www.libreoffice.org/download/download/?type=mac-x86_64&version=6.1.4&lang=pick)
