@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2018-11-13"
+lastmod = "2019-02-12"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -18,7 +18,7 @@ So the plan B is to drive the show from the new laptop itself, with a couple of 
 
 Make a regular install if MacOS Mojave if need be.
 
-During that you get to create one user with admin rights (i.e. the user that can issue `sudo` commands).
+During that you get to create one user with admin rights (i.e. the user that can issue `sudo` commands). And change its shell to `zsh`.
 
 # Turn ssh on
 
