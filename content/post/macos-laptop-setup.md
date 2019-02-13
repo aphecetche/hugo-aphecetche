@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2019-02-12"
+lastmod = "2019-02-13"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -109,7 +109,7 @@ At this point should enter Apple ID into Mac App Store and iCloud and get :
 
 ### DropBox
 
-DropBox app can be installed using homebrew cask. The setup itself has to be manual though.
+DropBox app was installed by ansible (using homebrew cask) but the setup itself has to be done manually.
 
 ### CERNBox
 
@@ -118,11 +118,7 @@ DropBox app can be installed using homebrew cask. The setup itself has to be man
 
 ### ownCloud CNRS (MyCore)
 
-```
-brew cask install owncloud
-```
-
-Launch it to configure it manually (e.g. server is `https://mycore.core-cloud.net`)
+Like DropBox, the app was installed by ansible but configure has to be done manually (e.g. server is `https://mycore.core-cloud.net`)
 
 ## Certificates
 
@@ -130,7 +126,7 @@ Launch it to configure it manually (e.g. server is `https://mycore.core-cloud.ne
 
 Get it from 1Password document : just choose "Open With... Keychain" will add it to the keychain.
 
-Put into under `.globus` for `alien`.
+Put into under `.globus` for `alien` (using `~/scripts/alice/run2/p12topem.sh` for instance to convert the p12 file obtained from 1Password to pem).
 
 Visit the [MENESR CA page](http://cer.grid-fr.pncn.education.gouv.fr) to retrieve the root certificates. Install them into `System` Keychain. Mark the Root one (ac-grid-fr.cer) as `Always Trust`.
 
