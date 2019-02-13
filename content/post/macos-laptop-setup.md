@@ -113,8 +113,9 @@ DropBox app was installed by ansible (using homebrew cask) but the setup itself 
 
 ### CERNBox
 
-[Download the client](https://cernbox.cern.ch/cernbox/doc/clients.html) and install it manually (can select which subfolders of cernbox to sync to save some disk space on the laptop side).
+[Download the client](https://cernbox.cern.ch/cernbox/doc/clients.html) and install it manually (can select which subfolders of cernbox to sync to save some disk space on the laptop side, if needed).
 
+> To get an idea of the retrieval speed : from Subatech Wifi, I was able to retrieve all of my Cernbox (28GB) in about 55 minutes) (13-FEB-2019).
 
 ### ownCloud CNRS (MyCore)
 
