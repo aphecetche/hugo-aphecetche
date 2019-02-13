@@ -119,7 +119,7 @@ DropBox app was installed by ansible (using homebrew cask) but the setup itself 
 
 ### ownCloud CNRS (MyCore)
 
-Like DropBox, the app was installed by ansible but configure has to be done manually (e.g. server is `https://mycore.core-cloud.net`)
+Like DropBox, the app was installed by ansible but configure has to be done manually (e.g. server is `https://mycore.core-cloud.net`, username is email @ lab). Note that the owncloud interface mixes very badly with the dark theme of Mojave... (e.g. most of the inputs are white on white !).
 
 ## Certificates
 
