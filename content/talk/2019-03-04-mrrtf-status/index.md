@@ -12,7 +12,7 @@ timeline = false
 code_theme = "tomorrow-night"
 title = "MRRTF Status"
 date = 2019-03-04
-draft = true
+draft = false
 footer = "L. Aphecetche | MRRTF Status | March 4th 2019"
 +++
 
@@ -38,3 +38,28 @@ MCH/MID/MFT O2 session on Thursday, April 4th
 | MCH QC | Andrea <img style="border:none" width="32px" src="vidyo.png"></img> | 15' |
 | | | 2h |
 
+---
+
+### Mchview 2.0
+
+- web app version of mchview (JS/HTML/CSS/SVG)
+- using a mapping service API in Go
+- might use a CCDB service API in Go
+
+
+---
+
+
+
+Started couple of weeks ago as a _side_ project to be able to visualize _clusters_.
+
+Of course taking longer than expected...
+
+But forcing exposure to some of the technos used in QC...
+
+
+---
+
+# Demo
+
+[http://mchmapping.aphecetche.me:5678]
