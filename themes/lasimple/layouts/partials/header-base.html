@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ .Title }} &middot; {{ .Site.Author.name }}</title>
-        <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/main.min.css">
-    </head>
-    <body>
-        {{ partial "sprite.svg" . }}
-        <div id="wrapper">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Title }} &middot; {{ .Site.Author.name }}</title>
+  <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/main.min.css">
+</head>
+
+<body>
+  {{ template "_internal/google_analytics.html" . }}
+  {{ partial "sprite.svg" . }}
+  <div id="wrapper">
