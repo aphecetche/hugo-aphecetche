@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2019-02-13"
+lastmod = "2019-03-14"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -17,7 +17,7 @@ The following procedure has been so far tested on :
     Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
     So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
 
-    > Note to self : further usage of Ansible teached me how to (more) properly use the `-K` and `-become` options, so might revisit plan A at some point, as it should work just fine (March 2019) ?
+    > Note to self : further usage of Ansible teached me how to (more) properly use the `-K` and `-become` options, so might revisit plan A at some point, as it should work just fine (March 2019) ? Not critical though.
 
 # Manual installation
 
@@ -46,16 +46,6 @@ See [brew.sh](https://brew.sh) for instructions, but it's as simple as :
 Note that this will install Command Line Tools if needed (which is the case if you're starting from a brand new
 laptop), which include `git` and `gcc` for instance.
 
-# Install Python2 using Homebrew
-
-_* PROBABLY NO LONGER NEEDED AS ANSIBLE SUPPORTS PYTHON3 JUST FINE *_ => check !
-
-```
-brew install python@2
-```
-
-Note that this will bring `pip` (version 2) along...
-
 # Install Ansible using Homebrew
 
 ```
@@ -70,14 +60,16 @@ cd && mkdir -p github.com/aphecetche && cd github.com/aphecetche
 git clone https://github.com/aphecetche/ansible
 ```
 
-Execute the laptop playbook on localhost (-K will ask for sudo password) :
+Review the `laptop.yml` file, in particular the value of the `user_must_generate_keys` of the `user` role.
+
+Then execute the laptop playbook on localhost (-K will ask for sudo password) :
 
 ```
-cd ~/github.com/aphecetche
+cd ~/github.com/aphecetche/ansible
 ansible-playbook -i inventory/localhost laptop.yml -K
 ```
 
-Might need to review the list of ssh public keys to be added to the user : see `roles/user/files`. For instance, the step above will create a `$HOME/.ssh/id_rsa.pub` that you might want to copy to `roles/user/files/mbp.pub`
+Might need to review the list of ssh public keys to be added to the user : see `roles/user/files`. For instance, the step above will create a `$HOME/.ssh/id_rsa.pub` that you might want to copy to `roles/user/files/mbp.pub`. So that they can be then installed with the _optional_ `deploy_ssh_keys.yml` playbook (to be reviewed).
 
 # Manual steps
 
@@ -166,3 +158,7 @@ Connect once to drive.google.com and allow access to Google account from some ot
 `brew cask install libreoffice`
 
 And get the FR language pack from [libreoffice download center](https://www.libreoffice.org/download/download/?type=mac-x86_64&version=6.1.4&lang=pick)
+
+# Encryption
+
+At any point in the installation, might want to turn FileVault on, using the [lab key](https://support.apple.com/fr-fr/HT202385).
