@@ -7,12 +7,17 @@ tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
 +++
 
-The following procedure has been so far tested on a VMWare Fusion 11 Pro virtual machine running MacOS 10.14
-(Mojave).
+The following procedure has been so far tested on :
 
-The initial idea was to be able to drive completely a new MacOS laptop _installation_ from another machine using
-Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
-So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
+- a VMWare Fusion 11 Pro virtual machine running MacOS 10.14
+    (Mojave).
+- a MacBook Pro from 2015 (Diego's old one) with a fresh Mojave installation
+
+    The initial idea was to be able to drive completely a new MacOS laptop _installation_ from another machine using
+    Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
+    So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
+
+    > Note to self : further usage of Ansible teached me how to (more) properly use the `-K` and `-become` options, so might revisit plan A at some point, as it should work just fine (March 2019) ?
 
 # Manual installation
 
@@ -42,6 +47,8 @@ Note that this will install Command Line Tools if needed (which is the case if y
 laptop), which include `git` and `gcc` for instance.
 
 # Install Python2 using Homebrew
+
+_* PROBABLY NO LONGER NEEDED AS ANSIBLE SUPPORTS PYTHON3 JUST FINE *_ => check !
 
 ```
 brew install python@2
