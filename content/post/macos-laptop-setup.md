@@ -11,7 +11,7 @@ The following procedure has been so far tested on :
 
 - a VMWare Fusion 11 Pro virtual machine running MacOS 10.14
     (Mojave).
-- a MacBook Pro from 2015 (Diego's old one) with a fresh Mojave installation
+- 2 MacBook Pro from 2013 (Diego and Philippe old ones) with a fresh Mojave installation
 
     The initial idea was to be able to drive completely a new MacOS laptop _installation_ from another machine using
     Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
@@ -97,7 +97,7 @@ Launch the application once to login.
 Don't know how to automate this, so go to Preferences and change font to one of the Nerd fonts (downloaded at the Ansible stage).
 For the color themes, see [lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes), in particular the Pencil or Tomorrow ones.
 
-## Mac App Store and iCloud
+## Mac App Store _and_ iCloud
 
 At this point should enter Apple ID into Mac App Store and iCloud and get :
 
@@ -140,8 +140,6 @@ Visit the [IGC CNRS page](https://igc.services.cnrs.fr/search_CA_certificate/?CA
 
 ## VIM
 
-(only once) Launch vim (neovim really) and use `:PackUpdate` to install plugins.
-
 (only once) Launch vim and install go binaries for [vim-go](https://github.com/fatih/vim-go) using `:packadd vim-go | GoInstallBinaries`
 
 Install `Vimmy` Safari extension.
@@ -149,7 +147,6 @@ Install `Vimmy` Safari extension.
 ## Google
 
 Connect once to drive.google.com and allow access to Google account from some other apps, like Calendar or Notes for instance (not Mail as it's not needed with Airmail)
-
 
 ## LibreOffice
 
