@@ -5,9 +5,11 @@
  * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
  * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
+
 /* W3.CSS 4.10 February 2018 by Jan Egil and Borge Refsnes */
 @import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
 html {
   box-sizing: border-box; }
 
@@ -105,7 +107,8 @@ kbd,
 pre,
 samp {
   font-family: monospace, monospace;
-  font-size: 1em; }
+  font-size: 1em; 
+  border:  5px solid red;}
 
 hr {
   box-sizing: content-box;
@@ -152,7 +155,7 @@ button:-moz-focusring,
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: .35em .625em .75em; }
+  padding: 0.35em 0.625em 0.75em; }
 
 legend {
   color: inherit;
@@ -282,7 +285,7 @@ a {
 .w3-table th,
 .w3-table-all td,
 .w3-table-all th {
-  padding: 8px 8px;
+  padding: 8px;
   display: table-cell;
   text-align: left;
   vertical-align: top; }
@@ -447,7 +450,7 @@ a {
 
 .w3-main,
 #main {
-  transition: margin-left .4s; }
+  transition: margin-left 0.4s; }
 
 .w3-modal {
   z-index: 3;
@@ -581,57 +584,79 @@ a {
 @media (min-width: 601px) {
   .w3-col.m1 {
     width: 8.33333%; }
+
   .w3-col.m2 {
     width: 16.66666%; }
+
   .w3-col.m3,
   .w3-quarter {
     width: 24.99999%; }
+
   .w3-col.m4,
   .w3-third {
     width: 33.33333%; }
+
   .w3-col.m5 {
     width: 41.66666%; }
+
   .w3-col.m6,
   .w3-half {
     width: 49.99999%; }
+
   .w3-col.m7 {
     width: 58.33333%; }
+
   .w3-col.m8,
   .w3-twothird {
     width: 66.66666%; }
+
   .w3-col.m9,
   .w3-threequarter {
     width: 74.99999%; }
+
   .w3-col.m10 {
     width: 83.33333%; }
+
   .w3-col.m11 {
     width: 91.66666%; }
+
   .w3-col.m12 {
     width: 99.99999%; } }
 
 @media (min-width: 993px) {
   .w3-col.l1 {
     width: 8.33333%; }
+
   .w3-col.l2 {
     width: 16.66666%; }
+
   .w3-col.l3 {
     width: 24.99999%; }
+
   .w3-col.l4 {
     width: 33.33333%; }
+
   .w3-col.l5 {
     width: 41.66666%; }
+
   .w3-col.l6 {
     width: 49.99999%; }
+
   .w3-col.l7 {
     width: 58.33333%; }
+
   .w3-col.l8 {
     width: 66.66666%; }
+
   .w3-col.l9 {
     width: 74.99999%; }
+
   .w3-col.l10 {
     width: 83.33333%; }
+
   .w3-col.l11 {
     width: 91.66666%; }
+
   .w3-col.l12 {
     width: 99.99999%; } }
 
@@ -672,20 +697,26 @@ a {
   .w3-modal-content {
     margin: 0 10px;
     width: auto !important; }
+
   .w3-modal {
     padding-top: 30px; }
+
   .w3-dropdown-hover.w3-mobile .w3-dropdown-content,
   .w3-dropdown-click.w3-mobile .w3-dropdown-content {
     position: relative; }
+
   .w3-hide-small {
     display: none !important; }
+
   .w3-mobile {
     display: block;
     width: 100% !important; }
+
   .w3-bar-item.w3-mobile,
   .w3-dropdown-hover.w3-mobile,
   .w3-dropdown-click.w3-mobile {
     text-align: center; }
+
   .w3-dropdown-hover.w3-mobile,
   .w3-dropdown-hover.w3-mobile .w3-btn,
   .w3-dropdown-hover.w3-mobile .w3-button,
@@ -697,14 +728,17 @@ a {
 @media (max-width: 768px) {
   .w3-modal-content {
     width: 500px; }
+
   .w3-modal {
     padding-top: 50px; } }
 
 @media (min-width: 993px) {
   .w3-modal-content {
     width: 900px; }
+
   .w3-hide-large {
     display: none !important; }
+
   .w3-sidebar.w3-collapse {
     display: block !important; } }
 
@@ -715,6 +749,7 @@ a {
 @media (max-width: 992px) {
   .w3-sidebar.w3-collapse {
     display: none; }
+
   .w3-main {
     margin-left: 0 !important;
     margin-right: 0 !important; } }
@@ -855,7 +890,7 @@ a {
   width: auto;
   background-color: #fff;
   padding: 8px 12px;
-  border-left: 4px solid #4CAF50;
+  border-left: 4px solid #4caf50;
   word-wrap: break-word; }
 
 .w3-codespan {
@@ -879,6 +914,7 @@ a {
 @keyframes w3-spin {
   0% {
     transform: rotate(0deg); }
+
   100% {
     transform: rotate(359deg); } }
 
@@ -888,8 +924,10 @@ a {
 @keyframes fading {
   0% {
     opacity: 0; }
+
   50% {
     opacity: 1; }
+
   100% {
     opacity: 0; } }
 
@@ -899,6 +937,7 @@ a {
 @keyframes opac {
   from {
     opacity: 0; }
+
   to {
     opacity: 1; } }
 
@@ -910,6 +949,7 @@ a {
   from {
     top: -300px;
     opacity: 0; }
+
   to {
     top: 0;
     opacity: 1; } }
@@ -922,6 +962,7 @@ a {
   from {
     left: -300px;
     opacity: 0; }
+
   to {
     left: 0;
     opacity: 1; } }
@@ -934,6 +975,7 @@ a {
   from {
     right: -300px;
     opacity: 0; }
+
   to {
     right: 0;
     opacity: 1; } }
@@ -946,6 +988,7 @@ a {
   from {
     bottom: -300px;
     opacity: 0; }
+
   to {
     bottom: 0;
     opacity: 1; } }
@@ -956,6 +999,7 @@ a {
 @keyframes animatezoom {
   from {
     transform: scale(0); }
+
   to {
     transform: scale(1); } }
 
@@ -967,7 +1011,7 @@ a {
 
 .w3-opacity,
 .w3-hover-opacity:hover {
-  opacity: 0.60; }
+  opacity: 0.6; }
 
 .w3-opacity-off,
 .w3-hover-opacity-off:hover {
@@ -1144,17 +1188,17 @@ a {
 .w3-aqua,
 .w3-hover-aqua:hover {
   color: #000 !important;
-  background-color: #00ffff !important; }
+  background-color: #0ff !important; }
 
 .w3-blue,
 .w3-hover-blue:hover {
   color: #fff !important;
-  background-color: #2196F3 !important; }
+  background-color: #2196f3 !important; }
 
 .w3-light-blue,
 .w3-hover-light-blue:hover {
   color: #000 !important;
-  background-color: #87CEEB !important; }
+  background-color: #87ceeb !important; }
 
 .w3-brown,
 .w3-hover-brown:hover {
@@ -1176,7 +1220,7 @@ a {
 .w3-green,
 .w3-hover-green:hover {
   color: #fff !important;
-  background-color: #4CAF50 !important; }
+  background-color: #4caf50 !important; }
 
 .w3-light-green,
 .w3-hover-light-green:hover {
@@ -1277,22 +1321,22 @@ a {
 .w3-pale-red,
 .w3-hover-pale-red:hover {
   color: #000 !important;
-  background-color: #ffdddd !important; }
+  background-color: #fdd !important; }
 
 .w3-pale-green,
 .w3-hover-pale-green:hover {
   color: #000 !important;
-  background-color: #ddffdd !important; }
+  background-color: #dfd !important; }
 
 .w3-pale-yellow,
 .w3-hover-pale-yellow:hover {
   color: #000 !important;
-  background-color: #ffffcc !important; }
+  background-color: #ffc !important; }
 
 .w3-pale-blue,
 .w3-hover-pale-blue:hover {
   color: #000 !important;
-  background-color: #ddffff !important; }
+  background-color: #dff !important; }
 
 .w3-text-amber,
 .w3-hover-text-amber:hover {
@@ -1300,15 +1344,15 @@ a {
 
 .w3-text-aqua,
 .w3-hover-text-aqua:hover {
-  color: #00ffff !important; }
+  color: #0ff !important; }
 
 .w3-text-blue,
 .w3-hover-text-blue:hover {
-  color: #2196F3 !important; }
+  color: #2196f3 !important; }
 
 .w3-text-light-blue,
 .w3-hover-text-light-blue:hover {
-  color: #87CEEB !important; }
+  color: #87ceeb !important; }
 
 .w3-text-brown,
 .w3-hover-text-brown:hover {
@@ -1326,7 +1370,7 @@ a {
 
 .w3-text-green,
 .w3-hover-text-green:hover {
-  color: #4CAF50 !important; }
+  color: #4caf50 !important; }
 
 .w3-text-light-green,
 .w3-hover-text-light-green:hover {
@@ -1412,15 +1456,15 @@ a {
 
 .w3-border-aqua,
 .w3-hover-border-aqua:hover {
-  border-color: #00ffff !important; }
+  border-color: #0ff !important; }
 
 .w3-border-blue,
 .w3-hover-border-blue:hover {
-  border-color: #2196F3 !important; }
+  border-color: #2196f3 !important; }
 
 .w3-border-light-blue,
 .w3-hover-border-light-blue:hover {
-  border-color: #87CEEB !important; }
+  border-color: #87ceeb !important; }
 
 .w3-border-brown,
 .w3-hover-border-brown:hover {
@@ -1438,7 +1482,7 @@ a {
 
 .w3-border-green,
 .w3-hover-border-green:hover {
-  border-color: #4CAF50 !important; }
+  border-color: #4caf50 !important; }
 
 .w3-border-light-green,
 .w3-hover-border-light-green:hover {
@@ -1528,7 +1572,7 @@ a {
 
 .w3-border-pale-yellow,
 .w3-hover-border-pale-yellow:hover {
-  border-color: #ffffcc !important; }
+  border-color: #ffc !important; }
 
 .w3-border-pale-blue,
 .w3-hover-border-pale-blue:hover {
@@ -1574,7 +1618,7 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   color: #000;
   font-family: "News Cycle", Impact, sans-serif;
   font-weight: normal;
@@ -1660,7 +1704,7 @@ body {
   padding: 5px;
   font-style: italic;
   background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); }
 
 .reveal blockquote p:first-child,
 .reveal blockquote p:last-child {
@@ -1679,7 +1723,7 @@ body {
   font-family: monospace;
   line-height: 1.2em;
   word-wrap: break-word;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); }
 
 .reveal code {
   font-family: monospace;
@@ -1690,7 +1734,8 @@ body {
   padding: 5px;
   overflow: auto;
   max-height: 400px;
-  word-wrap: normal; }
+  word-wrap: normal; 
+}
 
 .reveal table {
   margin: auto;
@@ -1703,7 +1748,7 @@ body {
 .reveal table th,
 .reveal table td {
   text-align: left;
-  padding: 0.2em 0.5em 0.2em 0.5em;
+  padding: 0.2em 0.5em;
   border-bottom: 1px solid; }
 
 .reveal table th[align="center"],
@@ -1737,11 +1782,11 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #00008B;
+  color: #00008b;
   text-decoration: none;
-  -webkit-transition: color .15s ease;
-  -moz-transition: color .15s ease;
-  transition: color .15s ease; }
+  -webkit-transition: color 0.15s ease;
+  -moz-transition: color 0.15s ease;
+  transition: color 0.15s ease; }
 
 .reveal a:hover {
   color: #0000f1;
@@ -1756,7 +1801,7 @@ body {
  * IMAGES
  *********************************************/
 .reveal section img {
-  margin: 15px 0px;
+  margin: 15px 0;
   background: rgba(255, 255, 255, 0.12);
   border: 4px solid #000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
@@ -1766,27 +1811,27 @@ body {
   box-shadow: none; }
 
 .reveal a img {
-  -webkit-transition: all .15s linear;
-  -moz-transition: all .15s linear;
-  transition: all .15s linear; }
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear; }
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #00008B;
+  border-color: #00008b;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #00008B; }
+  color: #00008b; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #00008B; }
+  color: #00008b; }
 
 .reveal .progress span {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);

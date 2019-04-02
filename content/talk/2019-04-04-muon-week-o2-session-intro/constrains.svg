@@ -1,0 +1,13 @@
+<svg class="constrains" width="600" height="600" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="600" fill="white"/>
+<circle cx="306" cy="130" r="74.5" class="constrains quality"/>
+<circle cx="466" cy="436" r="74.5" class="constrains time"/>
+<circle cx="156" cy="436" r="74.5" class="constrains resources"/>
+<path d="M233 437H390" stroke="black"/>
+<path d="M159 362L258 189" stroke="black"/>
+<path d="M450 362L351 189" stroke="black"/>
+<text x="306" y="130" class="constrains quality">quality</text>
+<text x="466" y="436" class="constrains time">time</text>
+<text x="156" y="436" class="constrains resources">resources</text>
+</svg>
+
