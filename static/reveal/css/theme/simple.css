@@ -107,8 +107,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, monospace;
-  font-size: 1em; 
-  border:  5px solid red;}
+  font-size: 1em; }
 
 hr {
   box-sizing: content-box;
