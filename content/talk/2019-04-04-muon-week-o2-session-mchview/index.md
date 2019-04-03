@@ -63,7 +63,7 @@ Clearly separated from UI
 
 Using external APIs as much as possible
 
-Those APIs can be used outside mchview as well
+Those APIs might be used outside mchview as well
 
 ---
 
@@ -77,7 +77,7 @@ One advantage (for mchview) is that it loads only what is needed for a view
 
 ---
 
-## Mapping REST API
+## Mapping API
 
 Entry point gives you a help.
 
@@ -85,7 +85,7 @@ Entry point gives you a help.
 
 ---
 
-## Mapping REST API example
+## Mapping API example
 
 `?dualsampas` URLs gives you the shape of dual sampas
 
@@ -175,13 +175,12 @@ to JSON format
 
 The API that might be used by mchview to get calib data
 
-(very _alpha_ software. see [serve-ocdb](https://github.com/aphecetche/ocdb/tree/serve-ocdb) branch of `alice-go` repo)
+(very _alpha_ software. see [serve-ocdb](https://github.com/aphecetche/ocdb/tree/serve-ocdb) branch of [alice-go](https://github.com/alice-go/aligo) repo)
 
 ---
 
 ## Current status
 
-- [WIP](http://mchmapping.aphecetche.me:5678/)
 - Not quite as the mockup (yet)
 - more a proof-of-concept for the moment
 - but seems viable...
@@ -206,11 +205,7 @@ MCH_MAPPING_API_PORT=3333\n" > .env
 ### With npm
 
 ```
-> git clone https://github.com/mrrtf/mchview.git
-
-> npm install
-
-> npm start
+> npm install && npm start
 ```
 
 Open browser at `http://localhost:4444`
@@ -223,6 +218,12 @@ Open browser at `http://localhost:4444`
 
 ---
 
+## Code
+
 https://github.com/mrrtf/mchview
 
-Questions ?
+#### Contributions welcome
+
+---
+
+## Questions ?
