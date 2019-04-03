@@ -1,5 +1,5 @@
 +++
-author = "Laurent Aphecetche"
+author = " "
 tags = [ "talks", "mrrtf" ]
 headline = " "
 homebutton = true
@@ -22,7 +22,7 @@ footer = "L. Aphecetche | MUON O2 Session | April 4th 2019"
 
 ---
 
-## Constrains
+## A note on constrains
 
 <svg class="constrains" width="600" height="600" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" style="text-anchor: middle; font-size: 26px; ">
 <rect width="600" height="600" fill="white"/>
