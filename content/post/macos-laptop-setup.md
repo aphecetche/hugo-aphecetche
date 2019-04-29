@@ -126,7 +126,7 @@ Like DropBox, the app was installed by ansible but configure has to be done manu
 
 Get it from 1Password document : just choose "Open With... Keychain" will add it to the keychain.
 
-Put into under `.globus` for `alien` (using `~/scripts/alice/run2/p12topem.sh` for instance to convert the p12 file obtained from 1Password to pem).
+Put into under `.globus` for `alien` (using `~/scripts/alice/run2/grid/p12topem.sh` for instance to convert the p12 file obtained from 1Password to pem).
 
 Visit the [MENESR CA page](http://cer.grid-fr.pncn.education.gouv.fr) to retrieve the root certificates. Install them into `System` Keychain. Mark the Root one (ac-grid-fr.cer) as `Always Trust`.
 
@@ -159,3 +159,7 @@ And get the FR language pack from [libreoffice download center](https://www.libr
 # Encryption
 
 At any point in the installation, might want to turn FileVault on, using the [lab key](https://support.apple.com/fr-fr/HT202385).
+
+# SuperDuper
+
+For some reason superduper installation from brew cask just hangs the ansible process, so it has to be done by hand afterwards. 
