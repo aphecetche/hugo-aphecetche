@@ -10,14 +10,14 @@ title = "MacOS Laptop Setup from scratch using Ansible"
 The following procedure has been so far tested on :
 
 - a VMWare Fusion 11 Pro virtual machine running MacOS 10.14
-    (Mojave).
+  (Mojave).
 - 2 MacBook Pro from 2013 (Diego and Philippe old ones) with a fresh Mojave installation
 
-    The initial idea was to be able to drive completely a new MacOS laptop _installation_ from another machine using
-    Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
-    So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
+  The initial idea was to be able to drive completely a new MacOS laptop _installation_ from another machine using
+  Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
+  So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
 
-    > Note to self : further usage of Ansible teached me how to (more) properly use the `-K` and `-become` options, so might revisit plan A at some point, as it should work just fine (March 2019) ? Not critical though.
+  > Note to self : further usage of Ansible teached me how to (more) properly use the `-K` and `-become` options, so might revisit plan A at some point, as it should work just fine (March 2019) ? Not critical though.
 
 # Manual installation
 
@@ -53,7 +53,6 @@ brew install ansible
 ```
 
 # Clone ansible playbooks repository
-
 
 ```
 cd && mkdir -p github.com/aphecetche && cd github.com/aphecetche
@@ -102,7 +101,12 @@ For the color themes, see [lysyi3m/macos-terminal-themes](https://github.com/lys
 At this point should enter Apple ID into Mac App Store and iCloud and get :
 
 - Airmail (setup is stored on iCloud)
-- Transmit (version 4 bought through the App Store. Note that there is now a version 5)
+- Things
+- MindNode
+- ByWord
+- AdBlock (for Safari)
+
+And possibly Transmit (version 4 bought through the App Store. Note that there is now a version 5) as well as the various cloud storages not already installed by brew (Box, OneDrive)
 
 ## Cloud setup
 
@@ -162,4 +166,8 @@ At any point in the installation, might want to turn FileVault on, using the [la
 
 # SuperDuper
 
-For some reason superduper installation from brew cask just hangs the ansible process, so it has to be done by hand afterwards. 
+For some reason superduper installation from brew cask just hangs the ansible process, so it has to be done by hand afterwards.
+
+# Lightroom CC
+
+From Adobe site, if needed.
