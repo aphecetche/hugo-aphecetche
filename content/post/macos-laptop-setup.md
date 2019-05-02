@@ -106,13 +106,13 @@ At this point should enter Apple ID into Mac App Store and iCloud and get :
 - ByWord
 - AdBlock (for Safari)
 
-And possibly Transmit (version 4 bought through the App Store. Note that there is now a version 5) as well as the various cloud storages not already installed by brew (Box, OneDrive)
+And possibly Transmit (version 4 bought through the App Store. Note that there is now a version 5).
 
 ## Cloud setup
 
-### DropBox
+### DropBox, OneDrive, Google Drive, Box Drive
 
-DropBox app was installed by ansible (using homebrew cask) but the setup itself has to be done manually.
+DropBox and similar apps were installed by ansible (using homebrew cask) but the setup itself has to be done manually.
 
 ### CERNBox
 
