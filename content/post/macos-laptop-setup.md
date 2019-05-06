@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2019-03-14"
+lastmod = "2019-05-06"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -46,11 +46,81 @@ See [brew.sh](https://brew.sh) for instructions, but it's as simple as :
 Note that this will install Command Line Tools if needed (which is the case if you're starting from a brand new
 laptop), which include `git` and `gcc` for instance.
 
-# Install Ansible using Homebrew
+# Install Ansible
+
+> Starting from May 2019, I no longer install Ansible with brew. That would otherwise
+> bring a brew python along, which I don't really want or need, as I've moved
+> to [pyenv](https://github.com/pyenv/pyenv) to deal with python versions.
+>
+> So the idea now is to setup pyenv first and then use that to get a virtualenv
+> with Ansible in it.
 
 ```
-brew install ansible
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 ```
+
+Now we _do_ need some python to use Ansible. Let's install a Miniconda one and make it the default.
+
+```
+pyenv/bin/pyenv init -
+pyenv install miniconda3-latest
+pyenv global miniconda3-latest
+pyenv rehash
+```
+
+Before going further, double check that the python version is the one you expect :
+
+```
+> pyenv which python
+/Users/laurent/.pyenv/versions/miniconda3-latest/bin/python
+> python -V
+Python 3.7.3
+```
+
+Now let's create _and_ activate a virtualenv that will be used exclusively by Ansible.
+
+```
+> pyenv virtualenv ansible
+> pyenv activate ansible
+...
+> pyenv virtualenvs
+* ansible (created from /Users/laurent/.pyenv)
+  miniconda3-latest (created from /Users/laurent/.pyenv/versions/miniconda3-latest)
+  miniconda3-latest/envs/ansible (created from /Users/laurent/.pyenv/versions/miniconda3-latest)
+```
+
+And install in that virtualenv ansible itself as well as one extra package that is needed to hash the passwords (later on when generating users for external machines, e.g. Linode ones)
+
+```
+pip install ansible passlib
+```
+
+```
+> pip list
+Package      Version
+------------ --------
+ansible      2.7.10
+asn1crypto   0.24.0
+bcrypt       3.1.6
+certifi      2019.3.9
+cffi         1.12.3
+cryptography 2.6.1
+Jinja2       2.10.1
+MarkupSafe   1.1.1
+paramiko     2.4.2
+passlib      1.7.1
+pip          19.1
+pyasn1       0.4.5
+pycparser    2.19
+PyNaCl       1.3.0
+PyYAML       5.1
+setuptools   41.0.1
+six          1.12.0
+wheel        0.33.1
+```
+
+From there ansible is useable as long as the `ansible` virtualenv is activated (or, thanks to pyenv, as long as no other virtualenv is).
 
 # Clone ansible playbooks repository
 
