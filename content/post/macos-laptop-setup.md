@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2019-05-06"
+lastmod = "2019-05-17"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -50,30 +50,28 @@ laptop), which include `git` and `gcc` for instance.
 
 > Starting from May 2019, I no longer install Ansible with brew. That would otherwise
 > bring a brew python along, which I don't really want or need, as I've moved
-> to [pyenv](https://github.com/pyenv/pyenv) to deal with python versions.
+> to `pyenv` first and then to [asdf](https://github.com/asdf-vm/asdf) to deal with python versions.
 >
-> So the idea now is to setup pyenv first and then use that to get a virtualenv
+> So the idea now is to setup `asdf` first and then use that to get a virtualenv
 > with Ansible in it.
 
 ```
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 ```
 
-Now we _do_ need some python to use Ansible. Let's install a Miniconda one and make it the default.
+Now we _do_ need some python to use Ansible. Let's install one and make it the default.
 
 ```
-pyenv/bin/pyenv init -
-pyenv install miniconda3-latest
-pyenv global miniconda3-latest
-pyenv rehash
+. ~/asdf/asdf.sh
+asdf install python 3.7.3
+asdf global python 3.7.3
 ```
 
 Before going further, double check that the python version is the one you expect :
 
 ```
-> pyenv which python
-/Users/laurent/.pyenv/versions/miniconda3-latest/bin/python
+> asdf current python
+/Users/laurent/.asdf/installs/python/3.7.3/bin/python
 > python -V
 Python 3.7.3
 ```
@@ -81,13 +79,10 @@ Python 3.7.3
 Now let's create _and_ activate a virtualenv that will be used exclusively by Ansible.
 
 ```
-> pyenv virtualenv ansible
-> pyenv activate ansible
-...
-> pyenv virtualenvs
-* ansible (created from /Users/laurent/.pyenv)
-  miniconda3-latest (created from /Users/laurent/.pyenv/versions/miniconda3-latest)
-  miniconda3-latest/envs/ansible (created from /Users/laurent/.pyenv/versions/miniconda3-latest)
+> mkdir ~/.virtualenvs
+> cd ~/.virtualenvs
+> python -m venv ansible
+> source ~/.virtualenvs/ansible/bin/activate
 ```
 
 And install in that virtualenv ansible itself as well as one extra package that is needed to hash the passwords (later on when generating users for external machines, e.g. Linode ones)
@@ -120,7 +115,7 @@ six          1.12.0
 wheel        0.33.1
 ```
 
-From there ansible is useable as long as the `ansible` virtualenv is activated (or, thanks to pyenv, as long as no other virtualenv is).
+From there ansible is useable as long as the `ansible` virtualenv is activated.
 
 # Clone ansible playbooks repository
 
