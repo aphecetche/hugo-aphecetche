@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2019-05-17"
+lastmod = "2019-05-22"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -56,16 +56,28 @@ laptop), which include `git` and `gcc` for instance.
 > with Ansible in it.
 
 ```
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
 ```
 
 Now we _do_ need some python to use Ansible. Let's install one and make it the default.
 
 ```
-. ~/asdf/asdf.sh
+. $HOME/.asdf/asdf.sh
+asdf plugin-add python
 asdf install python 3.7.3
 asdf global python 3.7.3
 ```
+
+(Use `$HOME/.asdf/asdf.sh` instead of `~/.asdf/asdf.sh` as got into trouble on the FLP with the ~).
+
+There might be some [prerequisites](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) to check first depending on the platform.
+Also, on Mac, you probably want to make pythons of the (apple) framework variety :
+
+```
+PYTHON_CONFIGURE_OPTS="--enable-framework" asdf install python 3.7.3
+```
+
+That's anyway what the ansible python roles defined in the github.com/aphecetche/ansible repo are doing later on, so better be consistent right off the bat.
 
 Before going further, double check that the python version is the one you expect :
 
