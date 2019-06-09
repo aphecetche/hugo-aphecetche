@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2019-05-22"
+lastmod = "2019-06-09"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -170,7 +170,17 @@ Launch the application once to login.
 
 ## Terminal configuration
 
-Don't know how to automate this, so go to Preferences and change font to one of the Nerd fonts (downloaded at the Ansible stage).
+Don't know how to automate this, so go to Preferences, of the chosen terminal app, and change font to one of the Nerd fonts (downloaded at the Ansible stage).
+Currently using "Fura Code Regular Nerd Font Complete", size 14pt.
+
+### iTerm2
+
+`iTerm2` might be a preferable option over `Terminal.app` as it supports OSC-52 escape sequences (see e.g. [this blog post](https://www.freecodecamp.org/news/tmux-in-practice-integration-with-system-clipboard-bcd73c62ff7b/)), which are needed to get copy and paste working in tmux for remote cases.
+
+For the color themes, see [https://iterm2colorschemes.com](https://iterm2colorschemes.com) for instance.
+
+### Terminal
+
 For the color themes, see [lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes), in particular the Pencil or Tomorrow ones.
 
 ## Mac App Store _and_ iCloud
