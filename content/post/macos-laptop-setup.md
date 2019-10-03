@@ -1,7 +1,7 @@
 +++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2019-06-09"
+lastmod = "2019-10-03"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
@@ -18,6 +18,8 @@ The following procedure has been so far tested on :
   So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
 
   > Note to self : further usage of Ansible teached me how to (more) properly use the `-K` and `-become` options, so might revisit plan A at some point, as it should work just fine (March 2019) ? Not critical though.
+
+> The last installation (Sep 21st, 2019) was not completely painless (python installations kind of failed, java asdf plugin changed java names, etc...). Plus there are still some things that should be migrated to asdf (e.g. hugo itself and golang)
 
 # Manual installation
 
@@ -182,6 +184,15 @@ For the color themes, see [https://iterm2colorschemes.com](https://iterm2colorsc
 ### Terminal
 
 For the color themes, see [lysyi3m/macos-terminal-themes](https://github.com/lysyi3m/macos-terminal-themes), in particular the Pencil or Tomorrow ones.
+
+### Allow debugging in tmux
+
+Ensure the dev tools security is enabled :
+
+```
+> DevToolsSecurity -status
+> sudo DevToolsSecurity -enable
+```
 
 ## Mac App Store _and_ iCloud
 
