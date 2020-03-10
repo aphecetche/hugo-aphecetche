@@ -70,3 +70,15 @@ if __name__ == '__main__':
 
 to merge all core results into one and then use 
 <https://www.speedscope.app> to display the result.
+
+### Ninja + custom python script to feed data into speedscope
+
+My preferred way so far...
+
+    $HOME/github.com/aphecetche/scripts/ninja/ninja-log-2-speedscope.py $HOME/alice/dev/sw/BUILD/O2-latest/O2/.ninja_log > $HOME/build-times.txt
+
+Which should be done after a clean build (as ninja_log accumlates data from several builds otherwise).
+
+The `ninja-log-2-speedscope.py` is quick-and-dirty-and-manual, feel free to tweak it for your needs. 
+
+Here's an example of [resulting file](/post/o2-build-times/aliceo2-build-10-march-2020.txt) and the [speedscope display](https://www.speedscope.app#profileURL=https://aphecetche.netlify.com/post/o2-build-times/aliceo2-build-10-march-2020.txt)
