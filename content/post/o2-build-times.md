@@ -81,6 +81,6 @@ My preferred way so far...
 
 Which should be done after a clean build (as ninja_log accumlates data from several builds otherwise).
 
-The [`ninja-log-2-speedscope.py`](https://github.com/aphecetche/scripts/blob/master/ninja/ninja-log-2-speedscope.py) is quick-and-dirty-and-manual, feel free to tweak it for your needs. 
+The [`ninja-log-2-speedscope.py`](https://github.com/aphecetche/scripts/blob/master/ninja/ninja-log-2-speedscope.py) is quick-and-dirty-and-manual (hope it's still correct though...). Feel free to tweak it for your needs, e.g. to group things differently.
 
 Here's an example of [resulting file](/post/o2-build-times/aliceo2-build-10-march-2020.txt) and the [speedscope display](https://www.speedscope.app#profileURL=https://aphecetche.netlify.com/post/o2-build-times/aliceo2-build-10-march-2020.txt). Select the "Left Heavy" tab (keyboard shortcut = 2) to see a flamegraph of build times, or "Sandwidth" tab (keyboard shortcut = 3) to see the most time consuming files. + and - to zoom-in / out and 0 to zoom back to see all.
