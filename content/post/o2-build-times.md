@@ -8,7 +8,7 @@ draft: false
 ---
 
 This is nothing new but the build time of AliceO2 is quite sizeable (see
-already the [timings I got a while ago while ninja](/2018/05/09/ninja-vs-make/)
+already the [timings I got a while ago with ninja](/2018/05/09/ninja-vs-make/)
 and/or [shake](https://alice-talk.web.cern.ch/t/ninja-anyone/66/13))
 
 I'm here considering only the case where we're using the Ninja CMake generator
@@ -18,7 +18,7 @@ I'm here considering only the case where we're using the Ninja CMake generator
 
 ### Shake
 
-One nice way would be to use [Shake](https://shakebuild.com) which understand
+One nice way would be to use [Shake](https://shakebuild.com) which understands
 `build.ninja` files 
 (so *could* be used directly from a build directory)
 and outputs html reports out of the box. But
@@ -71,6 +71,8 @@ if __name__ == '__main__':
 to merge all core results into one and then use 
 <https://www.speedscope.app> to display the result.
 
+That is usable but not completely satisfactory either.
+
 ### Ninja + custom python script to feed data into speedscope
 
 My preferred way so far...
@@ -79,6 +81,6 @@ My preferred way so far...
 
 Which should be done after a clean build (as ninja_log accumlates data from several builds otherwise).
 
-The `ninja-log-2-speedscope.py` is quick-and-dirty-and-manual, feel free to tweak it for your needs. 
+The [`ninja-log-2-speedscope.py`](https://github.com/aphecetche/scripts/blob/master/ninja/ninja-log-2-speedscope.py) is quick-and-dirty-and-manual, feel free to tweak it for your needs. 
 
-Here's an example of [resulting file](/post/o2-build-times/aliceo2-build-10-march-2020.txt) and the [speedscope display](https://www.speedscope.app#profileURL=https://aphecetche.netlify.com/post/o2-build-times/aliceo2-build-10-march-2020.txt)
+Here's an example of [resulting file](/post/o2-build-times/aliceo2-build-10-march-2020.txt) and the [speedscope display](https://www.speedscope.app#profileURL=https://aphecetche.netlify.com/post/o2-build-times/aliceo2-build-10-march-2020.txt). Select the "Left Heavy" tab (keyboard shortcut = 2) to see a flamegraph of build times, or "Sandwidth" tab (keyboard shortcut = 3) to see the most time consuming files. + and - to zoom-in / out and 0 to zoom back to see all.
