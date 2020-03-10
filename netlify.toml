@@ -11,3 +11,9 @@ HUGO_ENABLEGITINFO = "true"
 
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.35"
+
+[[headers]]
+for = "/*"
+[headers.values]
+Access-Control-Allow-Origin = "*"
+
