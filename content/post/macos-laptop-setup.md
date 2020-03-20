@@ -1,23 +1,23 @@
-+++
+\+++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
 lastmod = "2019-10-03"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
-+++
+\+++
 
 The following procedure has been so far tested on :
 
-- a VMWare Fusion 11 Pro virtual machine running MacOS 10.14
-  (Mojave).
-- 2 MacBook Pro from 2013 (Diego and Philippe old ones) with a fresh Mojave installation
+-   a VMWare Fusion 11 Pro virtual machine running MacOS 10.14
+    (Mojave).
+-   2 MacBook Pro from 2013 (Diego and Philippe old ones) with a fresh Mojave installation
 
-  The initial idea was to be able to drive completely a new MacOS laptop _installation_ from another machine using
-  Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
-  So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
+    The initial idea was to be able to drive completely a new MacOS laptop *installation* from another machine using
+    Ansible. But unfortunately I was not able to install Homebrew that way because the installation script does not clearly separate parts that require `sudo` and those that do not. In addition some brew casks (e.g. gfortran) also require a sudo password in their installation process.
+    So the plan B is to drive the show from the new laptop itself, with a couple of manual steps and then hand over most of the work to Ansible (working on the laptop itself).
 
-  > Note to self : further usage of Ansible teached me how to (more) properly use the `-K` and `-become` options, so might revisit plan A at some point, as it should work just fine (March 2019) ? Not critical though.
+    > Note to self : further usage of Ansible teached me how to (more) properly use the `-K` and `-become` options, so might revisit plan A at some point, as it should work just fine (March 2019) ? Not critical though.
 
 > The last installation (Sep 21st, 2019) was not completely painless (python installations kind of failed, java asdf plugin changed java names, etc...). Plus there are still some things that should be migrated to asdf (e.g. hugo itself and golang)
 
@@ -31,9 +31,7 @@ During that you get to create one user with admin rights (i.e. the user that can
 
 From the command line :
 
-```
-sudo systemsetup -setremotelogin on
-```
+    sudo systemsetup -setremotelogin on
 
 This can also be done in the `System Preferences` application -> Sharing -> Remote Login.
 
@@ -41,9 +39,7 @@ This can also be done in the `System Preferences` application -> Sharing -> Remo
 
 See [brew.sh](https://brew.sh) for instructions, but it's as simple as :
 
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Note that this will install Command Line Tools if needed (which is the case if you're starting from a brand new
 laptop), which include `git` and `gcc` for instance.
@@ -57,97 +53,79 @@ laptop), which include `git` and `gcc` for instance.
 > So the idea now is to setup `asdf` first and then use that to get a virtualenv
 > with Ansible in it.
 
-```
-git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
-```
+    git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
 
-Now we _do_ need some python to use Ansible. Let's install one and make it the default.
+Now we *do* need some python to use Ansible. Let's install one and make it the default.
 
-```
-. $HOME/.asdf/asdf.sh
-asdf plugin-add python
-asdf install python 3.7.3
-asdf global python 3.7.3
-```
+    . $HOME/.asdf/asdf.sh
+    asdf plugin-add python
+    asdf install python 3.7.3
+    asdf global python 3.7.3
 
 (Use `$HOME/.asdf/asdf.sh` instead of `~/.asdf/asdf.sh` as got into trouble on the FLP with the ~).
 
 There might be some [prerequisites](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) to check first depending on the platform.
 Also, on Mac, you probably want to make pythons of the (apple) framework variety :
 
-```
-PYTHON_CONFIGURE_OPTS="--enable-framework" asdf install python 3.7.3
-```
+    PYTHON_CONFIGURE_OPTS="--enable-framework" asdf install python 3.7.3
 
 That's anyway what the ansible python roles defined in the github.com/aphecetche/ansible repo are doing later on, so better be consistent right off the bat.
 
 Before going further, double check that the python version is the one you expect :
 
-```
-> asdf current python
-/Users/laurent/.asdf/installs/python/3.7.3/bin/python
-> python -V
-Python 3.7.3
-```
+    > asdf current python
+    /Users/laurent/.asdf/installs/python/3.7.3/bin/python
+    > python -V
+    Python 3.7.3
 
-Now let's create _and_ activate a virtualenv that will be used exclusively by Ansible.
+Now let's create *and* activate a virtualenv that will be used exclusively by Ansible.
 
-```
-> mkdir ~/.virtualenvs
-> cd ~/.virtualenvs
-> python -m venv ansible
-> source ~/.virtualenvs/ansible/bin/activate
-```
+    > mkdir ~/.virtualenvs
+    > cd ~/.virtualenvs
+    > python -m venv ansible
+    > source ~/.virtualenvs/ansible/bin/activate
 
 And install in that virtualenv ansible itself as well as one extra package that is needed to hash the passwords (later on when generating users for external machines, e.g. Linode ones)
 
-```
-pip install ansible passlib
-```
+    pip install ansible passlib
 
-```
-> pip list
-Package      Version
------------- --------
-ansible      2.7.10
-asn1crypto   0.24.0
-bcrypt       3.1.6
-certifi      2019.3.9
-cffi         1.12.3
-cryptography 2.6.1
-Jinja2       2.10.1
-MarkupSafe   1.1.1
-paramiko     2.4.2
-passlib      1.7.1
-pip          19.1
-pyasn1       0.4.5
-pycparser    2.19
-PyNaCl       1.3.0
-PyYAML       5.1
-setuptools   41.0.1
-six          1.12.0
-wheel        0.33.1
-```
+    > pip list
+    Package      Version
+    ------------ --------
+    ansible      2.7.10
+    asn1crypto   0.24.0
+    bcrypt       3.1.6
+    certifi      2019.3.9
+    cffi         1.12.3
+    cryptography 2.6.1
+    Jinja2       2.10.1
+    MarkupSafe   1.1.1
+    paramiko     2.4.2
+    passlib      1.7.1
+    pip          19.1
+    pyasn1       0.4.5
+    pycparser    2.19
+    PyNaCl       1.3.0
+    PyYAML       5.1
+    setuptools   41.0.1
+    six          1.12.0
+    wheel        0.33.1
 
 From there ansible is useable as long as the `ansible` virtualenv is activated.
 
 # Clone ansible playbooks repository
 
-```
-cd && mkdir -p github.com/aphecetche && cd github.com/aphecetche
-git clone https://github.com/aphecetche/ansible
-```
+    cd && mkdir -p github.com/aphecetche && cd github.com/aphecetche
+    git clone https://github.com/aphecetche/ansible
 
 Review the `laptop.yml` file, in particular the value of the `user_must_generate_keys` of the `user` role.
 
 Then execute the laptop playbook on localhost (-K will ask for sudo password) :
 
-```
-cd ~/github.com/aphecetche/ansible
-ansible-playbook -i inventory/localhost laptop.yml -K
-```
+    cd ~/github.com/aphecetche/ansible
+    ansible-playbook -i inventory/localhost -l localhost laptop.yml -K
 
-Might need to review the list of ssh public keys to be added to the user : see `roles/user/files`. For instance, the step above will create a `$HOME/.ssh/id_rsa.pub` that you might want to copy to `roles/user/files/mbp.pub`. So that they can be then installed with the _optional_ `deploy_ssh_keys.yml` playbook (to be reviewed).
+Might need to review the list of ssh public keys to be added to the user : see `roles/user/files`. For instance, the step above will create a `$HOME/.ssh/id_rsa.pub` that you might want to copy to `roles/user/files/mbp.pub`. So that they can be then installed with the *optional* `deploy_ssh_keys.yml` playbook (to be reviewed).
 
 # Manual steps
 
@@ -159,8 +137,8 @@ Go the `System Preferences` to select e.g. right click for mouse, for trackpad, 
 
 Launch the application once in order to :
 
-- enable it in the accessibility panel
-- enable it at login
+-   enable it in the accessibility panel
+-   enable it at login
 
 ## 1Password
 
@@ -179,7 +157,7 @@ Currently using "Fura Code Regular Nerd Font Complete", size 14pt.
 
 `iTerm2` might be a preferable option over `Terminal.app` as it supports OSC-52 escape sequences (see e.g. [this blog post](https://www.freecodecamp.org/news/tmux-in-practice-integration-with-system-clipboard-bcd73c62ff7b/)), which are needed to get copy and paste working in tmux for remote cases.
 
-For the color themes, see [https://iterm2colorschemes.com](https://iterm2colorschemes.com) for instance.
+For the color themes, see <https://iterm2colorschemes.com> for instance.
 
 ### Terminal
 
@@ -189,20 +167,18 @@ For the color themes, see [lysyi3m/macos-terminal-themes](https://github.com/lys
 
 Ensure the dev tools security is enabled :
 
-```
-> DevToolsSecurity -status
-> sudo DevToolsSecurity -enable
-```
+    > DevToolsSecurity -status
+    > sudo DevToolsSecurity -enable
 
-## Mac App Store _and_ iCloud
+## Mac App Store *and* iCloud
 
 At this point should enter Apple ID into Mac App Store and iCloud and get :
 
-- Airmail (setup is stored on iCloud)
-- Things
-- MindNode
-- ByWord
-- AdBlock (for Safari)
+-   Airmail (setup is stored on iCloud)
+-   Things
+-   MindNode
+-   ByWord
+-   AdBlock (for Safari)
 
 And possibly Transmit (version 4 bought through the App Store. Note that there is now a version 5).
 
