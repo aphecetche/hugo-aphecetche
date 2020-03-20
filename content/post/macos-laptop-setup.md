@@ -123,7 +123,9 @@ Review the `laptop.yml` file, in particular the value of the `user_must_generate
 Then execute the laptop playbook on localhost (-K will ask for sudo password) :
 
     cd ~/github.com/aphecetche/ansible
-    ansible-playbook -i inventory/localhost -l localhost laptop.yml -K
+    rm -rf $HOME/.vim && ansible-playbook -i inventory/localhost -l localhost laptop.yml -K
+
+The removal of the `.vim` directory is necessary to ensure proper installation of the neovim role, in case you've used vim at least once before launching this first ansible installation...
 
 Might need to review the list of ssh public keys to be added to the user : see `roles/user/files`. For instance, the step above will create a `$HOME/.ssh/id_rsa.pub` that you might want to copy to `roles/user/files/mbp.pub`. So that they can be then installed with the *optional* `deploy_ssh_keys.yml` playbook (to be reviewed).
 
