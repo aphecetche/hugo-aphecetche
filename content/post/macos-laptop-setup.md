@@ -1,7 +1,7 @@
 \+++
 author = "Laurent Aphecetche"
 date = "2018-10-09"
-lastmod = "2019-10-03"
+lastmod = "2020-03-22"
 description = ""
 tags = [ "geek", "vmware", "macos","laptop","ansible" ]
 title = "MacOS Laptop Setup from scratch using Ansible"
