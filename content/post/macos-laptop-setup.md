@@ -1,7 +1,7 @@
 ---
 author:  "Laurent Aphecetche"
 date:  "2018-10-09"
-lastmod:  "2020-03-22"
+lastmod:  "2020-05-16"
 description:  ""
 tags:  [ "geek","vmware","macos","laptop","ansible" ]
 title: "MacOS Laptop Setup from scratch using Ansible"
@@ -36,7 +36,7 @@ From the command line :
 
 This can also be done in the `System Preferences` application -> Sharing -> Remote Login.
 
-# Install Homebrew
+# Install Homebrew  if on a Mac
 
 See [brew.sh](https://brew.sh) for instructions, but it's as simple as :
 
@@ -44,6 +44,10 @@ See [brew.sh](https://brew.sh) for instructions, but it's as simple as :
 
 Note that this will install Command Line Tools if needed (which is the case if you're starting from a brand new
 laptop), which include `git` and `gcc` for instance.
+
+# Install python3 if not already there (e.g. Ubuntu 20.04)
+
+    apt install python3
 
 # Install Ansible
 
