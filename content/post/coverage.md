@@ -7,6 +7,8 @@ title: "C++ Code Coverage"
 draft: false
 ---
 
+## Introduction
+
 A few notes on how to get code coverage for O2.
 
 In a nutshell : 
@@ -18,6 +20,8 @@ In a nutshell :
 The compilation phase will create `*.gcno` files.
 The running phase will create `*.gdca` files.
 Both lcov and gcovr are using gcov to go from the `*.gcno` and `*.gcda` files to produce `*.gcov` files and then work from the `*.gcov` files.
+
+## Step by step
 
 With my current setup, that would be (assuming O2 has been built already at least once
  successfully with aliBuild)
@@ -71,3 +75,7 @@ At this point one can have a textual dump of the coverage using :
 And a html report can be produced using the `genhtml` command : 
 
     genhtml --legend --branch-coverage -s --ignore-errors source -o html coverage.info && open html/index.html 
+
+## References
+
+[Line coverage report using gcov/lcov](https://swarminglogic.com/jotting/2014_05_lcov)
