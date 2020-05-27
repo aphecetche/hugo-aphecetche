@@ -7,14 +7,24 @@ title: "C++ Code Coverage"
 draft: false
 ---
 
+<!-- vim-markdown-toc GFM -->
+
+-   [Introduction](#introduction)
+-   [Step by step](#step-by-step)
+-   [Automated way using `coverage.cmake`](#automated-way-using-coveragecmake)
+-   [Coverage for QualityControl using coverage.cmake](#coverage-for-qualitycontrol-using-coveragecmake)
+-   [References](#references)
+
+<!-- vim-markdown-toc -->
+
 ## Introduction
 
-A few notes on how to get code coverage for O2.
+A few notes on how to get code coverage for O2 (and QC).
 
 In a nutshell : 
 
 -   must compile with `--coverage -g -O0` 
--   the run the tests
+-   then run the tests
 -   then use lcov (or gcovr) to get e.g. html reports
 
 The compilation phase will create `*.gcno` files.
@@ -23,8 +33,24 @@ Both lcov and gcovr are using gcov to go from the `*.gcno` and `*.gcda` files to
 
 ## Step by step
 
-With my current setup, that would be (assuming O2 has been built already at least once
- successfully with aliBuild)
+First one must establish a suitable *build* environment. I do this with the `buildenv` shell function that is defined (in my `alice-dev` module file) as : 
+
+    buildenv () {
+            if [ "$#" -lt 1 ]
+            then
+                    echo "Missing argument"
+            else
+                    echo "Setting up build env for $1"
+                    export WORK_DIR=$ALIBUILD_WORK_DIR
+                    source $WORK_DIR/osx_x86-64/O2/latest/etc/profile.d/init.sh
+                    echo "Removing from LD_LIBRARY_PATH the package we are asking to develop"
+                    export LD_LIBRARY_PATH=$(echo $LD_LIBRARY_PATH | tr ":" "\n" | grep -v $1 | tr "\n" ":")
+                    echo "Unset DYLD_LIBRARY_PATH"
+                    unset DYLD_LIBRARY_PATH
+            fi
+    }
+
+Then, assuming O2 has been built already at least once successfully with aliBuild (so all its dependencies are installed), it's a matter of configuring the build with cmake : 
 
     cd someemptybuildplace
     enter-alice-dev
@@ -75,6 +101,27 @@ At this point one can have a textual dump of the coverage using :
 And a html report can be produced using the `genhtml` command : 
 
     genhtml --legend --branch-coverage -s --ignore-errors source -o html coverage.info && open html/index.html 
+
+## Automated way using `coverage.cmake`
+
+    curl -sLO https://raw.githubusercontent.com/aphecetche/scripts/master/cmake/coverage.cmake
+    enter-alice-dev
+    buildenv O2
+    ctest -S coverage.cmake -DSOURCEDIR=$HOME/alice/dev/O2 -DCMAKE_GENERATOR=Ninja -VV
+
+The `coverage.cmake` basically implements the steps described above.
+
+## Coverage for QualityControl using coverage.cmake
+
+Currently the `buildenv` is not enough for `QualityControl`, so a few env. variables must be set by hand first
+
+    curl -sLO https://raw.githubusercontent.com/aphecetche/scripts/master/cmake/coverage.cmake
+    export gRPC_ROOT=$HOME/alice/dev/sw/osx_x86-64/grpc/latest
+    export Occ_ROOT=$HOME/alice/dev/sw/osx_x86-64/Control-OCCPlugin/latest
+    export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
+    enter-alice-dev
+    buildenv QualityControl
+    ctest -S coverage.cmake -DSOURCEDIR=$HOME/alice/dev/QualityControl -DCMAKE_GENERATOR=Ninja -VV
 
 ## References
 
