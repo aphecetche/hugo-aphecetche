@@ -51,9 +51,11 @@ And check that `*.gcda` files have been produced besides the `*.gcdo` ones
 
 One can then run `lcov` to collect the coverage data (from the `*.gcno` and `*.gcda` files) using e.g. :
 
-    lcov --exclude '*/osx_x86-64/*' --exclude '*/Xcode.app/*' -c -d Detectors/MUON/MCH -o coverage.info
+    lcov --exclude '*/osx_x86-64/*' --exclude '*/Xcode.app/*' -c -d Detectors/MUON/MCH -o coverage.info --rc lcov_branch_coverage=1
+    lcov --remove coverage.info '*/test*' -o coverage.info 
 
 The `--exclude` options are there to avoid having information from places we do not care about. The `-d` option specify where to start in the current directory : here we use `Detectors/MUON/MCH` as we only ran mch-based tests so there's no point looking elsewhere.
+The second line is to remove the coverage information from the unit tests themselves.
 
 At this point one can have a textual dump of the coverage using : 
 
@@ -61,4 +63,4 @@ At this point one can have a textual dump of the coverage using :
 
 And a html report can be produced using the `genhtml` command : 
 
-    genhtml --legend -s --ignore-errors source -o html coverage.info && open html/index.html
+    genhtml --legend --branch-coverage -s --ignore-errors source -o html coverage.info && open html/index.html 
