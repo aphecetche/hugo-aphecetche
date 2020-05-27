@@ -98,9 +98,10 @@ And a html report can be produced using the `genhtml` command :
     curl -sLO https://raw.githubusercontent.com/aphecetche/scripts/master/cmake/coverage.cmake
     enter-alice-dev
     buildenv O2
-    ctest -S coverage.cmake -DSOURCEDIR=$HOME/alice/dev/O2 -DCMAKE_GENERATOR=Ninja -VV
+    ctest -S coverage.cmake -DSOURCEDIR=$HOME/alice/dev/O2 -DCMAKE_GENERATOR=Ninja -V
 
-The `coverage.cmake` basically implements the steps described above.
+The `coverage.cmake` basically implements the steps described above. (use `-VV`
+instead of `-V` to a more verbose output if needed).
 
 ## Coverage for QualityControl using coverage.cmake
 
@@ -112,7 +113,9 @@ Currently the `buildenv` is not enough for `QualityControl`, so a few env. varia
     export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
     enter-alice-dev
     buildenv QualityControl
-    ctest -S coverage.cmake -DSOURCEDIR=$HOME/alice/dev/QualityControl -DCMAKE_GENERATOR=Ninja -VV
+    ctest -S coverage.cmake -DSOURCEDIR=$HOME/alice/dev/QualityControl -DCMAKE_GENERATOR=Ninja -V
+
+Seems a lot of tests are failing with that setup... Probably some assumed environment not set in this setup...
 
 ## References
 
