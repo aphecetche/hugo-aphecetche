@@ -5,17 +5,8 @@ description: ""
 tags: [ "o2","coverage","c++","build" ]
 title: "C++ Code Coverage"
 draft: false
+toc: true
 ---
-
-<!-- vim-markdown-toc GFM -->
-
--   [Introduction](#introduction)
--   [Step by step](#step-by-step)
--   [Automated way using `coverage.cmake`](#automated-way-using-coveragecmake)
--   [Coverage for QualityControl using coverage.cmake](#coverage-for-qualitycontrol-using-coveragecmake)
--   [References](#references)
-
-<!-- vim-markdown-toc -->
 
 ## Introduction
 
