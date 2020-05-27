@@ -49,13 +49,20 @@ And check that `*.gcda` files have been produced besides the `*.gcdo` ones
 
     find . -name '*.gc*'
 
-One can then run `lcov` to collect the coverage data (from the `*.gcno` and `*.gcda` files) using e.g. :
+One can then run `lcov` to collect and filter the coverage data (from the `*.gcno` and `*.gcda` files).
 
-    lcov --exclude '*/osx_x86-64/*' --exclude '*/Xcode.app/*' -c -d Detectors/MUON/MCH -o coverage.info --rc lcov_branch_coverage=1
-    lcov --remove coverage.info '*/test*' -o coverage.info 
+    dir=Detectors/MUON/MCH/Raw
+    lcov -c -d $dir -i -o coverage.info.zero
+    lcov --exclude "$(pwd)/*" --exclude '*/osx_x86-64/*' --exclude '*/Xcode.app/*' -c -d $dir -o coverage.info.test --rc lcov_branch_coverage=1
+    lcov -a coverage.info.zero -a coverage.info.test -o coverage.info.total
+    lcov -e coverage.info.total "*/$dir/*" -o coverage.info
+    lcov --remove coverage.info '*/test*' -o coverage.info
 
-The `--exclude` options are there to avoid having information from places we do not care about. The `-d` option specify where to start in the current directory : here we use `Detectors/MUON/MCH` as we only ran mch-based tests so there's no point looking elsewhere.
-The second line is to remove the coverage information from the unit tests themselves.
+First note that we make two passes of collection (`lcov -c`) : one with `-i` to get the baseline (i.e. using all `gcdo` files) and a second one (with some exclusions as well, see below) which will only get relevant information from existing `gcda` files. The initial pass is necessary to get a fair view of the coverage (otherwise not tested parts simply do not appear in the `coverage.info.test`). The two passes are merged using the `-a` option.
+
+Then, the `--exclude` options are there to avoid having information from places we do not care about. The `-d` option specify where to start in the current directory : here we use `Detectors/MUON/MCH` as we only ran mch-based tests so there's no point looking elsewhere.
+
+Finally we remove from the coverage information the unit tests themselves and anything that was found in the build directory (e.g. Root dictionaries) using the `--remove` option.
 
 At this point one can have a textual dump of the coverage using : 
 
