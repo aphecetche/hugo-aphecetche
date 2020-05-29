@@ -38,15 +38,16 @@ This can also be done in the `System Preferences` application -> Sharing -> Remo
 
 From now on you should be able to interact with the machine through a simple terminal using ssh.
 
-## Install Homebrew (macOS)
+## Install Command Line Tools (macOS)
 
-Homebrew is not stricly necessary but is the de-facto standard package manager for macOS.
+Launch `git` or `clang` a first time and follow the instructions to install CLT.
 
-But more interesting to us at this stage is that installing brew will install **Command Line Tools** if needed (which is the case if you're starting from a brand new laptop/virtual machine), which include `git` and `clang` for instance.
+Set the proper time zone. From the command line that would mean something like : 
 
-See [brew.sh](https://brew.sh) for instructions, but it's as simple as :
-
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    sudo systemsetup -gettimezone
+    sudo systemsetup -listtimezones
+    sudo systemsetup -settimezone Europe/Paris
+    sudo systemsetup -gettimezone
 
 ## Check there's a Python3 available
 
