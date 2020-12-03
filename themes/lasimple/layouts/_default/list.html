@@ -1,7 +1,7 @@
 <h1>list.html</h1>
 {{ partial "main-header.html" . }}
 
-{{ $tag := index ( split .URLPath.URL "/" ) 2 }}
+{{ $tag := index ( split .Params.url "/" ) 2 }}
 
 <section class="{{ $tag }}">
     <a name="{{ $tag }}"></a>
