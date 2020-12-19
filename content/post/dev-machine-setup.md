@@ -112,16 +112,22 @@ installed using Spack, currently :
 - [tree](http://mama.indstate.edu/users/ice/tree/) to get a "graphical" view of directories
 - [environment-modules](http://modules.sourceforge.net), because I'm actually using the `module` command quite a lot
 - [ripgrep](https://github.com/BurntSushi/ripgrep), because it's way simpler than grep
-- [fzf](https://github.com/junegunn/fzf), because fuzzy finding is great
-- [vim](https://github.com/vim/vim), well, because that's my editor
-- [jq](https://stedolan.github.io/jq/) to play with json files 
+- [jq](https://stedolan.github.io/jq/) to play with json files
 
 The `bare` role may also need to install
 distribution-specific packages, and hence might need the sudo password.
 
-> The bare installation takes quite some time, as Spack is compiling things from sources.
+Some other things that I do need are : 
 
-Note that at the end of the bare alone, the Spack installation takes about XXX MB.
+- [fzf](https://github.com/junegunn/fzf), because fuzzy finding is great
+- [vim](https://github.com/vim/vim), well, because that's my editor
+
+`vim` is generally already available and so does not need to be installed (and if not, it can easilly be using `spack install vim`).
+`fzf` is  installed by the `bare` role using the ansible role.
+
+> The bare installation takes quite some time, as Spack is compiling things from sources. In particular `ripgrep` requires the compilation of `rust `...
+
+Note that at the end of the bare alone, the Spack installation takes about 964 MB.
 
 The laptop playbook is to be executed on localhost
 (-K will ask for sudo password) :
