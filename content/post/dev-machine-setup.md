@@ -1,16 +1,16 @@
 ---
 author: "Laurent Aphecetche"
 date: "2020-05-24"
-lastmod: "2020-12-03"
+lastmod: "2020-12-21"
 description: ""
-tags: ["geek", "vmware", "macos", "laptop", "ansible"]
-title: "Development Oriented Machine from Scratch (using Ansible and Spack)"
+tags: ["geek","macos", "laptop", "ansible"]
+title: "Development Oriented Machine from Scratch (using ansible and spack)"
 draft: false
 ---
 
 This is a variant of [the macos laptop
 installation](/2018/10/09/macos-laptop-setup/) installation instructions, that
-is not limited to macOS and uses [Spack](https://spack.io) instead of
+is not limited to macOS and uses [spack](https://spack.io) instead of
 [asdf](https://asdf-vm.com).
 
 ## Preparation
@@ -27,11 +27,15 @@ Then the installation process in a nutshell will be :
 
 - turn ssh on so you can ssh into your newly installed machine
 - ensure `git` is installed
-- install a base `Python3` to get Ansible running
-- get `Ansible`
-- use `Ansible` to automatically install most of the rest, using `Spack` as a
+- if needed, install a base `Python3` to get spack running
+- get `spack`
+- install `ansible` using `spack`
+- use `ansible` to automatically install most of the rest, using `spack` as a
   package manager mostly
 - finalize a few things manually
+
+> Note that `spack` is considered as the other basic tools like e.g. `git`, i.e.
+ it will **not** be installed by `ansible`
 
 ### Turn ssh on (macOS)
 
@@ -69,49 +73,67 @@ Set the proper time zone. From the command line that would mean something like :
 
 ### Check there's a Python3 available
 
-The exact version is not relevant as long as `Ansible` can work with it.
+The exact version is not relevant as long as `ansible` can work with it.
 
 - on Ubuntu install with `apt install python3`
-- on macOS Catalina the system provided Python 3.7.3 can be used as is.
+- on macOS Big Sur the system provided Python 3.8.2 can be used as is.
 
-### Get (and activate) Ansible
+### Get spack
 
-Install `Ansible` inside a python virtualenv.
+    mkdir -p $HOME/github.com/spack && cd $HOME/github.com/spack
+    git clone https://github.com/spack/spack.git
+    mkdir -p $HOME/github.com/aphecetche/ && cd $HOME/github.com/aphecetche
+    git clone https://github.com/aphecetche/spack-aphecetche.git
+    cp spack-aphecetche/config.yaml $HOME/.spack/config.yaml
+    cp spack-aphecetche/repos.yaml $HOME/.spack/repos.yaml
+    cp spack-aphecetche/packages.yaml $HOME/.spack/packages.yaml
 
-    mkdir -p $HOME/.virtualenvs && cd $HOME/.virtualenvs
-    python3 -m venv ansible
-    source $HOME/.virtualenvs/ansible
-    python -m pip install ansible
+The `spack-aphecetche` repository hosts a number of packages that are either not in the
+global spack one, or that are not working in the upstream repo.
 
-## Automated installation using Ansible
+The configuration `~/.spack/config.yaml` sets the spack install tree (and various
+ caches) to `~/opt/spack`. 
 
-From now on most of the installation is to be done by Ansible, with the aid of
-Spack, which is one of the first package that will be installed.
-
-### Clone ansible playbooks repository
+### Get ansible and custom ansible playbooks repository
 
     cd && mkdir -p github.com/aphecetche && cd github.com/aphecetche
     git clone https://github.com/aphecetche/ansible
+    ~/github.com/spack/spack/bin/spack install py-ansible
+    cd && spack view symlink -i $HOME/views/ansible py-ansible
+    path=($path $HOME/views/ansible/bin)
+
+Note that the `ansible-playbook` command (alongside the other ansible
+executables) is installed in a [spack
+view](https://spack.readthedocs.io/en/latest/workflows.html#filesystem-views)
+
+## Automated installation using ansible
+
+From now on most of the installation is to be done by ansible, with the aid of
+spack.
 
 The main playbook is the `laptop.yml` one which calls in turn other playbooks :
 
 - `bare.yml` to install a minimal set of packages
-- `basic.yml` to install and setup basic stuff like `zsh, ssh, (neo)vim, git, tmux`
-- `languages.yml` which setups `(neo)vim` to work with different programming languages
+- `basic.yml` to tailor the configuration of `zsh, ssh, git, tmux`
+- `vim.yml` which setups `vim` to work with different programming languages
 - `alice.yml` which setups things for developing Alice software
 - `web.yml` for web development
 - `mac.yml` (macOS only)
 
-The `bare` playbook starts with installing `Spack` with a per-user
-configuration in `~/.spack/config.yaml`. That configuration sets the Spack
-install tree to `~/opt/spack`. Then a minimal set of packages is
-installed using Spack, currently : 
+### bare.yml
 
-- [tmux](https://github.com/tmux/tmux), because I can no longer work without it ;-)
-- [ncdu](https://dev.yorhel.nl/ncdu) to get an easy way to assess the disk space taken by things
-- [tree](http://mama.indstate.edu/users/ice/tree/) to get a "graphical" view of directories
-- [environment-modules](http://modules.sourceforge.net), because I'm actually using the `module` command quite a lot
-- [ripgrep](https://github.com/BurntSushi/ripgrep), because it's way simpler than grep
+The minimal set of packages, installed using spack, is currently : 
+
+- [tmux](https://github.com/tmux/tmux), because I can no longer work without it
+  ;-)
+- [ncdu](https://dev.yorhel.nl/ncdu) to get an easy way to assess the disk
+  space taken by things
+- [tree](http://mama.indstate.edu/users/ice/tree/) to get a "graphical" view of
+  directories
+- [environment-modules](http://modules.sourceforge.net), because I'm actually
+  using the `module` command quite a lot
+- [ripgrep](https://github.com/BurntSushi/ripgrep), because it's faster and
+  simpler than grep
 - [jq](https://stedolan.github.io/jq/) to play with json files
 
 The `bare` role may also need to install
@@ -125,19 +147,38 @@ Some other things that I do need are :
 `vim` is generally already available and so does not need to be installed (and if not, it can easilly be using `spack install vim`).
 `fzf` is  installed by the `bare` role using the ansible role.
 
-> The bare installation takes quite some time, as Spack is compiling things from sources. In particular `ripgrep` requires the compilation of `rust `...
+> The bare installation takes quite some time, as spack is compiling things from sources. In particular `ripgrep` requires the compilation of `rust `...
 
-Note that at the end of the bare alone, the Spack installation takes about 964 MB.
+The executables of this step are put into a spack view under `$HOME/views/bare`. That directory is added to the path by the `zsh_conf` role later on, but meanwhile you should do :
 
+```
+path=($path $HOME/views/bare)
+```
+
+to access those new installs.
+
+Note that at the end of the bare step alone, the spack installation takes about 1 GB.
+
+### basic.yml
+
+    cd ~/github.com/aphecetche/ansible
+    ansible-playbook -i inventory/localhost -l localhost basic.yml
+
+will configure zsh, git, ssh, and tmux.
+
+### vim.yml
+
+This one is a big one. It configures `vim` to be used for various programming languages. 
+The basis of the configuration is to use [CoC](https://github.com/neoclide/coc.nvim), 
+which itself depends on `nodejs` (and `yarn`).
+
+### laptop.yml
+    
 The laptop playbook is to be executed on localhost
 (-K will ask for sudo password) :
 
     cd ~/github.com/aphecetche/ansible
-    rm -rf $HOME/.vim && ansible-playbook -i inventory/localhost -l localhost laptop.yml -K
-
-The removal of the `.vim` directory is necessary to ensure proper installation
-of the neovim role, in case you've used vim at least once before launching this
-first ansible installation...
+    ansible-playbook -i inventory/localhost -l localhost laptop.yml -K
 
 ## Manual steps (macOS)
 
