@@ -1,7 +1,7 @@
 ---
 author: "Laurent Aphecetche"
 date: "2020-05-24"
-lastmod: "2020-12-21"
+lastmod: "2021-01-04"
 description: ""
 tags: ["geek","macos", "laptop", "ansible"]
 title: "Development Oriented Machine from Scratch (using ansible and spack)"
@@ -15,9 +15,14 @@ is not limited to macOS and uses [spack](https://spack.io) instead of
 
 ## Preparation
 
-Make a regular install of the target OS (e.g. macos, ubuntu, etc...)
+The installation will be done with the help of [Ansible](https://docs.ansible.com/ansible/latest/index.html).
 
-During that you need to :
+Two machines are involved in the process : the _control_ node and the
+_managed_ node. Ansible need only be installed on the control node. The
+managed and control nodes can be the same machine.
+For any of the two nodes you must first make a regular install of the target OS (e.g.  macos, ubuntu, etc...)
+
+During that regular installation you need to :
 
 - create (at least) one user with admin rights (i.e. the user that can issue
   `sudo` commands)
@@ -25,19 +30,17 @@ During that you need to :
 
 Then the installation process in a nutshell will be :
 
-- turn ssh on so you can ssh into your newly installed machine
-- ensure `git` is installed
-- if needed, install a base `Python3` to get spack running
-- get `spack`
-- install `ansible` using `spack`
+- check a few prerequisites
+- (on control node only) install `ansible`
 - use `ansible` to automatically install most of the rest, using `spack` as a
   package manager mostly
 - finalize a few things manually
 
-> Note that `spack` is considered as the other basic tools like e.g. `git`, i.e.
- it will **not** be installed by `ansible`
+### Prerequisites
 
-### Turn ssh on (macOS)
+You must turn ssh on the manager node in order for Ansible to be able ssh into your newly installed machine.
+
+#### Turn ssh on (macOS)
 
 Add `terminal` to the list of apps which have full access to the disk (in
 System Preferences/Security & Private/Privacy. And then, from the command line
@@ -51,79 +54,66 @@ Remote Login.
 From now on you should be able to interact with the machine through a simple
 terminal using ssh.
 
-### Install XCode (recommended) or Command Line Tools (macOS)
+#### Install XCode (macOS)
 
-> Actually on a Mac you'd probably better off by accepting the fact that
-> developper things go smoother if XCode is installed simply. Using only the
-> command line tools might work in most cases but for some corner cases you
-> might run into (difficult to debug) problems.
+On a Mac you'd probably better off by accepting the fact that developper
+things go smoother if XCode is installed simply. Using only the command line
+tools might work in most cases but for some corner cases you might run into
+(difficult to debug) problems.
 
-#### For XCode just use the AppStore
+#### Set proper time zone (macOS)
 
-#### Command line tools
-
-Launch `git` or `clang` a first time and follow the instructions to install CLT.
-
-Set the proper time zone. From the command line that would mean something like :
+From the command line that would mean something like :
 
     sudo systemsetup -gettimezone
     sudo systemsetup -listtimezones
     sudo systemsetup -settimezone Europe/Paris
     sudo systemsetup -gettimezone
 
-### Check there's a Python3 available
+### Install Ansible
 
-The exact version is not relevant as long as `ansible` can work with it.
+Refer to the [Ansible installation instructions](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#) for details, but for macOS that would be : 
 
-- on Ubuntu install with `apt install python3`
-- on macOS Big Sur the system provided Python 3.8.2 can be used as is.
+    pip3 install --upgrade pip3
+    python3 -m pip install --user ansible
 
-### Get spack
+Assuming your PATH is not yet modified at this stage, you'll have to add the local python binary path to it, before being able to use the `ansible` or `ansible-playbook` commands. For instance :
 
-    mkdir -p $HOME/github.com/spack && cd $HOME/github.com/spack
-    git clone https://github.com/spack/spack.git
-    mkdir -p $HOME/github.com/aphecetche/ && cd $HOME/github.com/aphecetche
-    git clone https://github.com/aphecetche/spack-aphecetche.git
-    cp spack-aphecetche/config.yaml $HOME/.spack/config.yaml
-    cp spack-aphecetche/repos.yaml $HOME/.spack/repos.yaml
-    cp spack-aphecetche/packages.yaml $HOME/.spack/packages.yaml
+    path+=$HOME/Library/Python/3.8/bin
 
-The `spack-aphecetche` repository hosts a number of packages that are either not in the
-global spack one, or that are not working in the upstream repo.
+for macOS with Python3.8
 
-The configuration `~/.spack/config.yaml` sets the spack install tree (and various
- caches) to `~/opt/spack`. 
-
-### Get ansible and custom ansible playbooks repository
+### Clone custom ansible playbooks repository
 
     cd && mkdir -p github.com/aphecetche && cd github.com/aphecetche
     git clone https://github.com/aphecetche/ansible
-    ~/github.com/spack/spack/bin/spack install py-ansible
-    cd && spack view symlink -i $HOME/views/ansible py-ansible
-    path=($path $HOME/views/ansible/bin)
 
-Note that the `ansible-playbook` command (alongside the other ansible
-executables) is installed in a [spack
-view](https://spack.readthedocs.io/en/latest/workflows.html#filesystem-views)
+You can check that ansible is working fine (here on the ubuntu-20 managed virtual machine) using :
 
+    ansible-playbook -i inventory/localhost -l ubuntu-20 verify.yml --verbose
+
+which should create a `ceci-est-un-test` file under the user home directory on the target machine.
+    
 ## Automated installation using ansible
 
-From now on most of the installation is to be done by ansible, with the aid of
-spack.
+From now on most of the installation is to be done by ansible, with the help of spack.
 
 The main playbook is the `laptop.yml` one which calls in turn other playbooks :
 
-- `bare.yml` to install a minimal set of packages
+- `bare.yml` to install a minimal set of packages, including `spack`
 - `basic.yml` to tailor the configuration of `zsh, ssh, git, tmux`
 - `vim.yml` which setups `vim` to work with different programming languages
-- `alice.yml` which setups things for developing Alice software
 - `web.yml` for web development
+- `alice.yml` which setups things for developing Alice software
 - `mac.yml` (macOS only)
 
 ### bare.yml
 
-The minimal set of packages, installed using spack, is currently : 
+    ansible-playbook -i inventory/localhost -l localhost bare.yml -K
 
+The minimal set of packages is currently : 
+
+- [spack](https://spack.io), because it's needed for all the rest...
 - [tmux](https://github.com/tmux/tmux), because I can no longer work without it
   ;-)
 - [ncdu](https://dev.yorhel.nl/ncdu) to get an easy way to assess the disk
@@ -137,15 +127,15 @@ The minimal set of packages, installed using spack, is currently :
 - [jq](https://stedolan.github.io/jq/) to play with json files
 
 The `bare` role may also need to install
-distribution-specific packages, and hence might need the sudo password.
+distribution-specific packages (in particular to satisfy the [requirements of spack](https://spack.readthedocs.io/en/latest/getting_started.html#prerequisites), e.g a compiler, etc...), and thus might need the sudo password, hence the `-K` option of `ansible-playbook`. Most of the other playbooks do _not_ require to become root, except the `web` one.
 
 Some other things that I do need are : 
 
 - [fzf](https://github.com/junegunn/fzf), because fuzzy finding is great
 - [vim](https://github.com/vim/vim), well, because that's my editor
 
-`vim` is generally already available and so does not need to be installed (and if not, it can easilly be using `spack install vim`).
-`fzf` is  installed by the `bare` role using the ansible role.
+`vim` installation is made within the `bare` role, while its configuration is taken care of by the `vim_conf` role called by the `vim.yml` playbook below.
+`fzf` is installed by the `bare` role using the corresponding ansible fzf role.
 
 > The bare installation takes quite some time, as spack is compiling things from sources. In particular `ripgrep` requires the compilation of `rust `...
 
