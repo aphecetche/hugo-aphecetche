@@ -5,8 +5,10 @@ lastmod: "2021-02-08"
 description: "aliBuild is not bad, but Spack is better."
 tags: ["o2","spack", "build"]
 title: "Migrating from aliBuild to Spack"
-draft: true
+draft: false
 ---
+
+# This document is WIP !
 
 While aliBuild is a fine product that has served us reasonably well, I would 
 argue it has also enough defects to warrant we consider alternatives.
