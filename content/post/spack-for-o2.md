@@ -47,13 +47,13 @@ The number of readily available packages is pretty large (5213 as of Jan 25th 20
 
 ## The spec and the variants
 
-Each package can have several _variants_ that can be installed separately. For instance, installing `root` with arrow and aqua support, but without vmc, would be done using : 
+Each package can have several ==_variants_== that can be installed separately. For instance, installing `root` with arrow and aqua support, but without vmc, would be done using : 
 
  ```
  spack install root +aqua +arrow ~vmc
  ```
 
-The `root +aqua +arrow ~vmc` (can also be written without spaces as `root+aqua+arrow~vmc`) is what Spack calls a _spec_. It specifies what the user wants to build. 
+The `root +aqua +arrow ~vmc` (can also be written without spaces as `root+aqua+arrow~vmc`) is what Spack calls a ==_spec_==. It specifies what the user wants to build. 
 
 The _spec_ syntax is both simple and quite powerful (even if a bit hard to read at times). It can contain variants as above, but also of course the package version, the compiler to be used, etc...
 
