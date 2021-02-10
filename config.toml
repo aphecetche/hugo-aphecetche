@@ -6,6 +6,7 @@ copyright = "Laurent Aphecetche"
 buildDrafts = false
 buildFuture = true
 googleAnalytics = "UA-135861434-1"
+enableEmoji = true
 
 [blackfriday]
   angledQuotes = true
