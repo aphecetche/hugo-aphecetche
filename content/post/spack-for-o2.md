@@ -39,7 +39,7 @@ Just quoting from the [Spack github repo](https://github.com/spack/spack) :
 
 > Spack offers a simple "spec" syntax that allows users to specify versions and configuration options. Package files are written in pure Python, and specs allow package authors to write a single script for many different builds of the same package. With Spack, you can build your software all the ways you want to.
 
-Spack and aliBuild actually share the idea of using recipes to describe the building of the packages.  Spack recipes are python files (named`name_of_the_package/package.py`) while aliBuild recipes are shell scripts (e.g. `name_of_the_package.sh`).  The advantage of Python here is that Spack offers a few base classes to ease the description of the builds, depending on the [build system](https://spack.readthedocs.io/en/latest/build_systems.html) used (e.g. cmake, autotools, meson, etc...). Also an advantage of Spack is that a single package file potentially describes the building of many versions of that package (which with aliBuild requires different versions of the recipe itself). While the aliBuild recipes are kept in a single repo (alidist), the Spack packages can be kept in separated repos (note however that Spack core comes with many packages).
+Spack and aliBuild actually share the idea of using recipes to describe the building of the packages.  Spack recipes are actually called packages :package: and are python files (named`name_of_the_package/package.py`) while aliBuild recipes are shell scripts (e.g. `name_of_the_package.sh`).  The advantage of Python here is that Spack offers a few base classes to ease the description of the builds, depending on the [build system](https://spack.readthedocs.io/en/latest/build_systems.html) used (e.g. cmake, autotools, meson, etc...). Also an advantage of Spack is that a single package file potentially describes the building of many versions of that package (which with aliBuild requires different versions of the recipe itself). While the aliBuild recipes are kept in a single repo (alidist), the Spack packages can be kept in separated repos (note however that Spack core comes with many packages).
 
 Spack is an open source project with a sizeable community and a quite good [documentation](https://spack.readthedocs.io/en/latest/).
 
@@ -47,13 +47,13 @@ The number of readily available packages is pretty large (5213 as of Jan 25th 20
 
 ## The spec and the variants
 
-Each package can have several ==_variants_== that can be installed separately. For instance, installing `root` with arrow and aqua support, but without vmc, would be done using : 
+Each package can have several _variants_ that can be installed separately. For instance, installing `root` with arrow and aqua support, but without vmc, would be done using : 
 
  ```
  spack install root +aqua +arrow ~vmc
  ```
 
-The `root +aqua +arrow ~vmc` (can also be written without spaces as `root+aqua+arrow~vmc`) is what Spack calls a ==_spec_==. It specifies what the user wants to build. 
+The `root +aqua +arrow ~vmc` (can also be written without spaces as `root+aqua+arrow~vmc`) is what Spack calls a _spec_. It specifies what the user wants to build. 
 
 The _spec_ syntax is both simple and quite powerful (even if a bit hard to read at times). It can contain variants as above, but also of course the package version, the compiler to be used, etc...
 
