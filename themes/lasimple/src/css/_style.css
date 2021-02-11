@@ -1118,7 +1118,8 @@ section.da h2 {
 
 .icon-link,
 .icon-ticket,
-.icon-github {
+.icon-github,
+.icon-key{
   width: 14px;
   height: 14px;
   fill: currentColor;
