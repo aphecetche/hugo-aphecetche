@@ -8,44 +8,59 @@ title: "Migrating from aliBuild to Spack"
 draft: false
 ---
 
-# This document is WIP !
+# From aliBuild to Spack
+
+> :construction: This WIP document is documenting a WIP :construction_worker:
+> 
+> I'm not claiming everything works in this WIP
+> 
+> I'm not claiming I have all the answers
+>
+> But I'm claiming it should be considered :wink:
+>  
+> Please comment :writing_hand: 
+> 
 
 While aliBuild is a fine product that has served us reasonably well, I would argue it has also enough defects to warrant we consider alternatives.
 
-# Why shouldn't we keep aliBuild ? 
+If you want to cut to the chase and forego the initial [argumentation](#Why-shouldn’t-we-keep-aliBuild-), you can go directly to a general [Spack description](#The-strengths-of-Spack) or to a [proto-tutorial](#Translating-aliBuild-workflows-to-Spack-workflows) on how we could use it for O2.
 
+## Why shouldn't we keep aliBuild ? 
 The primary issue with aliBuild is not a technical one, but a manpower one. It is (mostly) a one-developer endeavour. Which means new features, support requests, documentation needs can (mostly) only be dealt with by one person.
+Which is already a problem, but is worsen by the fact that the same developer is also vital for a very central part of our software, namely the DPL framework, which is used in reconstruction, simulation and analysis.
 
 Then there is the very pertinent question (not really technical either) of why an experiment needs a (completely) custom tool to handle its software stack. 
 As every HEP experiment out there needs to deal with (big) software stacks, surely there is a way of not reinventing the wheel within each experiment.
  
-Turning to more "technical" issues, the aliBuild recipes, hosted in a separate [alidist](https://github.com/alisw/alidist) repository, basically deal with one version of a package at a time. Which means that to use two versions of the same package, one has to juggle between alidist branches. 
+Coming now to more "technical" issues, the aliBuild recipes, hosted in a separate [alidist](https://github.com/alisw/alidist) repository, basically deal with one version of a package at a time. Which means that to use two versions of the same package, one has to juggle between alidist branches. 
 
 Another annoyance is that aliBuild can only fetch sources from git. Meaning that to get code from projects that don't use git (either providing only tarball releases, or using another versioning system for instance) we have to mirror full git repositories to "adopt" that source code. And then the maintenance of those repositories adds to the maintenance of our directly managed repositories, as we must follow the new versions, etc.. 
-Currently [alidist](https://github.com/alisw/alidist) uses 45 [alisw repositories](https://github.com/alisw) that are mirrors of external repositories. While in some cases we, as an experiment, 
- might well need special fixes that can not (or are not) be accepted by upstreams, and would warrant a full mirrored version. But it seems that most of those do not really fall under this category, and are just a consequence of the inability of aliBuild to fetch anything but from git. 
+Currently [alidist](https://github.com/alisw/alidist) uses 45 [alisw repositories](https://github.com/alisw) that are mirrors of external repositories. In some cases we, as an experiment, indeed need special fixes that can not be (or are) be accepted by upstreams, and so have to be under our control. And thus could warrant a full mirrored version. But it seems that most of those 45 packages do not really fall under this category, and are just a consequence of the inability of aliBuild to fetch anything but from git. 
 
-Next is the somewhat fragile way to deal with reusing (when possible) packages from the system that, as the package version itself, is embeded into each recipe. And sometimes trying to identify why a system package cannot be used, by way of aliDoctor, just adds to the confusion, as aliDoctor and aliBuild seem to be able to disagree.
+Next is the somewhat fragile way to deal with reusing (when possible) packages from the system. That part, as the package version itself, is embeded into each recipe and is not easily/globally controllable. And sometimes trying to identify why a system package cannot be used, by way of aliDoctor, just adds to the confusion, as aliDoctor and aliBuild seem to be able to disagree...
 
-Finally, as far as the end user experience goes, while it has improved over time, aliBuild is sometimes quite frustrating to work with, either because it is rebuilding a lot of stuff for no apparent reason or because it is not rebuilding a package that the user would want to rebuild...
+Finally, as far as the end user experience goes, while it has improved over time, aliBuild is sometimes quite frustrating to work with, either because it is rebuilding a lot of stuff for no apparent reason or because it is not rebuilding a package that the user would want to rebuild... Cleaning stuff is also not as user friendly as it could be for sure.
 
-I'm sure that many of the technical hurdles could be overcome. With more manpower. Which is coming back to my first argument.
+I'm sure that many of the technical hurdles could be overcome. With more manpower. That we don't have (and even if we had, should we throw it to the task of develop a build system for only one experiment ?) Which is coming back to my first argument(s).
 
-# The strengths of Spack
+Anyway, enough "ranting" about aliBuild, let's turn to Spack to see whether the grass is greener on the other side. 
 
-Just quoting from the [Spack github repo](https://github.com/spack/spack) : 
+## The strengths of Spack
+
+As a quick introduction to Spack, let me just quote directly from the [Spack github repo](https://github.com/spack/spack) : 
 
 > Spack is a multi-platform package manager that builds and installs multiple versions and configurations of software. It works on Linux, macOS, and many supercomputers. Spack is non-destructive: installing a new version of a package does not break existing installations, so many configurations of the same package can coexist.
 
 > Spack offers a simple "spec" syntax that allows users to specify versions and configuration options. Package files are written in pure Python, and specs allow package authors to write a single script for many different builds of the same package. With Spack, you can build your software all the ways you want to.
 
-Spack and aliBuild actually share the idea of using recipes to describe the building of the packages.  Spack recipes are actually called packages :package: and are python files (named`name_of_the_package/package.py`) while aliBuild recipes are shell scripts (e.g. `name_of_the_package.sh`).  The advantage of Python here is that Spack offers a few base classes to ease the description of the builds, depending on the [build system](https://spack.readthedocs.io/en/latest/build_systems.html) used (e.g. cmake, autotools, meson, etc...). Also an advantage of Spack is that a single package file potentially describes the building of many versions of that package (which with aliBuild requires different versions of the recipe itself). While the aliBuild recipes are kept in a single repo (alidist), the Spack packages can be kept in separated repos (note however that Spack core comes with many packages).
+### Recipes == packages
 
-Spack is an open source project with a sizeable community and a quite good [documentation](https://spack.readthedocs.io/en/latest/).
+Spack and aliBuild actually share the idea of using recipes to describe the building of the packages.  Spack "recipes" are actually called packages :package: and are python files  (while aliBuild recipes are shell scripts).  The advantage of Python here is that Spack offers a few base classes to ease the description of the builds, depending on the [build system](https://spack.readthedocs.io/en/latest/build_systems.html) used (e.g. cmake, autotools, meson, etc...). Also an advantage of Spack is that a single package file usually describes the building of many versions of that package (which with aliBuild requires different versions of the recipe itself). While the aliBuild recipes are kept in a single repo (alidist), the Spack core packages (more than 5200 as of Jan 25th, 2021) come with Spack itself. Extra packages can be kept in separated repos.
 
-The number of readily available packages is pretty large (5213 as of Jan 25th 2021).
 
-## The spec and the variants
+Spack is an open source project with a sizeable and active community. Is offers a quite good [documentation](https://spack.readthedocs.io/en/latest/), a very complete [tutorial](https://spack-tutorial.readthedocs.io/en/latest/) and its developers have been so far quite responsive (on Slack). 
+
+### The spec and the variants
 
 Each package can have several _variants_ that can be installed separately. For instance, installing `root` with arrow and aqua support, but without vmc, would be done using : 
 
@@ -55,95 +70,37 @@ Each package can have several _variants_ that can be installed separately. For i
 
 The `root +aqua +arrow ~vmc` (can also be written without spaces as `root+aqua+arrow~vmc`) is what Spack calls a _spec_. It specifies what the user wants to build. 
 
-The _spec_ syntax is both simple and quite powerful (even if a bit hard to read at times). It can contain variants as above, but also of course the package version, the compiler to be used, etc...
+The _spec_ syntax is both simple and quite powerful (even if a bit hard to read at times). It can contain variants as above, but also the package version, the compiler to be used, etc...
 
  ```
  spack install root@6.22.06 +x+opengl %gcc@7.4.0 cxxstd=17
  ```
 
-The high level spec given by the user is actually converted in an actual and precise plan of what must be built exactly. That step is perfomed by the so called _concretizer_ which resolves dependencies. The actual list of what will be (or has been) installed for a given spec is given by the `spec` 
+The high level spec (called an _abstract spec_) given by the user is actually converted in an actual plan of what must be built exactly. That step is performed by the so called _concretizer_ which resolves dependencies. The actual list of what will be (or has been) installed for a given spec called a _concrete spec_ and is given by the `spec` 
  command :
 
 ```
-$ spack spec -It root@6.22.06~x
+$ ~ % spack spec -It boost@1.74.0
 Input spec
 --------------------------------
- -   [    ]  root~x
+ -   [    ]  boost@1.74.0
 
- Concretized
- --------------------------------
-  -   [    ]  root@2021.02.06%apple-clang@12.0.0+aqua+arrow+dataframe+davix~emacs+examples~fftw~fits~fortran+gdml+gminimal~graphviz+gsl+http~ipo~jemalloc+math~memstat+minuit~mlp+monalisa~mysql~ninja+opengl~postgres~pythia6~pythia8+python~qt4~r+roofit~root7+rpath~shadow~spectrum~sqlite~ssl~table~tbb+threads~tmva+unuran~vc+vdt~vmc~x+xml~xrootd build_type=RelWithDebInfo cxxstd=17 patches=22af3471f3fd87c0fe8917bf9c811c6d806de6c8b9867d30a1e3d383a1b929d7 arch=darwin-bigsur-skylake
-  [+]  [bl  ]      ^apmon-cpp@2.2.8-alice5%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-   -   [bl  ]      ^arrow@3.0.0%apple-clang@12.0.0~brotli+compute~cuda+gandiva~glog~hdfs+ipc~ipo~jemalloc+lz4~orc~parquet~python+shared~snappy~tensorflow+zlib~zstd build_type=Release cuda_arch=none cxxstd=17 arch=darwin-bigsur-skylake
-    -   [bl  ]          ^boost@1.74.0%apple-clang@12.0.0+atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=17 visibility=hidden arch=darwin-bigsur-skylake
-    [+]  [bl  ]              ^bzip2@1.0.8%apple-clang@12.0.0+shared arch=darwin-bigsur-skylake
-    [+]  [b   ]                  ^diffutils@3.7%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]                      ^libiconv@1.16%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]              ^zlib@1.2.11%apple-clang@12.0.0+optimize+pic+shared arch=darwin-bigsur-skylake
-    [+]  [b   ]          ^cmake@3.19.2%apple-clang@12.0.0~doc+ncurses+openssl+ownlibs~qt arch=darwin-bigsur-skylake
-    [+]  [bl  ]              ^ncurses@6.2%apple-clang@12.0.0~symlinks+termlib arch=darwin-bigsur-skylake
-    [+]  [b   ]                  ^pkgconf@1.7.3%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]              ^openssl@1.1.1i%apple-clang@12.0.0+systemcerts arch=darwin-bigsur-skylake
-    [+]  [b rt]                  ^perl@5.32.0%apple-clang@12.0.0+cpanm+shared+threads patches=517afe8ca1cb12f798f20b21583d91463fe3f4fa9244c6c8e054a92c8135da8f arch=darwin-bigsur-skylake
-    [+]  [bl  ]                      ^berkeley-db@18.1.40%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]                      ^gdbm@1.18.1%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]                          ^readline@8.0%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^flatbuffers@1.12.0%apple-clang@12.0.0~ipo~python+shared build_type=RelWithDebInfo arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^llvm@11.0.1%apple-clang@12.0.0~all_targets+clang~code_signing+compiler-rt~cuda~gold+internal_unwind~ipo+libcxx+lld~lldb+llvm_dylib~mlir~omp_debug~omp_tsan+polly~python~shared_libs~split_dwarf build_type=Release cuda_arch=none arch=darwin-bigsur-skylake
-    [+]  [bl  ]              ^hwloc@2.4.0%apple-clang@12.0.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~pci+shared arch=darwin-bigsur-skylake
-    [+]  [bl  ]                  ^libxml2@2.9.10%apple-clang@12.0.0~python arch=darwin-bigsur-skylake
-    [+]  [blr ]                      ^xz@5.2.5%apple-clang@12.0.0~pic arch=darwin-bigsur-skylake
-    [+]  [b   ]              ^perl-data-dumper@2.173%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [b r ]              ^python@3.8.7%apple-clang@12.0.0+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87 arch=darwin-bigsur-skylake
-    [+]  [bl  ]                  ^apple-libuuid@1353.100.2%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]                  ^expat@2.2.10%apple-clang@12.0.0~libbsd arch=darwin-bigsur-skylake
-    [+]  [bl  ]                  ^gettext@0.21%apple-clang@12.0.0+bzip2+curses+git~libunistring+libxml2+tar+xz arch=darwin-bigsur-skylake
-    [+]  [bl  ]                      ^tar@1.32%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]                  ^libffi@3.3%apple-clang@12.0.0 patches=26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]                  ^sqlite@3.34.0%apple-clang@12.0.0+column_metadata+fts~functions~rtree arch=darwin-bigsur-skylake
-    [+]  [bl  ]              ^z3@4.8.9%apple-clang@12.0.0+python arch=darwin-bigsur-skylake
-    [+]  [  r ]                  ^py-setuptools@50.3.2%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^lz4@1.9.2%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [b   ]          ^ninja@1.10.2%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^protobuf@3.12.2%apple-clang@12.0.0+shared build_type=Release arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^rapidjson@2020.01.04%apple-clang@12.0.0~ipo build_type=RelWithDebInfo arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^re2@2020-08-01%apple-clang@12.0.0~ipo+shared build_type=RelWithDebInfo arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^utf8proc@2.6.1%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^davix@0.7.5%apple-clang@12.0.0~ipo build_type=RelWithDebInfo cxxstd=17 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^freetype@2.10.1%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^libpng@1.6.37%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^ftgl@2.4.0%apple-clang@12.0.0~ipo+shared build_type=RelWithDebInfo patches=001908e385de3940afd29f2cf36133dd33cb8931194cd5c419c8bc8f3096e3f0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^gl2ps@1.4.2%apple-clang@12.0.0~doc~ipo+png+zlib build_type=RelWithDebInfo arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^apple-glu@4.0.0%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^apple-opengl@4.0.0%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^glew@2.1.0%apple-clang@12.0.0~ipo build_type=RelWithDebInfo arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^libice@1.0.9%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [b   ]              ^util-macros@1.19.1%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]              ^xproto@7.0.31%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]              ^xtrans@1.3.5%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^libsm@1.2.3%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^gsl@2.6%apple-clang@12.0.0~external-cblas arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^libjpeg-turbo@2.0.6%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [b   ]          ^nasm@2.15.05%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^nlohmann-json@3.9.1%apple-clang@12.0.0~ipo+single_header build_type=RelWithDebInfo arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^openblas@0.3.13%apple-clang@12.0.0~consistent_fpcsr~ilp64+pic+shared threads=none arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^pcre@8.44%apple-clang@12.0.0~jit+multibyte+utf arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^unuran@1.8.1%apple-clang@12.0.0~gsl+rngstreams+shared arch=darwin-bigsur-skylake
-    [+]  [bl  ]          ^rngstreams@1.0.1%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^vdt@0.4.3%apple-clang@12.0.0~ipo build_type=RelWithDebInfo arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^xxhash@0.7.4%apple-clang@12.0.0 arch=darwin-bigsur-skylake
-    [+]  [bl  ]      ^zstd@1.4.5%apple-clang@12.0.0+pic arch=darwin-bigsur-skylake
-
-
+Concretized
+--------------------------------
+ -   [    ]  boost@1.74.0%apple-clang@12.0.0+atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden arch=darwin-bigsur-skylake
+[+]  [bl  ]      ^bzip2@1.0.8%apple-clang@12.0.0+shared arch=darwin-bigsur-skylake
+ -   [b   ]          ^diffutils@3.7%apple-clang@12.0.0 arch=darwin-bigsur-skylake
+[+]  [bl  ]              ^libiconv@1.16%apple-clang@12.0.0 arch=darwin-bigsur-skylake
+[+]  [bl  ]      ^zlib@1.2.11%apple-clang@12.0.0+optimize+pic+shared arch=darwin-bigsur-skylake
 ```
 
 The `[+]` indicates a dependency that is already installed while `-` a dependency that will be installed. `[blr]` is the type of depency : **b**uild, **l**ink, **r**un.
 
 The way specs are concretized can be configured, e.g. to specify preferred variants. Note that one part of the spec is the (micro)architecture : that's not something we currently use in Alice, but Spack can in principle produce binaries optimized for a given architecture.
 
-## Dealing with externals
+### Dealing with externals
 
-Externals here is to be understood as things not built with Spack. For instance in the above concretized root spec you see `cmake` is part of the (build) dependencies. If you'd prefer that Spack reuses an existing cmake that you already have in `/usr/local/bin`, that can be specified in a `packages.yaml` file, e.g. :
+Externals here is to be understood as things not built with Spack. For instance if you don't want Spack to build its own version of CMake (as a build dependency of some package) you can tell it to use an existing cmake that you already have in `/usr/local/bin`. That is specified in a `packages.yaml` file, e.g. :
 
 ```
 packages:
@@ -153,11 +110,11 @@ packages:
       prefix: /usr/local
 ```
 
-and _that_ version of cmake (and that one only) would be used by any spec that needs cmake >= 3.19.
+and then _that_ version of cmake (and that one only) would be used by any spec that needs cmake >= 3.19.
 
 The externals can be specified by hand in the `packages.yaml` and also some can be discovered using the `spack external find` command.
 
-## The beauty of the environment
+### Save the environment
 
 A set of specs and configuration can be bundled into what is called a Spack environment, to describe, in a compact way, all the needs of a given installation.  For instance for o2 that could be something like : 
 
@@ -181,24 +138,39 @@ spack:
         prefix: /usr/local
 ```
 
-That environment can be installed at once using `spack env create o2 o2.yaml && spack install`
-A `spack.lock` file is created with the concretized version of the
-environment description, and that lock file can also be used to install _exactly_ the same specs on another machine (did not check that part yet)
+That environment can be installed at once using `spack env create o2 o2.yaml && spack install`. A `spack.lock` file is created with the concretized version of the environment description, and that lock file can also be used to install _exactly_ the same specs on another machine (did not check that part myself yet though).
 
-## Modules
+### Modules
 
-Spack automatically generates module files. Nothing to be done here. Spack does _not_ require module files though.
+Spack automatically generates module files. The generated module files have a hash in their name, e.g. :
 
-## Build caches
+```
+~$ module avail o2-co
+------------------------- /Users/laurent/opt/spack/share/spack/modules/darwin-bigsur-skylake -------------------------
+o2-common-1.5.0-apple-clang-12.0.0-64lsch2         o2-configuration-2.5.0-apple-clang-12.0.0-z52cums
+o2-common-1.5.0-apple-clang-12.0.0-s3pwx5p         o2-control-occplugin-0.18.0-apple-clang-12.0.0-5jwjzrw
+o2-configuration-2.5.0-apple-clang-12.0.0-mv5lien
+```
+which makes their direct usage a bit cumbersome. Fortunately spack provides the `load` command to alleviate this :
 
-We all know that building from source can be painfully slow. Spack does not provide by itself binary packages but is able to deal with binary caches, including gpg signature of the binaries.
- I've started to experiment a bit with a S3 binary cache, and, modulo a probable bug when using a non AWS S3 bucket, it's working fine.
-My initial impression is that the binary package creation/upload is a bit slow, but I've not yet investigated in detail what exactly is slow.
+```
+~$ spack load o2-common
+~$ spack find --loaded
+==> 4 installed packages
+-- darwin-bigsur-skylake / apple-clang@12.0.0 -------------------
+boost@1.74.0  bzip2@1.0.8  o2-common@1.5.0  zlib@1.2.11
 
+```
 
-## Configuration
+Note that Spack does _not_ actually require module files to work (and the `spack load` command works even without the `module` command). Binaries can also be used as they are (Spack is using RPATH, so no fussing with LD_LIBRARY_PARTH needed). And it also offers [filesystem views](https://spack.readthedocs.io/en/latest/workflows.html#filesystem-views), that may be useful in some cases.
 
-There are a few files that can (should?) be used to configure Spack :
+### :rocket: Build caches
+
+We all know that building from source can be painfully slow :sleeping:. The Spack project does not provide by itself binary packages but is able to deal with binary caches and to (gpg-) sign the binaries.
+
+### :wrench: Configuration
+
+There are a few files that can be used to configure Spack for different use cases / facilities : 
 
 - `packages.yaml` : concretization and external preferences (possibly one such file per platform)
 - `config.yaml` : general configuration like where to put the caches, the sources, etc...
@@ -206,74 +178,180 @@ There are a few files that can (should?) be used to configure Spack :
 - `mirrors.yaml` : the list of source (and possible binary) mirrors
 - `repos.yaml` : the list of package repos (package=recipe)
 
-# Translating aliBuild workflows to Spack workflows
 
-In order to check whether Spack could really replace aliBuild for O2, I've tried to build our packages, as well as trying a few typical use cases in Spack land.
 
-## Initial setup 
+---
 
-Here, aliBuild is simpler, but the Spack installation could be automatized somehow, if need be (it's not terribly complex either).
+
+## Translating aliBuild workflows to Spack workflows
+
+In order to check whether Spack could really replace aliBuild for O2, I've tried to build (most of) our packages, on macOS BigSur (x86_64 and arm64) laptops and on a CentOS7 VM. I'm trying to address a few typical use cases : 
+
+- as a [end user](#Basic-package-installation), I want to install aliceo2 to run some of its executable (o2-sim, o2-det-xxx). I want the install to be as fast as possible but I cannot use RPMs or cvmfs, because I'm not on a CentOS system for instance
+- as a [o2 developper](#Develop-packages), I want to install aliceo2 as a development package to work on it. I also want the install to be as fast as possible to focus on my dev work
+- as a wp3 member / power user, I want to produce pre-built packages so they are available for anyone to profit from fast(er) installs
+- as a flp-project member, I want to provide RPMs of the pre-built packages my wp3 fellows have done (TBD)
+
+As this work is (as of yet at least) a solo project, some edges are still quite rough... but I've not identified real showstoppers (yet?).
+
+### Initial setup (one time)
+
+aliBuild initial setup is simpler/shorter, but the Spack installation certainly could be automatized somehow, if need be. It's not terribly complex, but could be streamlined for sure (in particular the cp config part). Of course the `*aphecetche*` paths would be replaced with more "official" (e.g. `alisw`) ones.
 
 |aliBuild | Spack |
 |---|---|
-|git clone https://github.com/alisw/alibuild | git clone https://github.com/spack/spack |
-|pip install alibuild | N/A |
-|aliBuild init (to get alidist)| git clone some_repo_with_packages|
-|| spack repo add some_name some_repo_with_packages |
-|git clone https://github.com/alidist| git clone some_repo_with_packages|
-|| spack repo add some_name some_repo_with_packages |
+|git clone https://github.com/alisw/alibuild  or pip install alibuild | git clone https://github.com/spack/spack ~/alispack/spack |
+|aliBuild init or git clone https://github.com/alidist |git clone https://github.com/aphecetche/spack-aliceo2 ~/alispack/spack-aliceo2|
+|| git clone https://github.com/aphecetche/spack-aphecetche ~/alispack/spack-aphecetche|
+|| spack repo add ~/alispack/spack-aliceo2 |
+|| spack repo add ~/alispack/spack-aphecetche |
+|| spack mirror add aphecetche https://spack-aphecetche-mirror.eu-central-1.linodeobjects.com |
+||curl -LO https://aphecetche.xyz/gpg-laurent-aphecetche.pub |
+||spack gpg trust gpg-laurent-aphecetche.pub|
+|| cp ~/alispack/spack-aliceo2/config/packages.yaml $HOME/.spack/packages.yaml|
+|| cp ~/alispack/spack-aliceo2/config/darwin-x86_64.packages.yaml $HOME/.spack/darwin/packages.yaml |
 
-Once aliBuild is there and alidist has been cloned at least one, aliBuild is
-ready to go.  While Spack can work also right after the clone of the spack core
-and the clone of one (or more) recipe's repo, some configuration might need to
-be done.
+The `~/alispack` path is just a choice, you may of course pick a different one. The fact that there are two repos for the package (`spack-aliceo2` and `spack-aphecetche`) is temporary (I believe it just has to do with some changes for Apple Silicon that should be back-ported to upstream eventually, but I would have to cross-check). The last line is only needed on macOS (Intel).
 
-### Setup compiler(s)
+Then the spack command should be made available to the path. One way to do it is : 
 
-Can be as simple as `spack compiler find` to detect available compilers or as "complex" as editing `~/.spack/[platform]/compilers.yaml` to specify compiler(s).
+```
+$ source ~/alispack/spack/share/spack/setup-env.sh
+```
 
-### Setup some paths (optional)
+From then one the `spack` command (and its subcommands) are available on the command line : 
+```
+$ spack --help
+```
+
+Once aliBuild is there and alidist has been cloned/init-ed at least once, aliBuild is ready to go.  While Spack can also work right after the clone of the spack core and the clone of one (or more) recipe's repos, some configuration might need to be done still.
+
+You can check the current Spack configuration using : 
+
+- `spack repo list` to get the list of repos used to get packages
+- `spack mirror list` to get the list of mirrors that hosts sources and/or binaries packages
+- `spack compiler list` to get the list of configured compilers (the first time this one is executing, and if you have not specifically configure compilers in any other way, it will take a few moments to detect the compiler(s))
+- `spack config get [xxx]` to get the section \[xxx\] of the configuration, where xxx can be compilers, mirrors, repos, packages, etc... (note the plural). See also `spack config get --help`
+- `spack config blame [xxx]` to see where the configuration parts are coming from
+
+#### Setup compiler(s)
+
+Can be as simple as `spack compiler find` to detect available compilers or as "complex" as using `spack config edit compilers` command (which basically is editing `~/.spack/[platform]/compilers.yaml`)
+
+#### Setup some paths (optional)
 
 If the default root tree `location_of_spack_clone/opt/spack` is not to your liking, then `~/.spack/config.yaml` must be edited to change it.
 
-### Setup externals (optional)
+#### Setup externals (optional)
 
 If you want to pick packages from the system, `spack external find` and/or edit `~/.spack/packages.yaml` (and/or the `/.spack/[platform]/packages.yaml`
 
-### Setup mirrors (optional for source, needed for binaries)
+#### Setup mirrors (optional for source, needed for binaries)
+
+By default only the sources are cached by Spack, but adding a binary-capable mirror also give access to binary packages.
 
 `spack mirror add some_name some_mirror_url`
 
-For instance, to use my toy S3, that would be : 
+### Basic package installation
 
+Get an idea of what will be done :mag:
 ```
-spack mirror add aphecetche https://spack-aphecetche-mirror.eu-central-1.linodeobjects.com
-```
-
-## One off install
-
-Get an idea of what will be done :
-```
-spack spec -I o2-aliceo2
+spack spec -It o2-aliceo2
 ```
 
-Do it : 
+And then do it :tada: (well, actually don't do it yet, read ahead first for a possibly better option)
+
 ```
-spack install o2-aliceo2
+spack install --fail-fast o2-aliceo2
 ```
 
-## Full stack installation
+> Note once again that all this in WIP so I can offer no guarantee at this stage that the relevant variants (sim, analysis, etc..) of AliceO2 are actually already in the buildcache, or even that they all work.
 
-Get an environment file (either a yaml or even better a .lock one) and use that to install.
+The `fail-fast` option will make Spack fails at the first package failure. Spack uses parallel installation and without this flag  it tries hard to install as many dependencies as possible before failing. Generally you want to notice early if you have a problem, hence this flag.
 
-## Developing packages
+Depending on whether you install from source only or have buildcache(s) properly configured, this can take quite a bit of time. 
 
+If you want to be sure you're _only_ using pre-built binaries, and don't accept to do _any_ compilation yourself, do : 
+
+```
+spack buildcache install o2-aliceo2
+```
+
+or : 
+
+```
+spack install --cache-only o2-aliceo2
+```
+
+For this to work someone must have of course populated one of the buildcaches specified in the mirror list.
+
+Note that a very first install on an empty system, even from a buildcache, will take long. The packages have to be downloaded for one, and then relocated.
+
+To set what is installed : 
+
+```
+spack find
+```
+
+To see what's available on buildcache(s) do : 
+
+```
+spack buildcache list
+```
+
+To use you brand new installed software, you can either use directly an executable (Spack uses RPATH consistently, so no LD_LIBRARY_PATH should be needed) or load that package.
+
+For direct usage, find the installation path (e.g. using `spack find` or any other mean) then use the executable. Once you know the path, spack is no longer involved in the process.
+
+```
+~ % spack find -p o2-aliceo2
+==> 1 installed package
+-- darwin-bigsur-skylake / apple-clang@12.0.0 -------------------
+o2-aliceo2@21.03  /Users/testuser/alispack/spack/opt/spack/darwin-bigsur-skylake/apple-clang-12.0.0/o2-aliceo2-21.03-yhtdx2g5jtwa4ig7a5pdilnpyiu2jmlc
+~ % /Users/testuser/alispack/spack/opt/spack/darwin-bigsur-skylake/apple-clang-12.0.0/o2-aliceo2-21.03-yhtdx2g5jtwa4ig7a5pdilnpyiu2jmlc/bin/o2-ccdb-upload --help
+Allowed options:
+  --host arg (=ccdb-test.cern.ch:8080) CCDB server
+  -p [ --path ] arg                    CCDB path
+  -f [ --file ] arg                    ROOT file
+  -k [ --key ] arg                     Key of object to upload
+  -m [ --meta ] arg                    List of key=value pairs for
+                                       meta-information (k1=v1;k2=v2;k3=v3)
+  --starttimestamp arg (=-1)           timestamp - default -1 = now
+  --endtimestamp arg (=-1)             end of validity - default -1 = 1 year
+                                       from now
+  -h [ --help ]                        Produce help message.
+```
+
+You can also the package and then use it. This requires that the spack `setup-env.sh` has been sourced at some point in that shell : 
+
+```
+source ~/alispack/spack/share/spack/setup-env.sh
+...
+spack load o2-aliceo2
+o2-ccdb-upload --help
+```
+
+_If_ you have the module command available, you can also use that (but it's more cumbersome as the module name contains some hash).
+
+
+
+### Develop packages
+
+> The instructions below are to develop ONE local package. For several packages there's probably a better way (using spack environments and spack develop command) that I still have to investigate.
+
+Clone your fork of the package you want to develop, AliceO2 in this example : 
+
+```
+git clone https://github.com/aphecetche/AliceO2.git ~/custom-dev/this-is-my-o2
+cd ~/custom-dev/this-is-my-o2
+git checkout -b my-new-killer-feature
+edit some code...
 ```
 spack dev-build ...
 spack develop ...
-```
 
-## Uploading binaries
+
+### Creating build caches
 
 For this the mirror url has to be changed to s3://something (is using s3 of course)
 
@@ -281,7 +359,7 @@ For this the mirror url has to be changed to s3://something (is using s3 of cour
 spack mirror add aphecetche s3://spack-aphecetche-mirror
 ```
 
-need then proper credentials for AWS (either using env. variables or in ~/.aws/config)
+You then need proper credentials for AWS (either using env. variables or in ~/.aws/config)
 
 Must setup a GPG private key to sign the binaries.
 
@@ -289,13 +367,65 @@ Then a single command line will upload `o2-aliceo2` and its dependencies :
 
 ```spack buildcache create --rebuild-index -f -a -m aphecetche o2-aliceo2```
 
-(that part can be long)
+(that part can be long). Not to sure the `--rebuild-index` should be part of this command (seems it is executed after each dep and hence quite slow). Probably better would be to run : 
 
-## Build in docker (TBD)
+```
+spack buildcache update-index -d s3://spack-aphecetche-mirror
+```
 
-spack version of the docker test described in :
+once done with the actual creation.
+
+Note that you must get a recent enough python with boto3 module (or install py-boto3 with spack...)
+
+At least with S3 linode buildcaches objects are created private (as well as the buildcache index), so _must_ make them public afterwards using :
+
+```
+s3cmd setacl --acl-public --recursive s3://spack-aphecetche-mirror/build_cache/
+```
+
+A symptom of failing to do so is to get an empty result from `spack buildcache list` even if you happen to know that the buildcache is _not_ empty.
+
+### Full stack installation (TBD)
+
+Getting an environment file (either a yaml or even better a .lock one) and use that to install.
+
+### Build in docker (TBD)
+
+Try a spack version of the docker test described in :
 
 https://aliceo2group.github.io/quickstart/devel.html
 
-using toy S3 linode buildcache for CentOS7
+## Misc
 
+The (>5K) core packages that come with Spack are in `~/alispack/spack/var/spack/repos/builtin/packages`
+
+
+### Finding more info about packages
+
+`spack list` to get the list of available packages (in the configured repos)
+
+`spack info pkg` to get information about a package (versions, variants, build phases, dependencies)
+
+`spack versions -s pkg` to get the list of possible versions for a spec
+
+`spack edit pkg` to look at/edit the package file
+
+### Debugging Spack builds
+
+What to do if `spack install spec` fails ?
+
+If it's really a build failure (and e.g. a fetch failure), you should be able to cd into the temporary directory Spack is setting up for the build.
+
+```
+spack cd spec
+```
+
+and have a look at the `./spack-*` files there.
+
+If you want to go further and actually try the build yourself, you can then setup the same env Spack is using for that spec with : 
+
+```
+spack build-env package_name zsh
+```
+
+that will drop you in a shell (zsh in this example) with the env set. Then it's probably a matter of `cd ../spack-build-xxxx && cmake --build . ` for a cmake-based package.
