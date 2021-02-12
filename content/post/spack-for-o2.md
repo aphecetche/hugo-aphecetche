@@ -18,6 +18,8 @@ draft: false
 >
 > But I'm claiming it should be considered :wink:
 >  
+> I've probably forgotten a few things here and there :hole:
+> 
 > Please comment :writing_hand: 
 > 
 
@@ -196,7 +198,7 @@ As this work is (as of yet at least) a solo project, some edges are still quite 
 
 ### Initial setup (one time)
 
-aliBuild initial setup is simpler/shorter, but the Spack installation certainly could be automatized somehow, if need be. It's not terribly complex, but could be streamlined for sure (in particular the cp config part). Of course the `*aphecetche*` paths would be replaced with more "official" (e.g. `alisw`) ones.
+aliBuild initial setup is simpler/shorter, but the Spack installation certainly could be automatized somehow, if need be. It's not terribly complex, but could be streamlined for sure (in particular the cp config part), e.g. within a little shell script. But for this document, I guess it's better to actually show all the steps required. Of course the `*aphecetche*` paths would be replaced with more "official" (e.g. `alisw`) ones.
 
 |aliBuild | Spack |
 |---|---|
@@ -236,7 +238,7 @@ You can check the current Spack configuration using :
 
 #### Setup compiler(s)
 
-Can be as simple as `spack compiler find` to detect available compilers or as "complex" as using `spack config edit compilers` command (which basically is editing `~/.spack/[platform]/compilers.yaml`)
+Can be as simple as `spack compiler find` to detect available compilers or as "complex" as using `spack config edit compilers` command (which basically is editing `~/.spack/[platform]/compilers.yaml`). In particular on macOS one has to install a Fortran compiler and ensure that Spack knows about it.
 
 #### Setup some paths (optional)
 
@@ -339,6 +341,11 @@ _If_ you have the module command available, you can also use that (but it's more
 
 > The instructions below are to develop ONE local package. For several packages there's probably a better way (using spack environments and spack develop command) that I still have to investigate.
 
+> Note that currently Spack is _not_ uploading purely build (and test) dependencies to buildcaches, so the dev-build below might still require the compilation of some packages even if you have a properly configured buildcache. I'm trying to see how/if that can be changed.
+
+> And even in the case everything is setup correctly, you _might_ still get some recompilation if your configuration for externals is different from the one used on the machine populating the buildcache ...
+> 
+
 Clone your fork of the package you want to develop, AliceO2 in this example : 
 
 ```
@@ -347,27 +354,73 @@ cd ~/custom-dev/this-is-my-o2
 git checkout -b my-new-killer-feature
 edit some code...
 ```
-spack dev-build ...
-spack develop ...
+
+Then use the `spack dev-build` to get into a properly configured build environment : 
+
+```
+$ spack dev-build -u cmake --drop-in zsh o2-aliceo2@dev+sim~analysis
+```
+
+The last parameter of this command is the spec corresponding to the package you want to develop (if/once installed, that will be the spec used to reference it).
+
+The `-u` option tells Spack **u**ntil which step it should go in the installation procedure (aka installation phases, that depends on the package, see e.g. `spack info pkg`). Without that option Spack will go through the full installation. In the case above, Spack would stop after the cmake step.
+
+In the new shell specified by the `--drop-in` option all the builds dependencies are available to the build system (for cmake thanks to the CMAKE_PREFIX_PATH env variable, for pkgconfig thanks to the PKG_CONFIG_PATH env variable, etc...).  You can try a `printenv` in that shell to actually see what Spack has prepared for you. Spack has also added a couple of files and a subdirectory : 
+
+```
+~/custom-dev/this-is-my-o2 % ls -ldF spack-*
+-rw-r--r--   1 testuser  staff  55328 Feb 12 16:27 spack-build-env.txt
+-rw-r--r--   1 testuser  staff  30683 Feb 12 16:28 spack-build-out.txt
+drwxr-xr-x  41 testuser  staff   1312 Feb 12 16:28 spack-build-pb2cksx/
+-rw-r--r--   1 testuser  staff    109 Feb 12 16:27 spack-configure-args.txt
+```
+
+You can have a look at the `*.txt` files but to actually build you'd go the spack-build-xxx directory and do a `ninja`or `cmake --build .` as usual. Edit the code, ninja, edit the code, ninja, rince and repeat.
+
+
+Ok, now assume you're exiting this subshell and then want to get another one, but without redoing the cmake phase. c
+
+```
+$ cd ~/custom-dev/this-is-my-o2
+$ spack dev-build -i -b cmake --drop-in zsh o2-aliceo2@dev+sim~analysis
+```
+
+Note the `-b cmake` (b like in before) instead of `-u cmake` in the `dev-build` call, and the `-i` which skips the installation of the dependencies, as they are already there.
+
+A variation on those dev instructions _might_ be usable when : 
+
+- you are not changing the dependencies of the package you are developing 
+- you already have a version (with the relevant variants) of it installed 
+- you are using the default compiler on your machine and/or are setting up the compiler all by yourself (in the previous method Spack is handling compilers through shims)
+- you do _not_ want to install it as a Spack package (you cannot because you miss e.g. proper RPATH-ing and things like that when not using Spack compiler wrappers)
+
+Then you can let Spack do the heavy lifting of setting up the CMAKE_PREFIX_PATH and PKG_CONFIG_PATH variables that are used by cmake to find the dependencies and then use a simple cmake command :  
+
+```
+$ spack load --only dependencies o2-aliceo2+sim~analysis
+$ cd whetever
+$ cmake ~/custom-dev/this-is-my-o2 -GNinja
+$ ninja
+```
 
 
 ### Creating build caches
 
-For this the mirror url has to be changed to s3://something (is using s3 of course)
+For this part the mirror url has to be changed to s3://something (if using s3 of course)
 
 ```
 spack mirror add aphecetche s3://spack-aphecetche-mirror
 ```
 
-You then need proper credentials for AWS (either using env. variables or in ~/.aws/config)
+You would then need proper credentials for AWS (either using env. variables or in ~/.aws/config) to have (write) access to that S3 bucket.
 
-Must setup a GPG private key to sign the binaries.
+You might setup a GPG private key to sign the binaries (there is a way to produce unsigned binaries for testing purposes).
 
 Then a single command line will upload `o2-aliceo2` and its dependencies : 
 
 ```spack buildcache create --rebuild-index -f -a -m aphecetche o2-aliceo2```
 
-(that part can be long). Not to sure the `--rebuild-index` should be part of this command (seems it is executed after each dep and hence quite slow). Probably better would be to run : 
+(that part can be long). I'm not too sure the `--rebuild-index` should be part of this command (seems it is executed after each dep and hence quite slow). Probably better would be to run : 
 
 ```
 spack buildcache update-index -d s3://spack-aphecetche-mirror
