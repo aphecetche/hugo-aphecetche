@@ -191,7 +191,7 @@ In order to check whether Spack could really replace aliBuild for O2, I've tried
 
 - as a [end user](#Basic-package-installation), I want to install aliceo2 to run some of its executable (o2-sim, o2-det-xxx). I want the install to be as fast as possible but I cannot use RPMs or cvmfs, because I'm not on a CentOS system for instance
 - as a [o2 developper](#Develop-packages), I want to install aliceo2 as a development package to work on it. I also want the install to be as fast as possible to focus on my dev work
-- as a wp3 member / power user, I want to produce pre-built packages so they are available for anyone to profit from fast(er) installs
+- as a [wp3 member / power user](#Creating-build-caches), I want to produce pre-built packages so they are available for anyone to profit from fast(er) installs
 - as a flp-project member, I want to provide RPMs of the pre-built packages my wp3 fellows have done (TBD)
 
 As this work is (as of yet at least) a solo project, some edges are still quite rough... but I've not identified real showstoppers (yet?).
