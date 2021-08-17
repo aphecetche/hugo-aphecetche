@@ -17,16 +17,34 @@ possible (instead of relying on Spack for almost everything), in order to speed
 up the first install, and remove the dependency on Spack for machines that
 don't really need it.
 
-By natively we mean brew on macOS and apt or dnf on linux
-machines. One very important point though : on macOS we try to keep brew usage
-to a minimum and mainly for (common) programs (e.g. tmux, ripgrep, etc..).
-For libraries Spack should be preferred (as brew does not handle multiple versions)
+By natively we mean `apt` or `dnf` on linux machines.
 
-At some point the reasoning was that Spack would be a somewhat platform
-independant way of installing stuff. That is true, but compiling everything
-from source makes for a quite bad installation experience in the end. So a more
-realistic approach is to leverage native package managers when possible and use
-Spack for the rest.
+On macOS the problem is a bit more complex. The "native" package manager
+would be `homebrew`. But `brew` has a few drawbacks:
+
+- only one version of each package can be used, and that's always the latest,
+  so brew updates are always kind of risky (as you're living on the bleeding
+  edge)
+- initial installation insist on installing Command Line Tools for XCode even
+  if full XCode is already installed
+- the only really supported installation method is to use `/usr/local` as the
+  brew installation prefix. Which makes it difficult to share between users on
+  the same machine (while I have only one main user on my Mac laptop, I do use
+  other accounts to test things for instance). `brew` **can** be installed in a
+  user dependent location, but then a lot of the binary advantage is lost (a
+  lot of package will be built from source in that case).
+
+So, on macOS, for often used base programs (tmux, ripgrep, etc..), the strategy
+is twofold :
+
+- if a binary exists somewhere, download it and use it
+- if not, build from source using some method. Might be e.g. cargo for rust
+  based program, or basic autoconf build for other packages. At this basic
+  stage we try to avoid Spack though. At some point the reasoning was that
+  Spack would be a somewhat platform independant way of installing stuff. That
+  is true, but compiling everything from source makes for a quite bad
+  installation experience in the end (like brew in local user installation
+  mode). 
 
 ## Preparation
 
@@ -93,19 +111,6 @@ See [Homebrew](https://brew.sh), but it should be something like :
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-As mentioned in the introduction, we try to keep brew usage to a minimum,
- because there are a few things I dislike about brew :
-
-- only one version of each package can be used, and that's always the latest,
-so brew updates are always kind of risky (as you're living on the bleeding edge)
-- initial installation insist on installing Command Line Tools for XCode even
- if full XCode is already installed
-
-But it's unpractical (while possible, especially with Spack) to leave without,
-simply because brew provides a lot of bottles (binary packages) where Spack
-does not (at least not yet). As an example, installing ripgrep takes seconds
-with brew while it takes hour(s) with Spack (because it depends on a rust
-compiler that must be compiled first...)
 
 ### Install Ansible
 
