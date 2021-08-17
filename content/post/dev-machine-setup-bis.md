@@ -12,9 +12,21 @@ draft: true
 
 This is an update of the [Development Oriented Machine from scratch (using
 ansible and spack)](/2020/05/24/dev-machine-setup/). The main change is that
-development tools are now installed natively as much as possible (instead of
-relying on Spack), in order to speed up the first install (and remove the
-dependency on Spack for machines that don't really need it).
+development tools are now installed in a "mixed way" : natively as much as
+possible (instead of relying on Spack for almost everything), in order to speed
+up the first install, and remove the dependency on Spack for machines that
+don't really need it.
+
+By natively we mean brew on macOS and apt or dnf on linux
+machines. One very important point though : on macOS we try to keep brew usage
+to a minimum and mainly for (common) programs (e.g. tmux, ripgrep, etc..).
+For libraries Spack should be preferred (as brew does not handle multiple versions)
+
+At some point the reasoning was that Spack would be a somewhat platform
+independant way of installing stuff. That is true, but compiling everything
+from source makes for a quite bad installation experience in the end. So a more
+realistic approach is to leverage native package managers when possible and use
+Spack for the rest.
 
 ## Preparation
 
@@ -75,22 +87,41 @@ From the command line that would mean something like :
     sudo systemsetup -settimezone Europe/Paris
     sudo systemsetup -gettimezone
 
+#### Install homebrew (macOS)
+
+See [Homebrew](https://brew.sh), but it should be something like :
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+As mentioned in the introduction, we try to keep brew usage to a minimum,
+ because there are a few things I dislike about brew :
+
+- only one version of each package can be used, and that's always the latest,
+so brew updates are always kind of risky (as you're living on the bleeding edge)
+- initial installation insist on installing Command Line Tools for XCode even
+ if full XCode is already installed
+
+But it's unpractical (while possible, especially with Spack) to leave without,
+simply because brew provides a lot of bottles (binary packages) where Spack
+does not (at least not yet). As an example, installing ripgrep takes seconds
+with brew while it takes hour(s) with Spack (because it depends on a rust
+compiler that must be compiled first...)
+
 ### Install Ansible
 
 Refer to the [Ansible installation
 instructions](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#)
-for details, but for macOS that would be :
+for details, but that could be as simple as using pip within a virtualenv :
 
-    pip3 install --upgrade pip3
-    python3 -m pip install --user ansible
+    python3 -m venv ~/.virtualenvs/ansible
+    source ~/.virtualenvs/ansible/bin/activate
+    python -m pip install pip --upgrade
+    python -m pip install ansible
 
-Assuming your PATH is not yet modified at this stage, you'll have to add the
-local python binary path to it, before being able to use the `ansible` or
-`ansible-playbook` commands. For instance :
+Each time you want to use Ansible you'll have to setup the virtualenv first :
 
-    path+=$HOME/Library/Python/3.8/bin
-
-for macOS with Python3.8
+    source ~/.virtualenvs/ansible/bin/activate
+    ansible --version
 
 ### Clone custom ansible playbooks repository
 
@@ -111,10 +142,13 @@ From now on most of the installation is to be done by ansible, with the help of 
 
 The main playbook is the `laptop.yml` one which calls in turn other playbooks :
 
-- `bare.yml` to install a minimal set of packages, including `spack`
+- `bare.yml` to install a very minimal set of packages
+- `devtools.yml` to install development tools I'm using all the time
 - `basic.yml` to tailor the configuration of `zsh, ssh, git, tmux`
 - `vim.yml` which setups `vim` to work with different programming languages
 - `web.yml` for web development
+
+- `spack.yml` for spack itself
 - `alice.yml` which setups things for developing Alice software
 - `mac.yml` (macOS only)
 
@@ -124,48 +158,30 @@ The main playbook is the `laptop.yml` one which calls in turn other playbooks :
 
 The minimal set of packages is currently :
 
-- [spack](https://spack.io), because it's needed for all the rest...
 - [tmux](https://github.com/tmux/tmux), because I can no longer work without it
   ;-)
-- [ncdu](https://dev.yorhel.nl/ncdu) to get an easy way to assess the disk
-  space taken by things
-- [tree](http://mama.indstate.edu/users/ice/tree/) to get a "graphical" view of
-  directories
 - [environment-modules](http://modules.sourceforge.net), because I'm actually
   using the `module` command quite a lot
-- [ripgrep](https://github.com/BurntSushi/ripgrep), because it's faster and
-  simpler than grep
-- [jq](https://stedolan.github.io/jq/) to play with json files
-
-The `bare` role may also need to install distribution-specific packages (in
-particular to satisfy the [requirements of
-spack](https://spack.readthedocs.io/en/latest/getting_started.html#prerequisites),
-e.g a compiler, etc...), and thus might need the sudo password, hence the `-K`
-option of `ansible-playbook`. Most of the other playbooks do _not_ require to
-become root, except the `web` one.
-
-Some other things that I do need are :
-
-- [fzf](https://github.com/junegunn/fzf), because fuzzy finding is great
+- [ncdu](https://dev.yorhel.nl/ncdu) to get an easy way to assess the disk
+  space taken by things. Might be replaced by [dust](https://github.com/bootandy/dust)
+- [tree](http://mama.indstate.edu/users/ice/tree/) to get a "graphical" view of
+  directories. Might be replaced by [exa](https://the.exa.website) `--tree` option.
 - [vim](https://github.com/vim/vim), well, because that's my editor
 
 `vim` installation is made within the `bare` role, while its configuration is
 taken care of by the `vim_conf` role called by the `vim.yml` playbook below.
 `fzf` is installed by the `bare` role using the corresponding ansible fzf role.
 
-> The bare installation takes quite some time, as spack is compiling things
-> from sources. In particular `ripgrep` requires the compilation of `rust`...
+### devtools.yml
 
-The executables of this step are put into a spack view under
-`$HOME/views/bare`. That directory is added to the path by the `zsh_conf` role
-later on, but meanwhile you should do :
+Some other things that I do need are :
 
-    path=($path $HOME/views/bare)
+- [ripgrep](https://github.com/BurntSushi/ripgrep), because it's faster and
+  simpler than grep
+- [jq](https://stedolan.github.io/jq/) to play with json files
+- [fzf](https://github.com/junegunn/fzf), because fuzzy finding is great
 
-to access those new installs.
-
-Note that at the end of the bare step alone, the spack installation takes about
-1 GB.
+[https://github.com/ibraheemdev/modern-unix](Modern Unix Tools)
 
 ### basic.yml
 
@@ -173,6 +189,14 @@ Note that at the end of the bare step alone, the spack installation takes about
     ansible-playbook -i inventory/localhost -l localhost basic.yml
 
 will configure zsh, git, ssh, and tmux.
+
+### spack.yml
+
+The [spack](https://spack.io) role may also need to install
+distribution-specific packages (in particular to satisfy the [requirements of
+spack](https://spack.readthedocs.io/en/latest/getting_started.html#prerequisites),
+e.g a compiler, etc...), and thus might need the sudo password, hence the `-K`
+option of `ansible-playbook`.
 
 ### vim.yml
 
