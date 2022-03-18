@@ -5,7 +5,7 @@ lastmod: "2021-08-17"
 description: ""
 tags: ["geek","macos", "laptop", "ansible","spack"]
 title: "Development Oriented Machine from scratch"
-draft: true
+draft: false
 ---
 
 ## Prior work
