@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face{
   font-family: "Roboto Mono";
   font-style: normal;
@@ -25,8 +27,6 @@
   font-weight: 600;
   src: url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVY.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4gaVI.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVQ.woff) format("woff");
 }
-
-@charset "UTF-8";
 
 .hljs {
   display: block;
@@ -648,6 +648,7 @@ p {
 a {
   color: #343642;
   color: var(--secondary);
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -656,18 +657,18 @@ ol {
   list-style-position: inside;
   line-height: 1.4;
   margin: 0 0 20px;
-  padding: 0
+  padding: 0;
 }
 
 ul ul,
-  ul ol,
   ol ul,
+  ul ol,
   ol ol {
     margin: 10px 0 0 20px;
   }
 
 ul li, ol li {
-    margin: 0 0 2px
+    margin: 0 0 2px;
   }
 
 ul li:last-of-type, ol li:last-of-type {
@@ -678,7 +679,7 @@ blockquote {
   border-left: 2px solid black;
   border-left: 2px solid var(--primary);
   margin: 40px;
-  padding: 5px 30px
+  padding: 5px 30px;
 }
 
 blockquote p {
@@ -724,7 +725,7 @@ hr {
 
 table {
   margin-bottom: 40px;
-  width: 100%
+  width: 100%;
 }
 
 table tbody > tr:nth-child(odd) > td,
@@ -799,7 +800,7 @@ table tr {
   min-height: 100%;
 
   /* This must be the same as the height of the footer */
-  margin-bottom: -200px
+  margin-bottom: -200px;
 }
 
 #wrapper::after {
@@ -819,7 +820,7 @@ table tr {
   font-size: 14px;
   font-weight: 600;
   padding: 10px 12px;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 .button:hover {
@@ -834,7 +835,7 @@ table tr {
   float: left;
   font-size: 17px;
   margin: 0 10px;
-  padding: 3px 8px 4px
+  padding: 3px 8px 4px;
 }
 
 .button-square:hover {
@@ -882,7 +883,7 @@ table tr {
   margin: 0;
   margin-bottom: 15px;
   text-transform: capitalize;
-  letter-spacing: 0.13em
+  letter-spacing: 0.13em;
 }
 
 .site-title a {
@@ -891,7 +892,7 @@ table tr {
   }
 
 .site-logo {
-  display: block
+  display: block;
 }
 
 .site-logo img {
@@ -908,7 +909,7 @@ table tr {
   font-weight: 300;
   text-transform: lowercase;
   margin: 16px 20px;
-  font-family: "Roboto Mono"
+  font-family: "Roboto Mono";
 }
 
 .site-nav-item a {
@@ -970,18 +971,14 @@ table tr {
   font-weight: 600;
   margin: 15px 0;
   text-align: center;
+
+  text-transform: uppercase;
 }
 
 .post-title a, .page-title a {
     color: black;
     color: var(--primary);
   }
-
-.post-title,
-.page-title {
-
-  text-transform: uppercase;
-}
 
 .page-title {
   margin: 15px 40px;
@@ -997,7 +994,7 @@ table tr {
   font-weight: 100;
   line-height: 1;
   margin: 5px 0 0;
-  text-align: center
+  text-align: center;
 }
 
 .post-date a, .blog-description a {
@@ -1040,7 +1037,7 @@ table tr {
 .post-tags,
 .share {
   color: #aeadad;
-  font-size: 14px
+  font-size: 14px;
 }
 
 .post-tags span, .share span {
@@ -1049,7 +1046,7 @@ table tr {
 
 .post-tags {
   float: left;
-  margin: 3px 0 0
+  margin: 3px 0 0;
 }
 
 .post-tags a:hover {
@@ -1058,7 +1055,7 @@ table tr {
   }
 
 .share {
-  float: right
+  float: right;
 }
 
 .share a {
@@ -1093,7 +1090,7 @@ table tr {
   font-weight: 600;
   margin: 0 5px;
   padding: 5px 10px 6px;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 .newer-posts:hover, .older-posts:hover {
@@ -1118,7 +1115,7 @@ table tr {
 .post-stub {
   border-bottom: 1px dotted #343642;
   border-bottom: 1px dotted var(--secondary);
-  margin: 0
+  margin: 0;
 }
 
 .post-stub:first-child {
@@ -1130,14 +1127,14 @@ table tr {
     display: inline-block;
     color: #343642;
     color: var(--secondary);
-    padding: 20px 5px
+    padding: 20px 5px;
   }
 
 .post-stub a:hover {
       background: darken(white, 3%);
       background: var(--codebackground);
       color: black;
-      color: var(--primary)
+      color: var(--primary);
     }
 
 .post-stub a:hover .post-stub-tag {
@@ -1151,6 +1148,10 @@ a.post-stub-jira {
   vertical-align: baseline;
   transition: none;
   background: none;
+
+  display: inline-block;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 a.post-stub-jira:hover {
@@ -1159,13 +1160,6 @@ a.post-stub-jira:hover {
     background: none;
     font-weight: 600;
   }
-
-a.post-stub-jira {
-
-  display: inline-block;
-  font-size: 12px;
-  text-transform: uppercase;
-}
 
 li.onepage :nth-child(2) {
   margin-left: 12px;
@@ -1220,7 +1214,7 @@ a.post-stub-tag {
 /* ============================================================ */
 
 .author-profile {
-  margin: 0 40px
+  margin: 0 40px;
 }
 
 .author-profile::after {
@@ -1263,7 +1257,7 @@ a.post-stub-tag {
   line-height: 1;
   margin: 25px 0 0;
   text-align: center;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 .author-meta span {
@@ -1300,18 +1294,15 @@ a.post-stub-tag {
   max-width: 749px;
   max-width: var(--maxwidth);
   height: 200px;
-  overflow: auto
+  overflow: auto;
+
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 .footer .button-jump-top {
     font-size: 20px;
   }
-
-.footer {
-
-  margin: 0 auto;
-  margin-top: 100px
-}
 
 .footer .container {
     text-align: center;
@@ -1325,11 +1316,11 @@ a.post-stub-tag {
   color: var(--primary);
   font-size: 14px;
   text-align: center;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 .footer-copyright a {
-    color: inherit
+    color: inherit;
   }
 
 .footer-copyright a:hover {
@@ -1427,14 +1418,14 @@ a.post-stub-tag {
   .post-date,
   .blog-description,
   .author-meta {
-    margin-top: 20px
+    margin-top: 20px;
   }
 
     .post-date::after,
-    .post-date::before,
     .blog-description::after,
-    .blog-description::before,
     .author-meta::after,
+    .post-date::before,
+    .blog-description::before,
     .author-meta::before {
       margin-top: 30px;
     }
@@ -1482,7 +1473,7 @@ a.post-stub-tag {
 
   .share {
     float: left;
-    margin-top: 20px
+    margin-top: 20px;
   }
 
     .share a {
@@ -1508,14 +1499,14 @@ a.post-stub-tag {
   .post-date,
   .blog-description,
   .author-meta {
-    margin-top: 10px
+    margin-top: 10px;
   }
 
     .post-date::after,
-    .post-date::before,
     .blog-description::after,
-    .blog-description::before,
     .author-meta::after,
+    .post-date::before,
+    .blog-description::before,
     .author-meta::before {
       margin-top: 20px;
     }
@@ -1545,20 +1536,26 @@ a.post-stub-tag {
 #TableOfContents {
   float: center;
   font-size: 14px;
-  padding: 5px 0
+  padding: 5px 0;
 }
 
 #TableOfContents ul ul ul li::before {
       padding-left: 38px;
     }
 
+#TableOfContents ul ul {
+
+    padding-top: 2px;
+  }
+
 #TableOfContents ul ul li::before {
       padding-left: 20px;
     }
 
-#TableOfContents ul ul {
+#TableOfContents ul {
 
-    padding-top: 2px;
+    padding: 0;
+    margin: 0;
   }
 
 #TableOfContents ul li {
@@ -1571,20 +1568,14 @@ a.post-stub-tag {
       padding-right: 7px;
     }
 
-#TableOfContents ul {
-
-    padding: 0;
-    margin: 0;
-  }
-
 .jira-ticket {
   display: inline;
   margin: 0 5px;
-  font-size: 14px
+  font-size: 14px;
 }
 
 .jira-ticket a {
-    display: inline
+    display: inline;
   }
 
 .jira-ticket a:hover {
@@ -1597,7 +1588,7 @@ a.post-stub-tag {
 
 .talk-list {
   padding: 0;
-  margin: 0
+  margin: 0;
 }
 
 .talk-list time.talk-stub-date {
@@ -1612,14 +1603,14 @@ a.post-stub-tag {
     width: 100%;
     display: inline-block;
     border-bottom: 1px dashed #343642;
-    border-bottom: 1px dashed var(--secondary)
+    border-bottom: 1px dashed var(--secondary);
   }
 
 .talk-list li a {
       padding: 0;
       margin: 0;
       display: inline-block;
-      margin-right: 20px
+      margin-right: 20px;
     }
 
 .talk-list li a h4 {
@@ -1641,7 +1632,7 @@ a.post-stub-tag {
   }
 
 .post-date .lastmod {
-  text-transform: none
+  text-transform: none;
 }
 
 .post-date .lastmod::before {
@@ -1655,6 +1646,8 @@ section {
   margin: 0 auto;
   max-width: 749px;
   max-width: var(--maxwidth);
+
+  display: block;
 }
 
 section h2,
@@ -1687,11 +1680,6 @@ section li {
 section footer {
     min-height: 50px;
   }
-
-section {
-
-  display: block;
-}
 
 .aliroot h2,
   .aliroot a.nav {

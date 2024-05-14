@@ -7,7 +7,7 @@
         "clean": "rm -f themes/lasimple/static/css/*.min.css",
         "clean:public": "rm -rf public",
         "sprite": "spritesh --input themes/lasimple/static/icons --output themes/lasimple/layouts/partials/sprite.svg --prefix icon-",
-        "sass:build": "rm -f static/reveal/css/theme/lasimple.css && sass --output-style compressed static/reveal/css/theme/source/lasimple.scss > static/reveal/css/theme/lasimple.css",
+        "sass:build": "rm -f static/reveal/css/theme/lasimple.css && sass --style compressed static/reveal/css/theme/source/lasimple.scss > static/reveal/css/theme/lasimple.css",
         "sass:watch": "onchange 'static/reveal/css/theme/**/*.scss' -- npm run sass:build",
         "css:watch": "postcss themes/lasimple/src/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css --watch",
         "css:build": "postcss themes/lasimple/src/css/main.css --map --config postcss.config.js --output themes/lasimple/static/css/main.min.css",
@@ -38,13 +38,13 @@
         "parallelshell": "^3.0.2",
         "postcss": "^8.3.6",
         "postcss-cli": "^8.3.1",
-        "postcss-easy-import": "^3.0.0",
-        "postcss-font-magician": "^3.0.0",
-        "postcss-preset-env": "^6.7.0",
+        "postcss-easy-import": "^4.0.0",
+        "postcss-font-magician": "^4.0.0",
+        "postcss-preset-env": "^9.5.13",
         "sass": "^1.38.0",
-        "spritesh": "^1.2.1",
-        "stylelint": "^13.13.1",
-        "stylelint-config-standard": "^22.0.0"
+        "spritesh": "^1.1.0",
+        "stylelint": "^16.5.0",
+        "stylelint-config-standard": "^36.0.0"
     },
     "stylelint": {
         "extends": "stylelint-config-standard",
