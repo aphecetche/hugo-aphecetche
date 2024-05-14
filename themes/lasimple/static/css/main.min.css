@@ -2,28 +2,28 @@
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 100;
-  src: url(//fonts.gstatic.com/s/robotomono/v12/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vu_SuW8.eot?#) format("eot"),url(//fonts.gstatic.com/s/robotomono/v12/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vu_ROW4.woff2) format("woff2"),url(//fonts.gstatic.com/s/robotomono/v12/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vu_SuW-.woff) format("woff");
+  src: url(//fonts.gstatic.com/s/robotomono/v23/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vu_SuW8.eot?#) format("eot"),url(//fonts.gstatic.com/s/robotomono/v23/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vu_ROW4.woff2) format("woff2"),url(//fonts.gstatic.com/s/robotomono/v23/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vu_SuW-.woff) format("woff");
 }
 
 @font-face{
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 300;
-  src: url(//fonts.gstatic.com/s/robotomono/v12/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPq_SuW8.eot?#) format("eot"),url(//fonts.gstatic.com/s/robotomono/v12/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPq_ROW4.woff2) format("woff2"),url(//fonts.gstatic.com/s/robotomono/v12/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPq_SuW-.woff) format("woff");
+  src: url(//fonts.gstatic.com/s/robotomono/v23/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPq_SuW8.eot?#) format("eot"),url(//fonts.gstatic.com/s/robotomono/v23/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPq_ROW4.woff2) format("woff2"),url(//fonts.gstatic.com/s/robotomono/v23/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_gPq_SuW-.woff) format("woff");
 }
 
 @font-face{
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
-  src: local("Open Sans Light"),local(OpenSans-Light),url(//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXOht.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUuhp.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OXOhv.woff) format("woff");
+  src: url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVY.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4gaVI.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVQ.woff) format("woff");
 }
 
 @font-face{
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 600;
-  src: local("Open Sans SemiBold"),local(OpenSans-SemiBold),url(//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXOht.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOUuhp.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UNirkOXOhv.woff) format("woff");
+  src: url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVY.eot?#) format("eot"),url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4gaVI.woff2) format("woff2"),url(//fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVQ.woff) format("woff");
 }
 
 @charset "UTF-8";
